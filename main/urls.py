@@ -3,5 +3,6 @@ from main.views import MainPageView
 
 
 urlpatterns = [
-	url(r'^$', MainPageView.as_view(), name="coming"),
+	url(r'^$', MainPageView.as_view(), name="main"),
+	url(r'test^$', TestPageView.as_view(), name="test"),
 ]
