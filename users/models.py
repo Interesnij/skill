@@ -39,8 +39,8 @@ class User(AbstractUser):
 class UserProfile(models.Model):
     id = models.AutoField(primary_key=True, db_index=False)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, db_index=False, related_name="profile", verbose_name="Пользователь", on_delete=models.CASCADE)
-    bio = models.TextField(max_length=settings.PROFILE_BIO_MAX_LENGTH, blank=True, verbose_name="Биография")
-    sity = models.CharField(max_length=settings.PROFILE_LOCATION_MAX_LENGTH, blank=True, verbose_name="Местоположение")
+    bio = models.TextField(max_length=1000, blank=True, verbose_name="Биография")
+    sity = models.CharField(max_length=100, blank=True, verbose_name="Местоположение")
     status = models.CharField(max_length=100, blank=True, verbose_name="статус-слоган")
     vk_url = models.URLField(blank=True, verbose_name="Ссылка на vk")
     youtube_url = models.URLField(blank=True, verbose_name="Ссылка на youtube")
