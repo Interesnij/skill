@@ -3761,7 +3761,7 @@
                         range: E["default"],
                         "play-button": S["default"],
                         "animation-icon": k["default"],
-                        map: L["default"],
+                        map: m["default"],
                         "page-title": A["default"],
                         underlines: R["default"],
                         marquee: j["default"],
