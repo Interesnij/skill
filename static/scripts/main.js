@@ -8672,12 +8672,13 @@
                 },
                 dataLoaded: function(t) {
                     var e = this;
+                    console.log(this.el);
                     void 0, t || (void 0, this.$el = (0, c.$)(this.el), this.pageData.set(this.pageData.parse(this.options.isSubView ? this.options.initialContent : (0, c.$)("html").html()))), (t || this.options.isSubView) && this.$el.addClass(this.pageData.get("classNames")).html(this.pageData.get("viewData").html()), c._.isFunction(this.onViewDataAdded) && this.onViewDataAdded(), void 0 !== this.pageData.get("title") && (document.title = this.pageData.get("title")), this.bindUIElements(), c._.isFunction(this.onDataLoaded) && this.onDataLoaded(), this.components.initComponents({
                         components: this.ui.components
                     }), this.addEvents(), this.preloadContent(function() {
                         e.isDataLoaded = !0, e.trigger("view:dataLoaded")
                     }), this.preventTransitionElement || (this.transitionElement = this.el.classList.contains("sub-view__page") ? this.el.parentNode.parentNode.parentNode : this.el, this.transitionElement.querySelector(".js-page-inner").classList.contains("prevent-transition") && (this.transitionElement.querySelector(".js-page-inner").classList.add("show"), window.scrollTo(0, 0)))
-                    ;console.log(this.el);
+
                 },
                 preloadContent: function(t) {
                     void 0;
@@ -8697,6 +8698,7 @@
                 },
                 animateIn: function() {
                     var t = this;
+                    console.log(this.el);
                     if (void 0, this.transitionElement = this.el.classList.contains("sub-view__page") ? this.el.parentNode.parentNode.parentNode : this.el, void 0, this.transitionElement.querySelector(".js-transition-element") && !this.options.isInitialView) {
                         var e = 0 == Math.floor(Math.random() * Math.floor(2)) ? "horizontal" : "vertical",
                             i = 0 == Math.floor(Math.random() * Math.floor(2)) ? "from-center" : "to-center";
@@ -8706,12 +8708,14 @@
                             return t.transitionElement.querySelector(".js-transition-element").classList.add("show")
                         })
                     }
+
                     this.vars && p["default"].body.classList.add("is-" + this.vars.slug), p["default"].body.classList.remove("is-loading"), setTimeout(function() {
                         window.scrollTo(0, 0), t.animateInEnd()
                     }, 350)
                 },
                 animateInEnd: function() {
                     var t = this;
+                    console.log(this.el);
                     this.updateBodyColor(), this.transitionElement = this.el.classList.contains("sub-view__page") ? this.el.parentNode.parentNode.parentNode : this.el, this.transitionElement.querySelector(".js-page-inner").classList.add("show"), setTimeout(function() {
                         if (t.setLazyParallaxCache(), t.lazyCache && x["default"].add(t.lazyLoop), t.parallaxCache && x["default"].add(t.parallaxLoop), t.animateInViewCache && x["default"].add(t.animateInViewLoop), t.setSectionCache(), x["default"].add(t.checkSectionColor), t.el.classList.add("in-view"), t.trigger("view:animateInEnd"), !t.hasSubView) {
                             var e = void 0;
