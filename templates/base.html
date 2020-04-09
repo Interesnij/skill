@@ -1,19 +1,58 @@
-{% load staticfiles %}
 <!doctype html>
 <html>
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimal-ui, shrink-to-fit=no, viewport-fit=cover">
     <title>{% block title %}{% endblock %}</title>
-    {% block meta %}{% endblock %}
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
-    <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
-    <link rel="stylesheet" href="{% static 'styles/fonts.css' %}" media="all" />
-    <link rel="stylesheet" href="{% static 'styles/style.css' %}" media="all" />
-    <link rel="stylesheet" href="{% static 'styles/style2.css' %}" media="all" />
 
+
+    <link rel="stylesheet" href="/static/styles/style.css" media="all" />
+    <link rel="stylesheet" href="/static/styles/style2.css" media="all" />
 </head>
-  <body>
 
-    {% include "base_scripts.html" %}
+<body class="is-loading ">
+  {% include 'base_block/svg_top.html' %}
+
+  <div class="resizing">
+      <div class="resizing__title">Repainting artworks</div>
+  </div>
+
+  <div class="page-transition-curtains">
+      <div class="page-transition-curtain page-transition-curtain--top"></div>
+      <div class="page-transition-curtain page-transition-curtain--bottom"></div>
+  </div>
+
+  <a href="" class="logo">
+    <svg viewBox="0 0 340.8 100" enable-background="new 0 0 340.8 100" xml:space="preserve" class="svg-logo" preserveAspectRatio="none">
+      <use x="0" y="0" href="#logo" xlink:href="#logo"></use>
+    </svg>
+  </a>
+
+  <div class="play-btn__wrapper" data-component="play-button">
+      <a href="" class="play-btn">
+          <svg x="0px" y="0px" viewBox="0 0 102.3 40" xml:space="preserve">
+              <polygon points="93.9,14 93.9,26.3 88.3,26.3 88.3,14 79.9,0 86.2,0 91,8.2 96,0 102.3,0 "></polygon>
+              <path d="M66.4,13.7H62L51.5,40h5.7l2.1-5.2h10.1l2.1,5.2h5.7L66.4,13.7z M61.2,30.1l3.1-7.8l3.2,7.8H61.2z"></path>
+              <polygon points="30.9,0 36.6,0 36.6,20.6 44.4,20.6 44.4,26.3 30.9,26.3 "></polygon>
+              <path d="M9,13.7H0V40h5.6V29.8l3.3-0.1c1.6,0,4-0.9,5.4-2c1.7-1.4,2.8-3.8,2.8-6.4C17.1,16.7,13.9,13.7,9,13.7z M7.8,25.1H5.6v-6.7c0.6,0,1-0.1,1.3-0.1c2.8,0,4.4,1.2,4.4,3.4C11.2,23.6,9.7,25.1,7.8,25.1z"></path>
+          </svg>
+      </a>
+  </div>
+
+  <div class="header-overlay js-toggleMenu"></div>
+  <div class="touch-header-overlay js-close-nav-dropdown"></div>
+
+  {% include 'base_block/header.html' %}
+  {% include 'base_block/menu_2.html' %}
+
+  {% block content %}
+  {% endblock %}
+
+  {% include 'base_block/play_sections.html' %}
+  {% include 'base_block/script.html' %}
+  <script defer src="/static/scripts/main.js" type="text/javascript"></script>
+
   </body>
 </html>
