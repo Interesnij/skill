@@ -4,5 +4,5 @@ from main.views import MainPageView, TestPageView
 
 urlpatterns = [
 	url(r'^$', MainPageView.as_view(), name="main"),
-	url(r'test^$', TestPageView.as_view(), name="test"),
+	url(r'test/$', TestPageView.as_view(), name="test"),
 ]
