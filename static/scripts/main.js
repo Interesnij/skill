@@ -3686,8 +3686,6 @@
             S = n(T),
             I = t("./components/animation-icon"),
             k = n(I),
-            P = t("./components/map"),
-            L = n(P),
             O = t("./components/page-title"),
             A = n(O),
             M = t("./components/underlines"),
