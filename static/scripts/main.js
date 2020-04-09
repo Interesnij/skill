@@ -8677,10 +8677,10 @@
                         components: this.ui.components
                     }), this.addEvents(), this.preloadContent(function() {
                         e.isDataLoaded = !0, e.trigger("view:dataLoaded")
-                    }), this.preventTransitionElement || this.transitionElement == this.el, 
+                    }), this.preventTransitionElement || this.transitionElement == this.el,
                         this.transitionElement.querySelector(".js-page-inner").classList.contains("prevent-transition")
                           && (this.transitionElement.querySelector(".js-page-inner").classList.add("show"),
-                        window.scrollTo(0, 0)))
+                        window.scrollTo(0, 0))
 
                 },
                 preloadContent: function(t) {
