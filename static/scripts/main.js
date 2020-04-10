@@ -10074,10 +10074,6 @@
                 },
                 destroy: function() {
                     this.flkty && this.flkty.off("scroll", this.parallaxArtPieces), l["default"].prototype.destroy.call(this)
-                },
-                playStart: function() {
-                    var t = document.querySelector(".page-home");
-                    t.classList.contains("is-tinder") ? document.querySelector(".play-tinder").classList.add("in-view") : t.classList.contains("is-gif") ? document.querySelector(".play-gifmefrans").classList.add("in-view") : t.classList.contains("is-roulette") && document.querySelector(".play-roulette").classList.add("in-view")
                 }
             });
         i["default"] = C
