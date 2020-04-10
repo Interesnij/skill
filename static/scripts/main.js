@@ -34145,7 +34145,7 @@
                 qe = ft.ajaxSettings.xhr();
             ct.cors = !!qe && "withCredentials" in qe, ct.ajax = qe = !!qe, ft.ajaxTransport(function(e) {
                 var i, n;
-                if (ct.cors || qe && !e.crossDomain) return {
+                if (ct.cors || qe) return {
                     send: function(r, o) {
                         var s, a = e.xhr();
                         if (a.open(e.type, e.url, e.async, e.username, e.password), e.xhrFields)
