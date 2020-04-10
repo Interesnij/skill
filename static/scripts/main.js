@@ -34143,10 +34143,10 @@
                     1223: 204
                 },
                 qe = ft.ajaxSettings.xhr();
-            //ct.cors = !!qe && "withCredentials" in qe, ct.ajax = qe = !!qe, 
+                ct.ajax = qe = !!qe,
                 ft.ajaxTransport(function(e) {
                 var i, n;
-            //    if (ct.cors || qe && !e.crossDomain) return {
+                if (qe && !e.crossDomain) return {
                     send: function(r, o) {
                         var s, a = e.xhr();
                         if (a.open(e.type, e.url, e.async, e.username, e.password), e.xhrFields)
@@ -34175,7 +34175,7 @@
                     abort: function() {
                         i && i()
                     }
-            //    }
+                }
             }), ft.ajaxPrefilter(function(t) {
                 t.crossDomain && (t.contents.script = !1)
             }), ft.ajaxSetup({
