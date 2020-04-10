@@ -3580,7 +3580,7 @@
                 },
                 test: function() {
                     this.addViewToRegion("/" + r.Backbone.history.getFragment(), m["default"])
-
+                },
                 newsarticle: function() {
                     this.addViewToRegion("/" + r.Backbone.history.getFragment(), y["default"])
                 },
