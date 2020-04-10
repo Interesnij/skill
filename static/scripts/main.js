@@ -3534,7 +3534,7 @@
             f = n(h),
             d = t("./views/calendar"),
             p = n(d),
-            g = t("./views/test"),
+            g = t("./views/artpiece"),
             m = n(g),
             v = t("./views/news-article"),
             y = n(v),
@@ -3578,7 +3578,7 @@
                 calendar: function() {
                     this.addViewToRegion("/" + r.Backbone.history.getFragment(), p["default"])
                 },
-                test: function() {
+                artpiece: function() {
                     this.addViewToRegion("/" + r.Backbone.history.getFragment(), m["default"])
                 },
                 newsarticle: function() {
@@ -3638,7 +3638,7 @@
         "./regions/TransitionRegion": 61,
         "./views/archive": 65,
         "./views/artist": 66,
-        "./views/test": 67,
+        "./views/artpiece": 67,
         "./views/base/app": 68,
         "./views/calendar": 73,
         "./views/collection": 74,
@@ -7647,8 +7647,62 @@
             a = t("vent"),
             l = r.Marionette.AppRouter.extend({
                 appRoutes: r._.extend({}, {
-                    "/": "home",
-                    "/test/": "test",
+                    "(en/)(nl/)": "home",
+                    "(en/)(nl/)play/tinder(/)": "home",
+                    "(en/)(nl/)play/gif(/)": "home",
+                    "(en/)(nl/)play/roulette(/)": "home",
+                    "(en/)(nl/)play/museum/roulette(/)": "home",
+                    "(en/)(nl/)learn/collection/*path(/)": "collection",
+                    "(en/)(nl/)verdiep/collectie/*path(/)": "collection",
+                    "(en/)(nl/)visit/exhibitions-events/*path(/)": "calendar",
+                    "(en/)(nl/)bezoek/agenda/*path(/)": "calendar",
+                    "(en/)(nl/)visit/education(/*path)(/)": "archive",
+                    "(en/)(nl/)bezoek/onderwijs(/*path)(/)": "archive",
+                    "(en/)(nl/)art/*path(/)": "artpiece",
+                    "(en/)(nl/)kunst/*path(/)": "artpiece",
+                    "(en/)(nl/)news/*path(/)": "newsarticle",
+                    "(en/)(nl/)nieuws/*path(/)": "newsarticle",
+                    "(en/)(nl/)research/*path(/)": "newsarticle",
+                    "(en/)(nl/)onderzoek/*path(/)": "newsarticle",
+                    "(en/)(nl/)event/*path(/)": "newsarticle",
+                    "(en/)(nl/)evenement/*path(/)": "newsarticle",
+                    "(en/)(nl/)education/*path(/)": "newsarticle",
+                    "(en/)(nl/)educatie/*path(/)": "newsarticle",
+                    "(en)(nl)/artist/*path(/)": "artist",
+                    "(en)(nl)/artiest/*path(/)": "artist",
+                    "(en/)learn/research(/*path)(/)": "archive",
+                    "(nl/)verdiep/onderzoek(/*path)(/)": "archive",
+                    "(nl/)verdiep/nieuws(/*path)(/)": "archive",
+                    "(en/)learn/new(/*path)(/)": "archive",
+                    "(en/)learn/publications(/*path)(/)": "archive",
+                    "(nl/)verdiep/publicaties(/*path)(/)": "archive",
+                    "(en/)press/general-info(/*path)(/)": "page",
+                    "(nl/)pers/algemene-informatie(/*path)(/)": "page",
+                    "(en/)about/press(/*path)(/)": "archive",
+                    "(nl/)over-ons/pers(/*path)(/)": "archive",
+                    "(en/)(nl/)faq(/*path)(/)": "faq",
+                    "(en/)(nl/)search-results(/*path)(/)": "searchresults",
+                    "(en/)(nl/)zoek-resultaten(/*path)(/)": "searchresults",
+                    "(en/)(nl/)my-trip(/*path)(/)": "mytrip",
+                    "(en/)(nl/)mijn-trip(/*path)(/)": "mytrip",
+                    "(en/)visit/visitor-info(/*path)(/)": "page",
+                    "(nl/)bezoek/bezoek-info(/*path)(/)": "page",
+                    "(en/)discover/our-buildings(/*path)(/)": "page",
+                    "(nl/)ontdek/onze-gebouwen(/*path)(/)": "page",
+                    "(en/)learn/frans-hals(/*path)(/)": "page",
+                    "(nl/)verdiep/frans-hals(/*path)(/)": "page",
+                    "(en/)support/benefactors(/*path)(/)": "page",
+                    "(nl/)steun/begunstigers(/*path)(/)": "page",
+                    "(en/)support/memberships(/*path)(/)": "page",
+                    "(nl/)steun/word-lid(/*path)(/)": "page",
+                    "(en/)support/donate(/*path)(/)": "page",
+                    "(nl/)steun/doneer(/*path)(/)": "page",
+                    "(en/)support/anbi(/*path)(/)": "page",
+                    "(nl/)steun/anbi(/*path)(/)": "page",
+                    "(en/)curators(/)": "page",
+                    "(nl/)curatoren(/)": "page",
+                    "(en/)discover/about(/*path)(/)": "page",
+                    "(nl/)ontdek/over-ons(/*path)(/)": "page",
                     "*path": "page"
                 }),
                 initialize: function() {
@@ -8591,7 +8645,7 @@
                         e = (0, a["default"])(t, 2),
                         i = e[0],
                         n = e[1];
-                    this.vars.url = i, n = void 0 === n ? "" : n, i = i.replace(/\/$/, "").replace(/\//g, "-"), this.vars.lang = i.substring(0, 2), i = i.slice(3), this.vars.frag = i, this.vars.query = n, this.vars.slug = i || n ? "art" == i.substring(0, 3) ? "test" : i : "home"
+                    this.vars.url = i, n = void 0 === n ? "" : n, i = i.replace(/\/$/, "").replace(/\//g, "-"), this.vars.lang = i.substring(0, 2), i = i.slice(3), this.vars.frag = i, this.vars.query = n, this.vars.slug = i || n ? "art" == i.substring(0, 3) ? "artpiece" : i : "home"
                 },
                 fetchData: function() {
                     var t = this;
@@ -9851,14 +9905,14 @@
             w = n(x),
             C = l["default"].extend({
                 ui: s._.extend({
-                    testsMashup: ".js-split-tests",
+                    artpiecesMashup: ".js-split-artpieces",
                     section: ".js-home-section",
-                    testsWrapper: ".js-tests-wrapper",
+                    artpiecesWrapper: ".js-artpieces-wrapper",
                     triggerTop: ".js-trigger-top",
                     triggerBottom: ".js-trigger-bottom",
                     heroText: ".js-hero-text",
-                    testsImage: ".split-tests__image",
-                    testsCurtain: ".split-tests__curtain",
+                    artpiecesImage: ".split-artpieces__image",
+                    artpiecesCurtain: ".split-artpieces__curtain",
                     newsCardThumbs: ".home-journal .news-card__thumbnail"
                 }, l["default"].prototype.ui),
                 events: s._.extend({
@@ -9866,14 +9920,14 @@
                     "mouseleave @ui.triggerTop": "mouseLeave",
                     "mousemove @ui.triggerTop": "mouseMove",
                     "mouseleave @ui.heroText": "mouseLeaveHero",
-                    "click @ui.triggerTop": "navigateTotest",
-                    "click @ui.triggerBottom": "navigateTotest",
+                    "click @ui.triggerTop": "navigateToArtpiece",
+                    "click @ui.triggerBottom": "navigateToArtpiece",
                     "mouseenter @ui.triggerBottom": "mouseEnter",
                     "mouseleave @ui.triggerBottom": "mouseLeave",
                     "mousemove @ui.triggerBottom": "mouseMove"
                 }, l["default"].prototype.events),
                 initialize: function() {
-                    this.pageScroll = this.pageScroll.bind(this), this.changeImages = this.changeImages.bind(this), this.isAnimating = !1, this.updatetestPos = this.updatetestPos.bind(this), this.testCache = {
+                    this.pageScroll = this.pageScroll.bind(this), this.changeImages = this.changeImages.bind(this), this.isAnimating = !1, this.updateArtpiecePos = this.updateArtpiecePos.bind(this), this.artpieceCache = {
                         oldX: 0,
                         oldY: 0,
                         x: 0,
@@ -9896,7 +9950,7 @@
                     l["default"].prototype.animateIn.call(this)
                 },
                 animateInEnd: function() {
-                    this.el.querySelector('[data-component="page-title"]').classList.add("is-ready"), this.el.classList.add("is-ready"), this.wrapperWidth = this.ui.testsWrapper[0].getBoundingClientRect().width, this.resize(), l["default"].prototype.animateInEnd.call(this)
+                    this.el.querySelector('[data-component="page-title"]').classList.add("is-ready"), this.el.classList.add("is-ready"), this.wrapperWidth = this.ui.artpiecesWrapper[0].getBoundingClientRect().width, this.resize(), l["default"].prototype.animateInEnd.call(this)
                 },
                 alignNewsCards: function() {
                     var t = 0;
@@ -9909,7 +9963,7 @@
                 getCache: function() {
                     var t = this;
                     window.requestAnimationFrame(function() {
-                        t.cache.footerTop = t.el.querySelector(".page-home__container").getBoundingClientRect().bottom + window.pageYOffset, t.cache.testsMashupTop = t.el.querySelector(".page-home__container").getBoundingClientRect().top + window.pageYOffset
+                        t.cache.footerTop = t.el.querySelector(".page-home__container").getBoundingClientRect().bottom + window.pageYOffset, t.cache.artpiecesMashupTop = t.el.querySelector(".page-home__container").getBoundingClientRect().top + window.pageYOffset
                     }), this.cache.sections = [], [].concat((0, o["default"])(this.ui.section)).forEach(function(e, i) {
                         var n = window.pageYOffset,
                             r = e.getBoundingClientRect();
@@ -9922,29 +9976,29 @@
                     }), this.currentActive = 0
                 },
                 pageScroll: function(t) {
-                    t.scrollY >= this.cache.testsMashupTop && t.scrollY + f["default"].height < this.cache.footerTop ? (this.ui.testMashup[0].classList.add("is-sticky"), this.ui.testsMashup[0].classList.remove("is-bottom-abs")) : t.scrollY + f["default"].height >= this.cache.footerTop ? (this.ui.testsMashup[0].classList.remove("is-sticky"), this.ui.testsMashup[0].classList.add("is-bottom-abs")) : (this.ui.testsMashup[0].classList.remove("is-sticky"), this.ui.testsMashup[0].classList.remove("is-bottom-abs")), this.changeImages(t)
+                    t.scrollY >= this.cache.artpiecesMashupTop && t.scrollY + f["default"].height < this.cache.footerTop ? (this.ui.artpiecesMashup[0].classList.add("is-sticky"), this.ui.artpiecesMashup[0].classList.remove("is-bottom-abs")) : t.scrollY + f["default"].height >= this.cache.footerTop ? (this.ui.artpiecesMashup[0].classList.remove("is-sticky"), this.ui.artpiecesMashup[0].classList.add("is-bottom-abs")) : (this.ui.artpiecesMashup[0].classList.remove("is-sticky"), this.ui.artpiecesMashup[0].classList.remove("is-bottom-abs")), this.changeImages(t)
                 },
                 initFlktySlider: function() {
-                    this.ui.testsWrapper.forEach(function(t) {
+                    this.ui.artpiecesWrapper.forEach(function(t) {
                         t.classList.add("is-active")
-                    }), this.flkty = new w["default"](this.ui.testsMashup[0], {
-                        cellSelector: ".js-tests-wrapper",
+                    }), this.flkty = new w["default"](this.ui.artpiecesMashup[0], {
+                        cellSelector: ".js-artpieces-wrapper",
                         prevNextButtons: !1,
                         wrapAround: !0,
                         freeScroll: !1,
                         pageDots: !1,
                         dragThreshold: f["default"].sniff.isDevice ? 10 : 3
-                    }), this.flkty.on("scroll", this.parallaxtests.bind(this))
+                    }), this.flkty.on("scroll", this.parallaxArtPieces.bind(this))
                 },
-                parallaxtests: function() {
+                parallaxArtPieces: function() {
                     var t = this,
                         e = f["default"].js.getTranslateValue(this.flkty.slider, "x");
                     this.flkty.slides.forEach(function(i, n) {
-                        var r = t.flkty.size.width * (parseInt(t.ui.testsWrapper[n].style.left) / 100),
-                            o = t.ui.testsCurtain[2 * n],
+                        var r = t.flkty.size.width * (parseInt(t.ui.artpiecesWrapper[n].style.left) / 100),
+                            o = t.ui.artpiecesCurtain[2 * n],
                             s = (r + e) * -.8;
                         o.style.transform = "translateX(" + s + "px)";
-                        var o = t.ui.testsCurtain[2 * n + 1],
+                        var o = t.ui.artpiecesCurtain[2 * n + 1],
                             s = (r + e) * -.2;
                         o.style.transform = "translateX(" + s + "px)"
                     })
@@ -9952,46 +10006,46 @@
                 changeImages: function(t) {
                     var e = this;
                     if (!this.isAnimating)
-                        for (var i = this.cache.sections.length - 1; i >= 0; i--) this.cache.sections[i].top - t.scrollY < .5 * f["default"].height && this.cache.sections[i].bottom - t.scrollY > .5 * f["default"].height ? (i !== this.currentActive && (this.isAnimating = !0, this.ui.testsMashup[0].classList.add("is-animating"), window.setTimeout(function() {
-                            e.ui.testsMashup[0].classList.remove("is-animating"), e.isAnimating = !1, e.ui.triggerTop[0].classList.contains("is-active") ? (0, s.$)(e.ui.triggerTop[0]).trigger("mouseenter") : e.ui.triggerBottom[0].classList.contains("is-active") && (0, s.$)(e.ui.triggerBottom[0]).trigger("mouseenter")
-                        }, 850)), this.cache.sections[i].isActive = !0, this.currentActive = i) : t.scrollY < this.cache.sections[0].top ? (this.cache.sections[i].isActive = !1, this.cache.sections[0].isActive = !0) : t.scrollY > this.cache.sections[this.cache.sections.length - 1].top ? (this.cache.sections[i].isActive = !1, this.cache.sections[this.cache.sections.length - 1].isActive = !0) : this.cache.sections[i].isActive = !1, this.ui.testsWrapper[i] && this.ui.testsWrapper[i].classList.toggle("is-active", this.cache.sections[i].isActive)
+                        for (var i = this.cache.sections.length - 1; i >= 0; i--) this.cache.sections[i].top - t.scrollY < .5 * f["default"].height && this.cache.sections[i].bottom - t.scrollY > .5 * f["default"].height ? (i !== this.currentActive && (this.isAnimating = !0, this.ui.artpiecesMashup[0].classList.add("is-animating"), window.setTimeout(function() {
+                            e.ui.artpiecesMashup[0].classList.remove("is-animating"), e.isAnimating = !1, e.ui.triggerTop[0].classList.contains("is-active") ? (0, s.$)(e.ui.triggerTop[0]).trigger("mouseenter") : e.ui.triggerBottom[0].classList.contains("is-active") && (0, s.$)(e.ui.triggerBottom[0]).trigger("mouseenter")
+                        }, 850)), this.cache.sections[i].isActive = !0, this.currentActive = i) : t.scrollY < this.cache.sections[0].top ? (this.cache.sections[i].isActive = !1, this.cache.sections[0].isActive = !0) : t.scrollY > this.cache.sections[this.cache.sections.length - 1].top ? (this.cache.sections[i].isActive = !1, this.cache.sections[this.cache.sections.length - 1].isActive = !0) : this.cache.sections[i].isActive = !1, this.ui.artpiecesWrapper[i] && this.ui.artpiecesWrapper[i].classList.toggle("is-active", this.cache.sections[i].isActive)
                 },
                 mouseEnter: function(t) {
-                    this.position = t.currentTarget.getAttribute("data-pos"), this.target = "top" == this.position ? this.el.querySelector(".js-tests-wrapper.is-active .split-tests__image--top .js-test") : this.el.querySelector(".js-tests-wrapper.is-active .split-tests__image--bottom .js-test");
-                    var e = this.el.querySelector(".js-tests-wrapper.is-active");
-                    null == this.target || e && (0, s.$)(e).hasClass("has-video") || (t.preventDefault(), t.stopPropagation(), this.testCache.isMouseDown = !0, this.testCache.distanceXPosition = 0, this.testCache.distanceYPosition = 0, this.testCache.needForRAF = !0, this.targetWidth = this.target.getBoundingClientRect().width, this.map = {
+                    this.position = t.currentTarget.getAttribute("data-pos"), this.target = "top" == this.position ? this.el.querySelector(".js-artpieces-wrapper.is-active .split-artpieces__image--top .js-artpiece") : this.el.querySelector(".js-artpieces-wrapper.is-active .split-artpieces__image--bottom .js-artpiece");
+                    var e = this.el.querySelector(".js-artpieces-wrapper.is-active");
+                    null == this.target || e && (0, s.$)(e).hasClass("has-video") || (t.preventDefault(), t.stopPropagation(), this.artpieceCache.isMouseDown = !0, this.artpieceCache.distanceXPosition = 0, this.artpieceCache.distanceYPosition = 0, this.artpieceCache.needForRAF = !0, this.targetWidth = this.target.getBoundingClientRect().width, this.map = {
                         fromMin: -this.targetWidth / 2,
                         fromMax: this.wrapperWidth - this.targetWidth / 2,
                         toMin: 0,
                         toMax: this.wrapperWidth - this.targetWidth
-                    }, this.updatetestPos())
+                    }, this.updateArtpiecePos())
                 },
                 mouseMove: function(t) {
-                    null != this.target && (t.preventDefault(), t.stopPropagation(), t.currentTarget.classList.add("is-active"), this.testCache.isMouseDown && (this.testCache.distanceXPosition = f["default"].js.map([this.map.fromMin, this.map.fromMax], [this.map.toMin, this.map.toMax], t.offsetX - this.targetWidth / 2), this.testCache.distanceYPosition = "top" == this.position ? f["default"].height / 2 - t.offsetY : t.offsetY))
+                    null != this.target && (t.preventDefault(), t.stopPropagation(), t.currentTarget.classList.add("is-active"), this.artpieceCache.isMouseDown && (this.artpieceCache.distanceXPosition = f["default"].js.map([this.map.fromMin, this.map.fromMax], [this.map.toMin, this.map.toMax], t.offsetX - this.targetWidth / 2), this.artpieceCache.distanceYPosition = "top" == this.position ? f["default"].height / 2 - t.offsetY : t.offsetY))
                 },
                 mouseLeave: function(t) {
-                    t.preventDefault(), t.stopPropagation(), t.currentTarget.classList.remove("is-active"), this.testCache.needForRAF = !1, setTimeout(s._.bind(function() {
-                        this.testCache.needForRAF || (this.testCache.isMouseDown = !1)
+                    t.preventDefault(), t.stopPropagation(), t.currentTarget.classList.remove("is-active"), this.artpieceCache.needForRAF = !1, setTimeout(s._.bind(function() {
+                        this.artpieceCache.needForRAF || (this.artpieceCache.isMouseDown = !1)
                     }, this), 500)
                 },
-                updatetestPos: function() {
+                updateArtpiecePos: function() {
                     if (null != this.target) {
-                        this.testCache.isMouseDown && window.requestAnimationFrame(this.updatetestPos);
-                        var t = this.testCache.distanceXPosition;
-                        this.testCache.x = this.testCache.x + .1 * (t - this.testCache.x);
-                        var e = "top" == this.position ? this.testCache.distanceYPosition * -1 : this.testCache.distanceYPosition;
-                        this.testCache.y = this.testCache.y + .1 * (e - this.testCache.y), this.target.style.transform = "translate(" + this.testCache.x.toFixed(2) + "px, " + this.testCache.y.toFixed(2) + "px", this.swap()
+                        this.artpieceCache.isMouseDown && window.requestAnimationFrame(this.updateArtpiecePos);
+                        var t = this.artpieceCache.distanceXPosition;
+                        this.artpieceCache.x = this.artpieceCache.x + .1 * (t - this.artpieceCache.x);
+                        var e = "top" == this.position ? this.artpieceCache.distanceYPosition * -1 : this.artpieceCache.distanceYPosition;
+                        this.artpieceCache.y = this.artpieceCache.y + .1 * (e - this.artpieceCache.y), this.target.style.transform = "translate(" + this.artpieceCache.x.toFixed(2) + "px, " + this.artpieceCache.y.toFixed(2) + "px", this.swap()
                     }
                 },
                 swap: function() {
-                    this.testCache.oldX = this.testCache.x, this.testCache.oldY = this.testCache.y
+                    this.artpieceCache.oldX = this.artpieceCache.x, this.artpieceCache.oldY = this.artpieceCache.y
                 },
-                navigateTotest: function(t) {
-                    var e = "top" == t.currentTarget.getAttribute("data-pos") ? document.querySelector(".js-tests-wrapper.is-active .js-test-top .js-test") : document.querySelector(".js-tests-wrapper.is-active .js-test-bottom .js-test");
+                navigateToArtpiece: function(t) {
+                    var e = "top" == t.currentTarget.getAttribute("data-pos") ? document.querySelector(".js-artpieces-wrapper.is-active .js-artpiece-top .js-artpiece") : document.querySelector(".js-artpieces-wrapper.is-active .js-artpiece-bottom .js-artpiece");
                     e && (window.location = e.getAttribute("data-href"))
                 },
                 resize: function() {
-                    f["default"].width < c["default"].breakpoints.medium ? (b["default"].remove(this.pageScroll), this.initFlktySlider()) : (this.ui.testsCurtain.forEach(function(t) {
+                    f["default"].width < c["default"].breakpoints.medium ? (b["default"].remove(this.pageScroll), this.initFlktySlider()) : (this.ui.artpiecesCurtain.forEach(function(t) {
                         t.style.transform = ""
                     }), this.getCache(), b["default"].add(this.pageScroll), this.flkty && this.flkty.destroy())
                 },
@@ -10019,7 +10073,7 @@
                     this.el.style.zIndex = "-2", b["default"].remove(this.pageScroll), l["default"].prototype.animateOut.call(this)
                 },
                 destroy: function() {
-                    this.flkty && this.flkty.off("scroll", this.parallaxtests), l["default"].prototype.destroy.call(this)
+                    this.flkty && this.flkty.off("scroll", this.parallaxArtPieces), l["default"].prototype.destroy.call(this)
                 },
                 playStart: function() {
                     var t = document.querySelector(".page-home");
