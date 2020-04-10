@@ -7647,8 +7647,9 @@
             a = t("vent"),
             l = r.Marionette.AppRouter.extend({
                 appRoutes: r._.extend({}, {
-                    "*path": "page",
-
+                    "/": "home",
+                    "/test/": "test",
+                    "*path": "page"
                 }),
                 initialize: function() {
                     this.urlHistory = [], this.firstRoute = {
@@ -34088,10 +34089,9 @@
                     1223: 204
                 },
                 qe = ft.ajaxSettings.xhr();
-                ct.ajax = qe = !!qe,
-                ft.ajaxTransport(function(e) {
+            ct.cors = !!qe && "withCredentials" in qe, ct.ajax = qe = !!qe, ft.ajaxTransport(function(e) {
                 var i, n;
-                if (qe && !e.crossDomain) return {
+                if (ct.cors || qe && !e.crossDomain) return {
                     send: function(r, o) {
                         var s, a = e.xhr();
                         if (a.open(e.type, e.url, e.async, e.username, e.password), e.xhrFields)
