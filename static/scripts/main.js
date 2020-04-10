@@ -26068,7 +26068,7 @@
     572: [],
     573: [function(t, e, i) {
         ! function(i, n) {
-            "function" == typeof define && define.amd ? define(["./flickity", "./drag", "./prev-next-button", "./page-dots", "./player", "./add-remove-cell", "./lazyload"], n) : "object" == typeof e && e.exports && (e.exports = n(t("./flickity"), t("./drag"), t("./prev-next-button"), t("./page-dots"), t("./player"), t("./add-remove-cell"), t("./lazyload")))
+            "function" == typeof define && define.amd ? define(["./drag", "./prev-next-button", "./page-dots", "./player", "./add-remove-cell", "./lazyload"], n) : "object" == typeof e && e.exports && (e.exports = n(t("./flickity"), t("./drag"), t("./prev-next-button"), t("./page-dots"), t("./player"), t("./add-remove-cell"), t("./lazyload")))
         }(window, function(t) {
             return t
         })
