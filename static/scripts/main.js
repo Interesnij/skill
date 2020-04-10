@@ -606,8 +606,6 @@
             o = t("config"),
             s = (n(o), t("vent"), t("utils")),
             a = n(s),
-            l = t("flickity"),
-            u = n(l),
             c = r.Marionette.View.extend({
                 template: !1,
                 needResize: !0,
@@ -669,7 +667,6 @@
     }, {
         config: 45,
         core: 1,
-        flickity: 573,
         utils: 63,
         vent: 64
     }],
@@ -898,13 +895,10 @@
             o = t("config"),
             s = (n(o), t("vent"), t("utils")),
             a = n(s),
-            l = t("flickity"),
-            u = n(l),
             c = r.Marionette.View.extend({
                 template: !1,
                 needResize: !0,
                 ui: {
-                    flickityWrapper: ".js-scroll-lower",
                     header: ".js-scroll-upper"
                 },
                 events: {},
@@ -913,25 +907,6 @@
                 },
                 onRender: function() {
                     this.lerp = 0, this.lastLerp = 0, this.initSlider()
-                },
-                initSlider: function() {
-                    this.flkty = new u["default"](this.ui.flickityWrapper[0], {
-                        prevNextButtons: !1,
-                        wrapAround: !1,
-                        freeScroll: !0,
-                        pageDots: !1,
-                        contain: !0,
-                        cellAlign: "left",
-                        dragThreshold: "isDevice" == a["default"].sniff ? 10 : 3
-                    }), this.flkty.on("scroll", this.calculateTransformValue), this.flkty.on("staticClick", function(t) {
-                        var e = event.target.closest("a"),
-                            i = e.getAttribute("data-href"),
-                            n = window.location.origin,
-                            o = i.replace(n, "");
-                        r.Backbone.history.navigate(o, {
-                            trigger: !0
-                        })
-                    })
                 },
                 calculateTransformValue: function() {
                     this.lerp += .1 * (this.flkty.x / 5 - this.lerp), this.transformHeader()
@@ -949,7 +924,6 @@
     }, {
         config: 45,
         core: 1,
-        flickity: 573,
         utils: 63,
         vent: 64
     }],
@@ -2090,17 +2064,11 @@
             l = n(a),
             u = (t("vent"), t("utils")),
             c = n(u),
-            h = t("flickity"),
-            f = n(h),
             d = t("raf-scroll"),
             p = n(d),
             g = s.Marionette.View.extend({
                 template: !1,
                 needResize: !0,
-                ui: {
-                    slide: ".flickity-slider > div",
-                    cards: ".news-card > a, .event-card .event-card__wrapper > a, .press-card > a, .publication-card > a, .art-card > a, .education-card .education-card__wrapper > a"
-                },
                 events: {
                     mouseenter: "pause",
                     mouseleave: "play"
@@ -2109,7 +2077,7 @@
                     this.onScroll = this.onScroll.bind(this)
                 },
                 onRender: function() {
-                    this.setHeight(), this.initMarquee(), this.ui.slide = this.el.querySelectorAll(".flickity-slider > *"), c["default"].width > l["default"].breakpoints.medium && p["default"].add(this.onScroll), this.resize()
+                    this.setHeight(), this.initMarquee(), c["default"].width > l["default"].breakpoints.medium && p["default"].add(this.onScroll), this.resize()
                 },
                 setHeight: function() {
                     var t = this;
@@ -2172,7 +2140,6 @@
         "babel-runtime/helpers/toConsumableArray": 112,
         config: 45,
         core: 1,
-        flickity: 573,
         "raf-scroll": 55,
         utils: 63,
         vent: 64
@@ -2474,8 +2441,6 @@
             s = t("core"),
             a = t("config"),
             l = (n(a), t("vent")),
-            u = t("flickity"),
-            c = n(u),
             h = s.Marionette.View.extend({
                 template: !1,
                 needResize: !0,
@@ -2547,7 +2512,6 @@
         "babel-runtime/helpers/toConsumableArray": 112,
         config: 45,
         core: 1,
-        flickity: 573,
         vent: 64
     }],
     32: [function(t, e, i) {
@@ -8749,14 +8713,6 @@
                 updateBodyColor: function() {
                     void 0, window.colorset && (p["default"].html.style.background = window.colorset.top)
                 },
-                animateOut: function() {
-                    this.updateBodyColor(), this.vars && p["default"].body.classList.remove("is-" + this.vars.slug), this.components.animateOut(), this.el.classList.remove("is-ready", "in-view"), x["default"].remove(this.lazyLoop), this.animateInViewCache && (x["default"].remove(this.animateInViewLoop), [].concat((0, o["default"])(document.querySelectorAll(".js-animate-in-view.is-in-view"))).forEach(function(t) {
-                        void 0, (0, c.$)(t).hasClass("flickity-enabled") ? TweenLite.to(t, .6, {
-                            opacity: 0,
-                            ease: Power2.easeOut
-                        }) : t.classList.remove("is-in-view")
-                    })), this.animateOutEnd()
-                },
                 animateOutEnd: function() {
                     void 0, this.animatedOut = !0, this.trigger("view:animateOutEnd")
                 },
@@ -9873,221 +9829,7 @@
         utils: 63,
         vent: 64
     }],
-    78: [function(t, e, i) {
-        "use strict";
-
-        function n(t) {
-            return t && t.__esModule ? t : {
-                "default": t
-            }
-        }
-        Object.defineProperty(i, "__esModule", {
-            value: !0
-        });
-        var r = t("babel-runtime/helpers/toConsumableArray"),
-            o = n(r),
-            s = t("../_core"),
-            a = t("default"),
-            l = n(a),
-            u = t("config"),
-            c = n(u),
-            h = t("utils"),
-            f = n(h),
-            d = t("../views/play-tinder"),
-            p = n(d),
-            g = t("../views/play-roulette"),
-            m = n(g),
-            v = t("../views/play-gifmefrans"),
-            y = n(v),
-            _ = t("raf-scroll"),
-            b = n(_),
-            x = t("flickity"),
-            w = n(x),
-            C = l["default"].extend({
-                ui: s._.extend({
-                    artpiecesMashup: ".js-split-artpieces",
-                    section: ".js-home-section",
-                    artpiecesWrapper: ".js-artpieces-wrapper",
-                    triggerTop: ".js-trigger-top",
-                    triggerBottom: ".js-trigger-bottom",
-                    heroText: ".js-hero-text",
-                    artpiecesImage: ".split-artpieces__image",
-                    artpiecesCurtain: ".split-artpieces__curtain",
-                    newsCardThumbs: ".home-journal .news-card__thumbnail"
-                }, l["default"].prototype.ui),
-                events: s._.extend({
-                    "mouseenter @ui.triggerTop": "mouseEnter",
-                    "mouseleave @ui.triggerTop": "mouseLeave",
-                    "mousemove @ui.triggerTop": "mouseMove",
-                    "mouseleave @ui.heroText": "mouseLeaveHero",
-                    "click @ui.triggerTop": "navigateToArtpiece",
-                    "click @ui.triggerBottom": "navigateToArtpiece",
-                    "mouseenter @ui.triggerBottom": "mouseEnter",
-                    "mouseleave @ui.triggerBottom": "mouseLeave",
-                    "mousemove @ui.triggerBottom": "mouseMove"
-                }, l["default"].prototype.events),
-                initialize: function() {
-                    this.pageScroll = this.pageScroll.bind(this), this.changeImages = this.changeImages.bind(this), this.isAnimating = !1, this.updateArtpiecePos = this.updateArtpiecePos.bind(this), this.artpieceCache = {
-                        oldX: 0,
-                        oldY: 0,
-                        x: 0,
-                        y: 0,
-                        distanceXPosition: 0,
-                        distanceYPosition: 0,
-                        isMouseDown: !1,
-                        needForRAF: !0
-                    }, l["default"].prototype.initialize.call(this)
-                },
-                addEvents: function() {
-                    l["default"].prototype.addEvents.call(this), this.alignNewsCards();
-                    var t = window.location.href;
-                },
-                removeEvents: function() {
-                    l["default"].prototype.removeEvents.call(this)
-                },
-                animateIn: function() {
-                    l["default"].prototype.animateIn.call(this)
-                },
-                animateInEnd: function() {
-                    this.el.querySelector('[data-component="page-title"]').classList.add("is-ready"), this.el.classList.add("is-ready"), this.wrapperWidth = this.ui.artpiecesWrapper[0].getBoundingClientRect().width, this.resize(), l["default"].prototype.animateInEnd.call(this)
-                },
-                alignNewsCards: function() {
-                    var t = 0;
-                    [].concat((0, o["default"])(this.ui.newsCardThumbs)).forEach(function(e) {
-                        t = Math.max(t, e.clientHeight)
-                    }), [].concat((0, o["default"])(this.ui.newsCardThumbs)).forEach(function(e) {
-                        e.style.height = t + "px"
-                    })
-                },
-                getCache: function() {
-                    var t = this;
-                    window.requestAnimationFrame(function() {
-                        t.cache.footerTop = t.el.querySelector(".page-home__container").getBoundingClientRect().bottom + window.pageYOffset, t.cache.artpiecesMashupTop = t.el.querySelector(".page-home__container").getBoundingClientRect().top + window.pageYOffset
-                    }), this.cache.sections = [], [].concat((0, o["default"])(this.ui.section)).forEach(function(e, i) {
-                        var n = window.pageYOffset,
-                            r = e.getBoundingClientRect();
-                        t.cache.sections[i] = {
-                            el: e,
-                            top: r.top + n,
-                            bottom: r.bottom + n,
-                            isActive: 0 == i
-                        }
-                    }), this.currentActive = 0
-                },
-                pageScroll: function(t) {
-                    t.scrollY >= this.cache.artpiecesMashupTop && t.scrollY + f["default"].height < this.cache.footerTop ? (this.ui.artpiecesMashup[0].classList.add("is-sticky"), this.ui.artpiecesMashup[0].classList.remove("is-bottom-abs")) : t.scrollY + f["default"].height >= this.cache.footerTop ? (this.ui.artpiecesMashup[0].classList.remove("is-sticky"), this.ui.artpiecesMashup[0].classList.add("is-bottom-abs")) : (this.ui.artpiecesMashup[0].classList.remove("is-sticky"), this.ui.artpiecesMashup[0].classList.remove("is-bottom-abs")), this.changeImages(t)
-                },
-                initFlktySlider: function() {
-                    this.ui.artpiecesWrapper.forEach(function(t) {
-                        t.classList.add("is-active")
-                    }), this.flkty = new w["default"](this.ui.artpiecesMashup[0], {
-                        cellSelector: ".js-artpieces-wrapper",
-                        prevNextButtons: !1,
-                        wrapAround: !0,
-                        freeScroll: !1,
-                        pageDots: !1,
-                        dragThreshold: f["default"].sniff.isDevice ? 10 : 3
-                    }), this.flkty.on("scroll", this.parallaxArtPieces.bind(this))
-                },
-                parallaxArtPieces: function() {
-                    var t = this,
-                        e = f["default"].js.getTranslateValue(this.flkty.slider, "x");
-                    this.flkty.slides.forEach(function(i, n) {
-                        var r = t.flkty.size.width * (parseInt(t.ui.artpiecesWrapper[n].style.left) / 100),
-                            o = t.ui.artpiecesCurtain[2 * n],
-                            s = (r + e) * -.8;
-                        o.style.transform = "translateX(" + s + "px)";
-                        var o = t.ui.artpiecesCurtain[2 * n + 1],
-                            s = (r + e) * -.2;
-                        o.style.transform = "translateX(" + s + "px)"
-                    })
-                },
-                changeImages: function(t) {
-                    var e = this;
-                    if (!this.isAnimating)
-                        for (var i = this.cache.sections.length - 1; i >= 0; i--) this.cache.sections[i].top - t.scrollY < .5 * f["default"].height && this.cache.sections[i].bottom - t.scrollY > .5 * f["default"].height ? (i !== this.currentActive && (this.isAnimating = !0, this.ui.artpiecesMashup[0].classList.add("is-animating"), window.setTimeout(function() {
-                            e.ui.artpiecesMashup[0].classList.remove("is-animating"), e.isAnimating = !1, e.ui.triggerTop[0].classList.contains("is-active") ? (0, s.$)(e.ui.triggerTop[0]).trigger("mouseenter") : e.ui.triggerBottom[0].classList.contains("is-active") && (0, s.$)(e.ui.triggerBottom[0]).trigger("mouseenter")
-                        }, 850)), this.cache.sections[i].isActive = !0, this.currentActive = i) : t.scrollY < this.cache.sections[0].top ? (this.cache.sections[i].isActive = !1, this.cache.sections[0].isActive = !0) : t.scrollY > this.cache.sections[this.cache.sections.length - 1].top ? (this.cache.sections[i].isActive = !1, this.cache.sections[this.cache.sections.length - 1].isActive = !0) : this.cache.sections[i].isActive = !1, this.ui.artpiecesWrapper[i] && this.ui.artpiecesWrapper[i].classList.toggle("is-active", this.cache.sections[i].isActive)
-                },
-                mouseEnter: function(t) {
-                    this.position = t.currentTarget.getAttribute("data-pos"), this.target = "top" == this.position ? this.el.querySelector(".js-artpieces-wrapper.is-active .split-artpieces__image--top .js-artpiece") : this.el.querySelector(".js-artpieces-wrapper.is-active .split-artpieces__image--bottom .js-artpiece");
-                    var e = this.el.querySelector(".js-artpieces-wrapper.is-active");
-                    null == this.target || e && (0, s.$)(e).hasClass("has-video") || (t.preventDefault(), t.stopPropagation(), this.artpieceCache.isMouseDown = !0, this.artpieceCache.distanceXPosition = 0, this.artpieceCache.distanceYPosition = 0, this.artpieceCache.needForRAF = !0, this.targetWidth = this.target.getBoundingClientRect().width, this.map = {
-                        fromMin: -this.targetWidth / 2,
-                        fromMax: this.wrapperWidth - this.targetWidth / 2,
-                        toMin: 0,
-                        toMax: this.wrapperWidth - this.targetWidth
-                    }, this.updateArtpiecePos())
-                },
-                mouseMove: function(t) {
-                    null != this.target && (t.preventDefault(), t.stopPropagation(), t.currentTarget.classList.add("is-active"), this.artpieceCache.isMouseDown && (this.artpieceCache.distanceXPosition = f["default"].js.map([this.map.fromMin, this.map.fromMax], [this.map.toMin, this.map.toMax], t.offsetX - this.targetWidth / 2), this.artpieceCache.distanceYPosition = "top" == this.position ? f["default"].height / 2 - t.offsetY : t.offsetY))
-                },
-                mouseLeave: function(t) {
-                    t.preventDefault(), t.stopPropagation(), t.currentTarget.classList.remove("is-active"), this.artpieceCache.needForRAF = !1, setTimeout(s._.bind(function() {
-                        this.artpieceCache.needForRAF || (this.artpieceCache.isMouseDown = !1)
-                    }, this), 500)
-                },
-                updateArtpiecePos: function() {
-                    if (null != this.target) {
-                        this.artpieceCache.isMouseDown && window.requestAnimationFrame(this.updateArtpiecePos);
-                        var t = this.artpieceCache.distanceXPosition;
-                        this.artpieceCache.x = this.artpieceCache.x + .1 * (t - this.artpieceCache.x);
-                        var e = "top" == this.position ? this.artpieceCache.distanceYPosition * -1 : this.artpieceCache.distanceYPosition;
-                        this.artpieceCache.y = this.artpieceCache.y + .1 * (e - this.artpieceCache.y), this.target.style.transform = "translate(" + this.artpieceCache.x.toFixed(2) + "px, " + this.artpieceCache.y.toFixed(2) + "px", this.swap()
-                    }
-                },
-                swap: function() {
-                    this.artpieceCache.oldX = this.artpieceCache.x, this.artpieceCache.oldY = this.artpieceCache.y
-                },
-                navigateToArtpiece: function(t) {
-                    var e = "top" == t.currentTarget.getAttribute("data-pos") ? document.querySelector(".js-artpieces-wrapper.is-active .js-artpiece-top .js-artpiece") : document.querySelector(".js-artpieces-wrapper.is-active .js-artpiece-bottom .js-artpiece");
-                    e && (window.location = e.getAttribute("data-href"))
-                },
-                resize: function() {
-                    f["default"].width < c["default"].breakpoints.medium ? (b["default"].remove(this.pageScroll), this.initFlktySlider()) : (this.ui.artpiecesCurtain.forEach(function(t) {
-                        t.style.transform = ""
-                    }), this.getCache(), b["default"].add(this.pageScroll), this.flkty && this.flkty.destroy())
-                },
-                mouseMoveHero: function(t) {
-                    var e = document.querySelector(".js-hero-text"),
-                        i = e.getBoundingClientRect().height,
-                        n = t.clientY,
-                        r = (t.clientX, function(t, e, i) {
-                            var n = e / 2,
-                                r = i - n,
-                                o = r / n;
-                            t.style.transform = "perspective(" + n + "px) rotateX(" + o + "deg)"
-                        });
-                    r(e, i, n)
-                },
-                mouseLeaveHero: function() {
-                    var t = document.querySelector(".js-hero-text"),
-                        e = t.getBoundingClientRect().height / 2;
-                    t.style.transform = "perspective(" + e + "px) rotateX(0deg) rotateX(0deg)"
-                },
-                debouncedResize: function() {
-                    this.alignNewsCards()
-                },
-                animateOut: function() {
-                    this.el.style.zIndex = "-2", b["default"].remove(this.pageScroll), l["default"].prototype.animateOut.call(this)
-                },
-                destroy: function() {
-                    this.flkty && this.flkty.off("scroll", this.parallaxArtPieces), l["default"].prototype.destroy.call(this)
-                }
-            });
-        i["default"] = C
-    }, {
-        "../_core": 1,
-        "../views/play-gifmefrans": 82,
-        "../views/play-roulette": 83,
-        "../views/play-tinder": 84,
-        "babel-runtime/helpers/toConsumableArray": 112,
-        config: 45,
-        "default": 69,
-        flickity: 573,
-        "raf-scroll": 55,
-        utils: 63
-    }],
+    78: [],
     79: [function(t, e, i) {
         "use strict";
 
@@ -26135,9 +25877,9 @@
     }],
     577: [function(t, e, i) {
         ! function(i, n) {
-            "function" == typeof define && define.amd ? define(["./flickity", "tap-listener/tap-listener", "fizzy-ui-utils/utils"], function(t, e, r) {
+            "function" == typeof define && define.amd ? define(["tap-listener/tap-listener"], function(t, e, r) {
                 return n(i, t, e, r)
-            }) : "object" == typeof e && e.exports ? e.exports = n(i, t("./flickity"), t("tap-listener"), t("fizzy-ui-utils")) : n(i, i.Flickity, i.TapListener, i.fizzyUIUtils)
+            }) : "object" == typeof e && e.exports ? e.exports = n(i, t("tap-listener")) : n(i, i.TapListener)
         }(window, function(t, e, i, n) {
             "use strict";
 
