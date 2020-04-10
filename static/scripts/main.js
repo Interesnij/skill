@@ -34143,7 +34143,8 @@
                     1223: 204
                 },
                 qe = ft.ajaxSettings.xhr();
-            ct.cors = !!qe && "withCredentials" in qe, ct.ajax = qe = !!qe, ft.ajaxTransport(function(e) {
+            //ct.cors = !!qe && "withCredentials" in qe, ct.ajax = qe = !!qe, 
+                ft.ajaxTransport(function(e) {
                 var i, n;
             //    if (ct.cors || qe && !e.crossDomain) return {
                     send: function(r, o) {
