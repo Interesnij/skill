@@ -9939,7 +9939,7 @@
                     }, l["default"].prototype.initialize.call(this)
                 },
                 addEvents: function() {
-                    l["default"].prototype.addEvents.call(this), this.playStart(), this.alignNewsCards();
+                    l["default"].prototype.addEvents.call(this), this.alignNewsCards();
                     var t = window.location.href;
                     t.indexOf("/play/") > 0 && (t.indexOf("/roulette/") > 0 ? this.roulette = (new m["default"]).render() : t.indexOf("/gif/") > 0 ? this.gifmefrans = (new y["default"]).render() : t.indexOf("/tinder/") > 0 && (this.tinder = (new p["default"]).render()))
                 },
