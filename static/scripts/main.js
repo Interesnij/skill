@@ -3509,8 +3509,6 @@
             lt = n(at),
             ut = t("./components/newsletter"),
             ct = n(ut),
-            ht = t("./components/add-to-trip"),
-            ft = n(ht),
             dt = t("./components/trip-card"),
             pt = n(dt),
             gt = t("./components/gravity-form-request"),
@@ -3568,7 +3566,6 @@
                         "bubble-sidebar": st["default"],
                         "faq-questions": lt["default"],
                         newsletter: ct["default"],
-                        "add-to-trip": ft["default"],
                         "trip-card": pt["default"],
                         "gravity-form-request": mt["default"],
                         "archive-search": yt["default"],
@@ -3645,7 +3642,6 @@
             }();
         i["default"] = Vt
     }, {
-        "./components/add-to-trip": 4,
         "./components/animation-icon": 5,
         "./components/archive-search": 6,
         "./components/art-card": 7,
