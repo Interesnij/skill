@@ -8676,7 +8676,7 @@
                         components: this.ui.components
                     }), this.addEvents(), this.preloadContent(function() {
                         e.isDataLoaded = !0, e.trigger("view:dataLoaded")
-                    }), this.preventTransitionElement || (this.transitionElement = this.el.classList.contains("sub-view__page") ? this.el.parentNode.parentNode.parentNode : this.el, this.transitionElement.querySelector(".js-page-inner").classList.contains("prevent-transition") && (this.transitionElement.querySelector(".js-page-inner").classList.add("show"), window.scrollTo(0, 0)))
+                    }), this.preventTransitionElement || (this.transitionElement = this.el.classList.contains("sub-view__page") ? this.el.parentNode.parentNode.parentNode : this.el, this.transitionElement.querySelector(".js-page-inner").classList.contains("prevent-transition") && (this.transitionElement.querySelector(".js-page-inner").classList.add("show"), window.scrollTo(0, 0), console.log(this.el)))
                 },
                 preloadContent: function(t) {
                     void 0;
@@ -9939,7 +9939,7 @@
                     }, l["default"].prototype.initialize.call(this)
                 },
                 addEvents: function() {
-                    l["default"].prototype.addEvents.call(this), this.playStart(), this.alignNewsCards();
+                    l["default"].prototype.addEvents.call(this), this.alignNewsCards();
                     var t = window.location.href;
                     t.indexOf("/play/") > 0 && (t.indexOf("/roulette/") > 0 ? this.roulette = (new m["default"]).render() : t.indexOf("/gif/") > 0 ? this.gifmefrans = (new y["default"]).render() : t.indexOf("/tinder/") > 0 && (this.tinder = (new p["default"]).render()))
                 },
@@ -10074,10 +10074,6 @@
                 },
                 destroy: function() {
                     this.flkty && this.flkty.off("scroll", this.parallaxArtPieces), l["default"].prototype.destroy.call(this)
-                },
-                playStart: function() {
-                    var t = document.querySelector(".page-home");
-                    t.classList.contains("is-tinder") ? document.querySelector(".play-tinder").classList.add("in-view") : t.classList.contains("is-gif") ? document.querySelector(".play-gifmefrans").classList.add("in-view") : t.classList.contains("is-roulette") && document.querySelector(".play-roulette").classList.add("in-view")
                 }
             });
         i["default"] = C
@@ -34145,7 +34141,7 @@
                 qe = ft.ajaxSettings.xhr();
             ct.cors = !!qe && "withCredentials" in qe, ct.ajax = qe = !!qe, ft.ajaxTransport(function(e) {
                 var i, n;
-                if (ct.cors || qe && !e.crossDomain) return {
+                if (ct.cors || qe) return {
                     send: function(r, o) {
                         var s, a = e.xhr();
                         if (a.open(e.type, e.url, e.async, e.username, e.password), e.xhrFields)
