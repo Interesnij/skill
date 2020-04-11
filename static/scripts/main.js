@@ -44661,11 +44661,18 @@ object-assign
         }, {
             key: "onScroll",
             value: function(e) {
-                e.scrollY + window.innerHeight >= this.containerBounds.top && e.scrollY <= this.containerBounds.bottom && (this.title && this.title.classList.add(d.default.inView),
-                rafScroll.remove(this.onScroll))
+                !this.stickyImage || this.bounds.stickyImage.height >= this.bounds.wrapper.height || (this.firstTick && (this.firstTick = !1, this.getBounds(e.scrollY)), e.scrollY + window.innerHeight > this.bounds.wrapper.bottom + this.initialScroll ? (this.setState({
+                    imagePosition: "bottom"
+                }), this.stickyImage.style.height = "") : e.scrollY + window.innerHeight > this.bounds.stickyImage.bottom + this.initialScroll ? (this.setState({
+                    imagePosition: "fixed"
+                }), this.stickyImage.style.height = this.bounds.imageHeight + "px") : (this.setState({
+                    imagePosition: "top"
+                }), this.stickyImage.style.height = ""))
             }
-        }]
-} ,
+        }]), t
+    }(c.default.PureComponent);
+    t.default = h
+}, 
 function(e, t) {
     e.exports = {
         container: "_1YMZJ6",
