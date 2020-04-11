@@ -975,12 +975,6 @@
         }
     });
     var s = n(531);
-    Object.defineProperty(t, "EmailSubscribe", {
-        enumerable: !0,
-        get: function() {
-            return he(s).default
-        }
-    });
     var c = n(533);
     Object.defineProperty(t, "Image", {
         enumerable: !0,
@@ -12443,9 +12437,6 @@ object-assign
         musicAgain: {
             location: "customs/music/again"
         },
-        subscribeMedal: {
-            location: "emailSubscribe/medal"
-        },
         bannerAtJob: {
             location: "bannerAtJob"
         },
@@ -17308,7 +17299,6 @@ object-assign
         date: !0,
         datetime: !0,
         "datetime-local": !0,
-        email: !0,
         month: !0,
         number: !0,
         password: !0,
@@ -30041,10 +30031,6 @@ object-assign
                     id: "billing_phone",
                     type: "tel"
                 }, {
-                    label: "E-mail address",
-                    id: "user_email",
-                    type: "email"
-                }, {
                     label: "ZIP",
                     id: "billing_postcode",
                     type: "text",
@@ -31001,7 +30987,6 @@ object-assign
                   , r = void 0 === a ? "" : a
                   , o = n.contact_message
                   , i = void 0 === o ? "" : o
-                  , l = n.contact_email
                   , s = void 0 === l ? "" : l
                   , c = n.contact_phone
                   , d = void 0 === c ? "" : c;
@@ -34913,9 +34898,7 @@ object-assign
                   , s = void 0 === l ? "" : l
                   , d = r.country
                   , h = void 0 === d ? "" : d
-                  , v = r.office_email
                   , g = void 0 === v ? "" : v
-                  , y = r.press_email
                   , b = void 0 === y ? "" : y
                   , _ = r.phone_number
                   , w = void 0 === _ ? "" : _;
@@ -37589,11 +37572,6 @@ object-assign
                 breadCrumb: n,
                 simplePage: !0
             }));
-            return a.emailCheck = /^\S+@\S+\.\S+$/,
-            a.data = {
-                name: "",
-                email: ""
-            },
             a.state = {
                 subscribed: !1,
                 articlesLeft: new Array
@@ -37630,7 +37608,6 @@ object-assign
                   , a = void 0 === n ? "" : n
                   , r = t.subscribed_text
                   , o = void 0 === r ? "" : r
-                  , i = t.contact_email
                   , l = void 0 === i ? "" : i
                   , s = t.basic_press_kit
                   , c = void 0 !== s && s
@@ -37668,11 +37645,6 @@ object-assign
                     label: "Name",
                     id: "name",
                     type: "text",
-                    required: !0
-                }, {
-                    label: "Email",
-                    id: "email",
-                    type: "email",
                     required: !0
                 }])), u.default.createElement("div", {
                     className: m.default.optionalFields
@@ -37832,29 +37804,6 @@ object-assign
                   , n = t.id
                   , a = t.value;
                 this.data[n] = a
-            }
-        }, {
-            key: "submitForm",
-            value: function(e) {
-                if (e.preventDefault(),
-                !this.checkDataFilled() || !this.emailCheck.exec(this.data.email))
-                    return console.log("Fill all fields"),
-                    !1;
-                (0,
-                f.ajax)({
-                    method: "POST",
-                    url: "/press",
-                    body: this.data
-                }).then((function(e) {
-                    e && e.code
-                }
-                )).catch((function(e) {
-                    console.log(e)
-                }
-                )),
-                this.setState({
-                    subscribed: !0
-                })
             }
         }, {
             key: "checkDataFilled",
@@ -38077,18 +38026,11 @@ object-assign
             var n = (0,
             i.default)(this, (t.__proto__ || (0,
             a.default)(t)).call(this, e));
-            return n.emailCheck = /^\S+@\S+\.\S+$/,
-            n.data = {
-                email: ""
-            },
             n.state = {
                 showSubmit: !1,
                 send: !1,
                 succes: !1
-            },
-            (0,
-            c.bind)(n, "updateEmail", "blurEmail", "submitEmail"),
-            n
+            }
         }
         return (0,
         l.default)(t, e),
@@ -38104,20 +38046,7 @@ object-assign
                         className: d.default.medal,
                         svg: "subscribeMedal"
                     }));
-                var n = {
-                    className: d.default.input,
-                    placeholder: this.props.t("Your email"),
-                    type: "email",
-                    "data-field": "email",
-                    required: !0,
-                    onChange: this.updateEmail,
-                    onBlur: this.blurEmail
-                };
-                return s.default.createElement("form", {
-                    className: (0,
-                    c.mergeClassNames)(d.default.container, e, !!this.state.showSubmit && d.default.hasBtn),
-                    onSubmit: this.submitEmail
-                }, s.default.createElement("input", n), s.default.createElement(u.Button, {
+                return s.default.createElement("input", n), s.default.createElement(u.Button, {
                     className: !this.state.showSubmit && d.default.hidden,
                     type: "button",
                     action: "submit",
@@ -38129,21 +38058,6 @@ object-assign
                         }
                     })
                 }))
-            }
-        }, {
-            key: "updateEmail",
-            value: function(e) {
-                var t = e.currentTarget.value
-                  , n = void 0 === t ? "" : t;
-                this.data.email = n,
-                this.blurEmail()
-            }
-        }, {
-            key: "blurEmail",
-            value: function(e) {
-                !this.state.showSubmit && this.emailCheck.exec(this.data.email) && this.setState({
-                    showSubmit: !0
-                })
             }
         }]),
         t
@@ -44750,10 +44664,7 @@ object-assign
                 e.scrollY + window.innerHeight >= this.containerBounds.top && e.scrollY <= this.containerBounds.bottom && (this.title && this.title.classList.add(d.default.inView),
                 rafScroll.remove(this.onScroll))
             }
-        }]),
-        t
-    }(u.EmailSubscribe);
-    t.default = p
+        }])
 }
 , function(e, t) {
     e.exports = {
@@ -44870,10 +44781,7 @@ object-assign
                     d: "M452.4,113.4l-19.5,8.4l-5.1-8.5l-9.3,2.7l0.6,9.8l-21.4,4l0.6-58.9l22.3-7.7L452.4,113.4z M422.8,101.3 L415.6,88l1.1,15L422.8,101.3z"
                 }))
             }
-        }]),
-        t
-    }(c.EmailSubscribe);
-    t.default = p
+        }])
 }
 , function(e, t) {
     e.exports = {
@@ -47421,10 +47329,8 @@ object-assign
                 return [].concat((0,
                 a.default)(e)).map((function(e, a) {
                     return d.default.createElement(v.Button, {
-                        key: "maillink-" + e.email,
                         className: g.default.button,
                         type: "exlink",
-                        href: "mailto:" + e.email,
                         color: n[a % n.length],
                         label: t.renderLabel(e.name)
                     })
@@ -47566,13 +47472,7 @@ object-assign
             return n = a = (0,
             c.default)(this, (e = t.__proto__ || (0,
             i.default)(t)).call.apply(e, [this].concat(s))),
-            a.emailCheck = /^\S+@\S+\.\S+$/,
-            a.data = {
-                name: "",
-                email: "",
-                phone: "",
-                product: a.props.title
-            },
+
             a.state = {
                 submitted: !1
             },
@@ -47590,28 +47490,6 @@ object-assign
                   , n = t.id
                   , r = t.value;
                 a.data[n] = r
-            }
-            ,
-            a.submitForm = function(e) {
-                if (e.preventDefault(),
-                !a.checkDataFilled() || !a.emailCheck.exec(a.data.email))
-                    return console.log("Fill all fields"),
-                    !1;
-                (0,
-                m.ajax)({
-                    method: "POST",
-                    url: "contact" === a.props.type ? "/contact" : "/enquire",
-                    body: a.data
-                }).then((function(e) {
-                    e && e.code
-                }
-                )).catch((function(e) {
-                    console.log(e)
-                }
-                )),
-                a.setState({
-                    submitted: !0
-                })
             }
             ,
             r = n,
@@ -47761,11 +47639,6 @@ object-assign
                     label: "Name",
                     id: "name",
                     type: "text",
-                    required: !0
-                }, {
-                    label: "Email",
-                    id: "email",
-                    type: "email",
                     required: !0
                 }, {
                     label: "Phone",
@@ -52439,18 +52312,10 @@ object-assign
             i.default)(this, (t.__proto__ || (0,
             a.default)(t)).call(this, e));
             return n.transform = n.transform.bind(n),
-            n.emailCheck = /^\S+@\S+\.\S+$/,
-            n.data = {
-                email: ""
-            },
             n.state = {
                 send: !1,
                 succes: !1
-            },
-            (0,
-            f.bind)(n, "updateEmail", "blurEmail", "submitEmail"),
-            n.dismissPopup = n.dismissPopup.bind(n),
-            n
+            }
         }
         return (0,
         l.default)(t, e),
@@ -52584,72 +52449,7 @@ object-assign
                     fill: "#e7282b"
                 })))
             }
-        }, {
-            key: "renderInput",
-            value: function() {
-                var e = {
-                    type: "email",
-                    "data-field": "email",
-                    required: !0,
-                    onChange: this.updateEmail,
-                    onBlur: this.blurEmail
-                };
-                return s.default.createElement("form", {
-                    className: h.default.subscribe,
-                    onSubmit: this.submitEmail
-                }, s.default.createElement(d.InputText, {
-                    label: this.props.t("Your email"),
-                    className: h.default.input,
-                    input: e,
-                    borderColor: "#B60016"
-                }), s.default.createElement(d.Button, {
-                    className: !this.state.showSubmit && h.default.hidden,
-                    type: "button",
-                    action: "submit",
-                    color: "#61C6E0",
-                    label: s.default.createElement("span", {
-                        className: h.default.buttonLabel,
-                        dangerouslySetInnerHTML: {
-                            __html: this.props.t("Sign me up!")
-                        }
-                    })
-                }))
-            }
-        }, {
-            key: "updateEmail",
-            value: function(e) {
-                var t = e.currentTarget.value
-                  , n = void 0 === t ? "" : t;
-                this.data.email = n,
-                this.blurEmail()
-            }
-        }, {
-            key: "blurEmail",
-            value: function(e) {
-                !this.state.showSubmit && this.emailCheck.exec(this.data.email) && this.setState({
-                    showSubmit: !0
-                })
-            }
-        }, {
-            key: "submitEmail",
-            value: function(e) {
-                var t = this;
-                e.preventDefault(),
-                this.state.send || this.state.succes || !this.state.showSubmit || (this.setState({
-                    send: !0,
-                    succes: !0
-                }),
-                (0,
-                f.ajax)({
-                    method: "POST",
-                    url: "/subscribe",
-                    body: this.data
-                }),
-                setTimeout((function() {
-                    t.dismissPopup()
-                }
-                ), 2e3))
-            }
+        }
         }]),
         t
     }(s.default.PureComponent)
