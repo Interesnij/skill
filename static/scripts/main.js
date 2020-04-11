@@ -33452,7 +33452,7 @@ object-assign
             key: "dividerSetup",
             value: function() {
                 this.containerClassName = d.default.container;
-                this.textArray = "Very Good Job".split(" "),
+                this.textArray = "Very Good Job".split(" ")
             }
         }, {
             key: "renderInner",
