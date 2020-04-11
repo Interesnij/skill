@@ -8308,7 +8308,7 @@
                 YB: ["#FFD84C", "#00AD46", "#00AD46"]
             },
             background: {
-                url: "/img/patterns/cartoon-full-yellow.svg",
+                url: "/static/images/cartoon-full-yellow.svg",
                 opacity: 1
             }
         },
@@ -8317,7 +8317,7 @@
                 YB: ["#9CD5F6", "#ED152B", "#ED152B"]
             },
             background: {
-                url: "/img/patterns/dots.svg",
+                url: "/static/images/dots.svg",
                 opacity: .15
             }
         },
@@ -8335,7 +8335,7 @@
                 YB: ["#E7919E", "#FF7F00", "#FF7F00"]
             },
             background: {
-                url: "/img/patterns/dots.svg",
+                url: "/static/images/dots.svg",
                 opacity: .15
             }
         },
@@ -8344,7 +8344,7 @@
                 YB: ["#EDB03C", "#61C6E0", "#357C91"]
             },
             background: {
-                url: "/img/patterns/dots.svg",
+                url: "/static/images/dots.svg",
                 opacity: .15
             }
         },
@@ -8353,7 +8353,7 @@
                 YB: ["#91CFF5", "#9036DF", "#357C91"]
             },
             background: {
-                url: "/img/calendar/blue-lines.svg",
+                url: "/static/images/blue-lines.svg",
                 opacity: 1
             }
         },
@@ -8362,7 +8362,7 @@
                 YB: ["#E48694", "#FDCA42", "#357C91"]
             },
             background: {
-                url: "/img/calendar/pink-dots.svg",
+                url: "/static/images/pink-dots.svg",
                 opacity: 1
             }
         },
@@ -8371,7 +8371,7 @@
                 YB: ["#36975D", "#E7919E", "#4DA671"]
             },
             background: {
-                url: "/img/calendar/green-lines.svg",
+                url: "/static/images/green-lines.svg",
                 opacity: 1
             }
         }
@@ -8492,7 +8492,7 @@
                     className: p.default.textWrapper
                 }, "white_on_black" === this.props.textStyle && u.default.createElement("img", {
                     src: (0,
-                    f.getStaticAssetUrl)("/img/home/bg.png"),
+                    f.getStaticAssetUrl)("/static/images/bg.png"),
                     className: p.default.blackBackground
                 }), u.default.createElement("h3", {
                     className: (0,
@@ -11843,7 +11843,7 @@ object-assign
                     }, s.default.createElement(c.Image, {
                         image: {
                             sizes: {
-                                small: "/img/calendar/flames.png"
+                                small: "/static/images/flames.png"
                             }
                         }
                     })))
@@ -32578,7 +32578,7 @@ object-assign
                     className: C.default.footerImage,
                     image: {
                         sizes: {
-                            small: "/img/calendar/past-events.svg"
+                            small: "/static/images/past-events.svg"
                         }
                     },
                     size: "centered"
@@ -32587,7 +32587,7 @@ object-assign
                 }, m.default.createElement(_.Image, {
                     image: {
                         sizes: {
-                            small: "/img/calendar/flames.png"
+                            small: "/static/images/flames.png"
                         }
                     }
                 })))
@@ -41799,7 +41799,7 @@ object-assign
                 if (!e)
                     return !1;
                 var n = (0,
-                d.getStaticAssetUrl)("/img/svg/" + e + ".svg")
+                d.getStaticAssetUrl)("/static/images/" + e + ".svg")
                   , a = document.createElement("img");
                 a.addEventListener("load", (function() {
                     t.unmounting || t.setState({
@@ -45177,7 +45177,7 @@ object-assign
                     size: "centered",
                     image: {
                         sizes: {
-                            small: "/img/home/unicorn.png"
+                            small: "/static/images/unicorn.png"
                         }
                     }
                 }), s.default.createElement(u.default, {
