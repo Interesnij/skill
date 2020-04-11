@@ -28672,7 +28672,7 @@ object-assign
                         return e.audio = t
                     },
                     src: (0,
-                    c.getStaticAssetUrl)("/music/hydraulic_lift.mp3"),
+                    c.getStaticAssetUrl)("/static/music/hydraulic_lift.mp3"),
                     loop: !0
                 }))
             }
@@ -33225,13 +33225,13 @@ object-assign
                         return e.hit = t
                     },
                     src: (0,
-                    h.getStaticAssetUrl)("/music/hit.mp3")
+                    h.getStaticAssetUrl)("/static/music/hit.mp3")
                 }), d.default.createElement("audio", {
                     ref: function(t) {
                         return e.mis = t
                     },
                     src: (0,
-                    h.getStaticAssetUrl)("/music/mis.mp3")
+                    h.getStaticAssetUrl)("/static/music/mis.mp3")
                 }))
             }
         }, {
@@ -35550,7 +35550,7 @@ object-assign
                         return t.hit = e
                     },
                     src: (0,
-                    u.getStaticAssetUrl)("/music/hit.mp3")
+                    u.getStaticAssetUrl)("/static/music/hit.mp3")
                 }))
             }
         }, {
@@ -45293,7 +45293,7 @@ object-assign
                         return e.audio = t
                     },
                     src: (0,
-                    d.getStaticAssetUrl)("/music/chill_music.mp3"),
+                    d.getStaticAssetUrl)("/static/music/chill_music.mp3"),
                     loop: !0
                 }))
             }
