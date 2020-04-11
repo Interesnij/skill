@@ -44671,7 +44671,7 @@ object-assign
             }
         }]), t
     }(c.default.PureComponent);
-    t.default = h
+
 },
 function(e, t) {
     e.exports = {
