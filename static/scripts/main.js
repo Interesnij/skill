@@ -44672,7 +44672,7 @@ object-assign
         }]), t
     }(c.default.PureComponent);
     t.default = h
-}, 
+},
 function(e, t) {
     e.exports = {
         container: "_1YMZJ6",
@@ -44788,8 +44788,10 @@ function(e, t) {
                     d: "M452.4,113.4l-19.5,8.4l-5.1-8.5l-9.3,2.7l0.6,9.8l-21.4,4l0.6-58.9l22.3-7.7L452.4,113.4z M422.8,101.3 L415.6,88l1.1,15L422.8,101.3z"
                 }))
             }
-        }])
-}
+        }]), t
+      }(c.default);
+      t.default = f
+      }
 , function(e, t) {
     e.exports = {
         container: "_253cUr",
