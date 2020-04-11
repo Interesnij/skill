@@ -53731,35 +53731,35 @@ object-assign
             showFilter: !0,
             component: r.default,
             getRequests: [{
-                url: "/api/wp/v2/pages?slug=about",
+                url: "/pages?slug=about",
                 action: "set",
                 save: {
                     ssr: "pageData.pages",
                     client: "setPageData"
                 }
             }, {
-                url: "/api/wc/v3/products?per_page=2&page=1&status=publish",
+                url: "/products?per_page=2&page=1&status=publish",
                 action: "set",
                 save: {
                     ssr: "productData.products",
                     client: "addProducts"
                 }
             }, {
-                url: "/api/wp/v2/gallery?per_page=2&page=1&status=publish",
+                url: "/gallery?per_page=2&page=1&status=publish",
                 action: "set",
                 save: {
                     ssr: "galleryData.galleryItems",
                     client: "addGalleryItems"
                 }
             }, {
-                url: "/api/wp/v2/work?per_page=3&page=1&status=publish",
+                url: "/work?per_page=3&page=1&status=publish",
                 action: "set",
                 save: {
                     ssr: "workData.works",
                     client: "addWorks"
                 }
             }, {
-                url: "/api/wp/v2/news?per_page=1&page=1&status=publish",
+                url: "/news?per_page=1&page=1&status=publish",
                 action: "set",
                 save: {
                     ssr: "newsData.news",
@@ -53900,7 +53900,7 @@ object-assign
             showFilter: !1,
             component: a.default,
             getRequests: [{
-                url: "/api/wp/v2/work?status=publish&slug=*item*",
+                url: "/work?status=publish&slug=*item*",
                 action: "set",
                 save: {
                     ssr: "workData.works",
@@ -53915,7 +53915,7 @@ object-assign
             showFilter: !1,
             component: r.default,
             getRequests: [{
-                url: "/api/wp/v2/news?status=publish&slug=*item*",
+                url: "/news?status=publish&slug=*item*",
                 action: "set",
                 save: {
                     ssr: "newsData.news",
@@ -53930,7 +53930,7 @@ object-assign
             showFilter: !1,
             component: a.default,
             getRequests: [{
-                url: "/api/wc/v3/products?status=publish&slug=*item*",
+                url: "/products?status=publish&slug=*item*",
                 action: "set",
                 save: {
                     ssr: "productData.products",
@@ -53945,7 +53945,7 @@ object-assign
             showFilter: !1,
             component: a.default,
             getRequests: [{
-                url: "/api/wp/v2/gallery?status=publish&slug=*item*",
+                url: "/gallery?status=publish&slug=*item*",
                 action: "set",
                 save: {
                     ssr: "galleryData.gallery",
