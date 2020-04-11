@@ -11996,7 +11996,7 @@ object-assign
             }))
         },
         introText: {
-            location: "overview/whoTheHellAreStudioJob"
+            location: "/whoTheHellAreStudioJob"
         },
         dots: {
             viewBox: "0 0 31 7",
