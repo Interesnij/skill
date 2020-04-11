@@ -44664,8 +44664,9 @@ object-assign
                 e.scrollY + window.innerHeight >= this.containerBounds.top && e.scrollY <= this.containerBounds.bottom && (this.title && this.title.classList.add(d.default.inView),
                 rafScroll.remove(this.onScroll))
             }
-        }])
-} n = function(e, t) {
+        }]
+} ,
+function(e, t) {
     e.exports = {
         container: "_1YMZJ6",
         title: "a5bfiU",
