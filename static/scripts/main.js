@@ -44665,8 +44665,7 @@ object-assign
                 rafScroll.remove(this.onScroll))
             }
         }])
-}
- function(e, t) {
+} n = function(e, t) {
     e.exports = {
         container: "_1YMZJ6",
         title: "a5bfiU",
