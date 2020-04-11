@@ -44591,72 +44591,151 @@ object-assign
     Object.defineProperty(t, "__esModule", {
         value: !0
     });
-    var a = f(n(10))
-      , r = f(n(3))
-      , o = f(n(1))
-      , i = f(n(2))
-      , l = f(n(4))
-      , s = f(n(5))
-      , c = f(n(0))
-      , u = n(8)
-      , d = f(n(627));
-    function f(e) {
+    var a = p(n(3)),
+        r = p(n(1)),
+        o = p(n(2)),
+        i = p(n(4)),
+        l = p(n(5)),
+        s = n(0),
+        c = p(s),
+        u = n(8),
+        d = n(6),
+        f = p(n(672));
+
+    function p(e) {
         return e && e.__esModule ? e : {
             default: e
         }
     }
-    var p = function(e) {
+    var h = function(e) {
         function t(e) {
-            (0,
-            o.default)(this, t);
-            var n = (0,
-            l.default)(this, (t.__proto__ || (0,
-            r.default)(t)).call(this, e));
-            return n.TITLE = ["Sign up to", "get spam", "in your mail"],
-            n.onScroll = n.onScroll.bind(n),
-            n
+            (0, r.default)(this, t);
+            var n = (0, i.default)(this, (t.__proto__ || (0, a.default)(t)).call(this, e));
+            return n.state = {
+                imagePosition: "top"
+            }, n.flkty = !1, n.onScrollAdded = !1, n.props.addFont && n.props.addFont("CartoonistKooky"), n.props.addFont && n.props.addFont("BowlbyOne"), (0, d.bind)(n, "getBounds", "onScroll", "onResize"), n
         }
-        return (0,
-        s.default)(t, e),
-        (0,
-        i.default)(t, [{
+        return (0, l.default)(t, e), (0, o.default)(t, [{
             key: "componentDidMount",
             value: function() {
-                if (window.innerWidth > 1024) {
-                    var e = this.container.getBoundingClientRect();
-                    this.containerBounds = {
-                        top: e.top + window.pageYOffset,
-                        bottom: e.bottom + window.pageYOffset,
-                        height: e.height
-                    },
-                    rafScroll.add(this.onScroll)
-                }
+                this.getBounds(), resizer.add(this.onResize), this.initRafScroll()
+            }
+        }, {
+            key: "componentWillUnmount",
+            value: function() {
+                resizer.remove(this.onResize), this.onScrollAdded && this.props.rafScroll.remove(this.onScroll)
+            }
+        }, {
+            key: "componentDidUpdate",
+            value: function(e) {
+                var t = e.title,
+                    n = void 0 === t ? "" : t,
+                    a = this.props.title;
+                n !== (void 0 === a ? "" : a) && this.getBounds(), this.initRafScroll()
+            }
+        }, {
+            key: "initRafScroll",
+            value: function() {
+                this.props.rafScroll && !this.onScrollAdded && (this.firstTick = !0, this.onScrollAdded = !0, this.props.rafScroll.add(this.onScroll))
             }
         }, {
             key: "render",
             value: function() {
-                var e = this;
-                return c.default.createElement("div", {
-                    className: d.default.container,
+                var e = this,
+                    t = this.props.data,
+                    n = void 0 === t ? {} : t,
+                    a = n.title,
+                    r = void 0 === a ? "" : a,
+                    o = n.subtitle,
+                    i = void 0 === o ? "" : o,
+                    l = n.copy,
+                    p = void 0 === l ? "" : l,
+                    h = n.background_color,
+                    m = void 0 === h ? "" : h,
+                    v = n.has_extra_images,
+                    g = void 0 !== v && v,
+                    y = n.extra_images,
+                    b = void 0 === y ? [] : y,
+                    _ = b.length >= 3 || (0, d.isMobile)();
+                return c.default.createElement(s.Fragment, null, c.default.createElement("div", {
+                    className: f.default.text
+                }, c.default.createElement("div", {
+                    className: f.default.pattern,
                     ref: function(t) {
-                        return e.container = t
+                        return e.stickyWrapper = t
                     }
-                }, !this.state.succes && c.default.createElement("h2", {
-                    className: d.default.title,
+                }, c.default.createElement("div", {
+                    className: (0, d.mergeClassNames)(f.default.inner, f.default[this.state.imagePosition]),
                     ref: function(t) {
-                        return e.title = t
+                        return e.stickyImage = t
                     }
-                }, [].concat((0,
-                a.default)(this.TITLE)).map((function(e, t) {
-                    return c.default.createElement("span", {
-                        className: d.default.titleRow,
-                        key: "title-part-" + t,
-                        dangerouslySetInnerHTML: {
-                            __html: e
-                        }
+                }, c.default.createElement(u.Image, {
+                    image: this.props.data.image
+                }))), c.default.createElement("div", {
+                    className: (0, d.mergeClassNames)(this.props.className, f.default.copy),
+                    style: {
+                        backgroundColor: m
+                    }
+                }, c.default.createElement("h2", null, r), c.default.createElement("h3", null, i), c.default.createElement("div", {
+                    dangerouslySetInnerHTML: {
+                        __html: p
+                    }
+                }))), !!(g && b && b.length > 0) && c.default.createElement("div", {
+                    className: (0, d.mergeClassNames)(_ ? f.default.imagesMarquee : f.default.images, !!this.props.isGalleryItem && f.default.imagesGallery),
+                    ref: function(t) {
+                        return e.flktyNode = !!_ && t
+                    }
+                }, this.renderImages(b, _)))
+            }
+        }, {
+            key: "renderImages",
+            value: function(e, t) {
+                var n = this;
+                t && this.startMarquee();
+                var a = e.length >= 4 || !t ? e.length : 5;
+                return new Array(a).fill(!1).map((function(t, a) {
+                    var r = e[a % e.length];
+                    return c.default.createElement(u.Image, {
+                        key: "image-" + a,
+                        className: f.default.image,
+                        image: r.image,
+                        onClick: n.props.zoomImage,
+                        onMouseEnter: n.props.setCursor,
+                        onMouseLeave: n.props.resetCursor,
+                        onMouseMove: n.props.setCursor
+                    })
+                }))
+            }
+        }, {
+            key: "getBounds",
+            value: function() {
+                var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0,
+                    t = !!this.stickyImage && this.stickyImage.getBoundingClientRect();
+                this.initialScroll = e, this.bounds = {
+                    wrapper: !!this.stickyWrapper && this.stickyWrapper.getBoundingClientRect(),
+                    stickyImage: t,
+                    imageHeight: !!t && t.height
+                }
+            }
+        }, {
+            key: "onResize",
+            value: function(e) {
+                e.isLastTick && (this.getBounds(), this.startMarquee())
+            }
+        }, {
+            key: "startMarquee",
+            value: function() {
+                if (this.flktyNode && "undefined" != typeof Flickity) {
+                    this.flkty && this.flkty.destroy();
+                    this.flkty = new Flickity(this.flktyNode, {
+                        prevNextButtons: !1,
+                        wrapAround: !0,
+                        freeScroll: !0,
+                        pageDots: !1,
+                        cellAlign: "left",
+                        contain: !0
                     })
                 }
-                ))), this.renderInput(d.default.subscribe, "#61C6E0"))
             }
         }, {
             key: "onScroll",
