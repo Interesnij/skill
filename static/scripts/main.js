@@ -2947,7 +2947,7 @@
                       , a = n.site
                       , r = void 0 === a ? {} : a
                       , o = r.title
-                      , i = void 0 === o ? "Studio Job" : o;
+                      , i = void 0 === o ? "Академия" : o;
                     t = t ? i + " - " + t : i,
                     "undefined" != typeof document ? document.title = t : e.pageTitle = t
                 }
@@ -11805,7 +11805,7 @@ object-assign
                 var o = (0,
                 i.default)(this, (n.__proto__ || (0,
                 a.default)(n)).call(this, t))
-                  , l = "Studio Job - 404";
+                  , l = "Академия - 404";
                 return "undefined" != typeof document ? document.title = l : e.pageTitle = l,
                 o.setPageTitle(),
                 o
@@ -29945,21 +29945,6 @@ object-assign
                 this.setCache()
             }
         }, {
-            key: "viewDidMount",
-            value: function() {
-                this._fetchData({}, this.setCountryData, [{
-                    url: "/api/studiojob/v1/country_data",
-                    action: "set",
-                    save: {
-                        client: "setCountryData"
-                    }
-                }], !0),
-                this.updateOrderReview(!0),
-                this.getProducts(),
-                this._setBreadCrumbs(this.props.t("Checkout"), this.props, !1, !0),
-                rafScroll.add(this.rafLoop)
-            }
-        }, {
             key: "componentWillUnmount",
             value: function() {
                 rafScroll.remove(this.rafLoop)
@@ -30326,24 +30311,6 @@ object-assign
             value: function(e, t) {
                 this.updateOrderTimeout && clearTimeout(this.updateOrderTimeout),
                 this.updateOrderTimeout = setTimeout(e, t ? 1 : 500)
-            }
-        }, {
-            key: "getPaymentMethods",
-            value: function() {
-                var e = this;
-                (0,
-                y.ajax)({
-                    method: "GET",
-                    url: "/api/studiojob/v1/payment_methods"
-                }).then((function(t) {
-                    t.succes && t.message && e.setState({
-                        paymentMethods: t.message
-                    })
-                }
-                )).catch((function(e) {
-                    console.log(e)
-                }
-                ))
             }
         }, {
             key: "placeOrder",
@@ -32906,16 +32873,16 @@ object-assign
                         sizes: {
                             "small-height": 235,
                             "small-width": 134,
-                            small: "/img/dividers/sharkSmall.png",
+                            small: "/static/images/sharkSmall.png",
                             "medium-height": 392,
                             "medium-width": 224,
-                            medium: "/img/dividers/sharkMedium.png",
+                            medium: "/static/images/sharkMedium.png",
                             "large-height": 588,
                             "large-width": 335,
-                            large: "/img/dividers/sharkLarge.png",
+                            large: "/static/images/sharkLarge.png",
                             "xLarge-height": 784,
                             "xLarge-width": 447,
-                            xLarge: "/img/dividers/shark.png"
+                            xLarge: "/static/images/shark.png"
                         }
                     }
                 })))
@@ -37878,7 +37845,7 @@ object-assign
                 (0,
                 f.ajax)({
                     method: "POST",
-                    url: "/api/studiojob/v1/press",
+                    url: "/press",
                     body: this.data
                 }).then((function(e) {
                     e && e.code
@@ -38179,21 +38146,6 @@ object-assign
                 !this.state.showSubmit && this.emailCheck.exec(this.data.email) && this.setState({
                     showSubmit: !0
                 })
-            }
-        }, {
-            key: "submitEmail",
-            value: function(e) {
-                e.preventDefault(),
-                this.state.send || this.state.succes || !this.state.showSubmit || (this.setState({
-                    send: !0,
-                    succes: !0
-                }),
-                (0,
-                c.ajax)({
-                    method: "POST",
-                    url: "/api/studiojob/v1/subscribe",
-                    body: this.data
-                }))
             }
         }]),
         t
@@ -42223,7 +42175,7 @@ object-assign
                 void (0,
                 d.ajax)({
                     method: "POST",
-                    url: "/api/studiojob/v1/search",
+                    url: "/search",
                     body: {
                         search: n.toLocaleLowerCase()
                     }
@@ -46277,7 +46229,7 @@ object-assign
                     }
                 }, c.default.createElement("span", {
                     className: v.default.seoTitle
-                }, this.props.t("Studio Job")), c.default.createElement(h.SvgLib, {
+                }, this.props.t("Академия")), c.default.createElement(h.SvgLib, {
                     svg: "logo",
                     className: v.default.svg
                 }), c.default.createElement(h.SvgLib, {
@@ -46325,7 +46277,7 @@ object-assign
                     }
                 }, c.default.createElement("span", {
                     className: v.default.seoTitle
-                }, this.props.t("Studio Job")), !(!f || !f.sticker) && c.default.createElement("div", {
+                }, this.props.t("Академия")), !(!f || !f.sticker) && c.default.createElement("div", {
                     className: v.default.simpleHeadSticker
                 }, c.default.createElement(p, null)), r && c.default.createElement("div", {
                     className: v.default.simpleHeadTitle
@@ -47650,7 +47602,7 @@ object-assign
                 (0,
                 m.ajax)({
                     method: "POST",
-                    url: "contact" === a.props.type ? "/api/studiojob/v1/contact" : "/api/studiojob/v1/enquire",
+                    url: "contact" === a.props.type ? "/contact" : "/enquire",
                     body: a.data
                 }).then((function(e) {
                     e && e.code
@@ -52692,7 +52644,7 @@ object-assign
                 (0,
                 f.ajax)({
                     method: "POST",
-                    url: "/api/studiojob/v1/subscribe",
+                    url: "/subscribe",
                     body: this.data
                 }),
                 setTimeout((function() {
@@ -53144,29 +53096,6 @@ object-assign
                       , n = +new Date - t < 36e5;
                     if (0 !== t && !n)
                         return this.props.removeUserData()
-                }
-            }, {
-                key: "fetchSessionData",
-                value: function() {
-                    var e = this;
-                    (0,
-                    C.fetchRequired)({
-                        getRequests: [{
-                            url: "/api/studiojob/v1/locale_settings",
-                            action: "set",
-                            save: {
-                                ssr: "cartData.localeSettings",
-                                client: "setLocaleSettings"
-                            },
-                            noCache: !0
-                        }]
-                    }, (function(t) {
-                        t.forEach((function(t) {
-                            return e.props[t.call](t.data)
-                        }
-                        ))
-                    }
-                    ))
                 }
             }, {
                 key: "scrollListener",
