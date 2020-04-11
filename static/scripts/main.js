@@ -2854,7 +2854,6 @@
                 return e.props.setShowFilter && t._setShowFilter(e, e.props.showFilter),
                 e.breadCrumb && t._setBreadCrumbs(e.breadCrumb, e.props, e.single, e.simplePage),
                 t.props.getRequests && t._fetchData(e.fetchParams, e.fetchCb),
-                t._fetchSessionData(e.forceSyncCart && !0 === e.forceSyncCart),
                 t
             }
             return (0,
@@ -2973,7 +2972,6 @@
                     ))
                 }
             }, {
-                key: "_fetchSessionData",
                 value: function(e) {
                     this.props.syncCart(e, this.props.cartData())
                 }
@@ -53049,7 +53047,6 @@ object-assign
                     }
                     )),
                     this.checkUserData(),
-                    this.fetchSessionData(),
                     this.isMobileLandscape()
                 }
             }, {
