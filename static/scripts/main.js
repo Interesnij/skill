@@ -38057,7 +38057,7 @@ object-assign
                             __html: this.props.t("Sign me up!")
                         }
                     })
-                }))
+                })
             }
         }]),
         t
