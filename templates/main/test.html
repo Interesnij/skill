@@ -6,7 +6,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimal-ui, shrink-to-fit=no, viewport-fit=cover">
     <meta charset="UTF-8">
-    <link rel=dns-prefetch href=https://cdn.studio-job.com>
     <script defer src="{% static 'scripts/main.js' %}"></script>
     <link rel=preload as=font crossorigin=crossorigin type=font/woff2 href="{% static 'fonts/Graphik-Regular.woff2' %}">
     <link rel=preload as=font crossorigin=crossorigin type=font/woff2 href="{% static 'fonts/Graphik-Semibold.woff2' %}">
@@ -584,7 +583,12 @@
 
 {% include 'base_block/preload_state.html' %}
 
-
+<script>
+        function gtag() {
+            dataLayer.push(arguments)
+        }
+        window.BIA_GA_ID = "UA-72433047-1", window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", window.BIA_GA_ID)
+    </script>
 </body>
 
 </html>
