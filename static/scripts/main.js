@@ -44665,7 +44665,7 @@ object-assign
                 rafScroll.remove(this.onScroll))
             }
         }])
-};
+}
  function(e, t) {
     e.exports = {
         container: "_1YMZJ6",
