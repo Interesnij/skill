@@ -52458,12 +52458,40 @@ function(e, t) {
                     fill: "#e7282b"
                 })))
             }
-        }
-        }]),
-        t
+        }, {
+            key: "renderInput",
+            value: function() {
+                var e = {
+                    type: "email",
+                    "data-field": "email",
+                    required: !0,
+                    onChange: this.updateEmail,
+                    onBlur: this.blurEmail
+                };
+                return s.default.createElement("form", {
+                    className: h.default.subscribe,
+                    onSubmit: this.submitEmail
+                }, s.default.createElement(d.InputText, {
+                    label: this.props.t("Your email"),
+                    className: h.default.input,
+                    input: e,
+                    borderColor: "#B60016"
+                }), s.default.createElement(d.Button, {
+                    className: !this.state.showSubmit && h.default.hidden,
+                    type: "button",
+                    action: "submit",
+                    color: "#61C6E0",
+                    label: s.default.createElement("span", {
+                        className: h.default.buttonLabel,
+                        dangerouslySetInnerHTML: {
+                            __html: this.props.t("Sign me up!")
+                        }
+                    })
+                }))
+            }
+        }]), t
     }(s.default.PureComponent)
-}
-, function(e, t) {
+}, function(e, t) {
     e.exports = {
         container: "_38Zexq",
         shadow: "_2eKVZq",
