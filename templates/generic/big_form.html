@@ -21,9 +21,9 @@
                         <label style="margin-top:0px;" class="col-form-label">Категория</label>
                         <select class="subcategory_load" name="category" id="id_category">
                             <option style="margin-top:18px;" value="">Категория</option>
+                            <option value="1">тарам</option>
+                            <option value="2">тарарам</option>
                             {% for object in categories %}
-                              <option value="1">тарам</option>
-                              <option value="2">тарарам</option>
                               <option value="{{ object.pk }}">{{ object.name }}</option>
                             {% endfor %}
                         </select>
