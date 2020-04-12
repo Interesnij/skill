@@ -207,4 +207,4 @@ function changeTab(_this){
         changeTarget.find( "#" + parameters + " textarea").prop("disabled", false);
         changeTarget.find( "#" + parameters + " select").prop("disabled", false);
     }
-}();
+};
