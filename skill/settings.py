@@ -22,28 +22,46 @@ DJANGO_APPS = [
     'django.contrib.humanize',
     'django.contrib.sites',
     'rest_framework',
-    'imagekit',
     'rest_framework.authtoken',
+    'imagekit',
     'channels',
     'easy_thumbnails',
     'allauth',
     'allauth.account',
-    'rest_auth.registration',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.vk',
     'rest_auth',
+    'rest_auth.registration',
     'ckeditor',
     'ckeditor_uploader',
 ]
 
-MY_APPS = [
+BASIC_APPS = [
     'users',
     'notifications',
     'main',
     'chat',
+    'faq',
+    'news',
+    'search',
+    'countries',
+    'regions',
+    'cities',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + MY_APPS
+AD_APPS = [
+    'ad_categories',
+    'ad_posts',
+    'ad_model',
+]
+
+SKILL_APPS = [
+    'skill_categories',
+    'skill_posts',
+    'skill_model',
+]
+
+INSTALLED_APPS = DJANGO_APPS + BASIC_APPS + AD_APPS + SKILL_APPS
 
 CKEDITOR_CONFIGS = {
        'default': {

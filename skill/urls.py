@@ -21,11 +21,23 @@ urlpatterns = [
     url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
     url(r'^account/', include('allauth.urls')),
-
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+
     url(r'^users/', include('users.urls')),
     url(r'^notifications/', include('notifications.urls')),
     url(r'^chat/', include('chat.urls')),
+    url(r'^faq/', include('faq.urls')),
+    url(r'^news/', include('news.urls')),
+    url(r'^search/', include('search.urls')),
+    url(r'^countries/', include('countries.urls')),
+    url(r'^regions/', include('regions.urls')),
+    url(r'^cities/', include('cities.urls')),
+
+    url(r'^categories/', include('ad_categories.urls')),
+    url(r'^posts/', include('ad_posts.urls')),
+
+    url(r'^skill_categories/', include('skill_categories.urls')),
+    url(r'^skill_posts/', include('skill_posts.urls')),
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
