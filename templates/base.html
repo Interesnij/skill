@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!doctype html>
 <html>
 
@@ -6,44 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimal-ui, shrink-to-fit=no, viewport-fit=cover">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="/static/styles/style.css" media="all" />
-    <link rel="stylesheet" href="/static/styles/style2.css" media="all" />
+    <link type="text/css" media="all" href="{% static 'styles/bootstrap.css' %}" rel="stylesheet" />
+    <link type="text/css" media="none" onload="if(media!='all')media='all'" href="{% static 'styles/font-awesome.css' %}" rel="stylesheet" />
+    <link type="text/css" media="none" onload="if(media!='all')media='all'" href="{% static 'styles/selectize.css' %}" rel="stylesheet" >
+    <link type="text/css" media="none" onload="if(media!='all')media='all'" href="{% static 'styles/style.css' %}" rel="stylesheet" />
 </head>
 
-<body class="is_loading">
-  {% include 'base_block/svg_top.html' %}
-
-  <div class="resizing">
-      <div class="resizing__title">Repainting artworks</div>
-  </div>
-
-  <div class="page-transition-curtains">
-      <div class="page-transition-curtain page-transition-curtain--top"></div>
-      <div class="page-transition-curtain page-transition-curtain--bottom"></div>
-  </div>
-
-  <a href="{% url 'main' %}" class="logo">
-    <svg viewBox="0 0 340.8 100" enable-background="new 0 0 340.8 100" xml:space="preserve" class="svg-logo" preserveAspectRatio="none">
-      <use x="0" y="0" href="#logo" xlink:href="#logo"></use>
-    </svg>
-  </a>
-
-  <div class="header-overlay js-toggleMenu"></div>
-  <div class="touch-header-overlay js-close-nav-dropdown"></div>
-
-  {% include 'base_block/header.html' %}
-  {% include 'base_block/menu_2.html' %}
+<body>
+  {% include "navbar.html" %}
 
   {% block content %}
   {% endblock %}
 
-  <div id="video-modal-cont"></div>
-  <script>
-    window.BIA = window.BIA || {};
-    BIA.BASE_URL = 'https://навык.рус';
-    BIA.ROUTES = [];
-  </script>
-  <script src="/static/scripts/main.js" type="text/javascript"></script>
+  {% include "footer.html" %}
 
-  </body>
+  <script defer src="{% static 'scripts/jquery-3.3.1.min.js' %}" type="text/javascript" /></script>
+  <script defer src="{% static 'scripts/popper.min.js' %}" type="text/javascript" defer /></script>
+  <script defer src="{% static 'scripts/bootstrap.min.js' %}" type="text/javascript" defer ></script>
+  <script defer src="{% static 'scripts/selectize.min.js' %}" type="text/javascript" defer /></script>
+  <script defer src="{% static 'scripts/masonry.pkgd.min.js' %}" type="text/javascript" defer /></script>
+  <script defer src="{% static 'scripts/icheck.min.js' %}" type="text/javascript" defer /></script>
+  <script defer src="{% static 'scripts/jquery-ui.min.js' %}" defer /></script>
+  <script defer src="{% static 'scripts/jquery.ui.touch-punch.min.js'%}" defer /></script>
+  <script defer src="{% static 'scripts/custom.js' %}" type="text/javascript" /></script>
+
+</body>
 </html>

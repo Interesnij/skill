@@ -1,188 +1,76 @@
-<div class="footer-newsletter" data-component="newsletter">
-    <h3 class="footer-newsletter__subtitle">Newsletter</h3>
-    <form class="footer-newsletter__form js-newsletterSubscribe">
-        <p class="footer-newsletter__title">
-            <span class="footer-newsletter__title--feedback js-initial-message">
-                Frans likes to send you emails
-                <span data-text="Frans likes to send you emails"></span>
-                <span data-text="Frans likes to send you emails"></span>
-            </span>
-            <span class="footer-newsletter__title--feedback js-name-message hidden">
-                Frans is pleased to meet you
-                <span data-text="Frans is pleased to meet you"></span>
-                <span data-text="Frans is pleased to meet you"></span>
-            </span>
-            <span class="footer-newsletter__title--feedback js-error-message hidden">
-                Frans can't accept this email
-                <span data-text="Frans can't accept this email"></span>
-                <span data-text="Frans can't accept this email"></span>
-            </span>
-            <span class="footer-newsletter__title--feedback js-valid-message hidden">
-                Looking good!
-                <span data-text="Looking good!"></span>
-                <span data-text="Looking good!"></span>
-            </span>
-            <span class="footer-newsletter__title--feedback js-choice-message hidden">
-                Select your newsletter(s)
-                <span data-text="Select your newsletter(s)"></span>
-                <span data-text="Select your newsletter(s)"></span>
-            </span>
-            <span class="footer-newsletter__title--feedback js-succes-message hidden">
-                Awesome! You've got mail
-                <span data-text="Awesome! You've got mail"></span>
-                <span data-text="Awesome! You've got mail"></span>
-            </span>
-        </p>
-
-        <div class="footer-newsletter__body">
-            <div class="footer-newsletter__fields">
-                <p>
-                    <label>
-                        <input class="footer-newsletter__input js-newsletter-input" style="color: rgb(243, 116, 74)" />
-                        <span class='input-label'>
-                            Name
-                        </span>
-                    </label>
-                    <label>
-                        <input class="footer-newsletter__input js-newsletter-input js-email" style="color: rgb(243, 116, 74)" />
-                        <span class='input-label'>
-                            Email
-                        </span>
-                    </label>
-                </p>
+{% load staticfiles %}
+<footer class="footer">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <a href="#" class="brand">
+                                НАЗВАНИЕ
+                            </a>
+                            <p>
+                                Подавайте объявления на множество тем в любой локации Российской Федерации
+                            </p>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Разделы</h2>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <nav>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="{% url 'main' %}">Главная</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Помощь</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Войти</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">О сайте</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <nav>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="#">Мои товары</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Избранное</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Подписки</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>Контакты</h2>
+                            <address>
+                                <figure>
+                                    г.Москва<br>
+                                    ул.Мюнхаузена 1-111
+                                </figure>
+                                <br>
+                                <strong>Email:</strong> <a href="#">hello@example.com</a>
+                                <br>
+                                <strong>Тел: </strong> 8904 237 36 37
+                                <br>
+                                <br>
+                                <a href="#" class="btn btn-primary text-caps btn-framed">Связаться</a>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+                <div class="background">
+                    <div class="background-image original-size">
+                        <img src="{% static 'images/footer-background-icons.jpg' %}" alt="">
+                    </div>
+                </div>
             </div>
-            <span class="js-mc-newsletter" data-id="d90361d702" style="display: none"></span>
-            <button class="button button--rounded footer-newsletter__submit js-newsletterSubmit"
-                    style="color: rgb(252, 227, 115)"
-                    disabled="disabled" data-nonce="b911c5f8df"><span>signup</span>
-            </button>
-        </div>
-    </form>
-</div>
-<div class="footer-locations">
-    <div class="locations__container">
-        <div class="locations__title">One museum two locations</div>
-        <div class="locations__wrapper">
-            <div class="locations__single">
-                <a href="">
-                    <svg viewBox="0 0 221.8 113.7" enable-background="new 0 0 221.8 113.7" xml:space="preserve" class="" preserveAspectRatio="none">
-                        <use x="0" y="0" href="#hof-outline" xlink:href="#hof-outline"></use>
-                    </svg>
-                    <span class="locations__address">
-                        <strong>HOF</strong>
-                        Groot Heiligland 62<br />
-                        2011 ES Haarlem
-                    </span>
-                </a>
-                <a href="" class="locations__link active-line">
-                    Opening hours
-                    <span></span>
-                </a>
-            </div>
-
-            <div class="locations__single">
-                <a href="">
-                    <svg viewBox="0 0 80.6 120.5" enable-background="new 0 0 80.6 120.5" xml:space="preserve" class="" preserveAspectRatio="none">
-                        <use x="0" y="0" href="#hal-outline" xlink:href="#hal-outline"></use>
-                    </svg>
-                    <span class="locations__address">
-                        <strong>HAL</strong>
-                        Grote Markt 16<br />
-                        2011 RD Haarlem
-                    </span>
-                </a>
-
-                <a href="" class="locations__link active-line">
-                    Opening hours
-                    <span></span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="footer__socials">
-    <a class="footer__social footer__social--facebook" href="">
-      <span class="animation-icon">
-        <span class="static-svg">
-          <svg x="0px" y="0px" viewBox="0 0 25.1 43.5" xml:space="preserve">
-            <path d="M22.5,1.8l-5.2,0c-5.8,0-9.6,3.9-9.6,9.8v4.5c0,0,0,0,0,0H2.6c-0.5,0-0.8,0.4-0.8,0.8v6.5 c0,0.5,0.4,0.8,0.8,0.8h5.2c0,0,0,0,0,0v16.5c0,0.5,0.4,0.8,0.8,0.8h6.8c0.5,0,0.8-0.4,0.8-0.8V24.4c0,0,0,0,0,0h6.1 c0.5,0,0.8-0.4,0.8-0.8l0-6.6c0-0.2-0.1-0.4-0.2-0.6s-0.4-0.2-0.6-0.2h-6.1c0,0,0,0,0,0v-3.8c0-1.8,0.4-2.8,2.9-2.8l3.5,0 c0.5,0,0.8-0.4,0.8-0.8V2.6C23.4,2.1,23,1.8,22.5,1.8z" />
-          </svg>
-        </span>
-        <span class="animation-svg" data-component="animation-icon">
-          <svg x="0px" y="0px" viewBox="0 0 25.1 43.5" xml:space="preserve">
-              <path d="M22.5,1.8l-5.2,0c-5.8,0-9.6,3.9-9.6,9.8v4.5c0,0,0,0,0,0H2.6c-0.5,0-0.8,0.4-0.8,0.8v6.5 c0,0.5,0.4,0.8,0.8,0.8h5.2c0,0,0,0,0,0v16.5c0,0.5,0.4,0.8,0.8,0.8h6.8c0.5,0,0.8-0.4,0.8-0.8V24.4c0,0,0,0,0,0h6.1 c0.5,0,0.8-0.4,0.8-0.8l0-6.6c0-0.2-0.1-0.4-0.2-0.6s-0.4-0.2-0.6-0.2h-6.1c0,0,0,0,0,0v-3.8c0-1.8,0.4-2.8,2.9-2.8l3.5,0 c0.5,0,0.8-0.4,0.8-0.8V2.6C23.4,2.1,23,1.8,22.5,1.8z" />
-          </svg>
-        </span>
-      </span>
-    </a>
-    <a class="footer__social footer__social--twitter" href="">
-      <span class="animation-icon">
-        <span class="static-svg">
-          <svg x="0px" y="0px" viewBox="0 0 43.5 35.3" xml:space="preserve">
-            <path d="M37.4,20.8" />
-            <path d="M36.7,18c-0.3,1.3-0.9,2.6-1.6,3.8c-3.7,6.4-10.4,10.8-17.8,11.6c-8.8,1-15.5-3-15.5-3 c5.4,1.6,12.4-3.9,12.4-3.9c-6.2,0.8-7.8-5.4-7.8-5.4c1.6,0,3.1-0.8,3.1-0.8c-6.2-1.6-6.2-7.8-6.2-7.8c1.6,0.8,3.9,0.8,3.9,0.8 C1,8.7,4.9,2.5,4.9,2.5s3.9,5.4,8.5,7s7.8,1.6,8.5,1.6h0.9c-0.2-0.7-0.2-1.5-0.1-2.3c0.3-3.6,3.2-6.5,6.8-6.9 c4.7-0.5,8.6,3.1,8.6,7.7C38.2,9.5,38.1,14.4,36.7,18z" />
-            <path d="M39,6.5c0,0,1.3,0.1,2.8-0.6C41,6.8,39.9,8,39,8.4" />
-            <path d="M36.8,3.5c0,0,3-0.8,3.8-1.2c-0.5,0.9-1.6,2.1-2.2,2.4" />
-          </svg>
-        </span>
-        <span class="animation-svg" data-component="animation-icon">
-          <svg x="0px" y="0px" viewBox="0 0 43.5 35.3" xml:space="preserve">
-            <path d="M37.4,20.8" />
-            <path d="M36.7,18c-0.3,1.3-0.9,2.6-1.6,3.8c-3.7,6.4-10.4,10.8-17.8,11.6c-8.8,1-15.5-3-15.5-3 c5.4,1.6,12.4-3.9,12.4-3.9c-6.2,0.8-7.8-5.4-7.8-5.4c1.6,0,3.1-0.8,3.1-0.8c-6.2-1.6-6.2-7.8-6.2-7.8c1.6,0.8,3.9,0.8,3.9,0.8 C1,8.7,4.9,2.5,4.9,2.5s3.9,5.4,8.5,7s7.8,1.6,8.5,1.6h0.9c-0.2-0.7-0.2-1.5-0.1-2.3c0.3-3.6,3.2-6.5,6.8-6.9 c4.7-0.5,8.6,3.1,8.6,7.7C38.2,9.5,38.1,14.4,36.7,18z" />
-            <path d="M39,6.5c0,0,1.3,0.1,2.8-0.6C41,6.8,39.9,8,39,8.4" />
-            <path d="M36.8,3.5c0,0,3-0.8,3.8-1.2c-0.5,0.9-1.6,2.1-2.2,2.4" />
-          </svg>
-        </span>
-      </span>
-    </a>
-    <a class="footer__social footer__social--instagram" href="">
-      <span class="animation-icon">
-        <span class="static-svg">
-          <svg x="0px" y="0px" viewBox="0 0 43.5 43.5" xml:space="preserve">
-            <path d="M33.8,41.8h-24c-4.4,0-8-3.6-8-8v-24c0-4.4,3.6-8,8-8h24c4.4,0,8,3.6,8,8v24C41.8,38.2,38.2,41.8,33.8,41.8z" />
-            <path d="M30.4,21.8c0,4.8-3.9,8.6-8.6,8.6s-8.6-3.9-8.6-8.6s3.9-8.6,8.6-8.6S30.4,17,30.4,21.8z" />
-            <path d="M35.4,9.6C35,10,34.3,9.9,33.9,9.5S33.5,8.4,34,8s1.1-0.4,1.5,0.1S35.9,9.2,35.4,9.6z" />
-          </svg>
-        </span>
-        <span class="animation-svg" data-component="animation-icon">
-          <svg x="0px" y="0px" viewBox="0 0 43.5 43.5" xml:space="preserve">
-            <path d="M33.8,41.8h-24c-4.4,0-8-3.6-8-8v-24c0-4.4,3.6-8,8-8h24c4.4,0,8,3.6,8,8v24C41.8,38.2,38.2,41.8,33.8,41.8z" />
-            <path d="M30.4,21.8c0,4.8-3.9,8.6-8.6,8.6s-8.6-3.9-8.6-8.6s3.9-8.6,8.6-8.6S30.4,17,30.4,21.8z" />
-            <path d="M35.4,9.6C35,10,34.3,9.9,33.9,9.5S33.5,8.4,34,8s1.1-0.4,1.5,0.1S35.9,9.2,35.4,9.6z" />
-          </svg>
-        </span>
-      </span>
-    </a>
-</div>
-
-<nav class="footer-nav">
-    <div class="footer-nav__link">
-        <a href="" class="underline">Terms</a>
-    </div>
-    <div class="footer-nav__link">
-        <a href="" class="underline">About us</a>
-    </div>
-    <div class="footer-nav__link">
-        <a href="" class="underline">FAQ</a>
-    </div>
-    <div class="footer-nav__link">
-        <a href="" class="underline">Contact</a>
-    </div>
-    <div class="footer-nav__link">
-        <a href="" class="underline">Colophon</a>
-    </div>
-    <div class="footer-nav__link">
-        <a href="" class="underline">Curators</a>
-    </div>
-</nav>
-
-<div class="footer__logos">
-    <svg viewBox="0 0 593.1 169.3" enable-background="new 0 0 593.1 169.3" xml:space="preserve" class="" preserveAspectRatio="none">
-        <use x="0" y="0" href="#haarlem" xlink:href="#haarlem"></use>
-    </svg>
-
-    <svg viewBox="0 0 211.8 34.2" enable-background="new 0 0 211.8 34.2" xml:space="preserve" class="" preserveAspectRatio="none">
-        <use x="0" y="0" href="#BGL" xlink:href="#BGL"></use>
-    </svg>
-</div>
+      </footer>
