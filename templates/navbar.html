@@ -5,7 +5,7 @@
         <div class="secondary-navigation">
             <div class="container">
               <nav class="left" id="nav">
-                <h3 style="float:left;padding-top:27px;padding-right:10px">
+                <h3 style="float:left;padding-top:5px;padding-right:10px">
                 <a style="color:white" href="{% url 'main' %}">
                   Название
                 </a>
@@ -15,14 +15,14 @@
 
                 </ul>
               </nav>
-                <ul class="right" style="margin-top:10px;margin-bottom:4px;">
+                <ul class="right" style="">
                   <span style="background-color:#363636;cursor:pointer">
                       {% if user.is_authenticated %}
-                      <span style="font-size:15px;margin-top:5px;margin-bottom:5px;">
+                      <span style="">
                         Мой профиль
                       </span>
                       {% else %}
-                      <span style="font-size:15px;margin-top:5px;">
+                      <span style="">
                         Войти
                       </span>
                       <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
