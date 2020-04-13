@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class StstConfig(AppConfig):
+class StatConfig(AppConfig):
     name = 'stat'
