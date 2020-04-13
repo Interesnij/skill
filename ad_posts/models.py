@@ -1,6 +1,6 @@
 from django.db import models
 import uuid
-from ad_category.models import AdSubCategory
+from ad_categories.models import AdSubCategory
 from cities.models import City
 from django.conf import settings
 from django.contrib.postgres.indexes import BrinIndex
