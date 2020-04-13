@@ -15,6 +15,6 @@ class MainPageView(TemplateView):
 			self.template_name = "main/page.html"
 
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+			self.template_name = "mob_" + self.template_name
 		return super(MainPageView,self).get(request,*args,**kwargs)
