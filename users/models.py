@@ -91,3 +91,15 @@ class User(AbstractUser):
         check_can_unblock_user_with_id(user=self, user_id=user_id)
         self.user_blocks.filter(blocked_user_id=user_id).delete()
         return User.objects.get(pk=user_id)
+
+    def get_last_location(self):
+        from users.model.profile import OneUserLocation, TwoUserLocation, ThreeUserLocation
+        
+        if self.user_ip.ip_3:
+            return ThreeUserLocation.objects.get(user=self)
+        elif self.user_ip.ip_2:
+            return TwoUserLocation.objects.get(user=self)
+        elif self.user_ip.ip_1:
+            return OneUserLocation.objects.get(user=self)
+        else:
+            return "Местоположение не указано"

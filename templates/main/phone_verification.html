@@ -5,18 +5,11 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item"><a href="{% url 'main' %}">Главная</a></li>
-  <li class="breadcrumb-item active">Страница входа</li>
+  <li class="breadcrumb-item active">Верификация номера</li>
 
 </ol>
 </div>
 </div>
-
-<div class="page-title">
-    <div class="container">
-        <h1>Страница входа</h1>
-    </div>
-</div>
-<div class="background"></div>
 </div>
 </section>
 
@@ -24,9 +17,8 @@
     <section class="block">
         <div class="container">
             <div class="row justify-content-center">
-
               <h1 class="font-weight-light mb-3 mt-4 content-color-secondary text-left">{{ request.user.get_full_name }}!</h1>
-              <p>Для авторизации Вашего профиля будет испольльзоваться номер Вашего телефона. Для этого Вам нужно подтвердить
+              <p>Для авторизации Вашего профиля будет использоваться номер Вашего телефона. Для этого Вам нужно подтвердить
                  его. Введите номер без кода страны (к примеру, для России это цифра "7") и нажмите кнопку "Получить код".
                  Мы Вам перезвоним, и последние 4 цифры и будут кодом подтверждения Вашего номера.</p>
               <div class="row">
