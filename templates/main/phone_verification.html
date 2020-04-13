@@ -23,14 +23,14 @@
                  Мы Вам перезвоним, и последние 4 цифры и будут кодом подтверждения Вашего номера.</p>
               <div class="row">
                   <div class="col-md-2"></div>
-                  <div class="col-md-4 col-offset-1" style="display: inline-flex;margin-top: 12px;margin-bottom: 12px;">
+                  <div class="col-md-5 col-offset-1" style="display: inline-flex;margin-top: 12px;margin-bottom: 12px;">
                     <div class="input-group-prepend">
                       <span class="input-group-text" style="font-size: 18px;">+ {{ request.user.get_last_location.phone }}</span>
                     </div>
                     <input type="number" id="phone" onkeyup="phone_check();" class="form-control border-0" placeholder="Телефон">
                     <hr class="my-0">
                   </div>
-                  <div class="col-md-4" style="margin-top: 12px;">
+                  <div class="col-md-3" style="margin-top: 12px;">
                     <button type="button" disabled="disabled" id="phone_send" class="btn btn-primary pink-gradient">Получить код</button>
                   </div>
                   <div class="col-md-2"></div>
