@@ -38,7 +38,7 @@ class User(AbstractUser):
         import re
 
         if self.is_authenticated and not self.is_deleted:
-            template_name = folder + "my_" + template
+            template_name = folder + template
         elif self.is_authenticated and self.is_deleted:
             template_name = "generic/user_deleted.html"
         else:
