@@ -10,10 +10,8 @@
               </a>
             </div>
             <div class="right dropdown">
-              <span style="background-color:#363636;cursor:pointer">
-                  Привет, гость!
-                  <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
-              </span>
+              <span>Привет, гость!</span>
+              <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
               <div class="dropdown-menu">
                   <a href="{% url 'login' %}" class="dropdown-item">Вход</a>
                   <a href="{% url 'signup' %}" class="dropdown-item">Регистрация</a>
