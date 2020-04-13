@@ -48,7 +48,7 @@ BASIC_APPS = [
     'regions',
     'cities',
     'common',
-    'stat',
+    'stst',
 ]
 
 AD_APPS = [

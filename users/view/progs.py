@@ -22,7 +22,7 @@ class UserUnbanCreate(View):
 class UserAdView(View):
     def get(self,request,*args,**kwargs):
         from stst.models import AdNumbers
-        
+
         if request.user.is_authenticated:
             pk = self.kwargs["pk"]
             try:
