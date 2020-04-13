@@ -11,16 +11,10 @@
               </nav>
                 <ul class="right" style="">
                   <span style="background-color:#363636;cursor:pointer">
-                      {% if request.user.is_authenticated %}
                       <span style="">
                         Мой профиль
+                        <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
                       </span>
-                      {% else %}
-                      <span style="">
-                        Войти
-                      </span>
-                      <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
-                      {% endif %}
                   </span>
               </ul>
             </div>

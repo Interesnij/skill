@@ -1,0 +1,21 @@
+{% load staticfiles %}
+
+<header class="hero">
+    <div class="hero-wrapper">
+        <div class="secondary-navigation">
+            <div class="container">
+              <nav class="left" id="nav">
+                <a style="font-size:20px;padding-top:5px;padding-right:10px;color:white" href="{% url 'main' %}">
+                  Название
+                </a>
+              </nav>
+                <ul class="right" style="">
+                  <span style="background-color:#363636;cursor:pointer">
+                      <span style="">
+                        Войти
+                      </span>
+                      <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
+                  </span>
+              </ul>
+            </div>
+        </div>
