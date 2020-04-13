@@ -1,0 +1,90 @@
+{% extends "bases/anon_base.html" %}
+{% load staticfiles %}
+
+{% block title %}Сайт объявлений по всей России{% endblock %}
+{% block content %}
+<style>
+  .hero .page-title .current_link{
+    color: #ff0000;
+  }
+  .hero .page-title .current_link:after {
+    background-color: #ff0000
+  }
+</style>
+<div class="page-title">
+    <div class="container">
+      <h1 class="opacity-40 center">
+          <a href="#">Обучайтесь</a>, <a class="current_link">Продавайте</a> на одном сайте!
+      </h1>
+    </div>
+</div>
+
+{% include 'generic/big_form.html' %}
+
+<div class="background">
+    <div class="background-image">
+        <img src="{% static 'images/hero-background-image-02.jpg' %}" alt="">
+    </div>
+</div>
+</div>
+</header>
+
+<section class="content">
+
+    {% include 'main/new_ads.html' %}
+
+    {% include 'main/categories.html' %}
+
+    <section class="block" style="background: black;color: white;">
+        <div class="container">
+            <div class="block">
+                <h2>Система работы сайта достаточно проста</h2>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="feature-box">
+                            <figure>
+                                <img src="{% static 'images/feature-user.png' %}" alt="">
+                                <span style="color: black;">1</span>
+                            </figure>
+                            <h3>Создаёте аккаунт</h3>
+                            <p>Покупатель свяжется с Вами напрямую, по указанным Вами контактам</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="feature-box">
+                            <figure>
+                                <img src="{% static 'images/feature-upload.png' %}" alt="">
+                                <span style="color: black;">2</span>
+                            </figure>
+                            <h3>Добавляете объявление</h3>
+                            <p>Кнопка добавления находится сверху справа. Нужно быть зарегистрированным.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="feature-box">
+                            <figure>
+                                <img src="{% static 'images/feature-like.png' %}" alt="">
+                                <span style="color: black;">3</span>
+                            </figure>
+                            <h3>Ждёте покупателя</h3>
+                            <p>Разумеется, будет здорово, если Вы расскажете о нас друзьям.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="feature-box">
+                            <figure>
+                                <img src="{% static 'images/feature-wallet.png' %}" alt="">
+                                <span style="color: black;">4</span>
+                            </figure>
+                            <h3>Получаете оплату</h3>
+                            <p>Заходите на наш сайт еще, он рассчитан на большой трафик по России</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background" data-background-color="#2b2b2b"></div>
+    </section>
+
+</section>
+{% endblock %}
