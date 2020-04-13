@@ -1,6 +1,6 @@
 {% extends "bases/other_base.html" %}
 {% load staticfiles %}
-{% block title %}Страница входа{% endblock %}
+{% block title %}Верификация номера{% endblock %}
 {% block content %}
 
 <ol class="breadcrumb">
@@ -25,7 +25,7 @@
                   <div class="col-md-2"></div>
                   <div class="col-md-4 col-offset-1" style="display: inline-flex;margin-top: 12px;margin-bottom: 12px;">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">{{ request.user.get_last_location.phone }}</span>
+                      <span class="input-group-text" style="font-size: 18px;">+ {{ request.user.get_last_location.phone }}</span>
                     </div>
                     <input type="number" id="phone" onkeyup="phone_check();" class="form-control border-0" placeholder="Телефон">
                     <hr class="my-0">
