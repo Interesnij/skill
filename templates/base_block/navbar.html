@@ -1,5 +1,20 @@
 {% load staticfiles %}
-
+<style>
+  .dropdown:hover .dropdown-menu {
+    transform: scale(1);
+  }
+  .dropdown:hover .dropdown-menu{
+  display: block;
+  top: 26px;
+  left: -120px;
+  height: inherit;
+  }
+  .dropdown-menu{
+  transform: scale(1)!important;
+  font-size: 90%;
+  line-height: 1;
+  }
+</style>
 <header class="hero">
     <div class="hero-wrapper">
         <div class="secondary-navigation">
@@ -9,13 +24,19 @@
                   Название
                 </a>
               </nav>
-                <ul class="right" style="">
+                <div class="right dropdown">
                   <span style="background-color:#363636;cursor:pointer">
                       <span style="">
                         Мой профиль
                       </span>
                       <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
                   </span>
-              </ul>
+                  <div class="dropdown-menu">
+                      <span class="dropdown-item">Мой профиль</span>
+                      <span class="dropdown-item">Подать объявление</span>
+                      <span class="dropdown-item">Разместить курс</span>
+                      <span class="dropdown-item">Выйти</span>
+                  </div>
+              </div>
             </div>
         </div>
