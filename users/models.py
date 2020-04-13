@@ -8,7 +8,6 @@ from django.db import models
 
 
 class User(AbstractUser):
-    id = models.BigIntegerField(primary_key=True)
     is_email_verified = models.BooleanField(default=False, verbose_name='Почта подтверждена')
     is_phone_verified = models.BooleanField(default=False, verbose_name='Телефон подтвержден')
     is_deleted = models.BooleanField(verbose_name="Удален", default=False, )
