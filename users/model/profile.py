@@ -7,7 +7,7 @@ from ad_posts.helpers import upload_to_user_directory
 
 
 class UserProfile(models.Model):
-    id = models.BigIntegerField(pk = True)
+    id = models.BigIntegerField(primary_key=True, db_index=False)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, db_index=False, related_name="profile", verbose_name="Пользователь", on_delete=models.CASCADE)
     bio = models.TextField(max_length=1000, blank=True, verbose_name="Биография")
     sity = models.CharField(max_length=100, blank=True, verbose_name="Местоположение")
