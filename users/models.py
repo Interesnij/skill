@@ -4,6 +4,7 @@ from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db.models import Q
 from rest_framework.exceptions import PermissionDenied
+from django.db import models
 
 
 class User(AbstractUser):
