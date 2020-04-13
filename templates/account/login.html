@@ -1,0 +1,90 @@
+{% extends "bases/other_base.html" %}
+{% load staticfiles %}
+{% block title %}Страница входа{% endblock %}
+{% block content %}
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'main' %}">Главная</a></li>
+  <li class="breadcrumb-item active">Страница входа</li>
+
+</ol>
+</div>
+</div>
+
+<div class="page-title">
+    <div class="container">
+        <h1>Страница входа</h1>
+    </div>
+</div>
+<div class="background"></div>
+</div>
+</section>
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row justify-content-center">
+              <br><br><br>
+                <div class="col-md-4">
+                  <form class="form clearfix" action="{% url 'rest_login' %}" id="login_form">
+                      <div class="form-group">
+                          <label class="col-form-label required">Телефон</label>
+                          <input type="text" name="username" class="form-control" placeholder="79041234567">
+                      </div>
+                      <div class="form-group">
+                          <label class="col-form-label required">Пароль</label>
+                          <input name="password" type="password" class="form-control" placeholder="Пароль">
+                      </div>
+                      <div class="d-flex justify-content-between align-items-baseline">
+                          <label class="">
+                            <div class="icheckbox">
+                              <input type="checkbox" name="remember" value="1" style="position: absolute; opacity: 0;">
+                              <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                            </div>
+                            Галочка
+                          </label>
+                          <button type="submit" id="logg" class="btn btn-primary">Войти</button>
+                      </div>
+                  </form>
+                  <small class="login-response"></small>
+                  <hr>
+                  <p>
+                      Не можете войти? <a href="#" class="link">Нажмите сюда.</a>
+                  </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script>
+  var ready = (callback) => {
+  if (document.readyState != "loading") callback();
+  else document.addEventListener("DOMContentLoaded", callback);
+  }
+    var error_response = function(data) {
+        document.querySelector(".login-response").innerHTML("ошибка");
+    }
+
+    var error_response = function(data) {
+          $('.login-response').html("ошибка");
+      }
+      var susccess_response = function(data) {
+          window.location = "{% url 'main' %}";
+      }
+    ready(() => {
+          $('#logg').click(function() {
+              var form3 = $('#login_form');
+              $.post(form3.attr('action'), form3.serialize())
+                  .fail(function(data) {
+                      error_response(data);
+                      console.log(data);
+                  })
+                  .done(function(data) {
+                    console.log("ok");
+                  });
+              return false;
+      });
+    });
+</script>
+{% endblock %}

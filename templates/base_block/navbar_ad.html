@@ -1,6 +1,7 @@
+
 {% load staticfiles %}
 
-<header class="hero">
+<section class="hero">
     <div class="hero-wrapper">
         <div class="secondary-navigation">
           <div class="container">
@@ -20,3 +21,12 @@
             </div>
           </div>
         </div>
+
+        <div class="main-navigation">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+                    <a class="navbar-brand" href="{% url 'main' %}">
+                        <img src="{% static 'images/logo.png' %}" alt="">
+                    </a>
+
+                </nav>
