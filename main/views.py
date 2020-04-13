@@ -12,7 +12,7 @@ class MainPageView(TemplateView):
 		elif request.user.is_authenticated and request.user.is_deleted:
 			self.template_name = "generic/user_deleted.html"
 		elif request.user.is_anonymous:
-			self.template_name = "main/page.html"
+			self.template_name = "main/aon_page.html"
 
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
