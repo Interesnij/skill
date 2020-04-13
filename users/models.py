@@ -15,7 +15,7 @@ class User(AbstractUser):
     last_activity= models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name='Активность')
     phone = models.CharField(max_length=17, unique=True, verbose_name='Телефон')
     is_deleted = models.BooleanField(default=False, verbose_name='Пользователь удален')
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = 'phone'
 
     class Meta:
         verbose_name = 'пользователь'
