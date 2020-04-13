@@ -2,9 +2,10 @@ from django.contrib import admin
 from users.model.profile import UserProfile, IPUser, OneUserLocation, TwoUserLocation, ThreeUserLocation
 from users.model.list import Favourites, ChatAd, Subscribe, Guest
 from django.conf import settings
+from users.models import User
 
 
-admin.site.register(settings.AUTH_USER_MODEL)
+admin.site.register(User)
 
 admin.site.register(UserProfile)
 admin.site.register(IPUser)
