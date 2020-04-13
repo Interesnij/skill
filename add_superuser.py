@@ -15,8 +15,7 @@ from django.conf import settings
 from users.models import User
 
 
-User.objects.create(id=1,
-                    username="Serg",
+User.objects.create(username="Serg",
                     phone="79042373637",
                     password="ulihos46",
                     email="ochkarik1983@mail.ru",
