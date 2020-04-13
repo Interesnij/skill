@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^countries/', include('countries.urls')),
     url(r'^regions/', include('regions.urls')),
     url(r'^cities/', include('cities.urls')),
+    url(r'^stat/', include('stat.urls')),
 
     url(r'^categories/', include('ad_categories.urls')),
     url(r'^posts/', include('ad_posts.urls')),

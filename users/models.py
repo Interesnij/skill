@@ -48,3 +48,46 @@ class User(AbstractUser):
         if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
             template_name = "mob_" + template_name
         return template_name
+
+    def is_adding_user_with_id(self, user_id):
+        return self.adding_user.filter(adding_user__id=user_id).exists()
+
+    def is_added_user_with_id(self, user_id):
+        return self.added_user.filter(added_user__id=user_id).exists()
+
+    def unsubscribe_user(self, user):
+        return self.unsubscribe_user_with_id(user.pk)
+
+    def unsubscribe_user_with_id(self, user_id):
+        from users.model.list import Subscribe
+
+        check_not_can_follow_user_with_id(user=self, user_id=user_id)
+        subscribe = Subscribe.objects.get(adding_user=self, added_user__id=user_id)
+        subscribe.delete()
+
+    def block_user_with_pk(self, pk):
+        user = User.objects.get(pk=pk)
+        return self.block_user_with_id(user_id=user.pk)
+
+    def block_user_with_id(self, user_id):
+        from users.model.list import UserBlock
+        check_can_block_user_with_id(user=self, user_id=user_id)
+
+        if self.is_adding_user_with_id(user_id=user_id):
+            self.unsubscribe_user_with_id(user_id=user_id)
+
+        user_to_block = User.objects.get(pk=user_id)
+        if user_to_block.is_adding_user_with_id(user_id=self.pk):
+            user_to_block.unsubscribe_user_with_id(self.pk)
+
+        UserBlock.create_user_block(blocker_id=self.pk, blocked_user_id=user_id)
+        return user_to_block
+
+    def unblock_user_with_pk(self, pk):
+        user = User.objects.get(pk=pk)
+        return self.unblock_user_with_id(user_id=user.pk)
+
+    def unblock_user_with_id(self, user_id):
+        check_can_unblock_user_with_id(user=self, user_id=user_id)
+        self.user_blocks.filter(blocked_user_id=user_id).delete()
+        return User.objects.get(pk=user_id)
