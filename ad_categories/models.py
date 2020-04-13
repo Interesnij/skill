@@ -16,11 +16,11 @@ class AdCategory(models.Model):
 
 
 class AdSubCategory(models.Model):
-    category=models.ForeignKey(AdCategory, on_delete=models.CASCADE, verbose_name="Категория-родитель")
-	name_ru=models.CharField(max_length=100, verbose_name="Название подкатегории")
+    category = models.ForeignKey(AdCategory, on_delete=models.CASCADE, verbose_name="Категория-родитель")
+	name_ru = models.CharField(max_length=100, verbose_name="Название подкатегории")
     name_en = models.CharField(max_length=100, verbose_name="Английское название")
-	order=models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер подкатегории")
-	image=models.ImageField(blank=True, verbose_name="Изображение", upload_to="ad_category/sub")
+	order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер подкатегории")
+	image = models.ImageField(blank=True, verbose_name="Изображение", upload_to="ad_category/sub")
 
 	def __str__(self):
 		return self.name_ru
@@ -29,5 +29,5 @@ class AdSubCategory(models.Model):
 		return reverse('subcategories_edit',kwargs={"pk":self.pk})
 
 	class Meta:
-		verbose_name="суб-категория"
-		verbose_name_plural="суб-категории"
+		verbose_name = "суб-категория"
+		verbose_name_plural = "суб-категории"

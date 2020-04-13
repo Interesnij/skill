@@ -20,11 +20,11 @@ class Ad(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name="Город")
     category = models.ForeignKey(AdSubCategory, on_delete=models.CASCADE, verbose_name="Ккатегория")
     image = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
-    is_active=models.BooleanField(default=False, verbose_name='Объявление опубликовано')
-    is_deleted=models.BooleanField(default=False, verbose_name='Объявление удалено')
-    is_sold=models.BooleanField(default=False, verbose_name='Объявление не актуально')
-    posted=models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Время публикации")
-    is_reklama=models.BooleanField(default=False, verbose_name='Это реклама')
+    is_active = models.BooleanField(default=False, verbose_name='Объявление опубликовано')
+    is_deleted = models.BooleanField(default=False, verbose_name='Объявление удалено')
+    is_sold = models.BooleanField(default=False, verbose_name='Объявление не актуально')
+    created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Время публикации")
+    is_reklama = models.BooleanField(default=False, verbose_name='Это реклама')
 
     def __str__(self):
         return self.title

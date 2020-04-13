@@ -1,20 +1,19 @@
 import uuid
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
-from django.contrib.contenttypes.fields import GenericRelation
 from django.db.models import Q
 from rest_framework.exceptions import PermissionDenied
 from django.db import models
 
 
+
 class User(AbstractUser):
-    #moderated_object = GenericRelation('moderation.ModeratedObject', related_query_name='users')
     id = models.BigIntegerField(primary_key=True)
     is_email_verified = models.BooleanField(default=False, verbose_name='Почта подтверждена')
     is_phone_verified = models.BooleanField(default=False, verbose_name='Телефон подтвержден')
     is_deleted = models.BooleanField(verbose_name="Удален", default=False, )
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, verbose_name="uuid")
-    last_activity= models.DateTimeField(default=timezone.now, blank=True, verbose_name='Активность')
+    last_activity= models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name='Активность')
     phone = models.CharField(max_length=17, unique=True, verbose_name='Телефон')
     USERNAME_FIELD = 'phone'
 
