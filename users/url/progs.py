@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from users.views.progs import UserBanCreate, UserUnbanCreate, UserItemView, PhoneSend, PhoneVerify
+from users.view.progs import UserBanCreate, UserUnbanCreate, UserItemView, PhoneSend, PhoneVerify
 from django.contrib.auth.decorators import login_required
 
 
