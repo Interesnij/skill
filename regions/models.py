@@ -9,9 +9,9 @@ class Region(models.Model):
     order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер")
     image = models.ImageField(blank=True, verbose_name="Изображение", upload_to="regions")
 
-	def __str__(self):
-		return self.name_ru
+    def __str__(self):
+        return self.name_ru
 
-	class Meta:
-		verbose_name = "Регион"
-		verbose_name_plural = "Регионы"
+    class Meta:
+        verbose_name = "Регион"
+        verbose_name_plural = "Регионы"
