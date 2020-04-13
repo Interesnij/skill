@@ -10,12 +10,6 @@
 </ol>
 </div>
 </div>
-
-<div class="page-title">
-    <div class="container">
-        <h1>Страница входа</h1>
-    </div>
-</div>
 <div class="background"></div>
 </div>
 </section>
@@ -82,7 +76,7 @@ ready(() => {
                     error_response2(data);
                 })
                 .done(function(data) {
-                    window.location = "{% url 'main' %}";
+                    window.location.href = "{% url 'phone_send' %}";
                 });
             return false;
         });

@@ -18,3 +18,7 @@ class MainPageView(TemplateView):
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
 			self.template_name = "mob_" + self.template_name
 		return super(MainPageView,self).get(request,*args,**kwargs)
+
+
+class MainPhoneSend(TemplateView):
+	template_name="main/phone_verification.html"
