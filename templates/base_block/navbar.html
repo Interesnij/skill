@@ -5,7 +5,7 @@
   }
   .dropdown:hover .dropdown-menu{
   display: block;
-
+  top:3px;
   height: inherit;
   }
   .dropdown-menu{
@@ -29,10 +29,10 @@
                       <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
                   </span>
                   <div class="dropdown-menu">
-                      <span class="dropdown-item">Мой профиль</span>
-                      <span class="dropdown-item">Подать объявление</span>
-                      <span class="dropdown-item">Разместить курс</span>
-                      <span class="dropdown-item">Выйти</span>
+                      <a href="{% url 'user' pk=request.user.pk %}" class="dropdown-item">Мой профиль</a>
+                      <a href="" class="dropdown-item">Подать объявление</a>
+                      <a href="" class="dropdown-item">Разместить курс</a>
+                      <a href="{% url 'logout' %}" class="dropdown-item">Выйти</a>
                   </div>
               </div>
             </div>
