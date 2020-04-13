@@ -21,24 +21,22 @@
     <div class="hero-wrapper">
         <div class="secondary-navigation">
             <div class="container">
-              <nav class="left" id="nav">
+              <div class="left">
                 <a style="font-size:20px;padding-top:5px;padding-right:10px;color:white" href="{% url 'main' %}">
                   Название
                 </a>
-              </nav>
-                <div class="right dropdown">
-                  <span style="background-color:#363636;cursor:pointer">
-                      <span style="">
-                        Мой профиль
-                      </span>
-                      <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
-                  </span>
-                  <div class="dropdown-menu">
-                      <a href="{% url 'user' pk=request.user.pk %}" class="dropdown-item">Мой профиль</a>
-                      <a href="" class="dropdown-item">Подать объявление</a>
-                      <a href="" class="dropdown-item">Разместить курс</a>
-                      <a href="{% url 'logout' %}" class="dropdown-item">Выйти</a>
-                  </div>
+              </div>
+              <div class="right dropdown">
+                <span style="background-color:#363636;cursor:pointer">
+                    Мой профиль
+                    <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px">
+                </span>
+                <div class="dropdown-menu">
+                    <a href="{% url 'user' pk=request.user.pk %}" class="dropdown-item">Мой профиль</a>
+                    <a href="" class="dropdown-item">Подать объявление</a>
+                    <a href="" class="dropdown-item">Разместить курс</a>
+                    <a href="{% url 'logout' %}" class="dropdown-item">Выйти</a>
+                </div>
               </div>
             </div>
         </div>
