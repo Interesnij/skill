@@ -167,7 +167,7 @@ class User(AbstractUser):
     def get_my_favorite_ads(self):
         from ad_posts.models import Ad
 
-        favorites_query = Q(favorites_user=self, is_active=True, is_sold=False, is_deleted=False)
+        favorites_query = Q(favorites_user_id=self.id, is_active=True, is_sold=False, is_deleted=False)
         favorites_query.add(~Q(Q(blocked_by_users__blocker_id=self.id) | Q(user_blocks__blocked_user_id=self.id)), Q.AND)
         favorites = Ad.objects.filter(favorites_query)
         return favorites
