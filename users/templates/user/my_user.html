@@ -1,0 +1,96 @@
+{% extends "bases/base_other.html" %}
+{% load staticfiles humanize %}
+{% block title %}Мой профиль{% endblock %}
+{% block content %}
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'main' %}">Главная</a></li>
+  <li class="breadcrumb-item active">Мой профиль</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<style>
+  .svg_default_500 {
+    width: 500px;
+    height: 500px;
+  }
+</style>
+<section class="content">
+
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <nav class="nav flex-column side-nav">
+                        <a class="nav-link active icon current_link" href="">
+                            <i class="fa fa-user"></i>Мои профиль
+                        </a>
+                        <a class="nav-link icon" href="">
+                            <i class="fa fa-heart"></i>Активные товары
+                        </a>
+                        <a class="nav-link icon" href="">
+                            <i class="fa fa-ban"></i>Отложенные товары
+                        </a>
+                        <a class="nav-link icon" href="">
+                            <i class="fa fa-star"></i>Избранное
+                        </a>
+                        <a class="nav-link icon" href="">
+                            <i class="fa fa-user"></i>Подписки
+                        </a>
+                        <a class="nav-link icon" href="">
+                            <i class="fa fa-check"></i>Проданные товары
+                        </a>
+                    </nav>
+                </div>
+                <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-8">
+                              <h2>Персональная информация</h2>
+                                <section>
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                            <h3>Имя: {{ user.get_full_name }}</h3>
+                                            <h3>Регион: {{ user.get_last_location.region_ru }}</h3>
+                                            <h3>Город: {{ user.get_last_location.city_ru }}</h3>
+                                            <h3>Зарегистрирован: {{ user.date_joined }}</h3>
+                                      </div>
+                                    </div>
+                                    <br><br><br>
+                                    <a style="" href="">
+                                      <div class="btn btn-framed btn-primary small">
+                                        Редактировать
+                                      </div>
+                                    </a>
+                                    <a style="" href="">
+                                      <div class="btn btn-framed btn-primary small">
+                                        Сменить пароль
+                                      </div>
+                                    </a>
+                                    <a style="" href="{% url 'logout' %}">
+                                      <div class="btn btn-framed btn-primary small">
+                                        Выйти
+                                      </div>
+                                    </a>
+                                </section>
+
+                            </div>
+                            <div class="col-md-4">
+                                        <div class="profile-image">
+                                            <div class="image background-image">
+                                                {% if user.avatar %}
+                                                {{ user.avatar }}
+                                                {% else %}
+                                                <svg fill="currentColor" class="svg_default svg_default_500" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

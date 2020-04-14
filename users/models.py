@@ -15,6 +15,7 @@ class User(AbstractUser):
     last_activity= models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name='Активность')
     phone = models.CharField(max_length=17, unique=True, verbose_name='Телефон')
     is_deleted = models.BooleanField(default=False, verbose_name='Пользователь удален')
+    is_blocked = models.BooleanField(default=False, verbose_name='Пользователь заблокирован')
     USERNAME_FIELD = 'phone'
 
     class Meta:
@@ -34,19 +35,39 @@ class User(AbstractUser):
         else:
             return False
 
-    def get_template_main(self, folder, template, request):
+    def get_template_user(self, folder, template, request):
         import re
+        from stst.models import UserNumbers
 
-        if self.is_authenticated and not self.is_deleted:
-            template_name = folder + template
-        elif self.is_authenticated and self.is_deleted:
-            template_name = "generic/user_deleted.html"
-        else:
+        if self.pk == request.user.pk:
+            if not request.user.is_phone_verified:
+                template_name = "main/phone_verification.html"
+            else:
+                template_name = folder + "my_" + template
+        elif request.user.pk != self.pk and request.user.is_authenticated:
+            if not request.user.is_phone_verified:
+                template_name = "main/phone_verification.html"
+            elif request.user.is_blocked_with_user_with_id(user_id=self.pk):
+                template_name = folder + "block_" + template
+            elif request.user.is_adding_user_with_id(user_id=self.pk):
+                template_name = folder + "adding_" + template
+            elif request.user.is_added_user_with_id(user_id=self.pk):
+                template_name = folder + "added_" + template
+            elif request.user.is_deleted:
+                template_name = folder + "deleted_" + template
+            elif request.user.is_blocked:
+                template_name = folder + "blocked_" + template
+        elif request.user.is_anonymous:
             template_name = folder + "anon_" + template
 
         MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
         if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
             template_name = "mob_" + template_name
+            if request.user.is_authenticated:
+                UserNumbers.objects.create(visitor=request.user.pk, target=self.pk, platform=1)
+        else:
+            if request.user.is_authenticated:
+                UserNumbers.objects.create(visitor=request.user.pk, target=self.pk, platform=0)
         return template_name
 
     def is_adding_user_with_id(self, user_id):
@@ -94,7 +115,7 @@ class User(AbstractUser):
 
     def get_last_location(self):
         from users.model.profile import OneUserLocation, TwoUserLocation, ThreeUserLocation
-        
+
         if self.user_ip.ip_3:
             return ThreeUserLocation.objects.get(user=self)
         elif self.user_ip.ip_2:
