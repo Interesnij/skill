@@ -191,6 +191,6 @@ class User(AbstractUser):
     def last_ads_for_russia(self):
         from ad_posts.models import Ad
 
-        ads_query = Q(city__country__id=1, creator__is_blocked=False, is_deleted=False, is_active=True)
+        ads_query = Q(city__region__country__id=1, creator__is_blocked=False, is_deleted=False, is_active=True)
         ads = Ad.objects.filter(ads_query)
         return ads[:21]
