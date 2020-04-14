@@ -54,9 +54,9 @@ class User(AbstractUser):
             elif request.user.is_added_user_with_id(user_id=self.pk):
                 template_name = folder + "added_" + template
             elif request.user.is_deleted:
-                template_name = folder + "deleted_" + template
+                template_name = "main/deleted_page.html"
             elif request.user.is_blocked:
-                template_name = folder + "blocked_" + template
+                template_name = "main/blocked_page.html"
         elif request.user.is_anonymous:
             template_name = folder + "anon_" + template
 
@@ -68,6 +68,24 @@ class User(AbstractUser):
         else:
             if request.user.is_authenticated:
                 UserNumbers.objects.create(visitor=request.user.pk, target=self.pk, platform=0)
+        return template_name
+
+    def get_my_template(self, folder, template, request):
+        import re
+        if self.pk == request.user.pk:
+            if not request.user.is_phone_verified:
+                template_name = "main/phone_verification.html"
+            elif request.user.is_deleted:
+                template_name = "main/deleted_page.html"
+            elif request.user.is_blocked:
+                template_name = "main/blocked_page.html"
+            elif request.user.is_anonymous:
+                template_name = "main/anon_page.html"
+            else:
+                template_name = folder + template
+        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+            template_name = "mob_" + template_name
         return template_name
 
     def is_adding_user_with_id(self, user_id):
@@ -124,3 +142,48 @@ class User(AbstractUser):
             return OneUserLocation.objects.get(user=self)
         else:
             return "Местоположение не указано"
+
+    def get_my_active_ads(self):
+        from ad_posts.models import Ad
+
+        ads_query = Q(creator_id=self.id, is_active=True, is_sold=False, is_deleted=False)
+        ads = Ad.objects.filter(ads_query)
+        return ads
+
+    def get_my_noactive_ads(self):
+        from ad_posts.models import Ad
+
+        ads_query = Q(creator_id=self.id, is_active=False, is_sold=False, is_deleted=False)
+        ads = Ad.objects.filter(ads_query)
+        return ads
+
+    def get_my_sold_ads(self):
+        from ad_posts.models import Ad
+
+        ads_query = Q(creator_id=self.id, is_active=False, is_sold=True, is_deleted=False)
+        ads = Ad.objects.filter(ads_query)
+        return ads
+
+    def get_my_favorite_ads(self):
+        from ad_posts.models import Ad
+
+        favorites_query = Q(favorites_user_id=self.id, is_active=True, is_sold=False, is_deleted=False)
+        favorites_query.add(~Q(Q(blocked_by_users__blocker_id=self.id) | Q(user_blocks__blocked_user_id=self.id)), Q.AND)
+        favorites = Ad.objects.filter(favorites_query)
+        return favorites
+
+    def get_my_subscribs(self):
+        """Это те, кто на меня подписался"""
+
+        subscribs_query = Q(adding_user_id=self.id, is_deleted=False)
+        subscribs_query.add(~Q(Q(blocked_by_users__blocker_id=self.id) | Q(user_blocks__blocked_user_id=self.id)), Q.AND)
+        subscribs = User.objects.filter(subscribs_query)
+        return subscribs
+
+    def get_subscribs(self):
+        """Это те, на кого я подписался"""
+
+        subscribs_query = Q(added_user_id=self.id, is_deleted=False)
+        subscribs_query.add(~Q(Q(blocked_by_users__blocker_id=self.id) | Q(user_blocks__blocked_user_id=self.id)), Q.AND)
+        subscribs = User.objects.filter(subscribs_query)
+        return subscribs

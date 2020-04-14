@@ -11,37 +11,13 @@
 </div>
 </div>
 </section>
-<style>
-  .svg_default {
-    color: rgba(0, 0, 0, 0.5);
-  }
-</style>
-<section class="content">
 
+<section class="content">
     <section class="block">
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <nav class="nav flex-column side-nav">
-                        <a class="nav-link active icon current_link" href="">
-                            <i class="fa fa-user"></i>Мои профиль
-                        </a>
-                        <a class="nav-link icon" href="">
-                            <i class="fa fa-heart"></i>Активные товары
-                        </a>
-                        <a class="nav-link icon" href="">
-                            <i class="fa fa-ban"></i>Отложенные товары
-                        </a>
-                        <a class="nav-link icon" href="">
-                            <i class="fa fa-star"></i>Избранное
-                        </a>
-                        <a class="nav-link icon" href="">
-                            <i class="fa fa-user"></i>Подписки
-                        </a>
-                        <a class="nav-link icon" href="">
-                            <i class="fa fa-check"></i>Проданные товары
-                        </a>
-                    </nav>
+                    {% include 'user/nav.html' %}
                 </div>
                 <div class="col-md-9">
                         <div class="row">

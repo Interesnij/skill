@@ -14,6 +14,9 @@ font-size:15px;
 .dropdown-menu a:hover{
 color:red;
 }
+.svg_default {
+  color: rgba(0, 0, 0, 0.5);
+}
 
 .additional-info {
     padding-left: 1.8rem;

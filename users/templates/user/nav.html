@@ -1,0 +1,26 @@
+<nav class="nav flex-column side-nav">
+    <a class="nav-link icon" href="{% url 'user' pk=request.user.pk %}">
+        <i class="fa fa-user"></i>Мои профиль
+    </a>
+    <a class="nav-link icon" href="{% url 'user_ad_active' pk=request.user.pk %}">
+        <i class="fa fa-heart"></i>Активные товары
+    </a>
+    <a class="nav-link icon" href="{% url 'user_ad_deferred' pk=request.user.pk %}">
+        <i class="fa fa-ban"></i>Отложенные товары
+    </a>
+    <a class="nav-link icon" href="{% url 'user_favorite' pk=request.user.pk %}">
+        <i class="fa fa-star"></i>Избранное
+    </a>
+    <a class="nav-link icon" href="{% url 'my_subscribe' pk=request.user.pk %}">
+        <i class="fa fa-user"></i>Подписки
+    </a>
+    <a class="nav-link icon" href="{% url 'subscribes' pk=request.user.pk %}">
+        <i class="fa fa-user"></i>Подписавшиеся
+    </a>
+    <a class="nav-link icon" href="{% url 'user_ad_sold' pk=request.user.pk %}">
+        <i class="fa fa-check"></i>Проданные товары
+    </a>
+    <a class="nav-link icon" href="{% url 'user_settings' pk=request.user.pk %}">
+        <i class="fa fa-settings"></i>Настройки
+    </a>
+</nav>

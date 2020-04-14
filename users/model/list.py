@@ -7,7 +7,7 @@ from ad_posts.models import Ad
 
 class Favourites(models.Model):
     ad = models.ForeignKey(Ad, on_delete=models.CASCADE, verbose_name="Объявление")
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='favorites_user', on_delete=models.CASCADE, verbose_name="Пользователь")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Дата добавления")
 
     def __str__(self):
