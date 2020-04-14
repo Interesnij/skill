@@ -10,10 +10,10 @@
               <i class="category-icon">
                   <img src="{% static 'images/category-cars-b.png' %}" alt="">
               </i>
-                <h3><a href="">{{ cat.name_ru }}</a></h3>
+                <h3><a href="">{{ cat.name_ru }} ({{cat.adsubcategory.ad_set.count}})</a></h3>
                 <span class="sub-categories">
                   {% for object in cat.adsubcategory_set.all %}
-                    <a href="">{{ object.name_ru }}</a>
+                    <a href="">{{ object.name_ru }} ({{object.ad_set.count}})</a>
                   {% endfor %}
                 </span>
             </li>
