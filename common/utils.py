@@ -6,7 +6,6 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
-
 def get_first_location(request, user):
     import json, requests
     from users.model.profile import OneUserLocation
