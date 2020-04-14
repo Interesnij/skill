@@ -10,14 +10,15 @@
               <i class="category-icon">
                   <img src="{% static 'images/category-cars-b.png' %}" alt="">
               </i>
-                <h3><a href="">{{ cat.name }}</a></h3>
+                <h3><a href="">{{ cat.name_ru }}</a></h3>
                 <span class="sub-categories">
-                  <a href="">{{ sub_categories.0.name }}</a>
-                  <a href="">{{ sub_categories.1.name }}</a>
+                  {% for object in cat.adsubcategory_set.all %}
+                    <a href="">{{ object.name_ru }}</a>
+                  {% endfor %}
                 </span>
             </li>
             {% endfor %}
-            
+
         </ul>
     </div>
 </section>
