@@ -1,3 +1,5 @@
 from django.contrib import admin
+from ad_categories.models import AdCategory, AdSubCategory
 
-# Register your models here.
+admin.site.register(AdCategory)
+admin.site.register(AdSubCategory)
