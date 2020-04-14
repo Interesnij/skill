@@ -21,9 +21,9 @@ class MainPageView(TemplateView):
 		return super(MainPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
-        context = super(MainPageView, self).get_context_data(**kwargs)
-        context['ad_categories'] = AdCategory.objects.only("pk")
-        return context
+		context = super(MainPageView, self).get_context_data(**kwargs)
+		context['ad_categories'] = AdCategory.objects.only("pk")
+		return context
 
 
 class MainPhoneSend(TemplateView):
