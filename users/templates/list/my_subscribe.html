@@ -1,0 +1,94 @@
+{% extends "bases/base_user.html" %}
+{% load staticfiles avatar_tags humanize thumbnail pagination_tags %}
+
+{% block title %}Мои подписки{% endblock %}
+{% block content %}
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item"><a href="{% url 'main' %}">Главная</a></li>
+  <li class="breadcrumb-item active">Мои подписки</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+
+<section class="content">
+    <section class="block">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    {% include 'user/nav.html' %}
+                </div>
+                <div class="col-md-9">
+                  <div class="section-title clearfix">
+
+                    <div class="float-right d-xs-none thumbnail-toggle">
+                          <a href="#" class="change-class active" data-change-from-class="list" data-change-to-class="masonry" data-parent-class="authors">
+                              <i class="fa fa-th"></i>
+                          </a>
+                          <a href="#" class="change-class" data-change-from-class="masonry" data-change-to-class="list" data-parent-class="authors">
+                              <i class="fa fa-th-list"></i>
+                          </a>
+                      </div>
+                  </div>
+                            <div class="authors masonry items grid-xl-3-items grid-lg-2-items grid-md-2-items">
+                              {% if object_list %}
+
+                              {% for object in object_list %}
+                              <div class="item author">
+                                <div class="wrapper">
+                                <div class="image">
+                                    <h3>
+                                        <a href="{% url 'user' pk=object.creator.pk %}" class="title">
+                                          {{ object.creator.get_full_name }}
+                                        </a>
+                                    </h3>
+                                    <a href="{% url 'user' pk=object.creator.pk %}" class="image-wrapper background-image">
+                                      {% if user.avatar %}
+                                        {{ user.avatar.url }}
+                                      {% else %}
+                                        <svg fill="currentColor" class="svg_default" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                                      {% endif %}
+                                    </a>
+                                </div>
+                                <h4 class="location">
+                                    <a href="">{{ user.get_last_location.region_ru }}</a>,
+                                    <a href="">{{ user.get_last_location.city_ru }}</a>
+                                </h4>
+                                <div class="meta">
+                                    <figure>{{ user.get_online }}</figure>&nbsp;
+                                    <figure>
+                                        <a href="{% url 'user' pk=object.pk %}">Товаров<strong> {{ object.ad_set.count }}</strong></a>
+                                    </figure>
+                                </div>
+                                <!--end description-->
+                                <div class="additional-info">
+                                    <ul>
+                                      <li>
+                                          <figure>Телефон</figure>
+                                          <aside>{{ object.phone }}</aside>
+                                      </li>
+                                      <li style="text-align: center;padding-top: 10px;">
+                                          <a class='like-button' style="cursor: pointer" id="">
+                                            <i class="fa fa-heart-o"></i> ОТПИСАТЬСЯ
+                                          </a>
+                                      </li>
+                                    </ul>
+                                </div>
+                                <a href="{% url 'user' pk=object.pk %}" class="detail text-caps underline">Подробнее</a>
+                            </div>
+                        </div>
+                                {% endfor %}
+
+                                {% else %}
+                                <h3 style="text-align:center">У Вас пока нет подписок...</h3>
+                                {% endif %}
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+          </section>
+      </section>
+{% endblock %}
