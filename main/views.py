@@ -1,4 +1,5 @@
 from django.views.generic.base import TemplateView
+from ad_categories.models import AdCategory
 
 
 class MainPageView(TemplateView):
@@ -18,6 +19,11 @@ class MainPageView(TemplateView):
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
 			self.template_name = "mob_" + self.template_name
 		return super(MainPageView,self).get(request,*args,**kwargs)
+
+	def get_context_data(self, **kwargs):
+        context = super(MainPageView, self).get_context_data(**kwargs)
+        context['ad_categories'] = AdCategory.objects.only("pk")
+        return context
 
 
 class MainPhoneSend(TemplateView):

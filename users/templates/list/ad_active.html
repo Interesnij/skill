@@ -55,8 +55,8 @@
                                             </a>
                                         </div>
                                         <h4 class="location">
-                                            <a href="">{{ object.area }}</a>,
-                                            <a href="">{{ object.sity }}</a>
+                                            <a href="">{{ object.city.region }}</a>,
+                                            <a href="">{{ object.city }}</a>
                                         </h4>
                                         <div class="price rubl">&#8399; {{ object.price|intcomma }}</div>
                                         <div class="admin-controls">
@@ -80,7 +80,7 @@
                                               <figure>Категория</figure>
                                               <aside>
                                                 <a href="">
-                                                {{ object.category }}
+                                                {{ object.category.category }}
                                                 </a>
                                               </aside>
                                             </li>
@@ -88,7 +88,7 @@
                                               <figure>Подкатегория</figure>
                                               <aside>
                                                 <a href="">
-                                                  {{ object.sub_category }}
+                                                  {{ object.category }}
                                                 </a>
                                               </aside>
                                             </li>
