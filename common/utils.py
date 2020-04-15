@@ -6,6 +6,13 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
+def last_ads_for_russia():
+    from ad_posts.models import Ad
+
+    ads_query = Q(city__region__country__id=1, creator__is_blocked=False, is_deleted=False, is_active=True)
+    ads = Ad.objects.filter(ads_query)
+    return ads[:21]
+
 def get_first_location(request, user):
     import json, requests
     from users.model.profile import OneUserLocation

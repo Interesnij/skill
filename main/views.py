@@ -21,6 +21,8 @@ class MainPageView(TemplateView):
 		return super(MainPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
+		from common.utils import last_ads_for_russia
+		
 		context = super(MainPageView, self).get_context_data(**kwargs)
 		context['ad_categories'] = AdCategory.objects.only("pk")
 		context['last_ads'] = self.request.user.last_ads_for_russia()

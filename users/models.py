@@ -187,10 +187,3 @@ class User(AbstractUser):
         subscribs_query.add(~Q(Q(blocked_by_users__blocker_id=self.id) | Q(user_blocks__blocked_user_id=self.id)), Q.AND)
         subscribs = User.objects.filter(subscribs_query)
         return subscribs
-
-    def last_ads_for_russia(self):
-        from ad_posts.models import Ad
-
-        ads_query = Q(city__region__country__id=1, creator__is_blocked=False, is_deleted=False, is_active=True)
-        ads = Ad.objects.filter(ads_query)
-        return ads[:21]

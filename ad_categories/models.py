@@ -14,6 +14,20 @@ class AdCategory(models.Model):
 		verbose_name = "Категория объявлений"
 		verbose_name_plural = "Категории объявлений"
 
+	def last_ads():
+	    from ad_posts.models import Ad
+
+	    ads_query = Q(category__category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
+	    ads = Ad.objects.filter(ads_query)
+	    return ads[:21]
+
+	def get_ads():
+	    from ad_posts.models import Ad
+
+	    ads_query = Q(category__category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
+	    ads = Ad.objects.filter(ads_query)
+	    return ads
+
 
 class AdSubCategory(models.Model):
 	category = models.ForeignKey(AdCategory, on_delete=models.CASCADE, verbose_name="Категория-родитель")
@@ -31,3 +45,17 @@ class AdSubCategory(models.Model):
 	class Meta:
 		verbose_name = "суб-категория"
 		verbose_name_plural = "суб-категории"
+
+	def last_ads():
+	    from ad_posts.models import Ad
+
+	    ads_query = Q(category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
+	    ads = Ad.objects.filter(ads_query)
+	    return ads[:21]
+
+	def get_ads():
+	    from ad_posts.models import Ad
+
+	    ads_query = Q(category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
+	    ads = Ad.objects.filter(ads_query)
+	    return ads
