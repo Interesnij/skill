@@ -10,7 +10,7 @@ class Region(models.Model):
     image = models.ImageField(blank=True, verbose_name="Изображение", upload_to="regions")
 
     def __str__(self):
-        return self.name_en
+        return self.name_ru
 
     class Meta:
         verbose_name = "Регион"
