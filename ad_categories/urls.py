@@ -6,8 +6,8 @@ urlpatterns = [
     url(r'^$', AdCategoriesView.as_view(), name='ad_categories'),
 
     url(r'(?P<cat_name>[\w\-]+)/$', AdCategoryView.as_view(), name='ad_category'),
-    url(r'(?P<cat_name>[\w\-]+)_region_(?P<region_name>[\w\-]+)/$', AdRegionCategoryView.as_view(), name='ad_category_region'),
-    url(r'(?P<cat_name>[\w\-]+)_city_(?P<city_name>[\w\-]+)/$', AdCityCategoryView.as_view(), name='ad_category_city'),
+    url(r'region_(?P<region_name>[\w\-]+)_(?P<cat_name>[\w\-]+)/$', AdRegionCategoryView.as_view(), name='ad_category_region'),
+    url(r'city_(?P<city_name>[\w\-]+)_(?P<cat_name>[\w\-]+)/$', AdCityCategoryView.as_view(), name='ad_category_city'),
 
     url(r'sub_cat/(?P<subcat_name>[\w\-]+)/$', AdSubCategoryView.as_view(), name='ad_subcategory'),
     url(r'sub_region/(?P<region_name>[\w\-]+)/(?P<subcat_name>[\w\-]+)/$', AdRegionSubCategoryView.as_view(), name='ad_subcategory_region'),
