@@ -1,7 +1,7 @@
 from django.conf.urls import url
-from cities.views import CitiesView
+from cities.views import CityView
 
 
 urlpatterns = [
-    url(r'^$', CitiesView.as_view(), name='cities'),
+    url(r'(?P<city_name>[\w\-]+)/^$', CityView.as_view(), name='city'),
 ]

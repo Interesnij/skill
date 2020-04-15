@@ -1,0 +1,9 @@
+{{ country.name_ru }}
+
+{% for object in regions %}
+
+<a href="{% url '' %}">{{ object.name_ru }}</a>
+<br>
+{% for city in object.city_set.all %}
+<a href="{% url '' %}">{{ city.name_ru }}</a>
+{% endfor %}
