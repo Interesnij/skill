@@ -27,6 +27,7 @@ class RegionView(ListView):
     def get_context_data(self, **kwargs):
         context = super(RegionView, self).get_context_data(**kwargs)
         context['region'] = self.region
+        context['ad_categories'] = AdCategory.objects.only("pk")
         return context
 
     def get_queryset(self):

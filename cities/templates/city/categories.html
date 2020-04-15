@@ -1,0 +1,22 @@
+
+<section class="block">
+    <div class="container">
+        <h2>{{ city.name_ru }} :: Категории</h2>
+        <ul class="categories-list clearfix">
+            {% for cat in ad_categories %}
+            <li>
+              <i class="category-icon">
+                  <img src="{{ cat.image.url }}" alt="">
+              </i>
+                <h3><a href="">{{ cat.name_ru }}</a></h3>
+                <span class="sub-categories">
+                  {% for object in cat.adsubcategory_set.all %}
+                    <a href="">{{ object.name_ru }}</a>
+                  {% endfor %}
+                </span>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+</section>
