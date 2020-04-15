@@ -101,7 +101,7 @@ class AdCityCategoryView(ListView):
         return context
 
     def get_queryset(self):
-        ads = self.cat.get_ads_in_city()
+        ads = self.cat.get_ads_in_city(self.city.pk)
         return ads
 
 
