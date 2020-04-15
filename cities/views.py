@@ -6,7 +6,7 @@ class CityView(TemplateView):
     template_name = None
 
     def get(self,request,*args,**kwargs):
-        self.city = City.objects.get(name_en=self.kwargs["city_name"])
+        self.city = City.objects.get(name_en=self.kwargs["city"])
         if request.user.is_authenticated and not request.user.is_deleted:
             self.template_name = "city/page.html"
         elif request.user.is_authenticated and request.user.is_deleted:
