@@ -1,3 +1,10 @@
+.get_russia::-webkit-input-placeholder,
+.get_russia::-moz-placeholder,
+.get_russia:-moz-placeholder,
+.get_russia:-ms-input-placeholder{
+  color:black;
+}
+
 .dropdown:hover .dropdown-menu {
   transform: scale(1);
 }
