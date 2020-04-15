@@ -3,5 +3,5 @@ from regions.views import RegionView
 
 
 urlpatterns = [
-    url(r'(?P<region>[\w\-]+)/^$', RegionView.as_view(), name='region'),
+    url(r'(?P<region_name>[\w\-]+)/$', RegionView.as_view(), name='region'),
 ]

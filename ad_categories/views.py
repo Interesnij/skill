@@ -15,7 +15,7 @@ class AdCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
-        self.cat=AdCategory.objects.get(name_en=self.kwargs["name_en"])
+        self.cat=AdCategory.objects.get(name_en=self.kwargs["cat_name"])
         if request.user.is_authenticated and not request.user.is_deleted:
             self.template_name = "ad_cat/page.html"
         elif request.user.is_authenticated and request.user.is_deleted:
@@ -44,7 +44,7 @@ class AdSubCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
-        self.cat=AdSubCategory.objects.get(name_en=self.kwargs["name_en"])
+        self.cat=AdSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
         if request.user.is_authenticated and not request.user.is_deleted:
             self.template_name = "ad_subcat/page.html"
         elif request.user.is_authenticated and request.user.is_deleted:
