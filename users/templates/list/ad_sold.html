@@ -41,70 +41,12 @@
                                         <span>Продано</span>
                                     </div>
                                 </div>
-                                <div class="wrapper">
-                                    <div class="image">
-                                        <h3>
-                                            <a href="" class="title">{{ object.title }}</a>
-                                            <span class="tag">
-                                              <i class="fa fa-eye"></i>&nbsp;0&nbsp;|&nbsp;
-                                              <i class="fa fa-heart"></i>&nbsp;0
-                                            </span>
-                                        </h3>
-                                        <a href="" class="image-wrapper background-image">
-                                          {% if object.image %}
-                                            <img src="{{ object.image.url }}" alt="">
-                                          {% else %}
-                                            <img src="{% static 'images/no_img.jpg' %}" alt="">
-                                          {% endif %}
-                                        </a>
-                                    </div>
-                                    <h4 class="location">
-                                        <a href="">{{ object.city.region }}</a>,
-                                        <a href="">{{ object.city }}</a>
-                                    </h4>
-                                    <div class="price rubl">&#8399; {{ object.price|intcomma }}</div>
-                                    <div class="admin-controls">
-
-                                        <a href="">
-                                          <i class="fa fa-pencil"></i>Изменить
-                                        </a>
-                                        <a href="" id="" class="ad-hide">
-                                            <i class="fa fa-check"></i>Продано
-                                        </a>
-                                        <a href="" id="" class="ad-remove">
-                                            <i class="fa fa-trash"></i>Удалить
-                                        </a>
-                                    </div>
-                                    <div class="description">
-                                        <p>{{ object.description|truncatechars:300 }}</p>
-                                    </div>
-                                    <div class="additional-info">
-                                      <ul>
-                                        <li>
-                                          <figure>Категория</figure>
-                                          <aside>
-                                            <a href="{% url 'ad_category' name_en=object.name_en %}">
-                                            {{ object.category.category }}
-                                            </a>
-                                          </aside>
-                                        </li>
-                                        <li>
-                                          <figure>Подкатегория</figure>
-                                          <aside>
-                                            <a href="{% url 'ad_subcategory' name_en=object.name_en %}">
-                                              {{ object.category }}
-                                            </a>
-                                          </aside>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                    <a href="" class="detail text-caps underline">Детали</a>
-                                </div>
-                                </div>
-                                {% endfor %}
-                                {% else %}
-                                <h3 style="text-align:center">У Вас нет активных объявлений...</h3>
-                                {% endif %}
+                                {% include 'generic/ad_wrapper.html' %}
+                              </div>
+                              {% endfor %}
+                              {% else %}
+                              <h3 style="text-align:center">У Вас нет активных объявлений...</h3>
+                              {% endif %}
                             </div>
                         </div>
                       </div>

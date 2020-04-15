@@ -46,53 +46,7 @@
         <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
             {% for object in sub_category.last_ads %}
             <div class="item">
-              <div class="wrapper">
-                  <div class="image">
-                      <h3>
-                          <a href="" class="title">{{ object.title }}</a>
-                          <span class="tag">
-                            <i class="fa fa-eye"></i>&nbsp;0&nbsp;|&nbsp;
-                            <i class="fa fa-heart"></i>&nbsp;0
-                          </span>
-                      </h3>
-                      <a href="" class="image-wrapper background-image">
-                        {% if object.image %}
-                          <img src="{{ object.image.url }}" alt="">
-                        {% else %}
-                          <img src="{% static 'images/no_img.jpg' %}" alt="">
-                        {% endif %}
-                      </a>
-                  </div>
-                  <h4 class="location">
-                      <a href="">{{ object.city.region }}</a>,
-                      <a href="">{{ object.city }}</a>
-                  </h4>
-                  <div class="price rubl">&#8399; {{ object.price|intcomma }}</div>
-                  <div class="description">
-                      <p>{{ object.description|truncatechars:300 }}</p>
-                  </div>
-                  <div class="additional-info">
-                    <ul>
-                      <li>
-                        <figure>Категория</figure>
-                        <aside>
-                          <a href="">
-                          {{ object.category.category }}
-                          </a>
-                        </aside>
-                      </li>
-                      <li>
-                        <figure>Подкатегория</figure>
-                        <aside>
-                          <a href="">
-                            {{ object.category }}
-                          </a>
-                        </aside>
-                      </li>
-                    </ul>
-                  </div>
-                  <a href="" class="detail text-caps underline">Детали</a>
-              </div>
+              {% include 'generic/ad_wrapper.html' %}
             </div>
               {% endfor %}
           </div>

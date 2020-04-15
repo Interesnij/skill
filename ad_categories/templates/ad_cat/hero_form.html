@@ -18,9 +18,9 @@
                     <div class="form-group">
                         <label style="margin-top:0px;" class="col-form-label">Категория</label>
                         <select class="subcategory_load" name="category" id="id_category">
-                            <option value="{{ category.pk }}">{{ category.name }}</option>
-                            {% for object in categories %}
-                            <option value="{{ object.pk }}">{{ object.name }}</option>
+                            <option value="{{ category.pk }}">{{ category.name_ru }}</option>
+                            {% for object in ad_categories %}
+                            <option value="{{ object.pk }}">{{ object.name_ru }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -46,7 +46,9 @@
                                   <label for="type" class="required">Подкатегория</label>
                                   <select name="sub_category" id="id_sub_category" data-placeholder="Выберите подкатегорию">
                                       <option value="">Подкатегория</option>
-                                      {% include 'generic/edit_subcat.html' %}
+                                      {% for object in ad_subcategories %}
+                                      <option value="{{ object.pk }}">{{ object.name_ru }}</option>
+                                      {% endfor %}
                                   </select>
                               </div>
                             </div>
