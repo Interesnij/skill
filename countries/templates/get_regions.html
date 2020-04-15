@@ -2,10 +2,10 @@
 
 {% for object in regions %}
 
-<a href="{% url 'region' object.name_en %}">{{ object.name_ru }}</a>
+<a href="{% url 'region' name_en=object.name_en %}">{{ object.name_ru }}</a>
 <br>
 {% for city in object.city_set.all %}
-<a href="{% url 'city' city.name_en %}">{{ city.name_ru }}</a>
+<a href="{% url 'city' name_en=city.name_en %}">{{ city.name_ru }}</a>
 {% endfor %}
 
 {% endfor %}
