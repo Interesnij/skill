@@ -3,5 +3,5 @@ from cities.views import CityView
 
 
 urlpatterns = [
-    url(r'(?P<city_name>[\w\-]+)/^$', CityView.as_view(), name='city'),
+    url(r'(?P<city_name>[\w\-]+)/$', CityView.as_view(), name='city'),
 ]
