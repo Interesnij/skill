@@ -17,7 +17,7 @@ color:red;
 .svg_default {
   color: rgba(0, 0, 0, 0.5);
 }
-.city_fullscreen{
+.russia_fullscreen{
  position: fixed;
  top: 0;
  left: 0;
@@ -28,14 +28,21 @@ color:red;
  display: block;
  overflow: auto;
 }
-.photo_fullscreen_hide{
+.russia_fullscreen_hide{
  cursor: pointer;
  float: right;
 }
 .close_fullscreen{
  display:none;
 }
-
+@media screen and (min-width: 621px){
+.russia_fullscreen{
+    left: 20%;
+    width: 60%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+}
 .additional-info {
     padding-left: 1.8rem;
     padding-right: 1.8rem;
