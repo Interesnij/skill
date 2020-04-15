@@ -11,7 +11,7 @@
 <div class="page-title">
     <div class="container">
         <h1 class="opacity-60 center">
-            Россия :: {{ category.name_ru }} 
+            Россия :: {{ category.name_ru }}
         </h1>
     </div>
 </div>
@@ -31,7 +31,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-9">
-        {% if category.last_ads %}
+        {% if object_list %}
 
         <div class="section-title clearfix">
           <div class="float-right d-xs-none thumbnail-toggle">
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
-            {% for object in category.last_ads %}
+            {% for object object_list %}
             <div class="item">
               {% include 'generic/ad_wrapper.html' %}
             </div>

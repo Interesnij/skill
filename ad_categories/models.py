@@ -20,7 +20,7 @@ class AdCategory(models.Model):
 
 	    ads_query = Q(category__category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Ad.objects.filter(ads_query)
-	    return ads
+	    return ads[:21] 
 
 	def get_ads():
 	    from ad_posts.models import Ad

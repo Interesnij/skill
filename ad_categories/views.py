@@ -8,8 +8,10 @@ class AdCategoriesView(TemplateView):
     template_name = "ad_categories.html"
 
 
-class AdCategoryView(TemplateView):
+class AdCategoryView(ListView):
     template_name = None
+    model = Ad
+    paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.cat=AdCategory.objects.get(name_en=self.kwargs["name_en"])
@@ -30,9 +32,15 @@ class AdCategoryView(TemplateView):
         context['category'] = self.cat
         return context
 
+    def get_queryset(self):
+        ads = self.cat.get_ads()
+        return ads
 
-class AdSubCategoryView(TemplateView):
+
+class AdSubCategoryView(ListView):
     template_name = None
+    model = Ad
+    paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.cat=AdSubCategory.objects.get(name_en=self.kwargs["name_en"])
@@ -52,3 +60,7 @@ class AdSubCategoryView(TemplateView):
         context = super(AdSubCategoryView, self).get_context_data(**kwargs)
         context['sub_category'] = self.cat
         return context
+
+    def get_queryset(self):
+        ads = self.cat.get_ads()
+        return ads
