@@ -15,3 +15,10 @@ class City(models.Model):
 
     def __str__(self):
         return self.name_ru
+
+    def get_ads(self):
+	    from ad_posts.models import Ad
+
+	    ads_query = Q(city__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
+	    ads = Ad.objects.filter(ads_query)
+	    return ads

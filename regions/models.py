@@ -15,3 +15,10 @@ class Region(models.Model):
     class Meta:
         verbose_name = "Регион"
         verbose_name_plural = "Регионы"
+
+    def get_ads(self):
+	    from ad_posts.models import Ad
+
+	    ads_query = Q(city__region__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
+	    ads = Ad.objects.filter(ads_query)
+	    return ads

@@ -24,3 +24,7 @@ class CityView(TemplateView):
         context = super(CityView, self).get_context_data(**kwargs)
         context['city'] = self.city
         return context
+
+    def get_queryset(self):
+        ads = self.city.get_ads()
+        return ads

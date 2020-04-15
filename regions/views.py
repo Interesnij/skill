@@ -24,3 +24,7 @@ class RegionView(TemplateView):
         context = super(RegionView, self).get_context_data(**kwargs)
         context['region'] = self.region
         return context
+
+    def get_queryset(self):
+        ads = self.region.get_ads()
+        return ads
