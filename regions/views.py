@@ -1,10 +1,14 @@
 from django.views.generic.base import TemplateView
+from django.views.generic import ListView
 from regions.models import Region
 import re
+from ad_posts.models import Ad
 
 
-class RegionView(TemplateView):
+class RegionView(ListView):
     template_name = None
+    model = Ad
+    paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.region = Region.objects.get(name_en=self.kwargs["region_name"])

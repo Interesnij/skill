@@ -1,10 +1,14 @@
 from django.views.generic.base import TemplateView
+from django.views.generic import ListView
 from cities.models import City
+from ad_posts.models import Ad
 import re
 
 
-class CityView(TemplateView):
+class CityView(ListView):
     template_name = None
+    model = Ad
+    paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.city = City.objects.get(name_en=self.kwargs["city_name"])
