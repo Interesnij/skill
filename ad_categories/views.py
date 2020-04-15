@@ -69,7 +69,7 @@ class AdRegionCategoryView(ListView):
         return context
 
     def get_queryset(self):
-        ads = self.cat.get_ads_in_region()
+        ads = self.cat.get_ads_in_region(self.region.pk)
         return ads
 
 
@@ -163,7 +163,7 @@ class AdRegionSubCategoryView(ListView):
         return context
 
     def get_queryset(self):
-        ads = self.cat.get_ads_in_region()
+        ads = self.cat.get_ads_in_region(self.region.pk)
         return ads
 
 
