@@ -18,9 +18,9 @@ class AdCategory(models.Model):
 	def last_ads():
 	    from ad_posts.models import Ad
 
-	    ads_query = Q(creator__is_blocked=False, is_deleted=False, is_active=True)
+	    ads_query = Q(category__category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Ad.objects.filter(ads_query)
-	    return ads[:21]
+	    return ads
 
 	def get_ads():
 	    from ad_posts.models import Ad
