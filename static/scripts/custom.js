@@ -164,3 +164,11 @@ function changeTab(_this){
         changeTarget.find( "#" + parameters + " select").prop("disabled", false);
     }
 };
+$(".change-class").on("click", function(e){
+        e.preventDefault();
+        var parentClass = $( "."+$(this).attr("data-parent-class") );
+        parentClass.removeClass( $(this).attr("data-change-from-class") );
+        parentClass.addClass( $(this).attr("data-change-to-class") );
+        $(this).parent().find(".change-class").removeClass("active");
+        $(this).addClass("active");
+    });
