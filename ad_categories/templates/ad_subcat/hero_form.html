@@ -45,7 +45,7 @@
                               <div class="form-group">
                                   <select name="sub_category" id="id_sub_category" data-placeholder="Выберите подкатегорию">
                                       <option value="{{ sub_category.pk }}">{{ sub_category }}</option>
-                                      {% for object in sub_category.category_set.all %}
+                                      {% for object in sub_category.category.ad_set.all %}
                                         <option value="{{ object.pk }}">{{ object.name_ru }}</option>
                                       {% endfor %}
                                   </select>
