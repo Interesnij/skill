@@ -1,6 +1,6 @@
 {% extends "bases/base_anon.html" %}
 {% load humanize staticfiles thumbnail %}
-{% block title %}Россия, {{ sity.region.name_ru }}, {{ sity.name_ru }}{% endblock %}
+{% block title %}Россия, {{ city.region.name_ru }}, {{ city.name_ru }}{% endblock %}
 {% block content %}
 <style>
   label{
@@ -11,7 +11,7 @@
 <div class="page-title">
     <div class="container">
         <h1 class="opacity-60 center">
-          Россия, {{ sity.region.name_ru }}, {{ sity.name_ru }}
+          Россия, {{ city.region.name_ru }}, {{ city.name_ru }}
         </h1>
     </div>
 </div>
