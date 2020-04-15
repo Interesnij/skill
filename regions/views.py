@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from regions.models import Region
 import re
 from ad_posts.models import Ad
+from ad_categories.models import AdCategory
 
 
 class RegionView(ListView):

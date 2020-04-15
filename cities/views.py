@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from cities.models import City
 from ad_posts.models import Ad
 import re
+from ad_categories.models import AdCategory
 
 
 class CityView(ListView):
