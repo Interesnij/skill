@@ -17,7 +17,7 @@
     </div>
     <h4 class="location">
         <a href="">{{ object.city.region }}</a>,
-        <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
+        <a href="{% url 'city' name_en=object.city.name_en %}">{{ object.city }}</a>
     </h4>
     <div class="price rubl">&#8399; {{ object.price }}</div>
     <div class="description">
