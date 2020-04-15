@@ -47,14 +47,14 @@ class AdSubCategory(models.Model):
 		verbose_name = "суб-категория"
 		verbose_name_plural = "суб-категории"
 
-	def last_ads():
+	def last_ads(self):
 	    from ad_posts.models import Ad
 
 	    ads_query = Q(category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Ad.objects.filter(ads_query)
 	    return ads[:21]
 
-	def get_ads():
+	def get_ads(self):
 	    from ad_posts.models import Ad
 
 	    ads_query = Q(category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
