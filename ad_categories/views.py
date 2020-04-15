@@ -1,7 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView
 import re
-from ad_categories.models import AdCategory
+from ad_categories.models import AdCategory, AdSubCategory
 
 
 class AdCategoriesView(TemplateView):
