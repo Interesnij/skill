@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 from cities.models import City
+import re
 
 
 class CityView(TemplateView):
