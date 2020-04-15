@@ -1,7 +1,5 @@
-.get_russia::-webkit-input-placeholder,
-.get_russia::-moz-placeholder,
-.get_russia:-moz-placeholder,
-.get_russia:-ms-input-placeholder{
+
+.get_russia::placeholder{
   color:black;
 }
 
