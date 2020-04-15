@@ -9,9 +9,6 @@ class City(models.Model):
     order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер")
     image = models.ImageField(blank=True, verbose_name="Изображение", upload_to="cities")
 
-    def __str__(self):
-        return self.name_ru
-
     class Meta:
         verbose_name = "Город"
         verbose_name_plural = "Города"
