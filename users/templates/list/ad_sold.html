@@ -83,7 +83,7 @@
                                         <li>
                                           <figure>Категория</figure>
                                           <aside>
-                                            <a href="">
+                                            <a href="{% url 'ad_category' name_en=object.name_en %}">
                                             {{ object.category.category }}
                                             </a>
                                           </aside>
@@ -91,7 +91,7 @@
                                         <li>
                                           <figure>Подкатегория</figure>
                                           <aside>
-                                            <a href="">
+                                            <a href="{% url 'ad_subcategory' name_en=object.name_en %}">
                                               {{ object.category }}
                                             </a>
                                           </aside>
