@@ -1,5 +1,6 @@
 from django.db import models
 from regions.models import Region
+from django.db.models import Q
 
 
 class City(models.Model):

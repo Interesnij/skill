@@ -1,5 +1,6 @@
 from django.db import models
 from countries.models import Country
+from django.db.models import Q
 
 
 class Region(models.Model):
