@@ -1,6 +1,6 @@
 {% extends "bases/base_anon.html" %}
 {% load humanize staticfiles thumbnail %}
-{% block title %}Россия :: {{ category.name_ru }}{% endblock %}
+{% block title %}Россия, {{ city.region.name_ru }}, {{ city.name_ru }} :: {{ category.name_ru }}{% endblock %}
 {% block content %}
 <style>
   label{
@@ -11,12 +11,12 @@
 <div class="page-title">
     <div class="container">
         <h1 class="opacity-60 center">
-            Россия :: {{ category.name_ru }}
+            Россия, {{ city.region.name_ru }}, {{ city.name_ru }} :: {{ category.name_ru }}
         </h1>
     </div>
 </div>
 
-{% include 'ad_cat/hero_form.html' %}
+{% include 'ad_cat_city/hero_form.html' %}
 
 <div class="background">
     <div class="background-image">

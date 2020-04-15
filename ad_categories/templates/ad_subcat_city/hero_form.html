@@ -5,20 +5,20 @@
               <div class="col-md-3 col-sm-3">
                   <div class="form-group">
                       <label style="margin-top:0px;" class="col-form-label">Название</label>
-                      <input id="id_title" name="title" value="{{ title }}" type="text" class="form-control"placeholder="Что Вы ищете?">
+                      <input type="text" class="form-control" placeholder="Что Вы ищете?">
                   </div>
               </div>
                 <div class="col-md-3 col-sm-3">
                     <div class="form-group">
                         <label style="margin-top:0px;" class="col-form-label">Локация</label>
-                        <input class="get_russia" type="text" style="cursor:pointer" readonly value="Россия">
+                        <input class="get_russia" type="text" style="cursor:pointer" readonly value="{{ city.name_ru }}">
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-3">
                     <div class="form-group">
                         <label style="margin-top:0px;" class="col-form-label">Категория</label>
                         <select class="subcategory_load" name="category" id="id_category">
-                            <option value="{{ category.pk }}">{{ category.name_ru }}</option>
+                            <option value="{{ sub_category.category.pk }}">{{ sub_category.category.name_ru }}</option>
                             {% for object in ad_categories %}
                             <option value="{{ object.pk }}">{{ object.name_ru }}</option>
                             {% endfor %}
@@ -45,8 +45,8 @@
                               <div class="form-group">
                                   <label for="type" class="required">Подкатегория</label>
                                   <select name="sub_category" id="id_sub_category" data-placeholder="Выберите подкатегорию">
-                                      <option value="">Подкатегория</option>
-                                      {% for object in ad_subcategories %}
+                                      <option value="{{ sub_category.pk }}">{{ sub_category.name_ru }}</option>
+                                      {% for object in sub_category.category.adsubcategory_set.all %}
                                       <option value="{{ object.pk }}">{{ object.name_ru }}</option>
                                       {% endfor %}
                                   </select>

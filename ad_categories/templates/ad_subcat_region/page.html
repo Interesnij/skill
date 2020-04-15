@@ -1,6 +1,6 @@
-{% extends "bases/base.html" %}
+{% extends "bases/base_anon.html" %}
 {% load humanize staticfiles thumbnail %}
-{% block title %}Россия :: {{ category.name_ru }}{% endblock %}
+{% block title %}Россия, {{ region.name_ru }} :: {{ sub_category.category.name_ru }}, {{ sub_category.name_ru }}{% endblock %}
 {% block content %}
 <style>
   label{
@@ -11,7 +11,7 @@
 <div class="page-title">
     <div class="container">
         <h1 class="opacity-60 center">
-            Россия :: {{ category.name_ru }}
+          Россия, {{ region.name_ru }} :: {{ sub_category.category.name_ru }}, {{ sub_category.name_ru }}
         </h1>
     </div>
 </div>
