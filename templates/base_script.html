@@ -31,4 +31,10 @@ on('body', 'click', '.get_russia', function() {
   loader = document.getElementById("russia_loader");
   open_fullscreen("/countries/load/1", loader)
 });
+
+on('#ajax', 'click', '.russia_fullscreen_hide', function() {
+  document.querySelector(".russia_fullscreen").style.display = "none";
+  document.getElementById("russia_loader").innerHTML=""
+});
+
 </script>
