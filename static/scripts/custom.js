@@ -1,13 +1,6 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// jQuery
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var automaticGeoLocation = false;
-var resizeId;
 
 $(document).ready(function($) {
     "use strict";
-
-//  Selectize
 
     $("[data-enable-search=true]").each(function(){
         $(this).selectize({
@@ -30,42 +23,20 @@ $(document).ready(function($) {
     function dropdownClose($dropdown){
         $dropdown.removeClass("opening");
     }
-
-
-//  Disable inputs in the non-active tab
-
     $(".form-slide:not(.active) input, .form-slide:not(.active) select, .form-slide:not(.active) textarea").prop("disabled", true);
-
-//  Change tab button
-
-
     $("select.change-tab").each(function(){
         var _this = $(this);
         if( $(this).find(".item").attr("data-value") !== "" ){
             changeTab( _this );
         }
     });
-
     $(".change-tab").on("change", function() {
         changeTab( $(this) );
     });
-
     $(".box").each(function(){
         if( $(this).find(".background .background-image").length ) {
             $(this).css("background-color","transparent");
         }
-    });
-
-//  Button for class changing
-
-    $(".change-class").on("click", function(e){
-        e.preventDefault();
-        var parentClass = $( "."+$(this).attr("data-parent-class") );
-        parentClass.removeClass( $(this).attr("data-change-from-class") );
-        parentClass.addClass( $(this).attr("data-change-to-class") );
-        $(this).parent().find(".change-class").removeClass("active");
-        $(this).addClass("active");
-        readMore();
     });
 
     $(".ribbon-featured").each(function() {
@@ -79,7 +50,6 @@ $(document).ready(function($) {
             "</div>"
         );
     });
-
 
     if( $(".owl-carousel").length ){
         var galleryCarousel = $(".gallery-carousel");
@@ -163,8 +133,6 @@ $(document).ready(function($) {
         $(this).closest(".framed").removeClass("active");
     });
 
-//  "img" into "background-image" transfer
-
     $("[data-background-image]").each(function() {
         $(this).css("background-image", "url("+ $(this).attr("data-background-image") +")" );
     });
@@ -173,13 +141,6 @@ $(document).ready(function($) {
         $(this).css("background-image", "url("+ $(this).find("img").attr("src") +")" );
     });
 });
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Functions
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Change Tab
-
 function changeTab(_this){
     var parameters = _this.data("selectize").items[0];
     var changeTarget = $("#" + _this.attr("data-change-tab-target"));
