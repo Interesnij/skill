@@ -11,7 +11,7 @@
                 <h3><a href="{% url 'ad_category_city' cat_name=cat.name_en city_name=city.name_en %}">{{ cat.name_ru }}</a></h3>
                 <span class="sub-categories">
                   {% for object in cat.adsubcategory_set.all %}
-                    <a href="{% url 'ad_subcategory_city' subcat_name=category.name_en city_name=city.name_en %}">{{ object.name_ru }}</a>
+                    <a href="{% url 'ad_subcategory_city' subcat_name=object.name_en city_name=city.name_en %}">{{ object.name_ru }}</a>
                   {% endfor %}
                 </span>
             </li>
