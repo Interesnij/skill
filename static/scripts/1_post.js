@@ -55,7 +55,7 @@ on('body', 'click', '.ad_remove', function(e) {
   link.send( null );
 })
 
-on('body', 'click', '.ad_unremove', function() {
+on('body', 'click', '.ad_unremove', function(e) {
   e.preventDefault;
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
