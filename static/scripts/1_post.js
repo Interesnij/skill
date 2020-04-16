@@ -9,7 +9,7 @@
      new_span = document.createElement("span");
      new_span.classList.add("ad_unsold");
      new_span.style.cursor = "pointer";
-     new_span.innerHTML = "Активировать";
+     new_span.innerHTML = "Активно";
      parent.innerHTML = "";
      parent.append(new_span);
    }};
@@ -45,7 +45,7 @@ on('body', 'click', '.ad_remove', function() {
     new_span = document.createElement("span");
     new_span.classList.add("ad_unremove");
     new_span.style.cursor = "pointer";
-    new_span.innerHTML = "Восстановить";
+    new_span.innerHTML = "Отмена";
     parent.innerHTML = "";
     parent.append(new_span);
   }};
