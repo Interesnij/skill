@@ -6,7 +6,7 @@ class SearchView(TemplateView):
     template_name = "search.html"
 
 
-class GetSubCat(View):
+class GetSubCat(TemplateView):
     template_name = "get_subcat.html"
 
     def get(self,request,*args,**kwargs):
