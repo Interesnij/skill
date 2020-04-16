@@ -56,6 +56,8 @@ class User(AbstractUser):
                 template_name = "main/deleted_page.html"
             elif request.user.is_blocked:
                 template_name = "main/blocked_page.html"
+            else:
+                template_name = folder + template
         elif request.user.is_anonymous:
             template_name = folder + "anon_" + template
 
