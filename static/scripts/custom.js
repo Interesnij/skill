@@ -132,14 +132,6 @@ $(document).ready(function($) {
     framedInputRadio.on('ifUnchecked', function(){
         $(this).closest(".framed").removeClass("active");
     });
-
-    $("[data-background-image]").each(function() {
-        $(this).css("background-image", "url("+ $(this).attr("data-background-image") +")" );
-    });
-
-    $(".background-image").each(function() {
-        $(this).css("background-image", "url("+ $(this).find("img").attr("src") +")" );
-    });
 });
 function changeTab(_this){
     var parameters = _this.data("selectize").items[0];
