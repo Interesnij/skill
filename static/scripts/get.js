@@ -13,7 +13,7 @@ function SelectSubCategory (select) {
   var selectedOption = select.options[select.selectedIndex];
   var pk = selectedOption.value;
   var subcat_block = document.querySelector(".subcat");
-  new_load(subcat_block, '/search/get_subcat' + pk);
+  new_load(subcat_block, '/search/get_subcat/' + pk);
 }
 
 function open_fullscreen(link, block) {
