@@ -14,7 +14,7 @@ function SelectSubCategory (select) {
   var pk = selectedOption.value;
   var subcat_block = document.querySelector(".subcat");
 
-  pk = "" ? subcat_block.innerHTML = "" : subcat_block.innerHTML; new_load(subcat_block, '/search/get_subcat/' + pk);
+  pk == "" ? subcat_block.innerHTML = "" : subcat_block.innerHTML; new_load(subcat_block, '/search/get_subcat/' + pk);
 }
 
 function open_fullscreen(link, block) {
