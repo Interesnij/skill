@@ -60,12 +60,8 @@
                                       <div class="price rubl">&#8399; {{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
                                           <a href="#">Изменить</a>
-                                          <span>
-                                            <span style="cursor:pointer" class="ad_sold">Продано</span>
-                                          </span>
-                                          <span>
-                                            <span style="cursor:pointer" class="ad_remove">Удалить</span>
-                                          </span>
+                                          <span style="cursor:pointer" class="ad_sold">Продано</span>
+                                          <span style="cursor:pointer" class="ad_remove">Удалить</span>
                                       </div>
                                       <div class="description">
                                           <p>{{ object.description|truncatechars:300 }}</p>
