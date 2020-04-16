@@ -36,11 +36,11 @@
                                                 <i class="fa fa-eye"></i>&nbsp;0&nbsp;|&nbsp;<i class="fa fa-heart"></i>&nbsp;0
                                               </span>
                                           </h3>
-                                          <a href="" class="image-wrapper background-image">
+                                          <a href="" class="image-wrapper">
                                             {% if object.image %}
-                                              <img src="{{ object.image.url }}" alt="">
+                                              <img style="width:100%" src="{{ object.image.url }}" alt="">
                                             {% else %}
-                                              <img src="{% static 'images/no_img.jpg' %}" alt="">
+                                              <img style="width:100%" src="{% static 'images/no_img.jpg' %}" alt="">
                                             {% endif %}
                                           </a>
                                       </div>
