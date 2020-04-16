@@ -20,7 +20,8 @@ class AdUnSold(View):
         ad = Ad.objects.get(pk=self.kwargs["pk"])
         if request.user.pk == ad.creator.pk and ad.is_sold != False:
             ad.is_sold = False
-            ad.save(update_fields=['is_sold'])
+            ad.is_active = True
+            ad.save(update_fields=['is_sold', 'is_active'])
             return HttpResponse('')
         else:
             return HttpResponse('')
