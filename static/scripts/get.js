@@ -13,8 +13,8 @@ function SelectSubCategory (select) {
   var selectedOption = select.options[select.selectedIndex];
   var pk = selectedOption.value;
   var subcat_block = document.querySelector(".subcat");
-  if (pk == ""){subcat_block.innerHTML = ""
-  }else if{
+  if (pk == ""){subcat_block.innerHTML = ""}
+  else if{
     subcat_block.innerHTML = "";
     new_load(subcat_block, '/search/get_subcat/' + pk)
   }
