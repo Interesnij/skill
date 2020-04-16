@@ -3,21 +3,9 @@
 {% block title %}{{ user.get_full_name }}
 {% endblock %}
 {% block content %}
-<style>
-</style>
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="{% url 'main' %}">Главная</a></li>
-  <li class="breadcrumb-item active">Пользователь {{ user.get_full_name }}</li>
-</ol>
-</div>
-</div>
 
-<div class="page-title">
-    <div class="container">
-        <h1>Пользователь {{ user.get_full_name }}</h1>
-    </div>
 </div>
-<div class="background"></div>
+</div>
 </div>
 </section>
 <section class="content">
@@ -39,10 +27,10 @@
                                   <h2>{{ user.get_full_name }}</h2>
 
                                     <h4 class="location">
-                                      {% if object.get_online %}
+                                      {% if user.get_online %}
                                       <span style="color:#00AB83;font-size: 18px;"> онлайн </span>
                                       {% else %}
-                                      <span style="color:#6C757D;font-size: 18px;">Был {{ object.last_activity }}</span>
+                                      <span style="color:#6C757D;font-size: 18px;">Был {{ user.last_activity }}</span>
                                       {% endif %}
                                     </h4>
 
@@ -67,7 +55,7 @@
                                     <ul>
                                         <li>
                                             <figure>Телефон</figure>
-                                            <aside>{{ object.phone }}</aside>
+                                            <aside>{{ user.phone }}</aside>
                                         </li>
                                         <li>
                                               <a class='' style="cursor: pointer">
@@ -77,9 +65,9 @@
                                     </ul>
                                 </div>
                                 <p>
-                                  <h3>Регион: {{ object.get_last_location.region_ru }}</h3>
-                                  <h3>Город: {{ object.get_last_location.city_ru }}</h3>
-                                  <h3>Зарегистрирован: {{ user1.date_joined }}</h3>
+                                  <h3>Регион: {{ user.get_last_location.region_ru }}</h3>
+                                  <h3>Город: {{ user.get_last_location.city_ru }}</h3>
+                                  <h3>Зарегистрирован: {{ user.date_joined }}</h3>
                             </div>
                         </div>
                     </div>
@@ -92,6 +80,7 @@
                 <div class="container">
                     <div class="row flex-column-reverse flex-md-row">
                         <div class="col-md-9">
+                            {% if object_list %}
                             <section>
                                 <h2>Активные объявления</h2>
                                 <div class="section-title clearfix">
@@ -106,7 +95,6 @@
                                 </div>
                                 <div>
                                 <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
-                                      {% if object_list %}
                                       {% for object in object_list %}
                                         <div class="item">
                                             {% include 'generic/ad_wrapper.html' %}
@@ -114,13 +102,12 @@
 
                                         {% endfor %}
 
-                                        {% else %}
-                                        <h3 style="text-align:center">У пользователя нет объявлений...</h3>
-                                        {% endif %}
-
                                     </div>
                                 </div>
                             </section>
+                            {% else %}
+                            <h3 style="text-align:center">У пользователя нет объявлений...</h3>
+                            {% endif %}
 
                             {% include 'generic/form_guest.html' %}
 
