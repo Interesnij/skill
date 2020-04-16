@@ -1,4 +1,4 @@
- on('#ajax', 'click', '.ad_sold', function() {
+ on('body', 'click', '.ad_sold', function() {
    item = this.parentElement.parentElement.parentElement.parentElement;
    pk = item.getAttribute("data-pk");
    parent = this.parentElement;
@@ -15,7 +15,7 @@
    link.send( null );
 })
 
-on('#ajax', 'click', '.ad_unsold', function() {
+on('body', 'click', '.ad_unsold', function() {
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
