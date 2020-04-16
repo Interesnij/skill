@@ -18,7 +18,7 @@
                 <div class="col-md-3 col-sm-3">
                     <div class="form-group">
                         <label style="margin-top:0px;" class="col-form-label">Категория</label>
-                        <select name="category" id="id_category">
+                        <select class="category_select" name="category" id="id_category">
                             <option style="margin-top:18px;" value="">Категория</option>
                             {% for object in ad_categories %}
                               <option value="{{ object.pk }}">{{ object.name }}</option>
@@ -42,7 +42,7 @@
                                 <div class="icheckbox"><input type="checkbox" name="with_photo" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
                                 С фото
                             </label>
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                               <div class="subcat"></div>
                             </div>
                           </div>

@@ -18,10 +18,10 @@
                 <div class="col-md-3 col-sm-3">
                     <div class="form-group">
                         <label style="margin-top:0px;" class="col-form-label">Категория</label>
-                        <select name="category" id="id_category">
+                        <select class="category_select" name="category" id="id_category">
                             <option style="margin-top:18px;" value="">Категория</option>
                             {% for object in ad_categories %}
-                              <option value="{{ object.pk }}">{{ object.name }}</option>
+                              <option value="{{ object.pk }}">{{ object.name_ru }}</option>
                             {% endfor %}
                         </select>
                     </div>
