@@ -6,7 +6,6 @@ from rest_framework.exceptions import PermissionDenied
 from django.db import models
 
 
-
 class User(AbstractUser):
     is_email_verified = models.BooleanField(default=False, verbose_name='Почта подтверждена')
     is_phone_verified = models.BooleanField(default=False, verbose_name='Телефон подтвержден')

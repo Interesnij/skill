@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.postgres.indexes import BrinIndex
 from ad_posts.models import Ad
+from django.db.models import Q
 
 
 class Favourites(models.Model):
