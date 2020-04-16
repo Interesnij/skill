@@ -114,7 +114,7 @@ class MySubscribeView(ListView):
         return context
 
     def get_queryset(self):
-        users = self.user.get_subscribs()
+        users = self.user.get_my_subscribs()
         return users
 
 
@@ -134,7 +134,7 @@ class SubscribesView(ListView):
         return context
 
     def get_queryset(self):
-        users = self.user.get_my_subscribs()
+        users = self.user.get_subscribs()
         return users
 
 
