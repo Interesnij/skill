@@ -27,7 +27,7 @@ class ChatAd(models.Model):
     id = models.AutoField(primary_key=True)
 
     def __str__(self):
-        return self.user
+        return self.user.get_full_name()
 
     class Meta:
         verbose_name = "Обсуждаемый товар"
@@ -67,7 +67,7 @@ class Guest(models.Model):
     star = models.CharField(max_length=50, choices=STAR, verbose_name="Рейтинг")
 
     def __str__(self):
-        return self.receiver
+        return self.title
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
