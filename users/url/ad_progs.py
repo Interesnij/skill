@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^sold/(?P<pk>\d+)/$', login_required(AdSold.as_view())),
     url(r'^unsold/(?P<pk>\d+)/$', login_required(AdUnSold.as_view())),
     url(r'^active/(?P<pk>\d+)/$', login_required(AdActive.as_view())),
-    url(r'^unactive/(?P<phone>\d+)/$', login_required(AdUnActive.as_view())),
+    url(r'^unactive/(?P<pk>\d+)/$', login_required(AdUnActive.as_view())),
     url(r'^delete/(?P<pk>\d+)/$', login_required(AdDelete.as_view())),
-    url(r'^undelete/(?P<phone>\d+)/$', login_required(AdUnDelete.as_view())),
+    url(r'^undelete/(?P<pk>\d+)/$', login_required(AdUnDelete.as_view())),
 ]

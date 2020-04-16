@@ -54,7 +54,8 @@ class AdDelete(View):
         ad = Ad.objects.get(pk=self.kwargs["pk"])
         if request.user.pk == ad.creator.pk and ad.is_deleted != True:
             ad.is_deleted = True
-            ad.save(update_fields=['is_deleted'])
+            ad.is_active = False
+            ad.save(update_fields=['is_deleted', 'is_active'])
             return HttpResponse('')
         else:
             return HttpResponse('')
