@@ -44,7 +44,7 @@
                                         <a href="{% url 'user' pk=object.pk %}" class="title">
                                           {{ object.get_full_name }}
                                         </a>
-                                    </h3>
+                                    </h3> 
                                     <a href="{% url 'user' pk=object.pk %}" class="image-wrapper background-image">
                                       {% if object.avatar %}
                                         {{ object.avatar.url }}
@@ -58,7 +58,7 @@
                                     <a href="">{{ object.get_last_location.city_ru }}</a>
                                 </h4>
                                 <div class="meta">
-                                    <figure>{{ object.get_online }}</figure>&nbsp;
+                                    <figure>{% if object.get_online %}Онлайн {% else %} Был {{ object.last_activity }}{% endif %}</figure>&nbsp;
                                     <figure>
                                         <a href="{% url 'user' pk=object.pk %}">Товаров<strong> {{ object.ad_set.count }}</strong></a>
                                     </figure>
