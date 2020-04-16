@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/sold/$', UserAdSoldView.as_view(), name='user_ad_sold'),
     url(r'^(?P<pk>\d+)/deferred/$', UserAdDefView.as_view(), name='user_ad_deferred'),
     url(r'^(?P<pk>\d+)/favorite/$', UserFavoriteView.as_view(), name='user_favorite'),
-    url(r'^(?P<pk>\d+)/my_subscribe/$', MySubscribeView.as_view(), name='my_subscribe'),
+    url(r'^(?P<pk>\d+)/my_subscribe/$', MySubscribeView.as_view(), name='my_subscribes'),
     url(r'^(?P<pk>\d+)/subscribes/$', SubscribesView.as_view(), name='subscribes'),
     url(r'^(?P<pk>\d+)/settings/$', UserSettingsView.as_view(), name='user_settings'),
 
