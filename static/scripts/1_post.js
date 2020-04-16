@@ -8,6 +8,7 @@
    if ( link.readyState == 4 && link.status == 200 ) {
      new_span = document.createElement("span");
      new_span.classList.add("ad_unsold");
+     new_span.style.cursor = "pointer";
      new_span.innerHTML = "Активировать";
      parent.innerHTML = "";
      parent.append(new_span);
@@ -25,6 +26,7 @@ on('body', 'click', '.ad_unsold', function() {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
     new_span.classList.add("ad_sold");
+    new_span.style.cursor = "pointer";
     new_span.innerHTML = "Продано";
     parent.innerHTML = "";
     parent.append(new_span);
@@ -42,6 +44,7 @@ on('body', 'click', '.ad_remove', function() {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
     new_span.classList.add("ad_unremove");
+    new_span.style.cursor = "pointer";
     new_span.innerHTML = "Восстановить";
     parent.innerHTML = "";
     parent.append(new_span);
@@ -59,6 +62,7 @@ on('body', 'click', '.ad_unremove', function() {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
     new_span.classList.add("ad_remove");
+    new_span.style.cursor = "pointer";
     new_span.innerHTML = "Удалить";
     parent.innerHTML = "";
     parent.append(new_span);
