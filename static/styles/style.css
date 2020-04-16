@@ -178,7 +178,6 @@ color:red;
 .author.big .author-image {
     width: 26rem;
     height: 26rem;
-    box-shadow: 0 .1rem 2rem rgba(0,0,0,.15);
 }
 .author.big .author-description {
     padding-top: 1rem;
