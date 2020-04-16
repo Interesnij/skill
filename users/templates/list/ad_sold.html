@@ -31,11 +31,11 @@
                                     </a>
                                 </div>
                             </div>
-                            <div id="ad_active" class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
+                            <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
                               {% if object_list %}
 
                               {% for object in object_list %}
-                              <div class="item item-sold">
+                              <div class="item item-sold" data-pk="{{ object.pk }}"> 
                                 <div class="ribbon-diagonal">
                                     <div class="ribbon-diagonal__inner">
                                         <span>Продано</span>
