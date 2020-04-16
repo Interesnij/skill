@@ -90,10 +90,10 @@ class User(AbstractUser):
         return template_name
 
     def is_adding_user_with_id(self, user_id):
-        return self.adding_user.filter(adding_user__id=user_id).exists()
+        return self.adding_user.filter(added_user__id=user_id).exists()
 
     def is_added_user_with_id(self, user_id):
-        return self.added_user.filter(added_user__id=user_id).exists()
+        return self.added_user.filter(adding_user__id=user_id).exists()
 
     def is_blocked_with_user_with_id(self, user_id):
         from users.model.list import UserBlock
