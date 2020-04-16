@@ -1,4 +1,5 @@
- on('body', 'click', '.ad_sold', function() {
+ on('body', 'click', '.ad_sold', function(e) {
+   e.preventDefault;
    item = this.parentElement.parentElement.parentElement.parentElement;
    pk = item.getAttribute("data-pk");
    parent = this.parentElement;
