@@ -1,4 +1,20 @@
 function on(elSelector,eventName,selector,fn) {var element = document.querySelector(elSelector);element.addEventListener(eventName, function(event) {var possibleTargets = element.querySelectorAll(selector);var target = event.target;for (var i = 0, l = possibleTargets.length; i < l; i++) {var el = target;var p = possibleTargets[i];while(el && el !== element) {if (el === p) {return fn.call(p, event);}el = el.parentNode;}}});};
+function new_load(block,link) {
+  var request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+  request.open( 'GET', link, true );
+  request.onreadystatechange = function () {
+    if ( request.readyState == 4 && request.status == 200 ) {
+      block.innerHTML = request.responseText;
+    }};
+  request.send( null );
+}
+
+function SelectSubCategory (select) {
+  var selectedOption = select.options[select.selectedIndex];
+  var pk = selectedOption.value;
+  var subcat_block = document.querySelector(".subcat");
+  new_load(subcat_block, '/search/get_subcat' + pk);
+}
 
 function open_fullscreen(link, block) {
   var link_, elem;
