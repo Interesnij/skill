@@ -1,4 +1,4 @@
-{% extends "bases/other_base.html" %}
+{% extends "bases/base.html" %}
 {% load staticfiles humanize thumbnail %}
 
 {% block title %}Мои отложенные товары{% endblock %}
@@ -35,7 +35,7 @@
                               {% if object_list %}
 
                               {% for object in object_list %}
-                              <div class="item item-sold" data-pk="{{ object.pk }}"> 
+                              <div class="item item-sold" data-pk="{{ object.pk }}">
                                 <div class="ribbon-diagonal">
                                     <div class="ribbon-diagonal__inner">
                                         <span>Продано</span>
