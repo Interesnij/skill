@@ -11,7 +11,7 @@ from django.contrib.postgres.indexes import BrinIndex
 
 
 class Ad(models.Model):
-    id = models.BigIntegerField(unique=True, primary_key=True) 
+    id = models.BigIntegerField(unique=True, primary_key=True)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, verbose_name="uuid")
     title = models.CharField(max_length=200, verbose_name="Название")
     description = models.TextField(max_length=1000, verbose_name="Описание товара")

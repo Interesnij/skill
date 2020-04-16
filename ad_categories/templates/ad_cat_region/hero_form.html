@@ -17,7 +17,7 @@
                 <div class="col-md-3 col-sm-3">
                     <div class="form-group">
                         <label style="margin-top:0px;" class="col-form-label">Категория</label>
-                        <select class="category_select" name="category" id="id_category">
+                        <select onchange="SelectSubCategory (this)" name="category" id="id_category">
                             <option value="{{ category.pk }}">{{ category.name_ru }}</option>
                             {% for object in ad_categories %}
                             <option value="{{ object.pk }}">{{ object.name_ru }}</option>

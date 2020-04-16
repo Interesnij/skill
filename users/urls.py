@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/settings/$', UserSettingsView.as_view(), name='user_settings'),
 
     url(r'^progs/', include('users.url.progs')),
+    url(r'^ad_progs/', include('users.url.ad_progs')),
 
 ]
