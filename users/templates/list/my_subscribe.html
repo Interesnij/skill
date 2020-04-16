@@ -41,24 +41,24 @@
                                 <div class="wrapper">
                                 <div class="image">
                                     <h3>
-                                        <a href="{% url 'user' pk=object.creator.pk %}" class="title">
-                                          {{ object.creator.get_full_name }}
+                                        <a href="{% url 'user' pk=object.pk %}" class="title">
+                                          {{ object.get_full_name }}
                                         </a>
                                     </h3>
-                                    <a href="{% url 'user' pk=object.creator.pk %}" class="image-wrapper background-image">
-                                      {% if user.avatar %}
-                                        {{ user.avatar.url }}
+                                    <a href="{% url 'user' pk=object.pk %}" class="image-wrapper background-image">
+                                      {% if object.avatar %}
+                                        {{ object.avatar.url }}
                                       {% else %}
                                         <svg fill="currentColor" class="svg_default" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
                                       {% endif %}
                                     </a>
                                 </div>
                                 <h4 class="location">
-                                    <a href="">{{ user.get_last_location.region_ru }}</a>,
-                                    <a href="">{{ user.get_last_location.city_ru }}</a>
+                                    <a href="">{{ object.get_last_location.region_ru }}</a>,
+                                    <a href="">{{ object.get_last_location.city_ru }}</a>
                                 </h4>
                                 <div class="meta">
-                                    <figure>{{ user.get_online }}</figure>&nbsp;
+                                    <figure>{{ object.get_online }}</figure>&nbsp;
                                     <figure>
                                         <a href="{% url 'user' pk=object.pk %}">Товаров<strong> {{ object.ad_set.count }}</strong></a>
                                     </figure>
