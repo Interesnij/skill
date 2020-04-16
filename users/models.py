@@ -94,6 +94,10 @@ class User(AbstractUser):
     def is_added_user_with_id(self, user_id):
         return self.added_user.filter(added_user__id=user_id).exists()
 
+    def is_blocked_with_user_with_id(self, user_id):
+        from users.model.list import UserBlock
+        return UserBlock.users_are_blocked(user_a_id=self.pk, user_b_id=user_id)
+
     def unsubscribe_user(self, user):
         return self.unsubscribe_user_with_id(user.pk)
 
