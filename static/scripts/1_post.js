@@ -6,11 +6,12 @@
    link.open( 'GET', "/users/ad_progs/sold/" + pk + "/", true );
    link.onreadystatechange = function () {
    if ( link.readyState == 4 && link.status == 200 ) {
-     new_span = document.createElement("span");
-     new_span.classList.add("ad_unsold");
-     new_span.innerHTML = "Активировать";
+     new_a = document.createElement("a");
+     new_a.setAttribute('href', "#");
+     new_a.classList.add("ad_unsold");
+     new_a.innerHTML = "Активировать";
      parent.innerHTML = "";
-     parent.append(new_span);
+     parent.append(new_a);
    }};
    link.send( null );
 })
@@ -23,11 +24,12 @@ on('body', 'click', '.ad_unsold', function() {
   link.open( 'GET', "/users/ad_progs/unsold/" + pk + "/", true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
-    new_span = document.createElement("span");
-    new_span.classList.add("ad_sold");
-    new_span.innerHTML = "Продано";
+    new_a = document.createElement("a");
+    new_a.setAttribute('href', "#");
+    new_a.classList.add("ad_sold");
+    new_a.innerHTML = "Продано";
     parent.innerHTML = "";
-    parent.append(new_span);
+    parent.append(new_a);
   }};
   link.send( null );
 })
@@ -40,11 +42,12 @@ on('body', 'click', '.ad_remove', function() {
   link.open( 'GET', "/users/ad_progs/delete/" + pk + "/", true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
-    new_span = document.createElement("span");
-    new_span.classList.add("ad_unremove");
-    new_span.innerHTML = "Восстановить";
+    new_a = document.createElement("a");
+    new_a.setAttribute('href', "#");
+    new_a.classList.add("ad_unremove");
+    new_a.innerHTML = "Восстановить";
     parent.innerHTML = "";
-    parent.append(new_span);
+    parent.append(new_a);
   }};
   link.send( null );
 })
@@ -57,11 +60,12 @@ on('body', 'click', '.ad_unremove', function() {
   link.open( 'GET', "/users/ad_progs/undelete/" + pk + "/", true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
-    new_span = document.createElement("span");
-    new_span.classList.add("ad_remove");
-    new_span.innerHTML = "Удалить";
+    new_a = document.createElement("a");
+    new_a.setAttribute('href', "#");
+    new_a.classList.add("ad_remove");
+    new_a.innerHTML = "Удалить";
     parent.innerHTML = "";
-    parent.append(new_span);
+    parent.append(new_a);
   }};
   link.send( null );
 })
