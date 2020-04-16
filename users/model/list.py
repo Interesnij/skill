@@ -41,7 +41,7 @@ class Subscribe(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Дата добавления")
 
     def __str__(self):
-        return self.adding_user
+        return self.adding_user.get_full_name()
 
     class Meta:
         verbose_name = "Подписки"
