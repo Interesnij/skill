@@ -15,6 +15,6 @@ class GetSubCat(TemplateView):
         return super(GetSubCat,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(CityView, self).get_context_data(**kwargs)
+        context = super(GetSubCat, self).get_context_data(**kwargs)
         context['subcats'] = self.subcats
         return context
