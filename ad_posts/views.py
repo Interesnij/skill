@@ -12,7 +12,7 @@ class AdDetailView(TemplateView):
     def get(self,request,*args,**kwargs):
         self.user = request.user
         self.ad = Ad.objects.get(pk=self.kwargs["pk"])
-        self.cat_pk = ad.category.category.pk
+        self.cat_pk = self.ad.category.category.pk
         self.template_name = self.user.get_template_ad_detail(folder="detail/", template=self.cat_pk + "_page.html", request=request)
         return super(AdDetailView,self).get(request,*args,**kwargs)
 
