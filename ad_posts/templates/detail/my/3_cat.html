@@ -1,0 +1,105 @@
+{% extends "bases/base.html" %}
+{% load humanize %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+
+<img src="/static/images/back.png" style="height:25px"/>
+
+<div class="page-title">
+    <div class="container clearfix">
+        <div class="float-left float-xs-none">
+            <h1>{{ ad.title }}</h1>
+            <h4 class="location">
+                <a href="{% url 'region' region_name=ad.city.region.name_en %}">{{ ad.city.region }}</a>,
+                <a href="{% url 'city' city_name=ad.city.name_en %}">{{ ad.city }}</a>
+            </h4>
+        </div>
+        <div class="float-right float-xs-none price">
+            <div class="number"> {{ ad.price|intcomma }} руб.</div>
+            <div class="opacity-50">
+              <a href="">Изменить</a><a href="">Удалить</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                  {% include 'ad_images.html' %}
+
+                    <section>
+                        <h2>Описание</h2>
+                        <p>{{ ad.description }}</p>
+                    </section>
+
+                    <section>
+                        <h2>Детали</h2>
+                        <div class="row">
+                          <div class="col-md-8">
+                              <dl>
+                                <dt>Категория</dt>             <dd> {{ ad.category.category }}</dd>
+                                <dt>Подкатегория</dt>          <dd> {{ ad.category }}</dd>
+
+                                <dt>Тип</dt><dd> {{ ad.zapauto.spare }}</dd>
+                                <dt>Тип фары</dt><dd> {{ ad.zapauto.type_of_headlight }}</dd>
+                                <dt>Вид транспорта</dt><dd> {{ ad.zapauto.motor }}</dd>
+                                <dt>Марка</dt><dd> {{ ad.zapauto.brand }}</dd>
+                                <dt>Состояние</dt><dd> {{ ad.zapauto.condition }}</dd>
+                                <dt>Артикул</dt><dd> {{ ad.zapauto.art }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.zapauto.tires_wheels }}</dd>
+                                <dt>Диаметр</dt><dd> {{ ad.zapauto.tires }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.zapauto.oils_car_chemicals }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.zapauto.electronics_gps }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.zapauto.accessories_tools }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.zapauto.audio_video }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.zapauto.anti_theft }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.zapauto.roof_trailers }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.zapauto.moto_gear }}</dd>
+                                <dt>Пол</dt><dd> {{ ad.zapauto.gender }}</dd>
+                                <dt>Размер</dt><dd> {{ ad.zapauto.size }}</dd>
+                                <dt>Размер куртки</dt><dd> {{ ad.zapauto.jacket_size }}</dd>
+
+                                <dt>Размер ноги</dt><dd> {{ ad.zapauto.shoe_size }}</dd>
+                                <dt>Размер штанов</dt><dd> {{ ad.zapauto.pant_size }}</dd>
+                                <dt>Размер комбинезона</dt><dd> {{ ad.zapauto.jumpsuit_size }}</dd>
+
+                              </dl>
+                          </div>
+                       </div>
+                    </section>
+
+                    {% include 'section_author.html' %}
+                </div>
+
+                <div class="col-md-3">
+                    <aside class="sidebar">
+
+                      {% include 'section_simular.html' %}
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+var ready = (callback) => {if (document.readyState != "loading") callback();else document.addEventListener("DOMContentLoaded", callback)}
+
+ready(() => {
+  var list = document.querySelectorAll('dd');
+  var count = list.length;
+  for(i=0; i<count; i++) {
+    if(list[i].innerHTML == " "){
+      list[i].style.display = "None";
+      list[i].previousElementSibling.style.display = "None";
+    }
+    else if(list[i].innerHTML == " True"){list[i].innerHTML = "Есть"}
+    else if(list[i].innerHTML == " False"){list[i].innerHTML = "Нет";}}
+})
+</script>
+{% endblock %}
