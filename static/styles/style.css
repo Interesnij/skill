@@ -1,3 +1,11 @@
+
+dd:nth-child(2) {
+  background: white;
+}
+dd:nth-child(4n) {
+  background: yellow;
+ }
+
 .page-title{
   margin-top: 10rem;
 }
@@ -320,7 +328,6 @@ color:red;
     position: relative;
     padding-left: 8rem;
     padding-top: 1rem;
-    float: left;
     margin-bottom: 4rem;
 }
 .categories-list li h3 {
