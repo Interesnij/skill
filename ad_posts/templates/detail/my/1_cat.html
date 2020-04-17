@@ -158,7 +158,7 @@
 
 
 <script>
-  var ready = (callback) => {
+var ready = (callback) => {
     if (document.readyState != "loading") callback();
     else document.addEventListener("DOMContentLoaded", callback);
 }
@@ -174,7 +174,7 @@ ready(() => {
       list[i].innerHTML = "Есть"
     }
     else if(list[i].innerHTML == "False"){
-      list[i].innerHTML = "Нет"
+      list[i].style.display = "none"
     }
   }
 
