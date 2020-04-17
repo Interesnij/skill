@@ -1,13 +1,13 @@
 <div class="wrapper">
     <div class="image">
         <h3>
-            <a href="" class="title">{{ object.title }}</a>
+            <a href="{% url 'ad_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
             <span class="tag">
               <i class="fa fa-eye"></i>&nbsp;0&nbsp;|&nbsp;
               <i class="fa fa-heart"></i>&nbsp;0
             </span>
         </h3>
-        <a href="" class="image-wrapper background-image">
+        <a href="{% url 'ad_detail' pk=object.pk %}" class="image-wrapper background-image">
           {% if object.image %}
             <img src="{{ object.image.url }}" alt="">
           {% else %}
@@ -43,5 +43,5 @@
         </li>
       </ul>
     </div>
-    <a href="" class="detail text-caps underline">Детали</a>
+    <a href="{% url 'ad_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
 </div>
