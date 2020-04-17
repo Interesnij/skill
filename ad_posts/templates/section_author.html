@@ -1,0 +1,46 @@
+{% load humanize %}
+<style>
+  .img_author img{
+    width: 95%;
+    height: 95%;
+  }
+</style>
+<section>
+    <h2>Автор</h2>
+    <div class="box">
+        <div class="row">
+            <div class="col-md-5 img_author">
+              <a href="{% url 'user' pk=ad.creator.pk %}" class="image-wrapper background-image">
+                {% if ad.creator.avatar %}
+                  {{ ad.creator.avatar.url }}
+                {% else %}
+                  <svg fill="currentColor" class="svg_default" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                {% endif %}
+              </a>
+            </div>
+
+            <div class="col-md-7">
+              <div class="author-description">
+                  <h3>{{ ad.creator.get_full_name }}</h3>
+                  <a href="{% url 'user' pk=ad.creator.pk %}" class="text-uppercase">Объявления
+                      <span class="appendix">( {{ ad.creator.ad_set.count }} )</span>
+                  </a>
+                  <hr>
+                  <dl>
+                      <dt>Активность</dt>
+                      <dd>{% if object.get_online %}Онлайн {% else %} Был {{ object.last_activity }}{% endif %}</dd>
+
+                      <dt>Регион</dt>
+                      <dd>{{ ad.creator.get_last_location.region_ru }}</dd>
+
+                      <dt>Город</dt>
+                      <dd>{{ ad.creator.get_last_location.city_ru }}</dd>
+
+                      <dt>Телефон</dt>
+                      <dd>{{ ad.creator.phone }}</dd>
+                  </dl>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>

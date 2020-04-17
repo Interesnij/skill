@@ -1,0 +1,141 @@
+{% extends "bases/base_ad.html" %}
+{% load avatar_tags staticfiles thumbnail humanize %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+
+<img src="{% static 'images/back.png' %}" style="height:25px"/>
+
+<div class="page-title">
+    <div class="container clearfix">
+        <div class="float-left float-xs-none">
+            <h1>{{ ad.title }}</h1>
+            <h4 class="location">
+                <a href="{% url 'region' region_name=ad.city.region.name_en %}">{{ ad.city.region }}</a>,
+                <a href="{% url 'city' city_name=ad.city.name_en %}">{{ ad.city }}</a>
+            </h4>
+        </div>
+        <div class="float-right float-xs-none price">
+            <div class="number"> {{ ad.price|intcomma }} руб.</div>
+            <div class="opacity-50">
+              <a href="">Изменить</a><a href="">Удалить</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                  {% include 'ad_images.html' %}
+
+                    <section>
+                        <h2>Описание</h2>
+                        <p>{{ ad.description }}</p>
+                    </section>
+
+                    <section>
+                        <h2>Детали</h2>
+                        <div class="row">
+                          <div class="col-md-6">
+                              <dl>
+                                <dt>Категория</dt> <dd>{{ object.category }}</dd>
+                                <dt>Подкатегория</dt> <dd>{{ object.sub_category }}</dd>
+
+                                <dt>Бренд</dt><dd> {{ ad.auto.brand }}</dd>
+                                <dt>Модель</dt><dd> {{ ad.auto.model }}</dd>
+                                <dt>Год</dt><dd> {{ ad.auto.year }}</dd>
+                                <dt>Цвет</dt><dd> {{ ad.auto.color }}</dd>
+                                <dt>Пробег</dt><dd> {{ ad.auto.run }}</dd{% endif %}
+                                <dt>Состояние</dt><dd> {{ ad.auto.condition }}</dd>
+                                <dt>Данные о ТО</dt><dd> {{ ad.auto.to }}</dd>
+                                <dt>Усилитель руля</dt><dd> {{ ad.auto.power_steering }}</dd>
+                                <dt>Видео c YouTube</dt><dd> {{ ad.auto.link }}</dd>
+                                <dt>Место осмотра</dt><dd> {{ ad.auto.place_of_inspection }}</dd>
+                                <dt>Салон</dt><dd> {{ ad.auto.salon }}</dd>
+                                <dt>Кожаный руль</dt><dd>Есть</dd>
+                                <dt>Люк</dt><dd>Есть</dd>
+                                <dt>Управление климатом</dt><dd> {{ ad.auto.climate_control }}</dd>
+                                <dt>Управление на руле</dt><dd>Есть</dd>
+                                <dt>Атермальное остекление</dt><dd>Есть</dd>
+                                <dt>Обогрев передних сидений</dt><dd>Есть</dd>
+                                <dt>Обогрев задних сидений</dt><dd>Есть</dd>
+                                <dt>Обогрев зеркал</dt><dd>Есть</dd>
+                                <dt>Обогрев заднего стекла</dt><dd>Есть</dd>
+                                <dt>Обогрев рулевой колонки</dt><dd>Есть</dd>
+                                <dt>Электропривод передних сидений</dt><dd>Есть</dd>
+                                <dt>Электропривод задних сидений</dt><dd>Есть</dd>
+                                <dt>Электропривод зеркал</dt><dd>Есть</dd>
+                                <dt>Складывание зеркал</dt><dd>Есть</dd>
+                                <dt>Электропривод рулевой колонки</dt><dd>Есть</dd>
+                                <dt>Память передних сидений</dt><dd>Есть</dd>
+                                <dt>Память задних сидений</dt><dd>Есть</dd>
+                                <dt>Память зеркал</dt><dd>Есть</dd>
+                                <dt>Память рулевой колонки</dt><dd>Есть</dd>
+                                <dt>Автопарковщик</dt><dd>Есть</dd>
+                                <dt>Датчик дождя</dt><dd>Есть</dd>
+                                <dt>Датчик света</dt><dd>Есть</dd>
+                                <dt>Парктроник задний</dt><dd>Есть</dd>
+                                <dt>Парктроник передний</dt><dd>Есть</dd>
+                                <dt>Система контроля слепых зон</dt>
+                                <dd>Есть</dd>
+                                <dt>Камера заднего вида</dt><dd>Есть</dd>
+                                <dt>Круиз контроль</dt><dd>Есть</dd>
+                                <dt>Бортовой компьютер</dt><dd>Есть</dd>
+                                <dt>Сигнализация</dt><dd>Есть</dd>
+                                <dt>Центральный замок</dt><dd>Есть</dd>
+                                <dt>Иммобилайзер</dt><dd>Есть</dd>
+                                <dt>Спутник</dt><dd>Есть</dd>
+                                <dt>Фронтальные подушки безопасности</dt><dd>Есть</dd>
+                                <dt>Коленные подушки безопасности</dt><dd>Есть</dd>
+                                <dt>Шторки подушки безопасности</dt><dd>Есть</dd>
+                                <dt>Боковые передние подушки безопасности</dt><dd>Есть</dd>
+                                <dt>Боковые задние подушки безопасности</dt><dd>Есть</dd>
+                                <dt>Автоблокировка тормозов</dt><dd>Есть</dd>
+                                <dt>Антипробуксовка</dt><dd>Есть</dd>
+                                <dt>Курсовая устойчивость</dt><dd>Есть</dd>
+                                <dt>Распред. тормозных усилий</dt><dd>Есть</dd>
+                                <dt>Экстренное торможение</dt><dd>Есть</dd>
+                                <dt>Блок. дифференциала</dt><dd>Есть</dd>
+                                <dt>Обнаружение пешеходов</dt><dd>Есть</dd>
+                                <dt>CD/DVD/Blu-ray</dt><dd>Есть</dd>
+                                <dt>MP3</dt><dd>Есть</dd>
+                                <dt>Радио</dt><dd>Есть</dd>
+                                <dt>TV</dt><dd>Есть</dd>
+                                <dt>Видео</dt><dd>Есть</dd>
+                                <dt>Управление на руле</dt><dd>Есть</dd>
+                                <dt>USB</dt><dd>Есть</dd>
+                                <dt>AUX</dt><dd>Есть</dd>
+                                <dt>bluetooth</dt><dd>Есть</dd>
+                                <dt>GPS-навигатор</dt><dd>Есть</dd>
+                                <dt>Аудиосистема</dt><dd>{{ ad.auto.audio }}</dd>
+                                <dt>Сабвуфер</dt><dd>Есть</dd>
+                                <dt>Фары</dt>
+                                <dd>{{ ad.auto.headlights }}</dd>
+                                <dt>Противотуманные фары</dt><dd>Есть</dd>
+                                <dt>Омыватели фар</dt><dd>Есть</dd>
+                                <dt>Адаптивное освещение</dt><dd>Есть</dd>
+                                <dt>Размер шин</dt><dd>{{ ad.auto.tires }}</dd>
+                                <dt>Зимние шины в комплекте</dt><dd>Есть</dd>
+                              </dl>
+                          </div>
+                       </div>
+                    </section>
+
+                    {% include 'section_author.html' %}
+                </div>
+
+                <div class="col-md-3">
+                    <aside class="sidebar">
+
+                      {% include 'section_simular.html' %}
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% load staticfiles humanize %}
+
+{% if ad.get_simular %}
+  <section>
+      <h2>Похожее</h2>
+      <div class="items">
+        {% for object in ad.get_simular %}
+          <div class="item">
+              <div class="ribbon-featured">Похожее</div>
+              <div class="wrapper">
+                  <div class="image">
+                      <h3>
+                          <a href="{% url 'ad_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
+                          <span class="tag">
+                            <i class="fa fa-eye"></i> 0
+                            | <i class="fa fa-heart"></i> 0
+                          </span>
+                      </h3>
+                      <a href="{% url 'ad_detail' pk=object.pk %}" class="image-wrapper background-image">
+                        {% if object.images %}
+                          <img src="{{ object.images.url }}" alt="">
+                        {% else %}
+                          <img src="/static/images/no_img.jpg" alt="">
+                        {% endif %}
+                      </a>
+                  </div>
+                  <h4 class="location">
+                      <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
+                      <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
+                  </h4>
+                  <div class="price rubl">&#8399; {{ object.price|intcomma }}</div>
+                  <div class="meta">
+                        <figure>
+                            <i class="fa fa-calendar-o"></i>{{ object.created|naturaltime }}
+                        </figure>
+                        <br>
+                        <figure>
+                            <a href="{% url 'user' pk=object.creator.pk %}">
+                                <i class="fa fa-user"></i>
+                                {{ object.creator.get_full_name }}
+                            </a>
+                        </figure>
+                    </div>
+                  <div class="description">
+                  </div>
+                  <div class="additional-info">
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+  {% endif %}

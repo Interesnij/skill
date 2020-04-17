@@ -1,0 +1,21 @@
+<section>
+    <h2>Галерея</h2>
+
+    <div class="gallery-carousel owl-carousel">
+      {% if ad.image %}
+        <img src="{{ ad.image.url }}" style="width: 100%;" alt="" data-hash="1">
+      {% else %}
+        <img src="/static/images/no_img.jpg" style="width: 100%;">
+      {% endif %}
+    </div>
+
+    <div class="gallery-carousel-thumbs owl-carousel">
+      {% if ad.image %}
+        <a href="#1" class="owl-thumb active-thumb background-image">
+            <img src="{{ ad.image.url }}" alt="">
+        </a>
+      {% else %}
+        <img src="/static/images/no_img.jpg" style="width: 100%;">
+      {% endif %}
+    </div>
+</section>
