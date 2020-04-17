@@ -2,7 +2,11 @@
 {% load humanize %}
 {% block title %}{{ ad.title }}{% endblock %}
 {% block content %}
-
+<style>
+  dd:nth-child(2n) {
+    background: yellow;
+   }
+</style>
 <img src="/static/images/back.png" style="height:25px"/>
 
 <div class="page-title">
@@ -67,7 +71,7 @@
 
                                 <dt>Электропривод передних сидений</dt><dd>{{ ad.auto.front_seats }}</dd>
                                 <dt>Электропривод задних сидений</dt><dd>{{ ad.auto.back_seats }}</dd>
-                                <dt>Электропривод зеркал</dt><dd>Ест{{ ad.auto.mirrors }}ь</dd>
+                                <dt>Электропривод зеркал</dt><dd>{{ ad.auto.mirrors }}</dd>
                                 <dt>Складывание зеркал</dt><dd>{{ ad.auto.folding_mirrors }}</dd>
                                 <dt>Электропривод рулевой колонки</dt><dd>{{ ad.auto.steering_column }}</dd>
 
