@@ -51,9 +51,6 @@ class AdSubCategory(models.Model):
 	order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер подкатегории")
 	image = models.ImageField(blank=True, verbose_name="Изображение", upload_to="ad_category/sub")
 
-	def __str__(self):
-		return self.name_ru
-
 	class Meta:
 		verbose_name = "суб-категория"
 		verbose_name_plural = "суб-категории"
