@@ -50,28 +50,28 @@
                         <div class="row">
                           <div class="col-md-8">
                               <dl>
-                                <dt>Категория</dt> <dd>{{ ad.category.category }}</dd>
-                                <dt>Подкатегория</dt> <dd>{{ ad.category }}</dd>
+                                <dt>Категория</dt>             <dd>{{ ad.category.category }}</dd>
+                                <dt>Подкатегория</dt>          <dd>{{ ad.category }}</dd>
 
-                                <dt>Бренд</dt><dd> {{ ad.auto.brand }}</dd>
-                                <dt>Модель</dt><dd> {{ ad.auto.model }}</dd>
-                                <dt>Год</dt><dd> {{ ad.auto.year }}</dd>
-                                <dt>Цвет</dt><dd> {{ ad.auto.color }}</dd>
-                                <dt>Пробег</dt><dd> {{ ad.auto.run }}</dd>
-                                <dt>Состояние</dt><dd> {{ ad.auto.condition }}</dd>
-                                <dt>Данные о ТО</dt><dd> {{ ad.auto.to }}</dd>
-                                <dt>Усилитель руля</dt><dd> {{ ad.auto.power_steering }}</dd>
-                                <dt>Видео c YouTube</dt><dd> {{ ad.auto.link }}</dd>
-                                <dt>Место осмотра</dt><dd> {{ ad.auto.place_of_inspection }}</dd>
-                                <dt>Салон</dt><dd> {{ ad.auto.salon }}</dd>
-                                <dt>Кожаный руль</dt><dd>{{ ad.auto.leather_steering_wheel }}</dd>
-                                <dt>Люк</dt><dd>{{ ad.auto.hatch }}</dd>
-                                <dt>Управление климатом</dt><dd> {{ ad.auto.climate_control }}</dd>
-                                <dt>Управление на руле</dt><dd>{{ ad.auto.steering_wheel_control }}</dd>
+                                <dt>Бренд</dt>                 <dd> {{ ad.auto.brand }}</dd>
+                                <dt>Модель</dt>                <dd> {{ ad.auto.model }}</dd>
+                                <dt>Год</dt>                   <dd> {{ ad.auto.year }}</dd>
+                                <dt>Цвет</dt>                  <dd> {{ ad.auto.color }}</dd>
+                                <dt>Пробег</dt>                <dd> {{ ad.auto.run }}</dd>
+                                <dt>Состояние</dt>             <dd> {{ ad.auto.condition }}</dd>
+                                <dt>Данные о ТО</dt>           <dd> {{ ad.auto.to }}</dd>
+                                <dt>Усилитель руля</dt>        <dd> {{ ad.auto.power_steering }}</dd>
+                                <dt>Видео c YouTube</dt>       <dd> {{ ad.auto.link }}</dd>
+                                <dt>Место осмотра</dt>         <dd> {{ ad.auto.place_of_inspection }}</dd>
+                                <dt>Салон</dt>                 <dd> {{ ad.auto.salon }}</dd>
+                                <dt>Кожаный руль</dt>          <dd>{{ ad.auto.leather_steering_wheel }}</dd>
+                                <dt>Люк</dt>                   <dd>{{ ad.auto.hatch }}</dd>
+                                <dt>Управление климатом</dt>   <dd> {{ ad.auto.climate_control }}</dd>
+                                <dt>Управление на руле</dt>    <dd>{{ ad.auto.steering_wheel_control }}</dd>
                                 <dt>Атермальное остекление</dt><dd>{{ ad.auto.athermal_glazing }}</dd>
                                 <dt>Обогрев передних сидений</dt><dd>{{ ad.auto.heated_front_seats }}</dd>
                                 <dt>Обогрев задних сидений</dt><dd>{{ ad.auto.heated_reart_seats }}</dd>
-                                <dt>Обогрев зеркал</dt><dd>{{ ad.auto.heated_mirrors }}</dd>
+                                <dt>Обогрев зеркал</dt>        <dd>{{ ad.auto.heated_mirrors }}</dd>
                                 <dt>Обогрев заднего стекла</dt><dd>{{ ad.auto.heated_rear_window }}</dd>
                                 <dt>Обогрев рулевой колонки</dt><dd>{{ ad.auto.heated_steering_column }}</dd>
 
@@ -174,8 +174,7 @@ ready(() => {
       list[i].innerHTML = "Есть"
     }
     else if(list[i].innerHTML == "False"){
-      list[i].previousElementSibling.style.display = "none";
-      list[i].style.display = "none";
+      list[i].innerHTML = "Нет";
     }
   }
 
