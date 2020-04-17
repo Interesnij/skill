@@ -174,7 +174,8 @@ ready(() => {
       list[i].innerHTML = "Есть"
     }
     else if(list[i].innerHTML == "False"){
-      list[i].style.display = "none"
+      list[i].previousElementSibling.style.display = "none";
+      list[i].style.display = "none";
     }
   }
 
