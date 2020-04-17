@@ -158,12 +158,12 @@ def get_template_ad_detail(ad, folder, template, request):
         if not request.user.is_phone_verified:
             template_name = "main/phone_verification.html"
         else:
-            template_name = folder + "my_" + template
+            template_name = folder + "my/" + template
     elif request.user.pk != ad.creator.pk and request.user.is_authenticated:
         if not request.user.is_phone_verified:
             template_name = "main/phone_verification.html"
         elif request.user.is_blocked_with_user_with_id(user_id=self.pk):
-            template_name = folder + "block_" + template
+            template_name = "main/you_are_block.html"
         elif request.user.is_deleted:
             template_name = "main/deleted_page.html"
         elif request.user.is_blocked:
@@ -171,7 +171,7 @@ def get_template_ad_detail(ad, folder, template, request):
         else:
             template_name = folder + template
     elif request.user.is_anonymous:
-        template_name = folder + "anon_" + template
+        template_name = folder + "anon/" + template
 
     MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
     if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
