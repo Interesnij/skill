@@ -71,10 +71,12 @@ class User(AbstractUser):
                 UserNumbers.objects.create(visitor=request.user.pk, target=self.pk, platform=0)
         return template_name
 
-    def get_template_ad_detail(self, folder, template, request):
+    def get_template_ad_detail(self, ad, folder, template, request):
         import re
         from stst.models import AdNumbers
 
+        cat_pk = (ad.category.category.pk)
+        template_name = cat_pk + template_name
         if self.pk == request.user.pk:
             if not request.user.is_phone_verified:
                 template_name = "main/phone_verification.html"
@@ -98,10 +100,10 @@ class User(AbstractUser):
         if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
             template_name = "mob_" + template_name
             if request.user.is_authenticated:
-                AdNumbers.objects.create(user=request.user.pk, ad=self.pk, platform=1)
+                AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=1)
         else:
             if request.user.is_authenticated:
-                AdNumbers.objects.create(user=request.user.pk, ad=self.pk, platform=0)
+                AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=0)
         return AdNumbers
 
     def get_my_template(self, folder, template, request):
