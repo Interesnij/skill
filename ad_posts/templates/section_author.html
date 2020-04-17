@@ -31,13 +31,13 @@
                       <dd>{% if ad.creator.get_online %}Онлайн {% else %} Был {{ ad.creator.last_activity }}{% endif %}</dd>
 
                       <dt>Регион</dt>
-                      <dd>{{ ad.creator.get_last_location.region_ru }}</dd>
+                      <dd> {{ ad.creator.get_last_location.region_ru }}</dd>
 
                       <dt>Город</dt>
-                      <dd>{{ ad.creator.get_last_location.city_ru }}</dd>
+                      <dd> {{ ad.creator.get_last_location.city_ru }}</dd>
 
                       <dt>Телефон</dt>
-                      <dd>{{ ad.creator.phone }}</dd>
+                      <dd> {{ ad.creator.phone }}</dd>
                   </dl>
               </div>
             </div>
