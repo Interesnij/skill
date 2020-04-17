@@ -99,10 +99,10 @@ class User(AbstractUser):
         MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
         if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
             template_name = "mob_" + template_name
-            if request.user.is_authenticated:
+            if self.is_authenticated:
                 AdNumbers.objects.create(user=self.pk, ad=ad.pk, platform=1)
         else:
-            if request.user.is_authenticated:
+            if self.is_authenticated:
                 AdNumbers.objects.create(user=self.pk, ad=ad.pk, platform=0)
         return AdNumbers
 
