@@ -14,6 +14,7 @@ class AdCategory(models.Model):
 	class Meta:
 		verbose_name = "Категория объявлений"
 		verbose_name_plural = "Категории объявлений"
+		ordering = ['order']
 
 	def last_ads(self):
 	    from ad_posts.models import Ad
