@@ -76,7 +76,7 @@ class User(AbstractUser):
         from stst.models import AdNumbers
 
         cat_pk = str(ad.category.category.pk)
-        template_name = cat_pk + template_name
+        template = cat_pk + template
         if self.pk == request.user.pk:
             if not request.user.is_phone_verified:
                 template_name = "main/phone_verification.html"
