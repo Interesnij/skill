@@ -101,7 +101,7 @@ class User(AbstractUser):
                 AdNumbers.objects.create(user=request.user.pk, ad=self.pk, platform=1)
         else:
             if request.user.is_authenticated:
-                UserNumbers.objects.create(user=request.user.pk, ad=self.pk, platform=0)
+                AdNumbers.objects.create(user=request.user.pk, ad=self.pk, platform=0)
         return AdNumbers
 
     def get_my_template(self, folder, template, request):
