@@ -55,6 +55,9 @@ class AdSubCategory(models.Model):
 		verbose_name = "суб-категория"
 		verbose_name_plural = "суб-категории"
 
+	def __str__(self):
+		return self.name_ru
+
 	def get_absolute_url(self):
 		return reverse('subcategories_edit',kwargs={"pk":self.pk})
 
