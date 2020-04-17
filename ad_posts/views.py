@@ -1,6 +1,5 @@
 from django.views.generic.base import TemplateView
 from ad_posts.models import Ad
-from common.utils import get_template_ad_detail
 
 
 class AdPostsView(TemplateView):
