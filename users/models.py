@@ -100,10 +100,10 @@ class User(AbstractUser):
         if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
             template_name = "mob_" + template_name
             if self.is_authenticated:
-                AdNumbers.objects.create(user=self.pk, ad=ad.pk, platform=1)
+                AdNumbers.objects.create(user=1, ad=1, platform=1)
         else:
             if self.is_authenticated:
-                AdNumbers.objects.create(user=self.pk, ad=ad.pk, platform=0)
+                AdNumbers.objects.create(user=1, ad=1, platform=0)
         return AdNumbers
 
     def get_my_template(self, folder, template, request):
