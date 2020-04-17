@@ -43,89 +43,25 @@
                                 <dt>Категория</dt>             <dd>{{ ad.category.category }}</dd>
                                 <dt>Подкатегория</dt>          <dd>{{ ad.category }}</dd>
 
-                                <dt>Бренд</dt>                 <dd> {{ ad.auto.brand }}</dd>
-                                <dt>Модель</dt>                <dd> {{ ad.auto.model }}</dd>
-                                <dt>Год</dt>                   <dd> {{ ad.auto.year }}</dd>
-                                <dt>Цвет</dt>                  <dd> {{ ad.auto.color }}</dd>
-                                <dt>Пробег</dt>                <dd> {{ ad.auto.run }}</dd>
-                                <dt>Состояние</dt>             <dd> {{ ad.auto.condition }}</dd>
-                                <dt>Данные о ТО</dt>           <dd> {{ ad.auto.to }}</dd>
-                                <dt>Усилитель руля</dt>        <dd> {{ ad.auto.power_steering }}</dd>
-                                <dt>Видео c YouTube</dt>       <dd> {{ ad.auto.link }}</dd>
-                                <dt>Место осмотра</dt>         <dd> {{ ad.auto.place_of_inspection }}</dd>
-                                <dt>Салон</dt>                 <dd> {{ ad.auto.salon }}</dd>
-                                <dt>Кожаный руль</dt>          <dd> {{ ad.auto.leather_steering_wheel }}</dd>
-                                <dt>Люк</dt>                   <dd> {{ ad.auto.hatch }}</dd>
-                                <dt>Управление климатом</dt>   <dd> {{ ad.auto.climate_control }}</dd>
-                                <dt>Управление на руле</dt>    <dd> {{ ad.auto.steering_wheel_control }}</dd>
-                                <dt>Атермальное остекление</dt><dd> {{ ad.auto.athermal_glazing }}</dd>
-                                <dt>Обогрев передних сидений</dt><dd> {{ ad.auto.heated_front_seats }}</dd>
-                                <dt>Обогрев задних сидений</dt><dd> {{ ad.auto.heated_reart_seats }}</dd>
-                                <dt>Обогрев зеркал</dt>        <dd> {{ ad.auto.heated_mirrors }}</dd>
-                                <dt>Обогрев заднего стекла</dt><dd> {{ ad.auto.heated_rear_window }}</dd>
-                                <dt>Обогрев рулевой колонки</dt><dd> {{ ad.auto.heated_steering_column }}</dd>
+                                {% if ad.specmoto.buses_trucks %}
+                                <dt>Тип</dt>
+                                <dd> {{ ad.specmoto.buses_trucks }}</dd>
+                                {% endif %}
 
-                                <dt>Электропривод передних сидений</dt><dd> {{ ad.auto.front_seats }}</dd>
-                                <dt>Электропривод задних сидений</dt><dd> {{ ad.auto.back_seats }}</dd>
-                                <dt>Электропривод зеркал</dt><dd> {{ ad.auto.mirrors }}</dd>
-                                <dt>Складывание зеркал</dt><dd> {{ ad.auto.folding_mirrors }}</dd>
-                                <dt>Электропривод рулевой колонки</dt><dd> {{ ad.auto.steering_column }}</dd>
+                                {% if ad.specmoto.motortechnique %}
+                                <dt>Тип</dt>
+                                <dd> {{ ad.specmoto.motortechnique }}</dd>
+                                {% endif %}
 
-                                <dt>Память передних сидений</dt><dd> {{ ad.auto.memory_front_seats }}</dd>
-                                <dt>Память задних сидений</dt><dd> {{ ad.auto.memory_reart_seats }}</dd>
-                                <dt>Память зеркал</dt><dd> {{ ad.auto.memory_mirrors }}</dd>
-                                <dt>Память рулевой колонки</dt><dd> {{ ad.auto.memory_steering_column }}</dd>
+                                {% if ad.specmoto.motor %}
+                                <dt>Тип</dt>
+                                <dd> {{ ad.specmoto.motor }}</dd>
+                                {% endif %}
 
-                                <dt>Автопарковщик</dt><dd> {{ ad.auto.parking_attendant }}</dd>
-                                <dt>Датчик дождя</dt><dd> {{ ad.auto.rain_sensor }}</dd>
-                                <dt>Датчик света</dt><dd> {{ ad.auto.sheine_sensor }}</dd>
-                                <dt>Парктроник задний</dt><dd> {{ ad.auto.rear_parking_sensors }}</dd>
-                                <dt>Парктроник передний</dt><dd> {{ ad.auto.front_parking_sensors }}</dd>
-                                <dt>Система контроля слепых зон</dt><dd> {{ ad.auto.blind_spot_monitoring_system }}</dd>
-                                <dt>Камера заднего вида</dt><dd> {{ ad.auto.rear_view_camera }}</dd>
-                                <dt>Круиз контроль</dt><dd> {{ ad.auto.cruise_control }}</dd>
-                                <dt>Бортовой компьютер</dt><dd> {{ ad.auto.onboard_computer }}</dd>
-
-                                <dt>Сигнализация</dt><dd> {{ ad.auto.signaling }}</dd>
-                                <dt>Центральный замок</dt><dd> {{ ad.auto.сentral_locking }}</dd>
-                                <dt>Иммобилайзер</dt><dd> {{ ad.auto.immobilizer }}</dd>
-                                <dt>Спутник</dt><dd> {{ ad.auto.satellite }}</dd>
-
-                                <dt>Фронтальные подушки безопасности</dt><dd> {{ ad.auto.satefront_airbagsllite }}</dd>
-                                <dt>Коленные подушки безопасности</dt><dd> {{ ad.auto.knee_airbags }}</dd>
-                                <dt>Шторки подушки безопасности</dt><dd> {{ ad.auto.curtain_airbags }}</dd>
-                                <dt>Боковые передние подушки безопасности</dt><dd> {{ ad.auto.side_front_airbags }}</dd>
-                                <dt>Боковые задние подушки безопасности</dt><dd> {{ ad.auto.side_rear_airbags }}</dd>
-
-                                <dt>Автоблокировка тормозов</dt><dd> {{ ad.auto.ABS }}</dd>
-                                <dt>Антипробуксовка</dt><dd> {{ ad.auto.anti_slip }}</dd>
-                                <dt>Курсовая устойчивость</dt><dd> {{ ad.auto.directional_stability }}</dd>
-                                <dt>Распред. тормозных усилий</dt><dd> {{ ad.auto.brake_force_distribution }}</dd>
-                                <dt>Экстренное торможение</dt><dd> {{ ad.auto.emergency_braking }}</dd>
-                                <dt>Блок. дифференциала</dt><dd> {{ ad.auto.differential_lock }}</dd>
-                                <dt>Обнаружение пешеходов</dt><dd> {{ ad.auto.pedestrian_detection }}</dd>
-
-                                <dt>CD/DVD/Blu-ray</dt><dd> {{ ad.auto.CD_DVD }}</dd>
-                                <dt>MP3</dt><dd> {{ ad.auto.MP3 }}</dd>
-                                <dt>Радио</dt><dd> {{ ad.auto.radio }}</dd>
-                                <dt>TV</dt><dd> {{ ad.auto.TV }}</dd>
-                                <dt>Видео</dt><dd> {{ ad.auto.video }}</dd>
-                                <dt>Управление на руле</dt><dd> {{ ad.auto.steering_wheel_control }}</dd>
-                                <dt>USB</dt><dd> {{ ad.auto.USB }}</dd>
-                                <dt>AUX</dt><dd> {{ ad.auto.AUX }}</dd>
-                                <dt>bluetooth</dt><dd> {{ ad.auto.bluetooth }}</dd>
-                                <dt>GPS-навигатор</dt><dd> {{ ad.auto.GPS }}</dd>
-
-                                <dt>Аудиосистема</dt><dd> {{ ad.auto.audio }}</dd>
-                                <dt>Сабвуфер</dt><dd> {{ ad.auto.subwoofer }}</dd>
-
-                                <dt>Фары</dt><dd> {{ ad.auto.headlights }}</dd>
-                                <dt>Противотуманные фары</dt><dd> {{ ad.auto.fog }}</dd>
-                                <dt>Омыватели фар</dt><dd> {{ ad.auto.headlight_washers }}</dd>
-                                <dt>Адаптивное освещение</dt><dd> {{ ad.auto.adaptive_lighting }}</dd>
-
-                                <dt>Размер шин</dt><dd> {{ ad.auto.tires }}</dd>
-                                <dt>Зимние шины в комплекте</dt><dd> {{ ad.auto.winter_tyre }}</dd>
+                                {% if ad.specmoto.special_machinery %}
+                                <dt>Тип</dt>
+                                <dd> {{ ad.specmoto.special_machinery }}</dd>
+                                {% endif %}
                               </dl>
                           </div>
                        </div>

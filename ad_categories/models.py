@@ -3,8 +3,8 @@ from django.db.models import Q
 
 
 class AdCategory(models.Model):
-	name_ru = models.CharField(max_length=100, verbose_name="Русское название")
-	name_en = models.CharField(max_length=100, verbose_name="Английское название")
+	name_ru = models.CharField(max_length=100, unique=True, verbose_name="Русское название")
+	name_en = models.CharField(max_length=100, unique=True, verbose_name="Английское название")
 	order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер")
 	image = models.ImageField(blank=True, verbose_name="Изображение", upload_to="ad_category/cat")
 
@@ -47,7 +47,7 @@ class AdCategory(models.Model):
 class AdSubCategory(models.Model):
 	category = models.ForeignKey(AdCategory, on_delete=models.CASCADE, verbose_name="Категория-родитель")
 	name_ru = models.CharField(max_length=100, verbose_name="Название подкатегории")
-	name_en = models.CharField(max_length=100, verbose_name="Английское название")
+	name_en = models.CharField(max_length=100, unique=True, verbose_name="Английское название")
 	order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер подкатегории")
 	image = models.ImageField(blank=True, verbose_name="Изображение", upload_to="ad_category/sub")
 
