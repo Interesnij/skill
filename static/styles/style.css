@@ -1635,6 +1635,7 @@ color:red;
 .owl-carousel.gallery-carousel-thumbs .owl-thumb {
     border-radius: .4rem;
     height: 13rem;
+    width: 13rem;
     display: block;
     opacity: .3;
     transition: .3s ease;

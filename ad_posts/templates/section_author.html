@@ -28,7 +28,7 @@
                   <hr>
                   <dl>
                       <dt>Активность</dt>
-                      <dd>{% if object.get_online %}Онлайн {% else %} Был {{ object.last_activity }}{% endif %}</dd>
+                      <dd>{% if ad.creator.get_online %}Онлайн {% else %} Был {{ ad.creator.last_activity }}{% endif %}</dd>
 
                       <dt>Регион</dt>
                       <dd>{{ ad.creator.get_last_location.region_ru }}</dd>
