@@ -33,7 +33,7 @@ class Ad(models.Model):
         indexes = (BrinIndex(fields=['created']),)
         verbose_name = "Объявление"
         verbose_name_plural = "Объявления"
-        ordering=["-posted"]
+        ordering=["-created"]
 
 
 class AdImage(models.Model):
