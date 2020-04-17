@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from ad_posts.views import AdPostsView
+from ad_posts.views import AdPostsView, AdDetailView
 
 
 urlpatterns = [
