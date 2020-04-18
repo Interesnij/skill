@@ -2,7 +2,7 @@ from django.views.generic.base import TemplateView
 from ad_posts.models import Ad
 from ad_categories.models import AdCategory, AdSubCategory
 from django.http import HttpResponse
-from common.utis import get_current_form
+from common.utils import get_current_form
 
 
 class AdPostsView(TemplateView):
