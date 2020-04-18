@@ -2,6 +2,7 @@ from django.views.generic.base import TemplateView
 from ad_posts.models import Ad
 from ad_categories.models import AdCategory, AdSubCategory
 from django.http import HttpResponse
+from common.utis import get_current_form
 
 
 class AdPostsView(TemplateView):
@@ -39,7 +40,6 @@ class FormAdd(TemplateView):
     template_name = None
 
     def get(self,request,*args,**kwargs):
-
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
         self.template_name = "forms/" + str(self.subcat.order) + ".html"
         self.form = get_current_form(self.kwargs["pk"])
