@@ -49,3 +49,12 @@ class FormAdd(TemplateView):
         context=super(FormAdd,self).get_context_data(**kwargs)
         context["form"]=self.form
         return context
+
+    def post(self,request,*args,**kwargs):
+        self.form = get_current_form(self.kwargs["pk"])
+        if self.form.is_valid():
+            ad = self.form.save(commit=False)
+            ad.creator = self.request.user
+            ad = self.form.save()
+            return HttpResponse ('')
+        return super(FormAdd,self).get(request,*args,**kwargs)
