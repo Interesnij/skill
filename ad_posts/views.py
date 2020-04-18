@@ -1,6 +1,7 @@
 from django.views.generic.base import TemplateView
 from ad_posts.models import Ad
-from ad_categories.models import AdCategory
+from ad_categories.models import AdCategory, AdSubCategory
+from django.http import HttpResponse
 
 
 class AdPostsView(TemplateView):
@@ -35,27 +36,28 @@ class AdCreate(TemplateView):
 
 
 class FormAdd(TemplateView):
-	template_name = None
+    template_name = None
 
-	def get(self,request,*args,**kwargs):
+    def get(self,request,*args,**kwargs):
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
         form_import = "Form_" + str(self.subcat.category.order)
 
         from ad_posts.forms import form_import as Form
 
         self.template_name = "forms/" + str(self.subcat.order) + ".html"
-		self.form = Form(initial={"creator":request.user})
-		return super(FormAdd,self).get(request,*args,**kwargs)
-	def get_context_data(self,**kwargs):
-		context=super(FormAdd,self).get_context_data(**kwargs)
-		context["form"]=self.form
-		return context
+        self.form = Form(initial={"creator":request.user})
+        return super(FormAdd,self).get(request,*args,**kwargs)
 
-	def post(self,request,*args,**kwargs):
-		self.form = Form(request.POST,request.FILES)
-		if self.form.is_valid():
-			ad = self.form.save(commit=False)
-			ad.creator = self.request.user
-			ad = self.form.save()
+    def get_context_data(self,**kwargs):
+        context=super(FormAdd,self).get_context_data(**kwargs)
+        context["form"]=self.form
+        return context
+
+    def post(self,request,*args,**kwargs):
+        self.form = Form(request.POST,request.FILES)
+        if self.form.is_valid():
+            ad = self.form.save(commit=False)
+            ad.creator = self.request.user
+            ad = self.form.save()
             return HttpResponse ('')
-		return super(FormAdd,self).get(request,*args,**kwargs)
+        return super(FormAdd,self).get(request,*args,**kwargs)
