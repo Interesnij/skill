@@ -43,29 +43,26 @@
                                 <dt>Категория</dt>             <dd> {{ ad.category.category }}</dd>
                                 <dt>Подкатегория</dt>          <dd> {{ ad.category }}</dd>
 
-                                <dt>Тип</dt><dd> {{ ad.zapauto.spare }}</dd>
-                                <dt>Тип фары</dt><dd> {{ ad.zapauto.type_of_headlight }}</dd>
-                                <dt>Вид транспорта</dt><dd> {{ ad.zapauto.motor }}</dd>
-                                <dt>Марка</dt><dd> {{ ad.zapauto.brand }}</dd>
-                                <dt>Состояние</dt><dd> {{ ad.zapauto.condition }}</dd>
-                                <dt>Артикул</dt><dd> {{ ad.zapauto.art }}</dd>
-                                <dt>Тип</dt><dd> {{ ad.zapauto.tires_wheels }}</dd>
-                                <dt>Диаметр</dt><dd> {{ ad.zapauto.tires }}</dd>
-                                <dt>Тип</dt><dd> {{ ad.zapauto.oils_car_chemicals }}</dd>
-                                <dt>Тип</dt><dd> {{ ad.zapauto.electronics_gps }}</dd>
-                                <dt>Тип</dt><dd> {{ ad.zapauto.accessories_tools }}</dd>
-                                <dt>Тип</dt><dd> {{ ad.zapauto.audio_video }}</dd>
-                                <dt>Тип</dt><dd> {{ ad.zapauto.anti_theft }}</dd>
-                                <dt>Тип</dt><dd> {{ ad.zapauto.roof_trailers }}</dd>
-                                <dt>Тип</dt><dd> {{ ad.zapauto.moto_gear }}</dd>
-                                <dt>Пол</dt><dd> {{ ad.zapauto.gender }}</dd>
-                                <dt>Размер</dt><dd> {{ ad.zapauto.size }}</dd>
-                                <dt>Размер куртки</dt><dd> {{ ad.zapauto.jacket_size }}</dd>
-
-                                <dt>Размер ноги</dt><dd> {{ ad.zapauto.shoe_size }}</dd>
-                                <dt>Размер штанов</dt><dd> {{ ad.zapauto.pant_size }}</dd>
-                                <dt>Размер комбинезона</dt><dd> {{ ad.zapauto.jumpsuit_size }}</dd>
-
+                                <dt>Марка автокресла</dt><dd> {{ ad.baby.brand_car_seat }}</dd>
+                                <dt>Группа</dt><dd> {{ ad.baby.group }}</dd>
+                                <dt>Крепление</dt><dd> {{ ad.baby.binding }}</dd>
+                                <dt>Особенности</dt><dd> {{ ad.baby.feature }}</dd>
+                                <dt>Регулировки</dt><dd> {{ ad.baby.regulation }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.health }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.game }}</dd>
+                                <dt>Марка коляски</dt><dd> {{ ad.baby.brand_pram }}</dd>
+                                <dt>Тип коляски</dt><dd> {{ ad.baby.type_pram }}</dd>
+                                <dt>Возраст</dt><dd> {{ ad.baby.age_pram }}</dd>
+                                <dt>Количество блоков</dt><dd> {{ ad.baby.number_blocks }}</dd>
+                                <dt>Тип колес</dt><dd> {{ ad.baby.type_wheel }}</dd>
+                                <dt>Особенности</dt><dd> {{ ad.baby.properties }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.feeding }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.bath }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.room }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.diapers }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.babysitter }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.mom }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.baby.study }}</dd>
                               </dl>
                           </div>
                        </div>
@@ -101,8 +98,7 @@ ready(() => {
     else if(list[i].innerHTML == " True"){list[i].innerHTML = "Есть"}
     else if(list[i].innerHTML == " False"){
       list[i].style.display = "None";
-      list[i].previousElementSibling.style.display = "None";
-    }}
+      list[i].previousElementSibling.style.display = "None";}}
 })
 </script>
 {% endblock %}

@@ -27,7 +27,7 @@
     <section class="block">
         <div class="container">
             <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-8">
                   {% include 'ad_images.html' %}
 
                     <section>
@@ -74,7 +74,7 @@
                     {% include 'section_author.html' %}
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <aside class="sidebar">
 
                       {% include 'section_simular.html' %}
@@ -99,7 +99,10 @@ ready(() => {
       list[i].previousElementSibling.style.display = "None";
     }
     else if(list[i].innerHTML == " True"){list[i].innerHTML = "Есть"}
-    else if(list[i].innerHTML == " False"){list[i].innerHTML = "Нет";}}
+    else if(list[i].innerHTML == " False"){
+      list[i].style.display = "None";
+      list[i].previousElementSibling.style.display = "None";
+    }}
 })
 </script>
 {% endblock %}

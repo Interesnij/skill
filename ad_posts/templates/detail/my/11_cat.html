@@ -1,0 +1,123 @@
+{% extends "bases/base.html" %}
+{% load humanize %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+
+<img src="/static/images/back.png" style="height:25px"/>
+
+<div class="page-title">
+    <div class="container clearfix">
+        <div class="float-left float-xs-none">
+            <h1>{{ ad.title }}</h1>
+            <h4 class="location">
+                <a href="{% url 'region' region_name=ad.city.region.name_en %}">{{ ad.city.region }}</a>,
+                <a href="{% url 'city' city_name=ad.city.name_en %}">{{ ad.city }}</a>
+            </h4>
+        </div>
+        <div class="float-right float-xs-none price">
+            <div class="number"> {{ ad.price|intcomma }} руб.</div>
+            <div class="opacity-50">
+              <a href="">Изменить</a><a href="">Удалить</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                  {% include 'ad_images.html' %}
+
+                    <section>
+                        <h2>Описание</h2>
+                        <p>{{ ad.description }}</p>
+                    </section>
+
+                    <section>
+                        <h2>Детали</h2>
+                        <div class="row">
+                          <div class="col-md-8">
+                              <dl>
+                                <dt>Категория</dt>             <dd> {{ ad.category.category }}</dd>
+                                <dt>Подкатегория</dt>          <dd> {{ ad.category }}</dd>
+
+                                <dt>Марка телефона</dt><dd> {{ ad.phonead.brand_phone }}</dd>
+                                <dt>Операционная система</dt><dd> {{ ad.phonead.os }}</dd>
+                                <dt>Диагональ экрана</dt><dd> {{ ad.phonead.screen }}</dd>
+                                <dt>Количество SIM-карт</dt><dd> {{ ad.phonead.sim }}</dd>
+                                <dt>Марка планшета</dt><dd> {{ ad.phonead.brand_pad }}</dd>
+                                <dt>Операционная система</dt><dd> {{ ad.phonead.os_pad }}</dd>
+                                <dt>Диагональ экрана</dt><dd> {{ ad.phonead.screen_pad }}</dd>
+                                <dt>Оперативная память</dt><dd> {{ ad.phonead.operative_pad }}</dd>
+                                <dt>Оперативная память</dt><dd> {{ ad.phonead.operative }}</dd>
+                                <dt>Бренд</dt><dd> {{ ad.phonead.brand_wath }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.phonead.type_wath }}</dd>
+                                <dt>Совместимость с Android</dt><dd> {{ ad.phonead.android }}</dd>
+                                <dt>Совместимость с iOS</dt><dd> {{ ad.phonead.IOS }}</dd>
+                                <dt>Влагозащита</dt><dd> {{ ad.phonead.protection }}</dd>
+                                <dt>Шагомер</dt><dd> {{ ad.phonead.pedometer }}</dd>
+                                <dt>Пульсометр</dt><dd> {{ ad.phonead.heart_monitor }}</dd>
+                                <dt>Мониторинг сна</dt><dd> {{ ad.phonead.sleep }}</dd>
+                                <dt>Телефонные звонки</dt><dd> {{ ad.phonead.call }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.phonead.phone }}</dd>
+                                <dt>АОН</dt><dd> {{ ad.phonead.AON }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.phonead.radios }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.phonead.spare }}</dd>
+                                <dt>Устройство</dt><dd> {{ ad.phonead.device }}</dd>
+                                <dt>Бренд запчасти</dt><dd> {{ ad.phonead.brand_spare }}</dd>
+                                <dt>Емкость батареи</dt><dd> {{ ad.phonead.battery }}</dd>
+                                <dt>Тип зарядного устройства</dt><dd> {{ ad.phonead.charger_type }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.phonead.acsessuare }}</dd>
+                                <dt>Встроенная память</dt><dd> {{ ad.phonead.internal }}</dd>
+                                <dt>Слот для карты памяти</dt><dd> {{ ad.phonead.slot }}</dd>
+                                <dt>Основная камера</dt><dd> {{ ad.phonead.camera }}</dd>
+                                <dt>Фронтальная камера</dt><dd> {{ ad.phonead.front }}</dd>
+                                <dt>3G</dt><dd> {{ ad.phonead.a3G }}</dd>
+                                <dt>4G</dt><dd> {{ ad.phonead.LTE }}</dd>
+                                <dt>GPS</dt><dd> {{ ad.phonead.GPS }}</dd>
+                                <dt>NFC</dt><dd> {{ ad.phonead.NFC }}</dd>
+                                <dt>Встроенная память</dt><dd> {{ ad.phonead.internal_pad }}</dd>
+                                <dt>Срок использования</dt><dd> {{ ad.phonead.use }}</dd>
+                                <dt>Защита от пыли и влаги</dt><dd> {{ ad.phonead.IP }}</dd>
+                              </dl>
+                          </div>
+                       </div>
+                    </section>
+
+                    {% include 'section_author.html' %}
+                </div>
+
+                <div class="col-md-4">
+                    <aside class="sidebar">
+
+                      {% include 'section_simular.html' %}
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+var ready = (callback) => {if (document.readyState != "loading") callback();else document.addEventListener("DOMContentLoaded", callback)}
+
+ready(() => {
+  var list = document.querySelectorAll('dd');
+  var count = list.length;
+  for(i=0; i<count; i++) {
+    if(list[i].innerHTML == " "){
+      list[i].style.display = "None";
+      list[i].previousElementSibling.style.display = "None";
+    }
+    else if(list[i].innerHTML == " True"){list[i].innerHTML = "Есть"}
+    else if(list[i].innerHTML == " False"){
+      list[i].style.display = "None";
+      list[i].previousElementSibling.style.display = "None";}
+    }
+})
+</script>
+{% endblock %}
