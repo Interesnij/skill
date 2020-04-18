@@ -13,7 +13,7 @@
                 <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px;margin-bottom:3px;">
                 <div class="dropdown-menu">
                     <a href="{% url 'user' pk=request.user.pk %}" class="dropdown-item">Мой профиль</a>
-                    <a href="" class="dropdown-item">Подать объявление</a>
+                    <a href="{% url 'ad_add' %}" class="dropdown-item">Подать объявление</a>
                     <a href="" class="dropdown-item">Разместить курс</a>
                     <a href="{% url 'logout' %}" class="dropdown-item">Выйти</a>
                 </div>
