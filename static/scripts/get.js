@@ -14,7 +14,11 @@ function SelectSubCategory (select) {
   var pk = selectedOption.value;
   var subcat_block = document.querySelector(".subcat");
   var upload_block = subcat_block.querySelector("#id_category");
-  if (pk == ""){upload_block.innerHTML = ""; subcat_block.style.display = "none"}
+  if (pk == ""){
+    upload_block.innerHTML = "";
+    subcat_block.style.display = "none";
+    try{document.querySelector(".special_block").innerHTML = ""}catch{console.log("!")}
+  }
   else{
     upload_block.innerHTML = "";
     new_load(upload_block, '/search/get_subcat/' + pk);
@@ -28,7 +32,7 @@ function loadAddForm (select) {
   if (pk == ""){special_block.innerHTML = ""; special_block.style.display = "none"}
   else{
     special_block.innerHTML = "";
-    new_load(special_block, '/posts/form_special/' + pk); 
+    new_load(special_block, '/posts/form_special/' + pk);
     special_block.style.display = "table-caption";
   }
 }
