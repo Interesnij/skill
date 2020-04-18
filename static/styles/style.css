@@ -1,4 +1,6 @@
-
+section p {
+  font-size: 20px;
+}
 dd:nth-child(2) {
   background: white;
 }
@@ -2440,10 +2442,7 @@ figure.with-icon i {
 mark, .mark {
     background-color: #ffdc23;
 }
-p {
-    opacity: .65;
-    font-weight: normal;
-}
+
 ul, ol, dl {}
 ul.columns-2, ol.columns-2, dl.columns-2 {
     column-count: 2;
