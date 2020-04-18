@@ -5,10 +5,7 @@ select {
   margin: 10px;
   padding: 1.7rem;
   box-shadow: inset 0 0 1rem 0 rgba(0,0,0, .1);
-}
-
-select {
-  background-color: yellow;
+  background-color: white;
   color: #000000;
   border: 0;
   margin: 0;
@@ -16,6 +13,7 @@ select {
   text-indent: 0.01px;
   text-overflow: '';
   -webkit-appearance: button;
+  cursor:pointer;
 }
 
 .col-md-8 p {
