@@ -42,9 +42,9 @@ class FormAdd(TemplateView):
     def get(self,request,*args,**kwargs):
 
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
-        form = "Form_" + str(self.subcat.category.order)
+        self._form = "Form_" + str(self.subcat.category.order)
         self.template_name = "forms/" + str(self.subcat.order) + ".html"
-        self.form = form(initial={"creator":request.user})
+        self.form = _form(initial={"creator":request.user})
         return super(FormAdd,self).get(request,*args,**kwargs)
 
     def get_context_data(self,**kwargs):
@@ -53,7 +53,7 @@ class FormAdd(TemplateView):
         return context
 
     def post(self,request,*args,**kwargs):
-        self.form = form(request.POST,request.FILES)
+        self.form = _form(request.POST,request.FILES)
         if self.form.is_valid():
             ad = self.form.save(commit=False)
             ad.creator = self.request.user
