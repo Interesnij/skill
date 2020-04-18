@@ -111,37 +111,7 @@ $(document).ready(function($) {
         $(this).closest(".framed").removeClass("active");
     });
 });
-function changeTab(_this){
-    var parameters = _this.data("selectize").items[0];
-    var changeTarget = $("#" + _this.attr("data-change-tab-target"));
-    var slide = changeTarget.find(".form-slide");
-    if( parameters === "" ){
-        slide.removeClass("active");
-        slide.first().addClass("default");
-        changeTarget.find("input").prop("disabled", true);
-        changeTarget.find("select").prop("disabled", true);
-        changeTarget.find("textarea").prop("disabled", true);
-    }
-    else {
-        slide.removeClass("default");
-        slide.removeClass("active");
-        changeTarget.find("input").prop("disabled", true);
-        changeTarget.find("select").prop("disabled", true);
-        changeTarget.find("textarea").prop("disabled", true);
-        changeTarget.find( "#" + parameters ).addClass("active");
-        changeTarget.find( "#" + parameters + " input").prop("disabled", false);
-        changeTarget.find( "#" + parameters + " textarea").prop("disabled", false);
-        changeTarget.find( "#" + parameters + " select").prop("disabled", false);
-    }
-};
-$(".change-class").on("click", function(e){
-        e.preventDefault();
-        var parentClass = $( "."+$(this).attr("data-parent-class") );
-        parentClass.removeClass( $(this).attr("data-change-from-class") );
-        parentClass.addClass( $(this).attr("data-change-to-class") );
-        $(this).parent().find(".change-class").removeClass("active");
-        $(this).addClass("active");
-    });
+
 
 $("[data-background-image]").each(function() {
       $(this).css("background-image", "url("+ $(this).attr("data-background-image") +")" );
