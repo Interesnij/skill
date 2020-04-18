@@ -29,7 +29,7 @@ function loadAddForm (select) {
   else{
     special_block.innerHTML = "";
     new_load(special_block, '/ad_posts/form_special/' + pk);
-    special_block.style.display = "block";
+    special_block.style.display = "table-caption";
   }
 }
 
