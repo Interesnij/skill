@@ -9,6 +9,7 @@ select {
   -webkit-appearance: button;
   cursor:pointer;
   border: .1rem solid rgba(0,0,0, .15);
+  margin: 0;
 }
 
 .col-md-8 p {
