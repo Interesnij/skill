@@ -160,7 +160,7 @@ class Form_20(forms.ModelForm):
 	description = forms.CharField( label="",widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}))
 
 	class Meta:
-		from hobbies.sport import Hobbies
+		from ad_model.sport import Hobbies
 		model=Hobbies
 		exclude = ['creator',]
 
@@ -168,7 +168,7 @@ class Form_21(forms.ModelForm):
 	description = forms.CharField( label="",widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}))
 
 	class Meta:
-		from hobbies.job import Job
+		from ad_model.job import Job
 		model=Job
 		exclude = ['creator',]
 
@@ -176,7 +176,7 @@ class Form_22(forms.ModelForm):
 	description = forms.CharField( label="",widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}))
 
 	class Meta:
-		from hobbies.pets import Pets
+		from ad_model.pets import Pets
 		model=Pets
 		exclude = ['creator',]
 
@@ -184,6 +184,6 @@ class Form_23(forms.ModelForm):
 	description = forms.CharField( label="",widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}))
 
 	class Meta:
-		from hobbies.biznes import Biznes
+		from ad_model.biznes import Biznes
 		model=Biznes
 		exclude = ['creator',]
