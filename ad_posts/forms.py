@@ -144,7 +144,7 @@ class Form_18(forms.ModelForm):
 	description = forms.CharField( label="",widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}))
 
 	class Meta:
-	from ad_model.beauty import Beauty
+		from ad_model.beauty import Beauty
 		model=Beauty
 		exclude = ['creator',]
 
