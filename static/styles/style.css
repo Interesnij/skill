@@ -2622,28 +2622,12 @@ header, footer {
 .btn.btn-light {
     color: #000;
 }
-select {
-    width: 100%;
-    padding: 1.3rem;
-    border-radius: .3rem;
-    background-color: #fff;
-    box-shadow: 0 0.2rem 1rem 0 rgba(0,0,0, .1);
-    border: .1rem solid rgba(0,0,0, .15);
-}
+
 select.small {
     padding: .9rem;
 }
-select.selectized {
-    display: block !important;
-    visibility: hidden;
-    position: absolute;
-    z-index: -9999;
-}
-.selectize-control {
-    display: inline-block;
-    width: 100%;
-}
-.selectize-control .selectize-input {
+
+select {
     transition: .3s ease;
     border-radius: .3rem;
     font-weight: 500;
@@ -2656,58 +2640,15 @@ select.selectized {
     box-shadow: 0 0.2rem 1rem 0rem rgba(0,0,0, .1);
     border: .1rem solid rgba(0,0,0, .15);
 }
-.selectize-control .selectize-input .item {
+select option {
     cursor: pointer;
 }
-.selectize-control .selectize-input .item[data-value=""] {
-    opacity: .4;
-}
-.selectize-control .selectize-input input[type="text"] {
+
+select option {
     height: 1.4rem;
     transition: none;
 }
-.selectize-control .selectize-input.full {
-    cursor: pointer !important;
-}
-.selectize-control .selectize-input.full input {
-    cursor: pointer !important;
-    width: 0;
-    color: transparent;
-}
-.selectize-control .selectize-dropdown {
-    margin-top: -.4rem;
-    opacity: 0;
-    transition: .3s ease;
-    width: 100% !important;
-    top: 4.9rem !important;
-}
-.selectize-control .selectize-dropdown .selectize-dropdown-content {
-    max-height: 30rem;
-}
-.selectize-control .selectize-dropdown .selectize-dropdown-content [data-value=""] {
-    opacity: .4;
-}
-.selectize-control .selectize-dropdown .selectize-dropdown-content .option {}
-.selectize-control .selectize-dropdown .selectize-dropdown-content .option.active {
-    background-color: rgba(0,0,0,.03);
-    transition: .3s ease;
-}
-.selectize-control .selectize-dropdown.opening {
-    opacity: 1;
-}
-.selectize-control .selectize-dropdown [data-selectable], .selectize-control .selectize-dropdown .optgroup-header {
-    padding: .8rem 1.2rem;
-}
-.selectize-control.small .selectize-input {
-    padding: 1.05rem;
-}
-.selectize-control.small .selectize-dropdown {
-    top: 3.9rem !important;
-}
-.selectize-control.multi .selectize-input {}
-.selectize-control.multi .selectize-input.has-items {
-    padding: 1.1rem;
-}
+
 input[type="text"], input[type="email"], input[type="date"], input[type="time"], input[type="search"], input[type="password"], input[type="number"], input[type="tel"], textarea.form-control {
     box-shadow: inset 0 0 1rem 0 rgba(0,0,0, .1);
     border: .1rem solid rgba(0,0,0, .15);
