@@ -117,11 +117,15 @@ ready(() => {
       list[i].style.display = "None";
       list[i].previousElementSibling.style.display = "None";
     }
-    else if(list[i].innerHTML == " True"){list[i].innerHTML = "Есть"}
+    else if(list[i].innerHTML == " True"){
+      list[i].innerHTML = "Есть";
+      list[i].classList.add("current_dd");
+    }
     else if(list[i].innerHTML == " False"){
       list[i].style.display = "None";
       list[i].previousElementSibling.style.display = "None";
-    }}
+    }
+    else{list[i].classList.add("current_dd")}}
 })
 </script>
 {% endblock %}
