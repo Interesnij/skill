@@ -18,3 +18,14 @@ class AdDetailView(TemplateView):
         context = super(AdDetailView, self).get_context_data(**kwargs)
         context['ad'] = self.ad
         return context
+
+
+class AdCreate(TemplateView,CategoryListMixin):
+	template_name="ad_add.html"
+	success_url="/"
+
+	def get(self,request,*args,**kwargs):
+		return super(AdCreate,self).get(request,*args,**kwargs)
+	def get_context_data(self,**kwargs):
+		context=super(AdCreate,self).get_context_data(**kwargs)
+		return context
