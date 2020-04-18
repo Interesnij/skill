@@ -1,46 +1,14 @@
 {% extends "bases/base.html" %}
 {% load humanize %}
-{% block title %}{{ ad.title }}{% endblock %}
+{% block title %}Создание объявления{% endblock %}
 {% block content %}
-<style>
-select {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  margin: 10px;
-  padding: 1.7rem;
-  box-shadow: inset 0 0 1rem 0 rgba(0,0,0, .1);
-}
-.big {
-  font-size: 1.2em;
-}
-select {
-  background-color: yellow;
-  color: #000000;
-  border: 0;
-  margin: 0;
-  border-radius: 3px;
-  text-indent: 0.01px;
-  text-overflow: '';
-  -webkit-appearance: button;
-}
 
-</style>
 <section id="sect" class="content">
     <section class="block">
-      <div class="d-sm-none d-block" style="position:initial">
-          <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a style="position: absolute;" href="{% url 'main' %}">Главная</a></li>
-                <li class="breadcrumb-item active" style="margin-left: 50px;">Добавление объвления</li>
-            </ol>
-          </div>
-
       <div class="page-title">
           <div class="container">
               <h1 style="padding-bottom: 7rem;">Добавление объвления</h1>
           </div>
-      </div>
       </div>
         <div id='mess' class="text-center"></div>
         <div id='mess_button' class="text-center"></div>
@@ -72,7 +40,7 @@ select {
                             </div>
                         </div>
                         <div class="col-md-6">
-                          <div class="form-group subcat custom-dropdown big" style="display:none">
+                          <div class="form-group subcat" style="display:none">
                             <label for="type" class="required">Подкатегория</label>
                             <select name="category" id="id_category">
                               <option value="">Подкатегория</option>
