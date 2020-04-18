@@ -5,7 +5,7 @@ class Form_1(forms.ModelForm):
 	description = forms.CharField( label="",widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}))
 
 	class Meta:
-        from ad_model.auto import Auto
+		from ad_model.auto import Auto
 		model=Auto
 		exclude = ['creator',]
 
