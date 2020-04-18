@@ -2,28 +2,6 @@
 $(document).ready(function($) {
     "use strict";
 
-    $("[data-enable-search=true]").each(function(){
-        $(this).selectize({
-            onDropdownOpen: dropdownOpen,
-            onDropdownClose: dropdownClose,
-            allowEmptyOption: false
-        });
-    });
-
-    var select = $("select");
-    select.selectize({
-        onDropdownOpen: dropdownOpen,
-        onDropdownClose: dropdownClose,
-        allowEmptyOption: true,
-    });
-
-    function dropdownOpen($dropdown){
-        $dropdown.addClass("opening");
-    }
-    function dropdownClose($dropdown){
-        $dropdown.removeClass("opening");
-    }
-    $(".form-slide:not(.active) input, .form-slide:not(.active) select, .form-slide:not(.active) textarea").prop("disabled", true);
     $("select.change-tab").each(function(){
         var _this = $(this);
         if( $(this).find(".item").attr("data-value") !== "" ){
@@ -133,37 +111,6 @@ $(document).ready(function($) {
         $(this).closest(".framed").removeClass("active");
     });
 });
-function changeTab(_this){
-    var parameters = _this.data("selectize").items[0];
-    var changeTarget = $("#" + _this.attr("data-change-tab-target"));
-    var slide = changeTarget.find(".form-slide");
-    if( parameters === "" ){
-        slide.removeClass("active");
-        slide.first().addClass("default");
-        changeTarget.find("input").prop("disabled", true);
-        changeTarget.find("select").prop("disabled", true);
-        changeTarget.find("textarea").prop("disabled", true);
-    }
-    else {
-        slide.removeClass("default");
-        slide.removeClass("active");
-        changeTarget.find("input").prop("disabled", true);
-        changeTarget.find("select").prop("disabled", true);
-        changeTarget.find("textarea").prop("disabled", true);
-        changeTarget.find( "#" + parameters ).addClass("active");
-        changeTarget.find( "#" + parameters + " input").prop("disabled", false);
-        changeTarget.find( "#" + parameters + " textarea").prop("disabled", false);
-        changeTarget.find( "#" + parameters + " select").prop("disabled", false);
-    }
-};
-$(".change-class").on("click", function(e){
-        e.preventDefault();
-        var parentClass = $( "."+$(this).attr("data-parent-class") );
-        parentClass.removeClass( $(this).attr("data-change-from-class") );
-        parentClass.addClass( $(this).attr("data-change-to-class") );
-        $(this).parent().find(".change-class").removeClass("active");
-        $(this).addClass("active");
-    });
 
 $("[data-background-image]").each(function() {
       $(this).css("background-image", "url("+ $(this).attr("data-background-image") +")" );
