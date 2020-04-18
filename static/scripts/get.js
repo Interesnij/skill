@@ -28,7 +28,7 @@ function loadAddForm (select) {
   if (pk == ""){special_block.innerHTML = ""; special_block.style.display = "none"}
   else{
     special_block.innerHTML = "";
-    new_load(special_block, '/ad_posts/form_special/' + pk);
+    new_load(special_block, '/posts/form_special/' + pk); 
     special_block.style.display = "table-caption";
   }
 }
