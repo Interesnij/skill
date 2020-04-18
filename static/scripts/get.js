@@ -21,6 +21,17 @@ function SelectSubCategory (select) {
     subcat_block.style.display = "block";
   }
 }
+function loadAddForm (select) {
+  var selectedOption = select.options[select.selectedIndex];
+  var pk = selectedOption.value;
+  var special_block = document.querySelector(".special_block");
+  if (pk == ""){special_block.innerHTML = ""; special_block.style.display = "none"}
+  else{
+    special_block.innerHTML = "";
+    new_load(special_block, '/ad_posts/form_special/' + pk);
+    special_block.style.display = "block";
+  }
+}
 
 function open_fullscreen(link, block) {
   var link_, elem;

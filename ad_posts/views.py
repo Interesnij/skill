@@ -32,3 +32,30 @@ class AdCreate(TemplateView):
         context=super(AdCreate,self).get_context_data(**kwargs)
         context['ad_categories'] = AdCategory.objects.only("pk")
         return context
+
+
+class FormAdd(TemplateView):
+	template_name = None
+
+	def get(self,request,*args,**kwargs):
+        self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
+        form_import = "Form_" + str(self.subcat.category.order)
+
+        from ad_posts.forms import form_import as Form
+
+        self.template_name = "forms/" + str(self.subcat.order) + ".html"
+		self.form = Form(initial={"creator":request.user})
+		return super(FormAdd,self).get(request,*args,**kwargs)
+	def get_context_data(self,**kwargs):
+		context=super(FormAdd,self).get_context_data(**kwargs)
+		context["form"]=self.form
+		return context
+
+	def post(self,request,*args,**kwargs):
+		self.form = Form(request.POST,request.FILES)
+		if self.form.is_valid():
+			ad = self.form.save(commit=False)
+			ad.creator = self.request.user
+			ad = self.form.save()
+            return HttpResponse ('')
+		return super(FormAdd,self).get(request,*args,**kwargs)
