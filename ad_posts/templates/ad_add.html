@@ -40,7 +40,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="type" class="required">Категория</label>
-                                <select name="category" id="id_category" data-placeholder="Выберите категорию">
+                                <select name="category" id="id_category">
                                     <option value="">Выберите категорию</option>
                                     {% for object in ad_categories %}
                                     <option value="{{ object.order }}">{{ object.name_ru }}</option>
@@ -48,8 +48,8 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6"> 
-                            <div id="subcat"></div>
+                        <div class="col-md-6">
+                            <div class="subcat"></div>
                         </div>
                     </div>
                 </section>
