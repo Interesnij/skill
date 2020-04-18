@@ -42,7 +42,7 @@ class FormAdd(TemplateView):
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
         form_1 = "Form_1"
 
-        from ad_posts.forms import {}.format(form_1) as Form
+        from ad_posts.forms import Form_1
 
         self.template_name = "forms/" + str(self.subcat.order) + ".html"
         self.form = Form(initial={"creator":request.user})
