@@ -2626,8 +2626,6 @@ input[type="text"], input[type="email"], input[type="date"], input[type="time"],
     border: .1rem solid rgba(0,0,0, .15);
     border-radius: .3rem;
     color: #363636;
-    transition: .3s;
-    transform-style: preserve-3d;
     -webkit-appearance: none;
     background-color: #fff;
     font-size: 1.4rem;
