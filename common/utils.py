@@ -1,5 +1,5 @@
 def get_current_form(number):
-    if numder == 1 or numder == 2:
+    if number == 1 or number == 2:
         from ad_posts.forms import Form_1
         return Form_1(request.POST,request.FILES)
 
