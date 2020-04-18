@@ -1,10 +1,10 @@
 section p {
   font-size: 20px;
 }
-.current_dd:nth-child(2) {
+.current_dd:nth-child(1) {
   background: white;
 }
-.current_dd:nth-child(4n) {
+.current_dd:nth-child(2n) {
   background: yellow;
  }
 
