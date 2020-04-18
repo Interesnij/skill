@@ -1,3 +1,8 @@
+def get_current_form(number):
+    if numder == 1 or numder == 2:
+        from ad_posts.forms import Form_1
+        return Form_1(request.POST,request.FILES)
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:

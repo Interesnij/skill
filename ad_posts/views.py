@@ -2,7 +2,6 @@ from django.views.generic.base import TemplateView
 from ad_posts.models import Ad
 from ad_categories.models import AdCategory, AdSubCategory
 from django.http import HttpResponse
-from ad_posts.forms import *
 
 
 class AdPostsView(TemplateView):
@@ -42,9 +41,8 @@ class FormAdd(TemplateView):
     def get(self,request,*args,**kwargs):
 
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
-        self._form = "Form_" + str(self.subcat.category.order)
         self.template_name = "forms/" + str(self.subcat.order) + ".html"
-        self.form = self._form(initial={"creator":request.user})
+        self.form = get_current_form(self.kwargs["pk"])
         return super(FormAdd,self).get(request,*args,**kwargs)
 
     def get_context_data(self,**kwargs):
@@ -53,7 +51,7 @@ class FormAdd(TemplateView):
         return context
 
     def post(self,request,*args,**kwargs):
-        self.form = self._form(request.POST,request.FILES)
+        self.form = get_current_form(self.kwargs["pk"])
         if self.form.is_valid():
             ad = self.form.save(commit=False)
             ad.creator = self.request.user
