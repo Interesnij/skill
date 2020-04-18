@@ -22,12 +22,13 @@ class AdDetailView(TemplateView):
 
 
 class AdCreate(TemplateView):
-	template_name="ad_add.html"
-	success_url="/"
+    template_name="ad_add.html"
+    success_url="/"
 
-	def get(self,request,*args,**kwargs):
-		return super(AdCreate,self).get(request,*args,**kwargs)
-	def get_context_data(self,**kwargs):
-		context=super(AdCreate,self).get_context_data(**kwargs)
+    def get(self,request,*args,**kwargs):
+        return super(AdCreate,self).get(request,*args,**kwargs)
+
+    def get_context_data(self,**kwargs):
+        context=super(AdCreate,self).get_context_data(**kwargs)
         context['ad_categories'] = AdCategory.objects.only("pk")
-		return context
+        return context
