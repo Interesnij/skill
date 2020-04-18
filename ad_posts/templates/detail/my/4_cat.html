@@ -113,9 +113,9 @@ ready(() => {
   var list = document.querySelectorAll('dd');
   var count = list.length;
   for(i=0; i<count; i++) {
-    if(list[i].innerHTML == " " && list[i].innerHTML == " False" ){
-      list[i].parentNode.removeChild(list[i].previousElementSibling).remove();
-      list[i].parentNode.removeChild(list[i]);
+    if(list[i].innerHTML == " " || list[i].innerHTML == " False" ){
+      list[i].previousElementSibling.remove();
+      list[i].removeChild();
     }
     else if(list[i].innerHTML == " True"){
       list[i].innerHTML = "Есть";
