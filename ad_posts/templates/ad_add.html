@@ -2,6 +2,11 @@
 {% load humanize %}
 {% block title %}Создание объявления{% endblock %}
 {% block content %}
+<style>
+.form-group{
+  display: table-caption;
+}
+</style>
 
 <section id="sect" class="content">
     <section class="block">
@@ -29,7 +34,7 @@
                 <section>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="form-group custom-dropdown big">
+                            <div class="form-group">
                                 <label for="type" class="required">Категория</label>
                                 <select onchange="SelectSubCategory (this)">
                                     <option value="">Выберите категорию</option>
