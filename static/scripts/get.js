@@ -18,7 +18,7 @@ function SelectSubCategory (select) {
   else{
     upload_block.innerHTML = "";
     new_load(upload_block, '/search/get_subcat/' + pk);
-    subcat_block.style.display = "block";
+    subcat_block.style.display = "table-caption";
   }
 }
 function loadAddForm (select) {
