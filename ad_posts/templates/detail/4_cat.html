@@ -1,0 +1,126 @@
+{% extends "bases/base.html" %}
+{% load humanize %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+
+<img src="/static/images/back.png" style="height:25px"/>
+
+<div class="page-title">
+    <div class="container clearfix">
+        <div class="float-left float-xs-none">
+            <h1>{{ ad.title }}</h1>
+            <h4 class="location">
+                <a href="{% url 'region' region_name=ad.city.region.name_en %}">{{ ad.city.region }}</a>,
+                <a href="{% url 'city' city_name=ad.city.name_en %}">{{ ad.city }}</a>
+            </h4>
+        </div>
+        <div class="float-right float-xs-none price">
+            <div class="number"> {{ ad.price|intcomma }} руб.</div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                  {% include 'ad_images.html' %}
+
+                    <section>
+                        <h2>Описание</h2>
+                        <p>{{ ad.description }}</p>
+                    </section>
+
+                    <section>
+                        <h2>Детали</h2>
+                        <div class="row">
+                          <div class="col-md-8">
+                              <dl>
+                                <dt>Категория</dt>             <dd> {{ ad.category.category }}</dd>
+                                <dt>Подкатегория</dt>          <dd> {{ ad.category }}</dd>
+
+                                <dt>Тип</dt><dd> {{ ad.realty.type }}</dd>
+                                <dt>Тип дома</dt><dd> {{ ad.realty.type_house }}</dd>
+                                <dt>Тип дома</dt><dd> {{ ad.realty.house }}</dd>
+                                <dt>Тип строения</dt><dd> {{ ad.realty.type_build }}</dd>
+                                <dt>Тип участка</dt><dd> {{ ad.realty.type_plot }}</dd>
+                                <dt>Тип строения</dt><dd> {{ ad.realty.type_other }}</dd>
+                                <dt>Год постройки</dt><dd> {{ ad.realty.year }}</dd>
+                                <dt>До метро</dt><dd> {{ ad.realty.to_metro }}</dd>
+                                <dt>Лифты</dt><dd> {{ ad.realty.elevators }}</dd>
+                                <dt>Инфраструктура</dt><dd> {{ ad.realty.infrastructure }}</dd>
+                                <dt>Комнат в квартире</dt><dd> {{ ad.realty.rooms }}</dd>
+                                <dt>Этаж</dt><dd> {{ ad.realty.level }}</dd>
+                                <dt>Этажность</dt><dd> {{ ad.realty.levels }}</dd>
+                                <dt>Общая площадь</dt><dd> {{ ad.realty.total_area }}</dd>
+                                <dt>Площадь комнаты</dt><dd> {{ ad.realty.comn_area }}</dd>
+                                <dt>Жилая площадь</dt><dd> {{ ad.realty.living_area }}</dd>
+                                <dt>Площадь кухни</dt><dd> {{ ad.realty.kitchen_area }}</dd>
+                                <dt>Высота потолка</dt><dd> {{ ad.realty.ceiling_height }}</dd>
+                                <dt>Ремонт</dt><dd> {{ ad.realty.repairs }}</dd>
+                                <dt>Санузлы</dt><dd> {{ ad.realty.bathroom_unit }}</dd>
+                                <dt>Балкон</dt><dd> {{ ad.realty.balcony }}</dd>
+                                <dt>Срок владения</dt><dd> {{ ad.realty.tenure }}</dd>
+                                <dt>Материал дома</dt><dd> {{ ad.realty.material_house }}</dd>
+                                <dt>Площадь дома</dt><dd> {{ ad.realty.house_area }}</dd>
+                                <dt>Количество спален</dt><dd> {{ ad.realty.number_of_bedrooms }}</dd>
+                                <dt>Электричество</dt><dd> {{ ad.realty.electricity }}</dd>
+                                <dt>Обогрев</dt><dd> {{ ad.realty.heating }}</dd>
+                                <dt>Газ</dt><dd> {{ ad.realty.gas }}</dd>
+                                <dt>Водоснабжение</dt><dd> {{ ad.realty.water_supply }}</dd>
+                                <dt>Гараж</dt><dd> {{ ad.realty.garage }}</dd>
+                                <dt>Площадь участка</dt><dd> {{ ad.realty.plottage }}</dd>
+
+                                <dt>Холодильник</dt><dd> {{ ad.realty.refrigerator }}</dd>
+                                <dt>Посудомоечная машина</dt><dd> {{ ad.realty.dishwasher }}</dd>
+                                <dt>Стиральная машина</dt><dd> {{ ad.realty.washing_machine }}</dd>
+
+                                <dt>Предоплата</dt><dd> {{ ad.realty.prepaytment }}</dd>
+                                <dt>Коммунальные услуги</dt><dd> {{ ad.realty.public_utilities }}</dd>
+                                <dt>Комиссия</dt><dd> {{ ad.realty.comission }}</dd>
+                                <dt>Тип сделки</dt><dd> {{ ad.realty.type_transaction }}</dd>
+                                <dt>Торг возможен</dt><dd> {{ ad.realty.auction }}</dd>
+
+                              </dl>
+                          </div>
+                       </div>
+                    </section>
+
+                    {% include 'section_author.html' %}
+                </div>
+
+                <div class="col-md-4">
+                    <aside class="sidebar">
+
+                      {% include 'section_simular.html' %}
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+var ready = (callback) => {if (document.readyState != "loading") callback();else document.addEventListener("DOMContentLoaded", callback)}
+
+ready(() => {
+  var list = document.querySelectorAll('dd');
+  var count = list.length;
+  for(i=0; i<count; i++) {
+    if(list[i].innerHTML == " " || list[i].innerHTML == " False" ){
+      list[i].previousElementSibling.remove();
+      list[i].remove();
+    }
+    else if(list[i].innerHTML == " True"){
+      list[i].innerHTML = "Есть";
+      list[i].classList.add("current_dd");
+    }
+    else{
+      list[i].classList.add("current_dd")
+    }}
+})
+</script>
+{% endblock %}

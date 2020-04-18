@@ -1,0 +1,113 @@
+{% extends "bases/base.html" %}
+{% load humanize %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+
+<img src="/static/images/back.png" style="height:25px"/>
+
+<div class="page-title">
+    <div class="container clearfix">
+        <div class="float-left float-xs-none">
+            <h1>{{ ad.title }}</h1>
+            <h4 class="location">
+                <a href="{% url 'region' region_name=ad.city.region.name_en %}">{{ ad.city.region }}</a>,
+                <a href="{% url 'city' city_name=ad.city.name_en %}">{{ ad.city }}</a>
+            </h4>
+        </div>
+        <div class="float-right float-xs-none price">
+            <div class="number"> {{ ad.price|intcomma }} руб.</div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                  {% include 'ad_images.html' %}
+
+                    <section>
+                        <h2>Описание</h2>
+                        <p>{{ ad.description }}</p>
+                    </section>
+
+                    <section>
+                        <h2>Детали</h2>
+                        <div class="row">
+                          <div class="col-md-8">
+                              <dl>
+                                <dt>Категория</dt>             <dd> {{ ad.category.category }}</dd>
+                                <dt>Подкатегория</dt>          <dd> {{ ad.category }}</dd>
+
+                                <dt>Тип ноутбука</dt><dd> {{ ad.comp.type_laptop }}</dd>
+                                <dt>Марка ноутбука</dt><dd> {{ ad.comp.brand_laptop }}</dd>
+                                <dt>Диагональ экрана</dt><dd> {{ ad.comp.diagonal }}</dd>
+                                <dt>Разрешение экрана</dt><dd> {{ ad.comp.screen_tv }}</dd>
+                                <dt>Тип компьютера</dt><dd> {{ ad.comp.type_comp }}</dd>
+                                <dt>Тип видеокарты</dt><dd> {{ ad.comp.video_card }}</dd>
+                                <dt>Тип оптического привода</dt><dd> {{ ad.comp.type_drive }}</dd>
+                                <dt>Тип монитора</dt><dd> {{ ad.comp.type_monitor }}</dd>
+                                <dt>Марка монитора</dt><dd> {{ ad.comp.brand_monitor }}</dd>
+                                <dt>Диагональ экрана</dt><dd> {{ ad.comp.diagonal_mon }}</dd>
+                                <dt>Разъем HDMI</dt><dd> {{ ad.comp.hdmi }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.type_key }}</dd>
+                                <dt>Тип подключения</dt><dd> {{ ad.comp.type_connect }}</dd>
+                                <dt>Марка</dt><dd> {{ ad.comp.brand_key }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.office }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.network }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.multimedia }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.flash }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.po }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.pad }}</dd>
+                                <dt>Марка</dt><dd> {{ ad.comp.brand_pad }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.spare }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.comp.acs }}</dd>
+                                <dt>Устройство</dt><dd> {{ ad.comp.device }}</dd>
+                                <dt>Оперативная память</dt><dd> {{ ad.comp.operative }}</dd>
+
+                                <dt>Игровой</dt><dd> {{ ad.comp.game }}</dd>
+                                <dt>Встроенные динамики</dt><dd> {{ ad.comp.dinam }}</dd>
+                                <dt>USB разъем</dt><dd> {{ ad.comp.USB }}</dd>
+                              </dl>
+                          </div>
+                       </div>
+                    </section>
+
+                    {% include 'section_author.html' %}
+                </div>
+
+                <div class="col-md-4">
+                    <aside class="sidebar">
+
+                      {% include 'section_simular.html' %}
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+var ready = (callback) => {if (document.readyState != "loading") callback();else document.addEventListener("DOMContentLoaded", callback)}
+
+ready(() => {
+  var list = document.querySelectorAll('dd');
+  var count = list.length;
+  for(i=0; i<count; i++) {
+    if(list[i].innerHTML == " " || list[i].innerHTML == " False" ){
+      list[i].previousElementSibling.remove();
+      list[i].remove();
+    }
+    else if(list[i].innerHTML == " True"){
+      list[i].innerHTML = "Есть";
+      list[i].classList.add("current_dd");
+    }
+    else{
+      list[i].classList.add("current_dd")
+    }}
+})
+</script>
+{% endblock %}

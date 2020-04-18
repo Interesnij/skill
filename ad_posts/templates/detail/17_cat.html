@@ -1,0 +1,97 @@
+{% extends "bases/base.html" %}
+{% load humanize %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+
+<img src="/static/images/back.png" style="height:25px"/>
+
+<div class="page-title">
+    <div class="container clearfix">
+        <div class="float-left float-xs-none">
+            <h1>{{ ad.title }}</h1>
+            <h4 class="location">
+                <a href="{% url 'region' region_name=ad.city.region.name_en %}">{{ ad.city.region }}</a>,
+                <a href="{% url 'city' city_name=ad.city.name_en %}">{{ ad.city }}</a>
+            </h4>
+        </div>
+        <div class="float-right float-xs-none price">
+            <div class="number"> {{ ad.price|intcomma }} руб.</div>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                  {% include 'ad_images.html' %}
+
+                    <section>
+                        <h2>Описание</h2>
+                        <p>{{ ad.description }}</p>
+                    </section>
+
+                    <section>
+                        <h2>Детали</h2>
+                        <div class="row">
+                          <div class="col-md-8">
+                              <dl>
+                                <dt>Категория</dt>             <dd> {{ ad.category.category }}</dd>
+                                <dt>Подкатегория</dt>          <dd> {{ ad.category }}</dd>
+
+                                <dt>Тип</dt><dd> {{ ad.beauty.type_makeup }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.type_manicure }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.health_products }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.parfum }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.hair }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.hair_care }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.skin_care }}</dd>
+                                <dt>Зона применения</dt><dd> {{ ad.beauty.skin_appl }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.hair_draier }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.tatu }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.tanning }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.beauty.hig }}</dd>
+                                <dt>Пол</dt><dd> {{ ad.beauty.gender }}</dd>
+                              </dl>
+                          </div>
+                       </div>
+                    </section>
+
+                    {% include 'section_author.html' %}
+                </div>
+
+                <div class="col-md-4">
+                    <aside class="sidebar">
+
+                      {% include 'section_simular.html' %}
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+var ready = (callback) => {if (document.readyState != "loading") callback();else document.addEventListener("DOMContentLoaded", callback)}
+
+ready(() => {
+  var list = document.querySelectorAll('dd');
+  var count = list.length;
+  for(i=0; i<count; i++) {
+    if(list[i].innerHTML == " " || list[i].innerHTML == " False" ){
+      list[i].previousElementSibling.remove();
+      list[i].remove();
+    }
+    else if(list[i].innerHTML == " True"){
+      list[i].innerHTML = "Есть";
+      list[i].classList.add("current_dd");
+    }
+    else{
+      list[i].classList.add("current_dd")
+    }}
+})
+</script>
+{% endblock %}
