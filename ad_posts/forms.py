@@ -160,7 +160,7 @@ class Form_20(forms.ModelForm):
 	description = forms.CharField( label="",widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}))
 
 	class Meta:
-		from ad_model.sport import Hobbies
+		from ad_model.hobbies import Hobbies
 		model=Hobbies
 		exclude = ['creator',]
 
