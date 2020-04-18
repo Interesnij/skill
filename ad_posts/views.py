@@ -20,7 +20,7 @@ class AdDetailView(TemplateView):
         return context
 
 
-class AdCreate(TemplateView,CategoryListMixin):
+class AdCreate(TemplateView):
 	template_name="ad_add.html"
 	success_url="/"
 
