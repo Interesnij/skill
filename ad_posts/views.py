@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 from ad_posts.models import Ad
+from ad_categories.models import AdCategory
 
 
 class AdPostsView(TemplateView):
@@ -28,4 +29,5 @@ class AdCreate(TemplateView):
 		return super(AdCreate,self).get(request,*args,**kwargs)
 	def get_context_data(self,**kwargs):
 		context=super(AdCreate,self).get_context_data(**kwargs)
+        context['ad_categories'] = AdCategory.objects.only("pk")
 		return context
