@@ -2735,7 +2735,6 @@ label.required:after {
 }
 .form .form-group {
     position: relative;
-    display: table-caption;
 }
 .form label.error {
     position: absolute;
