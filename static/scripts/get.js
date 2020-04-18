@@ -13,10 +13,12 @@ function SelectSubCategory (select) {
   var selectedOption = select.options[select.selectedIndex];
   var pk = selectedOption.value;
   var subcat_block = document.querySelector(".subcat");
-  if (pk == ""){subcat_block.innerHTML = ""}
+  var upload_block = subcat_block.querySelector("#id_category");
+  if (pk == ""){upload_block.innerHTML = ""; subcat_block.style.display = "none"}
   else{
-    subcat_block.innerHTML = "";
-    new_load(subcat_block, '/search/get_subcat/' + pk)
+    upload_block.innerHTML = "";
+    new_load(upload_block, '/search/get_subcat/' + pk);
+    subcat_block.style.display = "block";
   }
 }
 

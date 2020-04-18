@@ -1,8 +1,4 @@
-<div class="form-group">
-    <select class="small" name="sub_category" id="id_sub_category">
-        <option value="">Подкатегория</option>
+
         {% for object in subcats %}
           <option value="{{ object.pk }}">{{ object.name_ru }}</option>
         {% endfor %}
-    </select>
- </div>
