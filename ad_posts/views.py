@@ -45,7 +45,7 @@ class FormAdd(TemplateView):
         from ad_posts.forms import Form_1
 
         self.template_name = "forms/" + str(self.subcat.order) + ".html"
-        self.form = Form(initial={"creator":request.user})
+        self.form = Form_1(initial={"creator":request.user})
         return super(FormAdd,self).get(request,*args,**kwargs)
 
     def get_context_data(self,**kwargs):
@@ -54,7 +54,7 @@ class FormAdd(TemplateView):
         return context
 
     def post(self,request,*args,**kwargs):
-        self.form = Form(request.POST,request.FILES)
+        self.form = Form_1(request.POST,request.FILES)
         if self.form.is_valid():
             ad = self.form.save(commit=False)
             ad.creator = self.request.user
