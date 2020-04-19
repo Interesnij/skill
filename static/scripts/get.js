@@ -24,9 +24,9 @@ function SelectSubCategory (select) {
   }
   else{
     console.log(upload_block);
+    subcat_block.style.display = "block";
     upload_block.innerHTML = "";
     new_load(upload_block, '/search/get_subcat/' + pk);
-    subcat_block.style.display = "block";
   }
 }
 function loadCitySelect (select) {
