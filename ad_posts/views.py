@@ -40,7 +40,7 @@ class FormAdd(TemplateView):
 
     def get(self,request,*args,**kwargs):
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
-        if self.kwargs["pk"] in [1,2]:
+        if self.kwargs["pk"] == 1:
             from ad_posts.forms import Form_1
             self.form = Form_1
         self.template_name = "forms/cat_" + str(self.subcat.category.order) + "/sub_" + str(self.subcat.order) + ".html"
