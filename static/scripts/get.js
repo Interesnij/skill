@@ -44,12 +44,17 @@ function loadAddForm (select) {
   var selectedOption = select.options[select.selectedIndex];
   var pk = selectedOption.value;
   var special_block = document.querySelector(".special_block");
-  if (pk == ""){special_block.innerHTML = ""; special_block.style.display = "none";special_block.nextElementSibling.style.display = "none"}
+  if (pk == ""){
+    special_block.innerHTML = "";
+    special_block.style.display = "none";
+    special_block.nextElementSibling.style.display = "none";
+    special_block.nextElementSibling.nextElementSibling.style.display = "none"}
   else{
     special_block.innerHTML = "";
     new_load(special_block, '/posts/form_special/' + pk);
     special_block.style.display = "block";
-    special_block.nextElementSibling.style.display = "block"
+    special_block.nextElementSibling.style.display = "block";
+    special_block.nextElementSibling.nextElementSibling.style.display = "block"
   }
 }
 
