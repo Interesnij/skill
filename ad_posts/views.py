@@ -34,7 +34,7 @@ class AdCreate(TemplateView):
     def get_context_data(self,**kwargs):
         context=super(AdCreate,self).get_context_data(**kwargs)
         context['ad_categories'] = AdCategory.objects.only("pk")
-        context['regions'] = REgion.objects.only("pk")
+        context['regions'] = Region.objects.only("pk")
         return context
 
 
