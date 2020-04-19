@@ -1,8 +1,7 @@
 def get_current_form(number):
-    if number in [1,2]:
+    if number == 1:
         from ad_posts.forms import Form_1
-        form = Form_1
-        return form
+        return Form_1
     elif number in [3,4,5,6]:
         from ad_posts.forms import Form_2
         return Form_2(request.POST,request.FILES)

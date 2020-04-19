@@ -44,8 +44,8 @@ class FormAdd(TemplateView):
         return super(FormAdd,self).get(request,*args,**kwargs)
 
     def get_context_data(self,**kwargs):
-        context=super(FormAdd,self).get_context_data(**kwargs)
-        context["form"]=Form_1
+        context = super(FormAdd,self).get_context_data(**kwargs)
+        context["form"] = get_current_form(self.kwargs["pk"])
         return context
 
     def post(self,request,*args,**kwargs):
