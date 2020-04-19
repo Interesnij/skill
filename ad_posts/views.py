@@ -40,19 +40,16 @@ class FormAdd(TemplateView):
 
     def get(self,request,*args,**kwargs):
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
-        if self.subcat.order in [1,2]:
-            from ad_posts.forms import Form_1
-            self.form = Form_1
         self.template_name = "forms/cat_" + str(self.subcat.category.order) + "/sub_" + str(self.subcat.order) + ".html"
         return super(FormAdd,self).get(request,*args,**kwargs)
 
     def get_context_data(self,**kwargs):
         context = super(FormAdd,self).get_context_data(**kwargs)
-        context["form"] = self.form
+        context["form"] = get_current_form(self.subcat.order)
         return context
 
     def post(self,request,*args,**kwargs):
-        self.form = get_current_form(self.kwargs["pk"])
+        self.form = get_current_form(self.subcat.order)
         if self.form.is_valid():
             ad = self.form.save(commit=False)
             ad.creator = self.request.user
