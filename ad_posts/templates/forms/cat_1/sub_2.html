@@ -1,1 +1,599 @@
-a12s
+<section>
+    <h2>Основная информация</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                {{ form.title.errors }}
+              <label for="type" class="required">Название товара</label>
+                {{ form.title }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.price.errors }}
+              <label for="type" class="required">Цена товара</label>
+                {{ form.price }}
+                <span class="input-group-addon">₽</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+              <label for="type" class="required">Регион</label>
+              <select name="area" id="id_area" data-placeholder="Выберите регион">
+                  <option value="">Выберите регион</option>
+                  {% for object in areas %}
+                  <option value="{{ object.order }}">{{ object.name }}</option>
+                  {% endfor %}
+              </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="my_sity"></div>
+        </div>
+    </div>
+</section>
+
+
+  <section>
+    <div class="form-group">
+    <label>Описание товара</label>
+      {{ form.description|safe }}
+    </div>
+  </section>
+  <div class="row">
+      <div class="col-md-4">
+          <div class="form-group">
+              <label for="" class="col-form-label">Марка автомобиля</label>
+                {{ form.brand.errors }}
+                  {{ form.brand }}
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            {{ form.model.errors }}
+            <label for="" class="col-form-label">Модель автомобиля</label>
+            {{ form.model }}
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            {{ form.year.errors }}
+            <label for="" class="col-form-label">Год выпуска</label>
+              {{ form.year }}
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4">
+          <div class="form-group">
+              <label for="" class="col-form-label">Цвет автомобиля</label>
+                {{ form.color.errors }}
+                  {{ form.color }}
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            {{ form.place_of_inspection.errors }}
+            <label for="" class="col-form-label">Место осмотра</label>
+            {{ form.place_of_inspection }}
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            {{ form.link.errors }}
+            <label for="" class="col-form-label">Видео c YouTube</label>
+              {{ form.link }}
+          </div>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4">
+          <div class="form-group">
+              <label for="" class="col-form-label">Пробег</label>
+                {{ form.run.errors }}
+                  {{ form.run }}
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            {{ form.condition.errors }}
+            <label for="" class="col-form-label">Состояние</label>
+            {{ form.condition }}
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="form-group">
+            {{ form.to.errors }}
+            <label for="" class="col-form-label">Данные о ТО</label>
+              {{ form.to }}
+          </div>
+      </div>
+  </div>
+  <br><br>
+  <h2>Дополнительные опции</h2>
+  <br>
+  <div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+          <label for="" class="col-form-label">Усилитель руля</label>
+          {{ form.power_steering.errors }}
+          {{ form.power_steering }}
+    </div>
+    <div class="form-group">
+          <label for="" class="col-form-label">Управление климатом</label>
+          {{ form.climate_control.errors }}
+          {{ form.climate_control }}
+    </div>
+    <br>
+    <ul class="list-unstyled columns-1">
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.steering_wheel_control }}
+          {{ form.steering_wheel_control.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.athermal_glazing }}
+          {{ form.athermal_glazing.label }}
+        </label>
+      </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Салон</label>
+          {{ form.salon.errors }}
+          {{ form.salon }}
+    </div>
+    <br>
+    <ul class="list-unstyled columns-1">
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.leather_steering_wheel }}
+          {{ form.leather_steering_wheel.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.hatch }}
+          {{ form.hatch.label }}
+        </label>
+      </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Обогрев</label>
+    </div>
+    <ul class="list-unstyled columns-1">
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.heated_front_seats }}
+          {{ form.heated_front_seats.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.heated_reart_seats }}
+          {{ form.heated_reart_seats.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.heated_mirrors }}
+          {{ form.heated_mirrors.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.heated_rear_window }}
+          {{ form.heated_rear_window.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.heated_steering_column }}
+          {{ form.heated_steering_column.label }}
+        </label>
+      </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Электропривод</label>
+    </div>
+    <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.front_seats }}
+        {{ form.front_seats.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.back_seats }}
+        {{ form.back_seats.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.mirrors }}
+        {{ form.mirrors.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.folding_mirrors }}
+        {{ form.folding_mirrors.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.steering_column }}
+        {{ form.steering_column.label }}
+      </label>
+    </li>
+    </ul>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Память настроек</label>
+    </div>
+    <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.memory_front_seats }}
+        {{ form.memory_front_seats.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.memory_reart_seats }}
+        {{ form.memory_reart_seats.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.memory_mirrors }}
+        {{ form.memory_mirrors.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.memory_steering_column }}
+        {{ form.memory_steering_column.label }}
+      </label>
+    </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+          <label for="" class="col-form-label">Помощь при вождении</label>
+    </div>
+    <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.parking_attendant }}
+        {{ form.parking_attendant.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.rain_sensor }}
+        {{ form.rain_sensor.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.sheine_sensor }}
+        {{ form.sheine_sensor.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.rear_parking_sensors  }}
+        {{ form.rear_parking_sensors.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.front_parking_sensors }}
+        {{ form.front_parking_sensors.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.blind_spot_monitoring_system }}
+        {{ form.blind_spot_monitoring_system.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.rear_view_camera }}
+        {{ form.rear_view_camera.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.cruise_control  }}
+        {{ form.cruise_control.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.onboard_computer  }}
+        {{ form.onboard_computer.label }}
+      </label>
+    </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Противоугонная система</label>
+    </div>
+    <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.signaling }}
+        {{ form.signaling.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.сentral_locking }}
+        {{ form.сentral_locking.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.immobilizer }}
+        {{ form.immobilizer.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.satellite }}
+        {{ form.satellite.label }}
+      </label>
+    </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Подушки безопасности</label>
+    </div>
+    <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.front_airbags }}
+        {{ form.front_airbags.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.knee_airbags }}
+        {{ form.knee_airbags.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.curtain_airbags }}
+        {{ form.curtain_airbags.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.side_front_airbags }}
+        {{ form.side_front_airbags.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.side_rear_airbags }}
+        {{ form.side_rear_airbags.label }}
+      </label>
+    </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Активная безопасность</label>
+    </div>
+    <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.ABS }}
+        {{ form.ABS.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.anti_slip }}
+        {{ form.anti_slip.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.directional_stability }}
+        {{ form.directional_stability.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.brake_force_distribution }}
+        {{ form.brake_force_distribution.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.emergency_braking }}
+        {{ form.emergency_braking.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.differential_lock }}
+        {{ form.differential_lock.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.pedestrian_detection }}
+        {{ form.pedestrian_detection.label }}
+      </label>
+    </li>
+    </ul>
+    <br>
+
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+          <label for="" class="col-form-label">Мультимедиа и навигация</label>
+    </div>
+    <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.CD_DVD }}
+        {{ form.CD_DVD.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.MP3 }}
+        {{ form.MP3.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.radio }}
+        {{ form.radio.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.TV }}
+        {{ form.TV.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.video }}
+        {{ form.video.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.steering_wheel_control }}
+        {{ form.steering_wheel_control.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.USB }}
+        {{ form.USB.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.AUX }}
+        {{ form.AUX.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.bluetooth }}
+        {{ form.bluetooth.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.GPS }}
+        {{ form.GPS.label }}
+      </label>
+    </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Аудиосистема</label>
+          {{ form.audio.errors }}
+          {{ form.audio }}
+    </div>
+    <br>
+    <ul class="list-unstyled columns-1">
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.subwoofer }}
+          {{ form.subwoofer.label }}
+        </label>
+      </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Фары</label>
+          {{ form.headlights.errors }}
+          {{ form.headlights }}
+    </div>
+    <br>
+    <ul class="list-unstyled columns-1">
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.fog }}
+          {{ form.fog.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.headlight_washers }}
+          {{ form.headlight_washers.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.adaptive_lighting }}
+          {{ form.adaptive_lighting.label }}
+        </label>
+      </li>
+    </ul>
+    <br>
+
+    <div class="form-group">
+          <label for="" class="col-form-label">Шины и диски</label>
+          {{ form.tires.errors }}
+          {{ form.tires }}
+    </div>
+    <br>
+    <ul class="list-unstyled columns-1">
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.winter_tyre }}
+          {{ form.winter_tyre.label }}
+        </label>
+      </li>
+    </ul>
+    <br>
+
+  </div>
+  </div>
+
+<section class="clearfix">
+  <div class="row">
+    <ul class="list-unstyled columns-1">
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.is_active }}
+          {{ form.is_active.label }}
+        </label>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="clearfix">
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary large icon float-right">Опубликовать<i class="fa fa-chevron-right"></i></button>
+    </div>
+</section>
