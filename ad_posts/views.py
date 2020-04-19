@@ -31,7 +31,6 @@ class AdCreate(TemplateView):
     def get_context_data(self,**kwargs):
         context=super(AdCreate,self).get_context_data(**kwargs)
         context['ad_categories'] = AdCategory.objects.only("pk")
-        context['regions'] = Region.objects.only("pk")
         return context
 
 
@@ -46,6 +45,7 @@ class FormAdd(TemplateView):
     def get_context_data(self,**kwargs):
         context = super(FormAdd,self).get_context_data(**kwargs)
         context["form"] = get_current_form(self.subcat.order)
+        context['regions'] = Region.objects.only("pk")
         return context
 
     def post(self,request,*args,**kwargs):
