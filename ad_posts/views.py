@@ -35,6 +35,7 @@ class AdCreate(TemplateView):
         context=super(AdCreate,self).get_context_data(**kwargs)
         context['ad_categories'] = AdCategory.objects.only("pk")
         context['regions'] = Region.objects.only("pk")
+        context["form"]=get_current_form(self.kwargs["pk"])
         return context
 
 
