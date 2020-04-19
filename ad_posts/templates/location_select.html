@@ -5,7 +5,7 @@
           <select name="region" id="id_region" data-placeholder="Выберите регион">
               <option value="">Выберите регион</option>
               {% for object in regions %}
-              <option value="{{ object.order }}">{{ object.name }}</option>
+              <option value="{{ object.order }}">{{ object.name_ru }}</option>
               {% endfor %}
           </select>
         </div>
