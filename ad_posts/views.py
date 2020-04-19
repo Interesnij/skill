@@ -1,5 +1,6 @@
 from django.views.generic.base import TemplateView
 from ad_posts.models import Ad
+from regions.models import Region
 from ad_categories.models import AdCategory, AdSubCategory
 from django.http import HttpResponse
 from common.utils import get_current_form
@@ -33,6 +34,7 @@ class AdCreate(TemplateView):
     def get_context_data(self,**kwargs):
         context=super(AdCreate,self).get_context_data(**kwargs)
         context['ad_categories'] = AdCategory.objects.only("pk")
+        context['regions'] = REgion.objects.only("pk")
         return context
 
 
