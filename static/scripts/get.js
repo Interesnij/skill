@@ -46,7 +46,7 @@ function loadAddForm (select) {
   var special_block = document.querySelector(".special_block");
   if (pk == ""){
     special_block.innerHTML = "";
-    special_block.nextElementSibling.nextElementSibling.style.display = "none"
+    special_block.nextElementSibling.nextElementSibling.style.display = "none";
     special_block.nextElementSibling.style.display = "none";
     special_block.style.display = "none";}
 
