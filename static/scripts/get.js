@@ -18,8 +18,8 @@ function SelectSubCategory (select) {
     upload_block.innerHTML = "";
     subcat_block.style.display = "none";
     try{document.querySelector(".special_block").innerHTML = "";
-       special_block.nextElementSibling.nextElementSibling.style.display = "none";
-       special_block.nextElementSibling.style.display = "none";}
+       document.querySelector(".special_block").nextElementSibling.nextElementSibling.style.display = "none";
+       document.querySelector(".special_block").nextElementSibling.style.display = "none";}
     catch{console.log("!")}
   }
   else{
