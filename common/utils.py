@@ -1,5 +1,5 @@
 def get_current_form(number):
-    if number == 1:
+    if number in [1,2]:
         from ad_posts.forms import Form_1
         return Form_1
     elif number in [3,4,5,6]:
