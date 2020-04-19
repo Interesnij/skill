@@ -42,13 +42,13 @@ class FormAdd(TemplateView):
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
         if self.kwargs["pk"] in [1,2]:
             from ad_posts.forms import Form_1
-            self.form = Form_1()
+            self.form = Form_1
         self.template_name = "forms/cat_" + str(self.subcat.category.order) + "/sub_" + str(self.subcat.order) + ".html"
         return super(FormAdd,self).get(request,*args,**kwargs)
 
     def get_context_data(self,**kwargs):
         context = super(FormAdd,self).get_context_data(**kwargs)
-        context["form"] = get_current_form(self.kwargs["pk"])
+        context["form"] = self.form
         return context
 
     def post(self,request,*args,**kwargs):
