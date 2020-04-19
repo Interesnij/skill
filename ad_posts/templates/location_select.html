@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <div class="form-group">
           <label for="type" class="required">Регион</label>
-          <select name="region" id="id_region" data-placeholder="Выберите регион">
+          <select onchange="loadCitySelect (this)" name="region" id="id_region">
               <option value="">Выберите регион</option>
               {% for object in regions %}
               <option value="{{ object.order }}">{{ object.name_ru }}</option>
@@ -13,7 +13,7 @@
     <div class="col-md-6">
       <div class="form-group city" style="display:none">
         <label for="type" class="required">Город</label>
-        <select onchange="loadCitySelect (this)" name="city" id="id_city">
+        <select name="city" id="id_city">
         </select>
       </div>
     </div>
