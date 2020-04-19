@@ -9,18 +9,14 @@
 }
 input[type="checkbox"] {
   position: relative;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   margin-right: .75rem;
   cursor: pointer;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   outline: 0;
-  /**
-   * Iterate over map and autogenerate helper classes.
-  * See "https://codepen.io/fxm90/pen/zGjjrJ" for an example
-  */
 }
 input[type="checkbox"]:before {
   content: '';
@@ -45,16 +41,6 @@ input[type="checkbox"]:before {
   border-color: #f44336;
 }
 
-
-/**
-* Notice: Checkbox is styled via import of my other pen (https://codepen.io/fxm90/pen/JdmaeL)
-*/
-input[type="checkbox"] + span {
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: visibility 0s linear 0.33s, opacity 0.33s linear;
-  transition: visibility 0s linear 0.33s, opacity 0.33s linear;
-}
 input[type="checkbox"]:checked {
   visibility: visible;
   opacity: 1;
