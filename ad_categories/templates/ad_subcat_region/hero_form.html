@@ -41,15 +41,10 @@
                               С фото
                           </label>
                           <div class="col-md-7">
-                            <div class="subcat">
-                              <div class="form-group">
-                                  <select class="small" name="sub_category" id="id_sub_category" data-placeholder="Выберите подкатегорию">
-                                      <option value="{{ sub_category.pk }}">{{ sub_category }}</option>
-                                      {% for object in sub_category.category.adsubcategory_set.all %}
-                                        <option value="{{ object.pk }}">{{ object.name_ru }}</option>
-                                      {% endfor %}
-                                  </select>
-                               </div>
+                            <div class="subcat" style="display:none">
+                              <select style="padding: 1.4rem;margin-bottom: 1.4rem;" name="category" id="id_category">
+
+                              </select>
                             </div>
                           </div>
                       </div>
