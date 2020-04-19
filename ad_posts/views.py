@@ -4,6 +4,7 @@ from regions.models import Region
 from ad_categories.models import AdCategory, AdSubCategory
 from django.http import HttpResponse
 from common.utils import get_current_form
+from ad_posts.forms import Form_1
 
 
 class AdPostsView(TemplateView):
@@ -44,7 +45,7 @@ class FormAdd(TemplateView):
 
     def get_context_data(self,**kwargs):
         context=super(FormAdd,self).get_context_data(**kwargs)
-        context["form"]=get_current_form(self.kwargs["pk"])
+        context["form"]=Form_1
         return context
 
     def post(self,request,*args,**kwargs):
