@@ -22,18 +22,34 @@ function SelectSubCategory (select) {
   else{
     upload_block.innerHTML = "";
     new_load(upload_block, '/search/get_subcat/' + pk);
-    subcat_block.style.display = "table-caption";
+    subcat_block.style.display = "block";
   }
 }
+function loadCitySelect (select) {
+  var selectedOption = select.options[select.selectedIndex];
+  var pk = selectedOption.value;
+  var subcat_block = document.querySelector(".city");
+  var upload_block = subcat_block.querySelector("#id_city");
+  if (pk == ""){
+    upload_block.innerHTML = "";
+  }
+  else{
+    upload_block.innerHTML = "";
+    new_load(upload_block, '/cities/load/' + pk);
+    subcat_block.style.display = "block";
+  }
+}
+
 function loadAddForm (select) {
   var selectedOption = select.options[select.selectedIndex];
   var pk = selectedOption.value;
   var special_block = document.querySelector(".special_block");
-  if (pk == ""){special_block.innerHTML = ""; special_block.style.display = "none"}
+  if (pk == ""){special_block.innerHTML = ""; special_block.style.display = "none";special_block.nextElementSibling.style.display = "none"}
   else{
     special_block.innerHTML = "";
     new_load(special_block, '/posts/form_special/' + pk);
-    special_block.style.display = "table-caption";
+    special_block.style.display = "block";
+    special_block.nextElementSibling.style.display = "block"
   }
 }
 

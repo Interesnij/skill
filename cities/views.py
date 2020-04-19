@@ -1,6 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView
 from cities.models import City
+from regions.models import Region
 from ad_posts.models import Ad
 import re
 from ad_categories.models import AdCategory
@@ -34,3 +35,17 @@ class CityView(ListView):
     def get_queryset(self):
         ads = self.city.get_ads()
         return ads
+
+
+class GetCitiesView(TemplateView):
+    template_name = "get_cities.html"
+
+    def get(self,request,*args,**kwargs):
+        self.region = Region.objects.get(pk=self.kwargs["pk"])
+        self.cities = City.objects.filter(region=self.region)
+        return super(GetCitiesView,self).get(request,*args,**kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(GetCitiesView, self).get_context_data(**kwargs)
+        context['cities'] = self.cities
+        return context
