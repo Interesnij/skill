@@ -40,12 +40,11 @@ class FormAdd(TemplateView):
     def get(self,request,*args,**kwargs):
         self.subcat = AdSubCategory.objects.get(pk=self.kwargs["pk"])
         self.template_name = "forms/cat_" + str(self.subcat.category.order) + "/sub_" + str(self.subcat.order) + ".html"
-        self.form = get_current_form(self.kwargs["pk"])
         return super(FormAdd,self).get(request,*args,**kwargs)
 
     def get_context_data(self,**kwargs):
         context=super(FormAdd,self).get_context_data(**kwargs)
-        context["form"]=self.form
+        context["form"]=get_current_form(self.kwargs["pk"])
         return context
 
     def post(self,request,*args,**kwargs):
