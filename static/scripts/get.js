@@ -34,7 +34,7 @@ function loadCitySelect (select) {
   var subcat_block = document.querySelector(".city");
   var upload_block = subcat_block.querySelector("#id_city");
   if (pk == ""){
-    upload_block.innerHTML = "";
+    subcat_block.style.display = "none";
   }
   else{
     upload_block.innerHTML = "";
