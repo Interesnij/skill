@@ -23,6 +23,7 @@ function SelectSubCategory (select) {
     catch{console.log("!")}
   }
   else{
+    console.log(upload_block);
     upload_block.innerHTML = "";
     new_load(upload_block, '/search/get_subcat/' + pk);
     subcat_block.style.display = "block";
