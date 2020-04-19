@@ -568,22 +568,10 @@
     <ul class="list-unstyled columns-1">
       <li>
         <label class="" style="font-size:15px">
-          <div class="icheckbox">{{ form.is_active }}</div>
+          {{ form.is_active }}
           {{ form.is_active.label }}
         </label>
       </li>
     </ul>
   </div>
 </section>
-
-<script>
-  $("input[type=checkbox], input[type=radio]").iCheck();
-
-  var framedInputRadio = $(".framed input[type=radio]");
-  framedInputRadio.on('ifChecked', function(){
-      $(this).closest(".framed").addClass("active");
-  });
-  framedInputRadio.on('ifUnchecked', function(){
-      $(this).closest(".framed").removeClass("active");
-  });
-</script>
