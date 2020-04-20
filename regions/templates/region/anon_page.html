@@ -1,6 +1,6 @@
-{% extends "bases/anon_base.html" %}
+{% extends "bases/base.html" %}
 {% load humanize staticfiles thumbnail %}
-{% block title %}Россия :: {{ category.name_ru }}{% endblock %}
+{% block title %}Россия, {{ region.name_ru }}{% endblock %}
 {% block content %}
 <style>
   label{
@@ -11,7 +11,7 @@
 <div class="page-title">
     <div class="container">
         <h1 class="opacity-60 center">
-            Россия :: {{ category.name_ru }}
+          Россия, {{ region.name_ru }}
         </h1>
     </div>
 </div>
@@ -49,7 +49,7 @@
             Пока нет объявлений :-)</h1>
           {% endif %}
 
-          {% include 'region/categories.html' %}
+      {% include 'region/categories.html' %}
       </div>
 
       <div class="col-md-3">
