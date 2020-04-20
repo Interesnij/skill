@@ -1,0 +1,72 @@
+
+<section>
+    <h2>Основная информация</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                {{ form.title.errors }}
+              <label for="type" class="required">Название товара</label>
+                {{ form.title }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.price.errors }}
+              <label for="type" class="required">Цена товара</label>
+                {{ form.price }}
+                <span class="input-group-addon">₽</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+
+  <div class="form-group">
+    <label for="" class="col-form-label">Тип</label>
+    {{ form.type_refr.errors }}
+    {{ form.type_refr }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Марка холодильника</label>
+    {{ form.brand_refr.errors }}
+    {{ form.brand_refr }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Высота</label>
+    {{ form.height_refr.errors }}
+    {{ form.height_refr }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Срок использования</label>
+    {{ form.use.errors }}
+    {{ form.use }}
+  </div>
+
+    <div class="form-group">
+    <label>Описание товара</label>
+      {{ form.description|safe }}
+    </div>
+
+</section>
+<div class="location_block">{% include 'location_select.html' %}</div>
+
+<section class="images_block">{% include 'images_upload.html' %}</section>
+  <section class="clearfix">
+    <div class="row">
+      <ul class="list-unstyled columns-1">
+        <li>
+          <label class="" style="font-size:15px">
+            {{ form.is_active }}
+            {{ form.is_active.label }}
+          </label>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="clearfix">
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary large icon float-right">Опубликовать<i class="fa fa-chevron-right"></i></button>
+      </div>
+  </section>

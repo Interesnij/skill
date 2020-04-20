@@ -1,0 +1,110 @@
+
+<section>
+    <h2>Основная информация</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                {{ form.title.errors }}
+              <label for="type" class="required">Название товара</label>
+                {{ form.title }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.price.errors }}
+              <label for="type" class="required">Цена товара</label>
+                {{ form.price }}
+                <span class="input-group-addon">₽</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+  <div class="form-group">
+    <label for="" class="col-form-label">Марка</label>
+    {{ form.brand_wath.errors }}
+    {{ form.brand_wath }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Тип</label>
+    {{ form.type_wath.errors }}
+    {{ form.type_wath }}
+  </div>
+  <br>
+  <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.android }}
+        {{ form.android.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.IOS }}
+        {{ form.IOS.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.protection }}
+        {{ form.protection.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.pedometer }}
+        {{ form.pedometer.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.heart_monitor }}
+        {{ form.heart_monitor.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.sleep }}
+        {{ form.sleep.label }}
+      </label>
+    </li>
+  </ul>
+  <div class="form-group">
+    <label for="" class="col-form-label">Телефонные звонки</label>
+    {{ form.call.errors }}
+    {{ form.call }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Срок использования</label>
+    {{ form.use.errors }}
+    {{ form.use }}
+  </div>
+
+    <div class="form-group">
+    <label>Описание товара</label>
+      {{ form.description|safe }}
+    </div>
+
+</section>
+<div class="location_block">{% include 'location_select.html' %}</div>
+
+<section class="images_block">{% include 'images_upload.html' %}</section>
+  <section class="clearfix">
+    <div class="row">
+      <ul class="list-unstyled columns-1">
+        <li>
+          <label class="" style="font-size:15px">
+            {{ form.is_active }}
+            {{ form.is_active.label }}
+          </label>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="clearfix">
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary large icon float-right">Опубликовать<i class="fa fa-chevron-right"></i></button>
+      </div>
+  </section>

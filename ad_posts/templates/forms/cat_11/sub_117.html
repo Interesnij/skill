@@ -1,0 +1,130 @@
+
+<section>
+    <h2>Основная информация</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                {{ form.title.errors }}
+              <label for="type" class="required">Название товара</label>
+                {{ form.title }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.price.errors }}
+              <label for="type" class="required">Цена товара</label>
+                {{ form.price }}
+                <span class="input-group-addon">₽</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+
+  <div class="form-group">
+    <label for="" class="col-form-label">Марка планшета</label>
+    {{ form.brand_pad.errors }}
+    {{ form.brand_pad }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Операционная система</label>
+    {{ form.os_pad.errors }}
+    {{ form.os_pad }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Диагональ экрана</label>
+    {{ form.screen_pad.errors }}
+    {{ form.screen_pad }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Встроенная память</label>
+    {{ form.internal_pad.errors }}
+    {{ form.internal_pad }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Оперативная память</label>
+    {{ form.operative_pad.errors }}
+    {{ form.operative_pad }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Основная камера</label>
+    {{ form.camera.errors }}
+    {{ form.camera }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Фронтальная камера</label>
+    {{ form.front.errors }}
+    {{ form.front }}
+  </div>
+  <div class="form-group">
+    <label for="" class="col-form-label">Слот для карты памяти</label>
+    {{ form.slot.errors }}
+    {{ form.slot }}
+  </div>
+  <br>
+  <ul class="list-unstyled columns-1">
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.a3G }}
+        {{ form.a3G.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.LTE }}
+        {{ form.LTE.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.GPS }}
+        {{ form.GPS.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.NFC }}
+        {{ form.NFC.label }}
+      </label>
+    </li>
+    <li>
+      <label class="" style="font-size:15px">
+        {{ form.IP }}
+        {{ form.IP.label }}
+      </label>
+    </li>
+  </ul>
+  <div class="form-group">
+    <label for="" class="col-form-label">Срок использования</label>
+    {{ form.use.errors }}
+    {{ form.use }}
+  </div>
+
+    <div class="form-group">
+    <label>Описание товара</label>
+      {{ form.description|safe }}
+    </div>
+
+</section>
+<div class="location_block">{% include 'location_select.html' %}</div>
+
+<section class="images_block">{% include 'images_upload.html' %}</section>
+  <section class="clearfix">
+    <div class="row">
+      <ul class="list-unstyled columns-1">
+        <li>
+          <label class="" style="font-size:15px">
+            {{ form.is_active }}
+            {{ form.is_active.label }}
+          </label>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="clearfix">
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary large icon float-right">Опубликовать<i class="fa fa-chevron-right"></i></button>
+      </div>
+  </section>
