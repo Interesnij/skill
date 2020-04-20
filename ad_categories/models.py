@@ -70,7 +70,7 @@ class AdSubCategory(models.Model):
 	    ads = Ad.objects.filter(ads_query)
 	    return ads
 
-	def get_ads(self):
+	def get_ads_count(self):
 	    ads_query = Q(category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Ad.objects.filter(ads_query).values('id')
 	    return ads.count()
