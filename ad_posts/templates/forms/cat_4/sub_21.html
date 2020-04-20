@@ -1,0 +1,166 @@
+
+<section>
+    <h2>Основная информация</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                {{ form.title.errors }}
+              <label for="type" class="required">Название товара</label>
+                {{ form.title }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.price.errors }}
+              <label for="type" class="required">Цена товара</label>
+                {{ form.price }}
+                <span class="input-group-addon">₽</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section>
+    <div class="form-group">
+    <label>Описание товара</label>
+      {{ form.description|safe }}
+    </div>
+  <div class="location_block">{% include 'location_select.html' %}</div>
+    <br><br>
+  <h2>Параметры дома</h2>
+
+    <div class="form-group">
+      <label for="" class="col-form-label">Тип дома</label>
+      {{ form.type_house.errors }}
+      {{ form.type_house }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">До метро</label>
+      {{ form.to_metro.errors }}
+      {{ form.to_metro }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Лифты</label>
+      {{ form.elevators.errors }}
+      {{ form.elevators }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Инфраструктура</label>
+      {{ form.infrastructure.errors }}
+      {{ form.infrastructure }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Год постройки</label>
+      {{ form.year.errors }}
+      {{ form.year }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Инфраструктура</label>
+      {{ form.infrastructure.errors }}
+      {{ form.infrastructure }}
+    </div>
+
+  <br><br>
+  <h2>Параметры квартиры</h2>
+
+    <div class="form-group">
+      <label for="" class="col-form-label">Комнат в квартире</label>
+      {{ form.rooms.errors }}
+      {{ form.rooms }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Этаж</label>
+      {{ form.level.errors }}
+      {{ form.level }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Этажность</label>
+      {{ form.levels.errors }}
+      {{ form.levels }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Общая площадь</label>
+      {{ form.total_area.errors }}
+      {{ form.total_area }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Площадь кухни</label>
+      {{ form.kitchen_area.errors }}
+      {{ form.kitchen_area }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Ремонт</label>
+      {{ form.repairs.errors }}
+      {{ form.repairs }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Санузлы</label>
+      {{ form.bathroom_unit.errors }}
+      {{ form.bathroom_unit }}
+    </div>
+    <div class="form-group">
+      <label for="" class="col-form-label">Балкон</label>
+      {{ form.balcony.errors }}
+      {{ form.balcony }}
+    </div>
+    <br>
+    <ul class="list-unstyled columns-1">
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.refrigerator }}
+          {{ form.refrigerator.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.dishwasher }}
+          {{ form.dishwasher.label }}
+        </label>
+      </li>
+      <li>
+        <label class="" style="font-size:15px">
+          {{ form.washing_machine }}
+          {{ form.washing_machine.label }}
+        </label>
+      </li>
+    </ul>
+
+    <br><br>
+      <h2>Условия</h2>
+
+      <div class="form-group">
+        <label for="" class="col-form-label">Предоплата</label>
+        {{ form.prepaytment.errors }}
+        {{ form.prepaytment }}
+      </div>
+      <div class="form-group">
+        <label for="" class="col-form-label">Комиссия</label>
+        {{ form.comission.errors }}
+        {{ form.comission }}
+      </div>
+      <div class="form-group">
+        <label for="" class="col-form-label">Коммунальные услуги</label>
+        {{ form.public_utilities.errors }}
+        {{ form.public_utilities }}
+      </div>
+
+  </section>
+<section class="images_block">{% include 'images_upload.html' %}</section>
+  <section class="clearfix">
+    <div class="row">
+      <ul class="list-unstyled columns-1">
+        <li>
+          <label class="" style="font-size:15px">
+            {{ form.is_active }}
+            {{ form.is_active.label }}
+          </label>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="clearfix">
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary large icon float-right">Опубликовать<i class="fa fa-chevron-right"></i></button>
+      </div>
+  </section>
