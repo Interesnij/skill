@@ -8,8 +8,8 @@ def cat_region_count(cat, region):
     return count
 
 @register.filter
-def cat_sity_count(cat, sity):
-    count = cat.get_ads_in_city_count(sity)
+def cat_city_count(cat, city):
+    count = cat.get_ads_in_city_count(city)
     return count
 
 @register.filter
@@ -18,6 +18,6 @@ def subcat_region_count(subcat, region):
     return count
 
 @register.filter
-def subcat_sity_count(subcat, sity):
-    count = subcat.get_ads_in_city_count(sity)
+def subcat_city_count(subcat, city):
+    count = subcat.get_ads_in_city_count(city)
     return count
