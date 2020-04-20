@@ -1,6 +1,5 @@
 from django.db import models
 import uuid
-from ad_categories.models import AdSubCategory
 from cities.models import City
 from django.conf import settings
 from django.contrib.postgres.indexes import BrinIndex
@@ -18,7 +17,7 @@ class Ad(models.Model):
     price = models.PositiveIntegerField(default=0, verbose_name="Цена товара")
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name="Город")
-    category = models.ForeignKey(AdSubCategory, on_delete=models.CASCADE, verbose_name="Ккатегория")
+    category = models.ForeignKey('ad_categories.AdSubCategory', on_delete=models.CASCADE, verbose_name="Ккатегория")
     image = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
     is_active = models.BooleanField(default=False, verbose_name='Объявление опубликовано')
     is_deleted = models.BooleanField(default=False, verbose_name='Объявление удалено')
