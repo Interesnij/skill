@@ -7,10 +7,20 @@
 {% include 'main/big_form.html' %}
 
 <section class="content">
-
+    <section class="block">
+        <div class="container">
+          <h4 class="row">
+            {% for cat in ad_categories %}
+                <span class="col-md-3">
+                  <a href="{% url 'ad_category' cat_name=cat.name_en %}">
+                    {{ cat.name_ru }} ({{ cat.get_ads_count }})
+                  </a>
+                </span>
+            {% endfor %}
+           </h4>
+        </div>
+    </section>
     {% include 'main/new_ads.html' %}
-
-    {% include 'main/categories.html' %}
 
     <section class="block" style="background: black;color: white;">
         <div class="container">
