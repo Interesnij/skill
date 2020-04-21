@@ -1,17 +1,7 @@
-{% extends "bases/other_base.html" %}
+{% extends "bases/anon_base.html" %}
 {% load staticfiles %}
 {% block title %}Вход{% endblock %}
 {% block content %}
-
-<ol class="breadcrumb">
-  <li class="breadcrumb-item"><a href="{% url 'main' %}">Главная</a></li>
-  <li class="breadcrumb-item active">Вход</li>
-
-</ol>
-</div>
-</div>
-</div>
-</section>
 
 <section class="content">
     <section class="block">
@@ -63,7 +53,7 @@
           $('.login-response').html("ошибка");
       }
       var susccess_response = function(data) {
-          window.location = "{% url 'main' %}";
+          window.location.href = "{% url 'main' %}";
       }
     ready(() => {
           $('#logg').click(function() {
@@ -74,7 +64,7 @@
                       console.log(data);
                   })
                   .done(function(data) {
-                    console.log("ok");
+                    window.location.href = "{% url 'main' %}";
                   });
               return false;
       });
