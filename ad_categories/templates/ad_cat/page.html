@@ -12,7 +12,7 @@
         <h4 class="row">
           {% for cat in category.adsubcategory_set.all %}
               <span class="col-md-3">
-                <a href="{% url 'ad_subcategory' subcat_name=object.name_en %}">
+                <a href="{% url 'ad_subcategory' subcat_name=cat.name_en %}">
                   {{ cat.name_ru }} ({{ cat.get_ads_count }})
                 </a>
               </span>
