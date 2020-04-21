@@ -9,9 +9,9 @@
 <section class="content">
   <section class="block">
       <div class="container">
-        <h3>
+        <h3 class="row">
           {% for cat in ad_categories %}
-              <span style="margin-right:15px">
+              <span class="col-md-3">
                 <a href="{% url 'ad_category' cat_name=cat.name_en %}">
                   {{ cat.name_ru }} ({{ cat.get_ads_count }})
                 </a>
