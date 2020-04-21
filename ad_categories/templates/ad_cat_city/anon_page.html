@@ -1,24 +1,26 @@
-{% extends "bases/anon_base.html" %}
-{% load humanize staticfiles thumbnail %}
+{% extends "bases/base.html" %}
+{% load humanize ad_count %}
 {% block title %}Россия, {{ city.region.name_ru }}, {{ city.name_ru }} :: {{ category.name_ru }}{% endblock %}
 {% block content %}
-<style>
-  label{
-   margin-top:20px;
-  }
-
-</style>
-<div class="page-title">
-    <div class="container">
-        <h1 class="opacity-60 center">
-            Россия, {{ city.region.name_ru }}, {{ city.name_ru }} :: {{ category.name_ru }}
-        </h1>
-    </div>
-</div>
 
 {% include 'ad_cat_city/hero_form.html' %}
 
 <section class="content">
+  <section class="block">
+      <div class="container">
+        <h2>Россия, {{ city.region.name_ru }}, {{ city.name_ru }} :: {{ category.name_ru }}</h2>
+        <h4 class="row">
+          {% for cat in category.adsubcategory_set.all %}
+              <span class="col-md-3">
+                <a href="{% url 'ad_category_city' cat_name=cat.name_en city_name=city.name_en %}">
+                  {{ cat.name_ru }} ({{ cat|cat_city_count:city.pk }})
+                </a>
+              </span>
+          {% endfor %}
+         </h4>
+      </div>
+  </section>
+
   <section class="block">
       <div class="container">
         <div class="row">
