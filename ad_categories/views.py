@@ -97,7 +97,6 @@ class AdCityCategoryView(ListView):
         context = super(AdCityCategoryView, self).get_context_data(**kwargs)
         context['category'] = self.cat
         context['city'] = self.city
-        context['ad_categories'] = AdCategory.objects.only("pk")
         return context
 
     def get_queryset(self):
