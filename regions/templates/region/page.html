@@ -1,18 +1,18 @@
 {% extends "bases/base.html" %}
 {% load humanize staticfiles thumbnail %}
-{% block title %}Россия :: {{ category.name_ru }}{% endblock %}
+{% block title %}Россия, {{ region.name_ru }}{% endblock %}
 {% block content %}
 
-{% include 'ad_cat/hero_form.html' %}
+{% include 'region/hero_form.html' %}
 
 <section class="content">
   <section class="block">
       <div class="container">
-        <h2>Россия :: {{ category.name_ru }}</h2>
+        <h2>Россия, {{ region.name_ru }}</h2>
         <h4 class="row">
-          {% for cat in category.adsubcategory_set.all %}
+          {% for cat in ad_categories %}
               <span class="col-md-3">
-                <a href="{% url 'ad_subcategory' subcat_name=object.name_en %}">
+                <a href="{% url 'ad_category_region' cat_name=cat.name_en region_name=region.name_en %}">
                   {{ cat.name_ru }} ({{ cat.get_ads_count }})
                 </a>
               </span>
@@ -20,7 +20,6 @@
          </h4>
       </div>
   </section>
-
   <section class="block">
       <div class="container">
         <div class="row">
@@ -50,6 +49,7 @@
             <br><br><br><br><br>
             Пока нет объявлений :-)</h1>
           {% endif %}
+
       </div>
 
       <div class="col-md-3">
