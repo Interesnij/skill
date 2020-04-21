@@ -9,7 +9,7 @@
 <section class="content">
   <section class="block">
       <div class="container">
-        <h3 class="row">
+        <h6 class="row">
           {% for cat in ad_categories %}
               <span class="col-md-4">
                 <a href="{% url 'ad_category' cat_name=cat.name_en %}">
@@ -17,7 +17,7 @@
                 </a>
               </span>
           {% endfor %}
-         </h3>
+         </h6>
       </div>
   </section>
 
