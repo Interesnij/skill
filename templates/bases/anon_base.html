@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimal-ui, shrink-to-fit=no, viewport-fit=cover">
     <title>{% block title %}{% endblock %}</title>
-    <link type="text/css" media="all" href="{% static 'styles/bootstrap.min.css' %}" rel="stylesheet" />
-    <link type="text/css" media="none" onload="if(media!='all')media='all'" href="{% static 'styles/style.css' %}" rel="stylesheet" />
-    <link type="text/css" media="none" onload="if(media!='all')media='all'" href="{% static 'styles/font-awesome.css' %}" rel="stylesheet" />
-    <link type="text/css" media="none" onload="if(media!='all')media='all'" href="{% static 'styles/selectize.css' %}" rel="stylesheet" >
+    <link type="text/css" href="{% static 'styles/bootstrap.min.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'styles/style.css' %}" rel="stylesheet" />
 </head>
 
 <body>
@@ -22,7 +20,7 @@
   {% include "footer.html" %}
 
   {% include "base_script.html" %}
-  
+
   <div class="card russia_fullscreen" style="display:none">
     <span class="russia_fullscreen_hide">
       <svg class="svg_default" style="width:30px;height:30px;border: 1px black solid;border-radius:50px" fill="currentColor" viewBox="0 0 24 24">
