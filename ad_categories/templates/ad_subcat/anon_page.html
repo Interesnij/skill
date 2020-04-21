@@ -1,24 +1,16 @@
-{% extends "bases/anon_base.html" %}
+{% extends "bases/base.html" %}
 {% load humanize staticfiles thumbnail %}
 {% block title %}Россия :: {{ sub_category.name_ru }}{% endblock %}
 {% block content %}
-<style>
-  label{
-   margin-top:20px;
-  }
-
-</style>
-<div class="page-title">
-    <div class="container">
-        <h1 class="opacity-60 center">
-            Россия :: {{ sub_category.name_ru }}
-        </h1>
-    </div>
-</div>
 
 {% include 'ad_subcat/hero_form.html' %}
 
 <section class="content">
+  <section class="block">
+      <div class="container">
+        <h2>Россия :: {{ sub_category.name_ru }}</h2>
+      </div>
+  </section>
   <section class="block">
       <div class="container">
         <div class="row">
