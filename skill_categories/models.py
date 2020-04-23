@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import Q
 
 
-class AdCategory(models.Model):
+class SkillCategory(models.Model):
 	name_ru = models.CharField(max_length=100, unique=True, verbose_name="Русское название")
 	name_en = models.CharField(max_length=100, unique=True, verbose_name="Английское название")
 	order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер")
