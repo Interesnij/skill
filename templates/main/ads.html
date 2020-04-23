@@ -1,25 +1,26 @@
-{% extends "bases/anon_base.html" %}
+{% extends "bases/base.html" %}
 {% load staticfiles %}
 
 {% block title %}Сайт объявлений по всей России{% endblock %}
 {% block content %}
 
-{% include 'main/big_form.html' %}
+{% include 'main/ad_form.html' %}
 
 <section class="content">
-    <section class="block">
-        <div class="container">
-          <h4 class="row">
-            {% for cat in ad_categories %}
-                <span class="col-md-3">
-                  <a href="{% url 'ad_category' cat_name=cat.name_en %}">
-                    {{ cat.name_ru }} ({{ cat.get_ads_count }})
-                  </a>
-                </span>
-            {% endfor %}
-           </h4>
-        </div>
-    </section>
+  <section class="block">
+      <div class="container">
+        <h4 class="row">
+          {% for cat in ad_categories %}
+              <span class="col-md-3">
+                <a href="{% url 'ad_category' cat_name=cat.name_en %}">
+                  {{ cat.name_ru }} ({{ cat.get_ads_count }})
+                </a>
+              </span>
+          {% endfor %}
+         </h4>
+      </div>
+  </section>
+
     {% include 'main/new_ads.html' %}
 
     <section class="block" style="background: black;color: white;">
