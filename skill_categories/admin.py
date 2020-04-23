@@ -1,3 +1,5 @@
 from django.contrib import admin
+from skill_categories.models import SkillCategory, SkillSubCategory
 
-# Register your models here.
+admin.site.register(SkillCategory)
+admin.site.register(SkillSubCategory)
