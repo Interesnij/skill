@@ -20,7 +20,7 @@
                         <label style="margin-top:0px;" class="col-form-label">Категория</label>
                         <select onchange="SelectSkillSubCategory (this)" name="category" id="id_category">
                             <option style="margin-top:18px;" value="">Категория</option>
-                            {% for object in ad_categories %}
+                            {% for object in skill_categories %}
                               <option value="{{ object.pk }}">{{ object.name_ru }}</option>
                             {% endfor %}
                         </select>
@@ -38,7 +38,7 @@
                     <div class="form-row">
                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 d-xs-grid d-flex align-items-center justify-content-between">
                             <label>
-                                <div class="icheckbox"><input type="checkbox" name="with_photo" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                <div class="icheckbox"><input type="checkbox" name="with_photo" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: #28A745; border: 0px; opacity: 0;"></ins></div>
                                 С фото
                             </label>
                             <div class="col-md-7">

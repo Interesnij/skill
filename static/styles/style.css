@@ -1096,12 +1096,12 @@ color:red;
 .skill_content .item .detail {
     bottom: 1.8rem;
     left: 1.8rem;
-    color: #81CC45;
+    color: #28A745;
     transition: .3s background-color ease;
     position: absolute;
 }
 .skill_content .item .detail:after {
-    background-color: #81CC45;
+    background-color: #28A745;
 }
 
 .items:not(.selectize-input) .item figure {
@@ -2407,7 +2407,7 @@ a:hover, a:focus, a:active {
     color: #ff0000;
 }
 .skill_content a:hover {
-    color: #81CC45;
+    color: #28A745;
 }
 
 a.underline {}
@@ -2889,7 +2889,7 @@ label.required:after {
 }
 .skill_content .form-group label {
     font-size: 2.4rem;
-    color: #81CC45;
+    color: #28A745;
     position: absolute;
     top: -5rem;
     font-weight: normal;
