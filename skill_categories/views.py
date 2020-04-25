@@ -1,7 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView
 from skill_categories.models import SkillCategory, SkillSubCategory
-from skill_posts.models import Cource
+from skill_posts.models import Course
 from regions.models import Region
 from cities.models import City
 
@@ -12,7 +12,7 @@ class SkillCategoriesView(TemplateView):
 
 class SkillCategoryView(ListView):
     template_name = None
-    model = Cource
+    model = Course
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
