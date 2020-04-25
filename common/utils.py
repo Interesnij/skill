@@ -87,6 +87,14 @@ def last_ads_for_russia():
     ads = Ad.objects.filter(ads_query)
     return ads[:21]
 
+def last_courses_for_russia():
+    from skill_posts.models import Course
+    from django.db.models import Q
+
+    ads_query = Q(city__region__country__id=1, creator__is_blocked=False, is_deleted=False, is_active=True)
+    courses = Course.objects.filter(ads_query)
+    return courses[:21]
+
 def get_first_location(request, user):
     import json, requests
     from users.model.profile import OneUserLocation

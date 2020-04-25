@@ -76,7 +76,10 @@ class CoursesPageView(TemplateView):
 		return super(CoursesPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
+		from common.utils import last_courses_for_russia
+
 		context = super(CoursesPageView, self).get_context_data(**kwargs)
+		context['last_courses'] = last_courses_for_russia()
 		return context
 
 

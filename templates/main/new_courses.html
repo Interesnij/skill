@@ -3,7 +3,7 @@
         <div class="container">
             <div class="section-title clearfix">
                 <div class="float-xl-left float-md-left float-sm-none">
-                    <h2>Россия :: Последние объявления</h2>
+                    <h2>Россия :: Последние курсы</h2>
                 </div>
             </div>
             <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
@@ -11,12 +11,12 @@
                   <div class="wrapper">
                       <div class="title">
                           <i class="fa fa-plus-square-o"></i>
-                          Добавьте объявление
+                          Добавьте курс
                       </div>
                   </div>
               </a>
 
-              {% for object in last_ads %}
+              {% for object in last_courses %}
                 <div class="item">
                   {% include 'generic/ad_wrapper.html' %}
                 </div>
