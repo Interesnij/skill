@@ -28,6 +28,7 @@ class Cource(models.Model):
     city = models.ForeignKey(City, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Город")
     category = models.ForeignKey('skill_categories.SkillSubCategory', on_delete=models.CASCADE, verbose_name="Категория")
     image = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
+    video = models.CharField(max_length=200, verbose_name="Ссылка на вводный видео-ролик")
     is_active = models.BooleanField(default=False, verbose_name='Курс активен')
     is_deleted = models.BooleanField(default=False, verbose_name='Курс удален')
     is_private = models.BooleanField(default=False, verbose_name='Курс приватный')
@@ -45,6 +46,6 @@ class Cource(models.Model):
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
-        verbose_name = "Объявление"
-        verbose_name_plural = "Объявления"
+        verbose_name = "Курс"
+        verbose_name_plural = "Курсы"
         ordering=["-created"]
