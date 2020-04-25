@@ -1,3 +1,4 @@
 from django.contrib import admin
+from skill_posts.models import Skill
 
-# Register your models here.
+admin.site.register(Skill)

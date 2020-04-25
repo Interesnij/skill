@@ -1,6 +1,6 @@
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView
-from ad_categories.models import SkillCategory, SkillSubCategory
+from skill_categories.models import SkillCategory, SkillSubCategory
 from skill_posts.models import Cource
 from regions.models import Region
 from cities.models import City
