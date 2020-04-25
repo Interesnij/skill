@@ -1,4 +1,4 @@
 from django.contrib import admin
-from skill_posts.models import Skill
+from skill_posts.models import Cource
 
-admin.site.register(Skill)
+admin.site.register(Cource)
