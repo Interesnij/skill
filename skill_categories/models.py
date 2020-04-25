@@ -24,9 +24,9 @@ class SkillCategory(models.Model):
 
 	def get_ads_count(self):
 		from skill_posts.models import Course
-	    ads_query = Q(category__category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
-	    ads = Course.objects.filter(ads_query).values('id')
-	    return ads.count()
+		ads_query = Q(category__category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
+		ads = Course.objects.filter(ads_query).values('id')
+		return ads.count()
 
 	def get_ads_in_region(self, region_id):
 		from skill_posts.models import Course
