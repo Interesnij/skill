@@ -2880,14 +2880,14 @@ label.required:after {
     position: relative;
 }
 
-.ad_content .hero-form .form-group label {
+.ad_content .form-group label {
     font-size: 2.4rem;
     color: #ff0000;
     position: absolute;
     top: -5rem;
     font-weight: normal;
 }
-.skill_content .hero-form .form-group label {
+.skill_content .form-group label {
     font-size: 2.4rem;
     color: #81CC45;
     position: absolute;
