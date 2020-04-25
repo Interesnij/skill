@@ -1,6 +1,6 @@
 from django.views.generic.base import TemplateView
 from ad_categories.models import AdCategory
-
+from skill_categories.models import SkillCategory
 
 
 class MainPageView(TemplateView):
@@ -80,6 +80,7 @@ class CoursesPageView(TemplateView):
 
 		context = super(CoursesPageView, self).get_context_data(**kwargs)
 		context['last_courses'] = last_courses_for_russia()
+		context['skill_categories'] = SkillCategory.objects.only("pk")
 		return context
 
 
