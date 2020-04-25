@@ -1083,16 +1083,27 @@ color:red;
     margin-bottom: 0;
 }
 /*------ Detail link ------*/
-.items:not(.selectize-input) .item .detail {
+.ad_content .item .detail {
     bottom: 1.8rem;
     left: 1.8rem;
     color: #ff0000;
     transition: .3s background-color ease;
     position: absolute;
 }
-.items:not(.selectize-input) .item .detail:after {
+.ad_content .item .detail:after {
     background-color: #ff0000;
 }
+.skill_content .item .detail {
+    bottom: 1.8rem;
+    left: 1.8rem;
+    color: #81CC45;
+    transition: .3s background-color ease;
+    position: absolute;
+}
+.skill_content .item .detail:after {
+    background-color: #81CC45;
+}
+
 .items:not(.selectize-input) .item figure {
     margin-bottom: 0;
 }
@@ -2392,14 +2403,13 @@ a:hover, a:focus, a:active {
     outline: none !important;
     text-decoration: none;
 }
-a:hover {
+.ad_content a:hover {
     color: #ff0000;
 }
-a.icon i {
-    color: #ff0000;
-    margin-right: 1rem;
-    font-size: 1.2rem;
+.skill_content a:hover {
+    color: #81CC45;
 }
+
 a.underline {}
 a.underline:hover::after {
     animation-name: underline-animation;
@@ -2869,10 +2879,17 @@ label.required:after {
 .form.hero-form .main-search-form .form-group {
     position: relative;
 }
-.form.hero-form .main-search-form .form-group label {
-    font-family: 'Varela Round',sans-serif;
+
+.ad_content .hero-form .form-group label {
     font-size: 2.4rem;
     color: #ff0000;
+    position: absolute;
+    top: -5rem;
+    font-weight: normal;
+}
+.skill_content .hero-form .form-group label {
+    font-size: 2.4rem;
+    color: #81CC45;
     position: absolute;
     top: -5rem;
     font-weight: normal;
