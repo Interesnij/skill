@@ -12,7 +12,7 @@ class SkillCategoriesView(TemplateView):
 
 class SkillCategoryView(ListView):
     template_name = None
-    model = Skill
+    model = Cource
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
