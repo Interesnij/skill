@@ -1083,14 +1083,14 @@ color:red;
     margin-bottom: 0;
 }
 /*------ Detail link ------*/
-.ad_content .item .detail {
+.module_1 .item .detail {
     bottom: 1.8rem;
     left: 1.8rem;
     color: #ff0000;
     transition: .3s background-color ease;
     position: absolute;
 }
-.ad_content .item .detail:after {
+.module_1 .item .detail:after {
     background-color: #ff0000;
 }
 .skill_content .item .detail {
@@ -2403,7 +2403,7 @@ a:hover, a:focus, a:active {
     outline: none !important;
     text-decoration: none;
 }
-.ad_content a:hover {
+.module_1 a:hover {
     color: #ff0000;
 }
 .skill_content a:hover {
@@ -2880,7 +2880,7 @@ label.required:after {
     position: relative;
 }
 
-.ad_content .form-group label {
+.module_1 .form-group label {
     font-size: 2.4rem;
     color: #ff0000;
     position: absolute;
