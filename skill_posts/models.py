@@ -23,7 +23,7 @@ class Course(models.Model):
     description = models.TextField(max_length=1000, verbose_name="Описание курса")
     price = models.PositiveIntegerField(default=0, verbose_name="Цена курса")
     price_acc = models.PositiveIntegerField(default=0, verbose_name="Цена курса со скидкой")
-    level = models.CharField(max_length=50, choices = LEVEL, verbose_name="Цена курса со скидкой")
+    level = models.CharField(max_length=50, choices = LEVEL, verbose_name="Уровень мастерства")
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     city = models.ForeignKey(City, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Город")
     category = models.ForeignKey('skill_categories.SkillSubCategory', on_delete=models.CASCADE, verbose_name="Категория")

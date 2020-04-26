@@ -91,7 +91,7 @@ def last_courses_for_russia():
     from skill_posts.models import Course
     from django.db.models import Q
 
-    ads_query = Q(city__region__country__id=1, creator__is_blocked=False, is_deleted=False, is_active=True)
+    ads_query = Q(creator__is_blocked=False, is_deleted=False, is_active=True, is_private=False)
     courses = Course.objects.filter(ads_query)
     return courses[:21]
 
