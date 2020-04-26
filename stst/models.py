@@ -17,7 +17,7 @@ class UserNumbers(models.Model):
 
 class CourseNumbers(models.Model):
     user = models.PositiveIntegerField(default=0, verbose_name="Кто смотрит")
-    skill = models.PositiveIntegerField(default=0, verbose_name="Какой курс смотрит")
+    course = models.PositiveIntegerField(default=0, verbose_name="Какой курс смотрит")
     platform = models.PositiveIntegerField(default=0, verbose_name="0 Комп, 1 Телефон")
     created = models.DateField(auto_now_add=True, auto_now=False, verbose_name="Создано")
 

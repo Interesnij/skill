@@ -34,6 +34,21 @@ class Ad(models.Model):
         verbose_name_plural = "Объявления"
         ordering=["-created"]
 
+    def all_visits_count(self):
+        from stst.models import AdNumbers
+
+        return AdNumbers.objects.filter(ad=self.pk).values('pk').count()
+
+    def likes(self):
+        from common.model.votes import AdVotes
+        likes = AdVotes.objects.filter(parent=self, vote__gt=0)
+        return likes
+
+    def dislikes(self):
+        from common.model.votes import AdVotes
+        dislikes = AdVotes.objects.filter(parent=self, vote__lt=0)
+        return dislikes
+
 
 class AdImage(models.Model):
     ad = models.ForeignKey(Ad, on_delete=models.CASCADE, verbose_name="Объявление")

@@ -49,3 +49,18 @@ class Course(models.Model):
         verbose_name = "Курс"
         verbose_name_plural = "Курсы"
         ordering=["-created"]
+
+    def all_visits_count(self):
+        from stst.models import CourseNumbers
+
+        return CourseNumbers.objects.filter(course=self.pk).values('pk').count()
+
+    def likes(self):
+        from common.model.votes import CourseVotes
+        likes = CourseVotes.objects.filter(parent=self, vote__gt=0)
+        return likes
+
+    def dislikes(self):
+        from common.model.votes import CourseVotes
+        dislikes = CourseVotes.objects.filter(parent=self, vote__lt=0)
+        return dislikes
