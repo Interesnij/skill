@@ -13,7 +13,7 @@
           {% for cat in skill_categories %}
               <span class="col-md-3">
                 <a href="{% url 'skill_category' cat_name=cat.name_en %}">
-                  {{ cat.name_ru }} ({{ cat.get_skill_count }})
+                  {{ cat.name_ru }} ({{ cat.get_course_count }})
                 </a>
               </span>
           {% endfor %}

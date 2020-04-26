@@ -13,7 +13,7 @@
           {% for cat in category.skillsubcategory_set.all %}
               <span class="col-md-3">
                 <a href="{% url 'skill_subcategory' subcat_name=cat.name_en %}">
-                  {{ cat.name_ru }} ({{ cat.get_ads_count }})
+                  {{ cat.name_ru }} ({{ cat.get_course_count }})
                 </a>
               </span>
           {% endfor %}
