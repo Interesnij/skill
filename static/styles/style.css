@@ -2037,6 +2037,22 @@ color:red;
         background-color: #ff0000;
     }
 }
+@keyframes skill_content_animation {
+    0% {
+        width: 100%;
+    }
+    30% {
+        width: 0%;
+    }
+    60% {
+        width: 100%;
+        background-color: #28A745;
+    }
+    100% {
+        left: 0;
+        background-color: #28A745;
+    }
+}
 @keyframes show-form-slide-animation {
     0% {
         opacity: 0;
@@ -2253,8 +2269,13 @@ a:hover, a:focus, a:active {
 }
 
 
-a.underline:hover::after {
+.module_1 a.underline:hover::after {
     animation-name: module_1_animation;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+}
+.skill_content a.underline:hover::after {
+    animation-name: skill_content_animation;
     animation-duration: .7s;
     animation-fill-mode: forwards;
 }
