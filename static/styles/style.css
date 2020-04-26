@@ -823,8 +823,8 @@ color:red;
 .hero .page-title a {
     position: relative;
 }
-.hero .page-title a:hover::after {
-    animation-name: underline-animation;
+.module_1 .page-title a:hover::after {
+    animation-name: module_1_animation;
     animation-duration: .7s;
     animation-fill-mode: forwards;/*background-color: $color-default; transition: $transition;*/
 }
@@ -2021,7 +2021,7 @@ color:red;
 /********
 --- Animations ---
 ********/
-@keyframes underline-animation {
+@keyframes module_1_animation {
     0% {
         width: 100%;
     }
