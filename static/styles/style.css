@@ -1336,7 +1336,7 @@ color:red;
     width: 80%;
 }
 /*------ Detail ------*/
-.items:not(.selectize-input).list .item .detail {
+.module_1 .items:not(.selectize-input).list .item .detail {
     right: 2rem;
     bottom: 2rem;
     left: inherit;
