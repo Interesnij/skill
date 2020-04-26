@@ -1054,11 +1054,11 @@ color:red;
     z-index: 1;
 }
 /*------ Description ------*/
-.items:not(.selectize-input) .item .description {
+.item .description {
     font-size: 1.3rem;
     padding: 1.8rem 1.8rem 0 1.8rem;
 }
-.items:not(.selectize-input) .item .description p {
+.item .description p {
     margin-bottom: 0;
 }
 /*------ Detail link ------*/
@@ -1083,15 +1083,15 @@ color:red;
     background-color: #28A745;
 }
 
-.items:not(.selectize-input) .item figure {
+.item figure {
     margin-bottom: 0;
 }
-.items:not(.selectize-input) .item.call-to-action {
+.item.call-to-action {
     text-align: center;
     height: 30rem;
     display: block;
 }
-.items:not(.selectize-input) .item.call-to-action .wrapper {
+.item.call-to-action .wrapper {
     background-color: transparent;
     box-shadow: none;
     display: table;
@@ -1101,67 +1101,63 @@ color:red;
     transition: .3s box-shadow ease, .3s background-color ease, .3s transform ease;
     padding-bottom: 0;
 }
-.items:not(.selectize-input) .item.call-to-action .wrapper .title {
+.item.call-to-action .wrapper .title {
     color: #000;
     font-size: 1.8rem;
     display: table-cell;
     vertical-align: middle;
     font-family: 'Varela Round', sans-serif;
 }
-.items:not(.selectize-input) .item.call-to-action .wrapper .title i {
+.item.call-to-action .wrapper .title i {
     display: block;
     font-size: 2.4rem;
     color: #ff0000;
     margin-bottom: 1rem;
 }
-.items:not(.selectize-input) .item.call-to-action .wrapper:hover {
+.item.call-to-action .wrapper:hover {
     background-color: rgba(0,0,0,.03);
 }
-.items:not(.selectize-input) .item.item-sold .wrapper {
+.item.item-sold .wrapper {
     opacity: .3;
 }
 .items:not(.selectize-input) .item.author .meta figure {
     margin-right: 0;
     float: left;
 }
-.items:not(.selectize-input) .item.author .meta figure:last-child {
+.item.author .meta figure:last-child {
     float: right;
 }
-.items:not(.selectize-input) .item.author .meta:before {
+.item.author .meta:before {
     display: none;
 }
-.items:not(.selectize-input) .item.author .meta:after {
+.item.author .meta:after {
     display: block;
     clear: both;
     content: "";
 }
 /*------------------*/
-.items:not(.selectize-input) .item {
+.item {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
-.items:not(.selectize-input) .item .wrapper {
+.item .wrapper {
     width: 100%;
     height: 100%;
 }
-.items:not(.selectize-input) .item .admin-controls {
+.item .admin-controls {
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 600;
 }
-.items:not(.selectize-input) .item .admin-controls a {
+.item .admin-controls a {
     display: inline-block;
     padding: .5rem;
 }
-.items:not(.selectize-input) .item .admin-controls a i {
+.item .admin-controls a i {
     margin-right: .5rem;
     opacity: .5;
 }
-.items:not(.selectize-input):after {
-    clear: both;
-    content: "";
-    display: block;
-}
+
 /*------ Border around image ------*/
 .items:not(.selectize-input).grid .item .image .image-wrapper, .items:not(.selectize-input).masonry .item .image .image-wrapper {
     border: .6rem solid #f8f8f8;
