@@ -1427,7 +1427,7 @@ color:red;
     bottom: 2rem;
     padding: 0;
 }
-.items:not(.selectize-input).list.compact .item .detail:hover {
+ .module_1 .items:not(.selectize-input).list.compact .item .detail:hover {
     background-color: transparent;
     color: #ff0000;
 }
