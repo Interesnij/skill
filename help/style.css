@@ -1159,39 +1159,39 @@ color:red;
 }
 
 /*------ Border around image ------*/
-.items:not(.selectize-input).grid .item .image .image-wrapper, .items:not(.selectize-input).masonry .item .image .image-wrapper {
+.grid .item .image .image-wrapper, .masonry .item .image .image-wrapper {
     border: .6rem solid #f8f8f8;
     border-radius: .9rem;
 }
-.items:not(.selectize-input).grid .item, .items:not(.selectize-input).masonry .item {
+.grid .item, .masonry .item {
     float: left;
 }
-.items:not(.selectize-input).grid .item .wrapper, .items:not(.selectize-input).masonry .item .wrapper {
+.grid .item .wrapper, .masonry .item .wrapper {
     float: left;
 }
-.items:not(.selectize-input).grid .item p, .items:not(.selectize-input).masonry .item p {
+.grid .item p, .masonry .item p {
     height: 6rem;
     overflow: hidden;
 }
-.items:not(.selectize-input).masonry .item .wrapper {
+.masonry .item .wrapper {
     padding-bottom: 5rem;
 }
-.items:not(.selectize-input).grid .item {
+.grid .item {
     height: 43rem;
 }
-.items:not(.selectize-input).grid .item .additional-info {
+.grid .item .additional-info {
     display: none;
 }
-.items:not(.selectize-input).grid.compact .item {
+.grid.compact .item {
     height: inherit;
 }
-.items:not(.selectize-input).grid.compact .item .wrapper {
+.grid.compact .item .wrapper {
     height: 31rem;
 }
-.items:not(.selectize-input).grid.compact .item .wrapper .detail {
+.grid.compact .item .wrapper .detail {
     display: none;
 }
-.items:not(.selectize-input).grid.compact .item .admin-controls {
+.grid.compact .item .admin-controls {
     position: relative;
     right: inherit;
     text-align: center;
@@ -1201,42 +1201,42 @@ color:red;
     padding-right: 0;
     padding-top: 1.2rem;
 }
-.items:not(.selectize-input).grid.compact .item .admin-controls a {
+.grid.compact .item .admin-controls a {
     display: inline-block;
     padding: .5rem;
 }
-.items:not(.selectize-input).grid.compact .item .admin-controls a i {
+.grid.compact .item .admin-controls a i {
     margin-right: .5rem;
 }
-.items:not(.selectize-input).list {
+.list {
     height: inherit !important;/*-------------------------*//*-- Compact Item - List --*//*-------------------------*/
 }
 /*------  Border around image ------*/
-.items:not(.selectize-input).list .item .image .image-wrapper {
+.list .item .image .image-wrapper {
     border: .6rem solid #fff;
     border-radius: .9rem;
 }
 /*------ Item ------*/
-.items:not(.selectize-input).list .item {
+.list .item {
     position: relative !important;
     top: inherit !important;
     left: inherit !important;
 }
-.items:not(.selectize-input).list .item .wrapper {
+.list .item .wrapper {
     min-height: 18rem;
     padding-bottom: 0;
 }
-.items:not(.selectize-input).list .item .image {
+.list .item .image {
     width: 100%;
     height: 100%;
     position: absolute;
     background-color: transparent;
 }
-.items:not(.selectize-input).list .item .image .background-image {
+.list .item .image .background-image {
     width: 25rem;
 }
 /*------ H3 ------*/
-.items:not(.selectize-input).list .item h3 {
+.list .item h3 {
     top: 2.5rem;
     font-size: 2.2rem;
     color: #000;
@@ -1244,23 +1244,23 @@ color:red;
     bottom: inherit;
     width: 100%;
 }
-.items:not(.selectize-input).list .item h3 a:not(.category) {
+.list .item h3 a:not(.category) {
     color: #000;
     text-shadow: none;
     display: inline-block;
 }
-.items:not(.selectize-input).list .item h3 a:not(.category):hover {
+.list .item h3 a:not(.category):hover {
     text-decoration: none;
     color: #ff0000;
 }
-.items:not(.selectize-input).list .item h3 .tag:not(.category) {
+.list .item h3 .tag:not(.category) {
     position: relative;
     top: -0.2rem;
     background-color: transparent;
     border: .1rem solid rgba(0,0,0,.3);
     vertical-align: middle;
 }
-.items:not(.selectize-input).list .item h3 .tag.category {
+.list .item h3 .tag.category {
     position: absolute;
     color: #fff;
     bottom: inherit;
@@ -1268,20 +1268,20 @@ color:red;
     left: -25.5rem;
 }
 /*------ H4 ------*/
-.items:not(.selectize-input).list .item h4 {
+.list .item h4 {
     top: 5.5rem;
     left: 27rem;
 }
-.items:not(.selectize-input).list .item h4 a {
+.list .item h4 a {
     color: #000;
 }
 
-.items:not(.selectize-input).list .item h4.location:before {
+.list .item h4.location:before {
     font-family: 'fontawesome';
     color: #000;
 }
 /*------ Price ------*/
-.items:not(.selectize-input).list .item .price {
+.list .item .price {
     top: inherit;
     border-radius: .3rem;
     bottom: 2rem;
