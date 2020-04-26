@@ -124,7 +124,7 @@ class User(AbstractUser):
                 AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=0)
         return template_name
 
-    def get_template_course_detail(course, folder, template, request):
+    def get_template_course_detail(self, course, folder, template, request):
         import re
         from stst.models import CourseNumbers
 
@@ -150,10 +150,10 @@ class User(AbstractUser):
         MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
         if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
             template_name = "mob_" + template_name
-            if request.user.is_authenticated:
+            if request.user.is_authenticated and course.creator.pk != request.user.pk:
                 CourseNumbers.objects.create(user=request.user.pk, course=course.pk, platform=1)
         else:
-            if request.user.is_authenticated:
+            if request.user.is_authenticated and course.creator.pk != request.user.pk:
                 CourseNumbers.objects.create(user=request.user.pk, course=course.pk, platform=0)
         return template_name
 
