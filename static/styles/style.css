@@ -2254,7 +2254,7 @@ a:hover, a:focus, a:active {
 
 
 a.underline:hover::after {
-    animation-name: underline-animation;
+    animation-name: module_1_animation;
     animation-duration: .7s;
     animation-fill-mode: forwards;
 }
