@@ -828,6 +828,11 @@ color:red;
     animation-duration: .7s;
     animation-fill-mode: forwards;/*background-color: $color-default; transition: $transition;*/
 }
+.skill_content .page-title a:hover::after {
+    animation-name: skill_content_animation;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;/*background-color: $color-default; transition: $transition;*/
+}
 .hero .page-title a:after {
     background-color: #000;
     width: 100%;
