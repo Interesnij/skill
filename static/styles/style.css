@@ -1,4 +1,4 @@
-.svg_default {color:rgba(0, 0, 0, 0.5)}
+.svg_default {color:rgba(0, 0, 0, 0.5); vertical-align: middle;}
 .btn_default svg:hover, .svg_default span:hover, .svg_default_30:hover{color: rgba(0, 0, 0, 0.7) !important;}
 
 .btn_default svg{color:rgba(0, 0, 0, 0.5) !important}
