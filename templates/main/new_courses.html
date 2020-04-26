@@ -7,20 +7,9 @@
                 </div>
             </div>
             <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
-              <a href="" class="item call-to-action">
-                  <div class="wrapper">
-                      <div class="title">
-                          <i class="fa fa-plus-square-o"></i>
-                          Добавьте курс
-                      </div>
-                  </div>
-              </a>
-
               {% for object in last_courses %}
-                <div class="item">
                   {% include 'generic/ad_wrapper.html' %}
-                </div>
-                {% endfor %}
+              {% endfor %}
             </div>
         </div>
     </section>
