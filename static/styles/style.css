@@ -881,11 +881,11 @@ color:red;
     margin-right: -1.5rem;/*------------------*//*- Grid, Masonry --*//*------------------*//*------------------*//*----- Grid -------*//*------------------*//*------------------*//*------ List ------*/
 }
 /*------ Item ------*/
-.items:not(.selectize-input) .item {
+.item {
     margin-bottom: 3rem;
     position: relative;
 }
-.items:not(.selectize-input) .item .wrapper {
+.item .wrapper {
     overflow: hidden;
     box-shadow: 0 .1rem 1rem rgba(0,0,0,.1);
     transition: .3s box-shadow ease, .3s transform  ease;
@@ -894,25 +894,25 @@ color:red;
     position: relative;
     transform: translateY(0);/*padding-bottom: 5rem;*/
 }
-.items:not(.selectize-input) .item .wrapper:hover {
+.item .wrapper:hover {
     box-shadow: 0 .4rem 3.3rem rgba(0,0,0,.3);
     transform: translateY(-.2rem);
 }
 /*------ Image ------*/
-.items:not(.selectize-input) .item .image {
+.item .image {
     height: 26rem;
     position: relative;
     border-top-left-radius: .6rem;
     border-top-right-radius: .6rem;
     background-color: #f8f8f8;
 }
-.items:not(.selectize-input) .item .image .image-wrapper {
+.item .image .image-wrapper {
     transition: none;
     display: block;
     position: relative;
     z-index: 0;
 }
-.items:not(.selectize-input) .item .image .image-wrapper:before {
+.item .image .image-wrapper:before {
     opacity: .8;
     position: absolute;
     bottom: 0;
@@ -926,11 +926,11 @@ color:red;
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=0 );
 }
 /*------ Tags ------*/
-.items:not(.selectize-input) .item .tag, .items:not(.selectize-input) .item h3, .items:not(.selectize-input) .item h4, .items:not(.selectize-input) .item .price {
+.item .tag, .item h3, .item h4, .item .price {
     position: absolute;
 }
 /*------ Call to action item ------*/
-.items:not(.selectize-input) .item .tag {
+.item .tag {
     color: #fff;
     position: absolute;
     z-index: 1;
@@ -940,7 +940,7 @@ color:red;
     padding: 0.4rem .5rem;
 }
 /*------ H3 heading ------*/
-.items:not(.selectize-input) .item h3 {
+.item h3 {
     position: absolute;
     z-index: 1;
     left: 1.8rem;
@@ -949,16 +949,16 @@ color:red;
     padding-right: 1.8rem;
     margin-bottom: .5rem;
 }
-.items:not(.selectize-input) .item h3 a {
+.item h3 a {
     color: #fff;
     transition: none;
     text-shadow: 0 0.1rem 0.2rem rgba(0,0,0,.6);
     display: block;
 }
-.items:not(.selectize-input) .item h3 a:hover {
+.item h3 a:hover {
     text-decoration: underline;
 }
-.items:not(.selectize-input) .item h3 a.category {
+.item h3 a.category {
     display: inline-block;
     color: #fff;
     position: relative;
@@ -971,7 +971,7 @@ color:red;
     bottom: 1rem;
     left: 0;
 }
-.items:not(.selectize-input) .item h3 .tag:not(.category) {
+.item h3 .tag:not(.category) {
     background-color: #fff;
     top: inherit;
     bottom: 16rem;
@@ -984,7 +984,7 @@ color:red;
     pointer-events: none;
 }
 /*------ H4 heading ------*/
-.items:not(.selectize-input) .item h4 {
+.item h4 {
     position: absolute;
     z-index: 1;
     left: 1.8rem;
@@ -994,19 +994,19 @@ color:red;
     font-size: 1.4rem;
     opacity: .8;
 }
-.items:not(.selectize-input) .item h4 a {
+.item h4 a {
     color: #fff;
     transition: none;
 }
-.items:not(.selectize-input) .item h4 a:hover {
+.item h4 a:hover {
     text-decoration: underline;
 }
 
-.items:not(.selectize-input) .item h4.location:before {
+.item h4.location:before {
     color: #fff;
 }
 /*------ Price ------*/
-.items:not(.selectize-input) .item .price {
+.item .price {
     background-color: #f8f8f8;
     font-size: 1.6rem;
     font-weight: 600;
@@ -1018,7 +1018,7 @@ color:red;
     border-top-right-radius: .3rem;
     z-index: 1;
 }
-.items:not(.selectize-input) .item .price .appendix {
+.item .price .appendix {
     font-size: 1rem;
     margin-right: .6rem;
     opacity: .7;
@@ -1028,7 +1028,7 @@ color:red;
     margin-bottom: -0.7rem;
 }
 /*------ Meta ------*/
-.items:not(.selectize-input) .item .meta {
+.item .meta {
     background-color: #f8f8f8;
     padding: 1.8rem;
     font-size: 1.2rem;
@@ -1037,18 +1037,18 @@ color:red;
     margin-top: -.2rem;
     position: relative;
 }
-.items:not(.selectize-input) .item .meta figure {
+.item .meta figure {
     opacity: .6;
     margin-right: 2rem;
     display: inline-block;
 }
-.items:not(.selectize-input) .item .meta figure i {
+.item .meta figure i {
     margin-right: 1rem;
 }
-.items:not(.selectize-input) .item .meta figure a {
+.item .meta figure a {
     transition: .3s color ease;
 }
-.items:not(.selectize-input) .item .meta:before {/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8f8f8+0,f8f8f8+100&0+0,1+50 */
+.item .meta:before {/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f8f8f8+0,f8f8f8+100&0+0,1+50 */
     background: -moz-linear-gradient(left,  rgba(248,248,248,0) 0%, rgba(248,248,248,1) 50%, rgba(248,248,248,1) 100%);/* FF3.6-15 */
     background: -webkit-linear-gradient(left,  rgba(248,248,248,0) 0%,rgba(248,248,248,1) 50%,rgba(248,248,248,1) 100%);/* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right,  rgba(248,248,248,0) 0%,rgba(248,248,248,1) 50%,rgba(248,248,248,1) 100%);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -1062,11 +1062,11 @@ color:red;
     z-index: 1;
 }
 /*------ Description ------*/
-.items:not(.selectize-input) .item .description {
+.item .description {
     font-size: 1.3rem;
     padding: 1.8rem 1.8rem 0 1.8rem;
 }
-.items:not(.selectize-input) .item .description p {
+.item .description p {
     margin-bottom: 0;
 }
 /*------ Detail link ------*/
@@ -1091,15 +1091,15 @@ color:red;
     background-color: #28A745;
 }
 
-.items:not(.selectize-input) .item figure {
+.item figure {
     margin-bottom: 0;
 }
-.items:not(.selectize-input) .item.call-to-action {
+.item.call-to-action {
     text-align: center;
     height: 30rem;
     display: block;
 }
-.items:not(.selectize-input) .item.call-to-action .wrapper {
+.item.call-to-action .wrapper {
     background-color: transparent;
     box-shadow: none;
     display: table;
@@ -1109,101 +1109,97 @@ color:red;
     transition: .3s box-shadow ease, .3s background-color ease, .3s transform ease;
     padding-bottom: 0;
 }
-.items:not(.selectize-input) .item.call-to-action .wrapper .title {
+.item.call-to-action .wrapper .title {
     color: #000;
     font-size: 1.8rem;
     display: table-cell;
     vertical-align: middle;
     font-family: 'Varela Round', sans-serif;
 }
-.items:not(.selectize-input) .item.call-to-action .wrapper .title i {
+.item.call-to-action .wrapper .title i {
     display: block;
     font-size: 2.4rem;
     color: #ff0000;
     margin-bottom: 1rem;
 }
-.items:not(.selectize-input) .item.call-to-action .wrapper:hover {
+.item.call-to-action .wrapper:hover {
     background-color: rgba(0,0,0,.03);
 }
-.items:not(.selectize-input) .item.item-sold .wrapper {
+.item.item-sold .wrapper {
     opacity: .3;
 }
-.items:not(.selectize-input) .item.author .meta figure {
+.item.author .meta figure {
     margin-right: 0;
     float: left;
 }
-.items:not(.selectize-input) .item.author .meta figure:last-child {
+.item.author .meta figure:last-child {
     float: right;
 }
-.items:not(.selectize-input) .item.author .meta:before {
+.item.author .meta:before {
     display: none;
 }
-.items:not(.selectize-input) .item.author .meta:after {
+.item.author .meta:after {
     display: block;
     clear: both;
     content: "";
 }
 /*------------------*/
-.items:not(.selectize-input) .item {
+.item {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
-.items:not(.selectize-input) .item .wrapper {
+.item .wrapper {
     width: 100%;
     height: 100%;
 }
-.items:not(.selectize-input) .item .admin-controls {
+.item .admin-controls {
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 600;
 }
-.items:not(.selectize-input) .item .admin-controls a {
+.item .admin-controls a {
     display: inline-block;
     padding: .5rem;
 }
-.items:not(.selectize-input) .item .admin-controls a i {
+.item .admin-controls a i {
     margin-right: .5rem;
     opacity: .5;
 }
-.items:not(.selectize-input):after {
-    clear: both;
-    content: "";
-    display: block;
-}
+
 /*------ Border around image ------*/
-.items:not(.selectize-input).grid .item .image .image-wrapper, .items:not(.selectize-input).masonry .item .image .image-wrapper {
+.item .image .image-wrapper, .item .image .image-wrapper {
     border: .6rem solid #f8f8f8;
     border-radius: .9rem;
 }
-.items:not(.selectize-input).grid .item, .items:not(.selectize-input).masonry .item {
+.item {
     float: left;
 }
-.items:not(.selectize-input).grid .item .wrapper, .items:not(.selectize-input).masonry .item .wrapper {
+.item .wrapper {
     float: left;
 }
-.items:not(.selectize-input).grid .item p, .items:not(.selectize-input).masonry .item p {
+.item p {
     height: 6rem;
     overflow: hidden;
 }
-.items:not(.selectize-input).masonry .item .wrapper {
+.item .wrapper {
     padding-bottom: 5rem;
 }
-.items:not(.selectize-input).grid .item {
+.item {
     height: 43rem;
 }
-.items:not(.selectize-input).grid .item .additional-info {
+.item .additional-info {
     display: none;
 }
-.items:not(.selectize-input).grid.compact .item {
+.item {
     height: inherit;
 }
-.items:not(.selectize-input).grid.compact .item .wrapper {
+.item .wrapper {
     height: 31rem;
 }
-.items:not(.selectize-input).grid.compact .item .wrapper .detail {
+.item .wrapper .detail {
     display: none;
 }
-.items:not(.selectize-input).grid.compact .item .admin-controls {
+.item .admin-controls {
     position: relative;
     right: inherit;
     text-align: center;
@@ -1213,42 +1209,40 @@ color:red;
     padding-right: 0;
     padding-top: 1.2rem;
 }
-.items:not(.selectize-input).grid.compact .item .admin-controls a {
+.item .admin-controls a {
     display: inline-block;
     padding: .5rem;
 }
-.items:not(.selectize-input).grid.compact .item .admin-controls a i {
+.item .admin-controls a i {
     margin-right: .5rem;
 }
-.items:not(.selectize-input).list {
-    height: inherit !important;/*-------------------------*//*-- Compact Item - List --*//*-------------------------*/
-}
+
 /*------  Border around image ------*/
-.items:not(.selectize-input).list .item .image .image-wrapper {
+.item .image .image-wrapper {
     border: .6rem solid #fff;
     border-radius: .9rem;
 }
 /*------ Item ------*/
-.items:not(.selectize-input).list .item {
+.item {
     position: relative !important;
     top: inherit !important;
     left: inherit !important;
 }
-.items:not(.selectize-input).list .item .wrapper {
+.item .wrapper {
     min-height: 18rem;
     padding-bottom: 0;
 }
-.items:not(.selectize-input).list .item .image {
+.item .image {
     width: 100%;
     height: 100%;
     position: absolute;
     background-color: transparent;
 }
-.items:not(.selectize-input).list .item .image .background-image {
+.item .image .background-image {
     width: 25rem;
 }
 /*------ H3 ------*/
-.items:not(.selectize-input).list .item h3 {
+.item h3 {
     top: 2.5rem;
     font-size: 2.2rem;
     color: #000;
@@ -1256,23 +1250,23 @@ color:red;
     bottom: inherit;
     width: 100%;
 }
-.items:not(.selectize-input).list .item h3 a:not(.category) {
+.item h3 a:not(.category) {
     color: #000;
     text-shadow: none;
     display: inline-block;
 }
-.items:not(.selectize-input).list .item h3 a:not(.category):hover {
+.item h3 a:not(.category):hover {
     text-decoration: none;
     color: #ff0000;
 }
-.items:not(.selectize-input).list .item h3 .tag:not(.category) {
+.item h3 .tag:not(.category) {
     position: relative;
     top: -0.2rem;
     background-color: transparent;
     border: .1rem solid rgba(0,0,0,.3);
     vertical-align: middle;
 }
-.items:not(.selectize-input).list .item h3 .tag.category {
+.item h3 .tag.category {
     position: absolute;
     color: #fff;
     bottom: inherit;
@@ -1280,30 +1274,30 @@ color:red;
     left: -25.5rem;
 }
 /*------ H4 ------*/
-.items:not(.selectize-input).list .item h4 {
+.item h4 {
     top: 5.5rem;
     left: 27rem;
 }
-.items:not(.selectize-input).list .item h4 a {
+.item h4 a {
     color: #000;
 }
 
-.items:not(.selectize-input).list .item h4.location:before {
+.item h4.location:before {
     font-family: 'fontawesome';
     color: #000;
 }
 /*------ Price ------*/
-.items:not(.selectize-input).list .item .price {
+.item .price {
     top: inherit;
     border-radius: .3rem;
     bottom: 2rem;
 }
 /*------ Tag ------*/
-.items:not(.selectize-input).list .item .tag {
+.item .tag {
     top: 2rem;
 }
 /*------ Meta ------*/
-.items:not(.selectize-input).list .item .meta {
+.item .meta {
     position: absolute;
     padding: 3rem 2rem 0 0;
     right: 0;
@@ -1314,15 +1308,15 @@ color:red;
     top: 0;
     z-index: 1;
 }
-.items:not(.selectize-input).list .item .meta figure {
+.item .meta figure {
     display: block;
     margin-right: 0;
 }
-.items:not(.selectize-input).list .item .meta:before {
+.item .meta:before {
     display: none;
 }
 /*------ Description ------*/
-.items:not(.selectize-input).list .item .description {
+.item .description {
     position: absolute;
     bottom: 2rem;
     padding: 0;
@@ -1331,11 +1325,11 @@ color:red;
     height: 4rem;
     overflow: hidden;
 }
-.items:not(.selectize-input).list .item .description p {
+.item .description p {
     width: 80%;
 }
 /*------ Detail ------*/
-.items:not(.selectize-input).list .item .detail {
+.item .detail {
     right: 2rem;
     bottom: 2rem;
     left: inherit;
