@@ -1,5 +1,5 @@
 from django.views.generic.base import TemplateView
-from skill_posts.models import Cource
+from skill_posts.models import Course
 from regions.models import Region
 from skill_categories.models import SkillCategory, SkillSubCategory
 from django.http import HttpResponse
