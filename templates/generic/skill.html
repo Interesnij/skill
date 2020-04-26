@@ -46,10 +46,10 @@
         </li>
         {% if object.data_start %}
           <li><figure>Начало</figure><aside>{{ object.data_start }}</aside></li>
-        {% wndif %}
+        {% endif %}
         {% if object.data_end %}
           <li><figure>Конец</figure><aside>{{ object.data_end }}</aside></li>
-        {% wndif %}
+        {% endif %}
       </ul>
     </div>
     <a href="{% url 'course_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
