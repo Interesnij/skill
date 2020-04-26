@@ -873,20 +873,11 @@ color:red;
     bottom: 0;
 }
 
-/********
---- I ---
-********/
-/*------ Items ------*/
-.items:not(.selectize-input) {
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;/*------------------*//*- Grid, Masonry --*//*------------------*//*------------------*//*----- Grid -------*//*------------------*//*------------------*//*------ List ------*/
-}
-/*------ Item ------*/
-.items:not(.selectize-input) .item {
+.item {
     margin-bottom: 3rem;
     position: relative;
 }
-.items:not(.selectize-input) .item .wrapper {
+.item .wrapper {
     overflow: hidden;
     box-shadow: 0 .1rem 1rem rgba(0,0,0,.1);
     transition: .3s box-shadow ease, .3s transform  ease;
@@ -895,25 +886,25 @@ color:red;
     position: relative;
     transform: translateY(0);/*padding-bottom: 5rem;*/
 }
-.items:not(.selectize-input) .item .wrapper:hover {
+.item .wrapper:hover {
     box-shadow: 0 .4rem 3.3rem rgba(0,0,0,.3);
     transform: translateY(-.2rem);
 }
 /*------ Image ------*/
-.items:not(.selectize-input) .item .image {
+.item .image {
     height: 26rem;
     position: relative;
     border-top-left-radius: .6rem;
     border-top-right-radius: .6rem;
     background-color: #f8f8f8;
 }
-.items:not(.selectize-input) .item .image .image-wrapper {
+.item .image .image-wrapper {
     transition: none;
     display: block;
     position: relative;
     z-index: 0;
 }
-.items:not(.selectize-input) .item .image .image-wrapper:before {
+.item .image .image-wrapper:before {
     opacity: .8;
     position: absolute;
     bottom: 0;
