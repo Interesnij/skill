@@ -1335,7 +1335,7 @@ color:red;
     width: 80%;
 }
 /*------ Detail ------*/
-.item .detail {
+.items:not(.selectize-input).list .item .detail {
     right: 2rem;
     bottom: 2rem;
     left: inherit;
@@ -1347,11 +1347,11 @@ color:red;
     z-index: 2;
 }
 
-.item .detail:after {
+.items:not(.selectize-input).list .item .detail:after {
     display: none;
 }
 /*------ Additional Info ------*/
-.item .additional-info {
+.items:not(.selectize-input).list .item .additional-info {
     padding: 9rem 0 8rem 0;
     margin-right: 2rem;
     position: relative;
@@ -1426,14 +1426,11 @@ color:red;
     bottom: 2rem;
     padding: 0;
 }
- .module_1 .item .detail:hover {
+.items:not(.selectize-input).list.compact .item .detail:hover {
     background-color: transparent;
     color: #ff0000;
 }
-.skill_content .item .detail:hover {
-   background-color: transparent;
-   color: #28A745;
-}
+
 .items:not(.selectize-input).list.compact .item .detail:after {
     display: block;
 }
