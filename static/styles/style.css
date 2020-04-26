@@ -1346,7 +1346,11 @@ color:red;
     border-radius: .3rem;
     z-index: 2;
 }
-.items:not(.selectize-input).list .item .detail:hover {
+.skill_content .item .detail:hover {
+    background-color: #28A745;
+    color: #fff;
+}
+.module_1 .item .detail:hover {
     background-color: #ff0000;
     color: #fff;
 }
