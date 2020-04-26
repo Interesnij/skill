@@ -1,0 +1,51 @@
+<div class="item">
+<div class="wrapper">
+    <div class="image">
+        <h3>
+            <a href="{% url 'cource_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
+            <span class="tag">
+              <i class="fa fa-eye"></i>&nbsp;0&nbsp;|&nbsp;
+              <i class="fa fa-heart"></i>&nbsp;0
+            </span>
+        </h3>
+        <a href="{% url 'cource_detail' pk=object.pk %}" class="image-wrapper background-image">
+          {% if object.image %}
+            <img src="{{ object.image.url }}" alt="">
+          {% else %}
+            <img src="/static/images/no_img.jpg" alt="">
+          {% endif %}
+        </a>
+    </div>
+    {% if object.city %}
+    <h4 class="location">
+        {% if object.city.region %}<a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,{% endif %}
+        <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
+    </h4>
+    {% endif %}
+    <div class="price">{% if object.price %} {{ object.price }} {% else %}Бесплатно{% endif %}</div>
+    <div class="description">
+        <p>{{ object.description|truncatechars:300 }}</p>
+    </div>
+    <div class="additional-info">
+      <ul>
+        <li>
+          <figure>Категория</figure>
+          <aside>
+            <a href="{% url 'skill_category' cat_name=object.category.category.name_en %}">
+            {{ object.category.category }}
+            </a>
+          </aside>
+        </li>
+        <li>
+          <figure>Подкатегория</figure>
+          <aside>
+            <a href="{% url 'skill_subcategory' subcat_name=object.category.name_en %}">
+              {{ object.category }}
+            </a>
+          </aside>
+        </li>
+      </ul>
+    </div>
+    <a href="{% url 'course_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
+</div>
+</div>

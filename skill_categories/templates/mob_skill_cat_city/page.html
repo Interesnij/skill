@@ -1,0 +1,48 @@
+{% extends "bases/base.html" %}
+{% load humanize staticfiles thumbnail %}
+{% block title %}Россия :: {{ category.name_ru }}{% endblock %}
+{% block content %}
+
+{% include 'mob_skill_cat_city/hero_form.html' %}
+
+<section class="content module_1">
+  <section class="block">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+        {% if object_list %}
+
+        <div class="section-title clearfix">
+          <div class="float-right d-xs-none thumbnail-toggle">
+              <a href="#" class="change-class active" data-change-from-class="list" data-change-to-class="masonry" data-parent-class="items">
+                  <i class="fa fa-th"></i>
+              </a>
+              <a href="#" class="change-class " data-change-from-class="masonry" data-change-to-class="list" data-parent-class="items">
+                  <i class="fa fa-th-list"></i>
+              </a>
+          </div>
+        </div>
+        <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
+            {% for object in object_list %}
+              {% include 'generic/skill.html' %}
+            {% endfor %}
+          </div>
+
+          {% else %}
+          <h1 style="height:400px;text-align:center">
+            <br><br><br><br><br>
+            Пока нет объявлений :-)</h1>
+          {% endif %}
+      </div>
+
+      <div class="col-md-3">
+          <aside class="sidebar">
+            Фильтры
+          </aside>
+      </div>
+    </div>
+</div>
+  </section>
+</section>
+
+{% endblock %}

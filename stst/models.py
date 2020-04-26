@@ -15,7 +15,7 @@ class UserNumbers(models.Model):
         verbose_name_plural="Кто к кому заходил"
 
 
-class SkillNumbers(models.Model):
+class CourseNumbers(models.Model):
     user = models.PositiveIntegerField(default=0, verbose_name="Кто смотрит")
     skill = models.PositiveIntegerField(default=0, verbose_name="Какой курс смотрит")
     platform = models.PositiveIntegerField(default=0, verbose_name="0 Комп, 1 Телефон")

@@ -11,5 +11,5 @@ urlpatterns = [
 
     url(r'^subcat/(?P<subcat_name>[\w\-]+)/$', AdSubCategoryView.as_view(), name='ad_subcategory'),
     url(r'^reg_(?P<region_name>[\w\-]+)/name_(?P<subcat_name>[\w\-]+)/$', AdRegionSubCategoryView.as_view(), name='ad_subcategory_region'),
-    url(r'^(?P<city_name>[\w\-]+)/sub_(?P<subcat_name>[\w\-]+)/$', AdCitySubCategoryView.as_view(), name='ad_subcategory_city'),
+    url(r'^(?P<city_name>[\w\-]+)/sub_(?P<subcat_name>[\w\-]+)/$', AdCitySubCategoryView.as_view(), name='ad_subcategory_city')
 ]

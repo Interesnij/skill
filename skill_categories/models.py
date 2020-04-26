@@ -17,32 +17,32 @@ class SkillCategory(models.Model):
 		verbose_name_plural = "Категории курсов"
 		ordering = ['order']
 
-	def get_ads(self):
+	def get_course(self):
 		ads_query = Q(category__category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 		ads = Course.objects.filter(ads_query)
 		return ads
 
-	def get_ads_count(self):
+	def get_course_count(self):
 		ads_query = Q(category__category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 		ads = Course.objects.filter(ads_query).values('id')
 		return ads.count()
 
-	def get_ads_in_region(self, region_id):
+	def get_course_in_region(self, region_id):
 		ads_query = Q(category__category__id=self.id, city__region__id=region_id, creator__is_blocked=False, is_deleted=False, is_active=True)
 		ads = Course.objects.filter(ads_query)
 		return ads
 
-	def get_ads_in_region_count(self, region_id):
+	def gget_course_in_region_count(self, region_id):
 		ads_query = Q(category__category__id=self.id, city__region__id=region_id, creator__is_blocked=False, is_deleted=False, is_active=True)
 		ads = Course.objects.filter(ads_query).values('id')
 		return ads.count()
 
-	def get_ads_in_city(self, city_id):
+	def get_course_in_city(self, city_id):
 		ads_query = Q(category__category__id=self.id, city__id=city_id, creator__is_blocked=False, is_deleted=False, is_active=True)
 		ads = Course.objects.filter(ads_query)
 		return ads
 
-	def get_ads_in_city_count(self, city_id):
+	def get_course_in_city_count(self, city_id):
 		ads_query = Q(category__category__id=self.id, city__id=city_id, creator__is_blocked=False, is_deleted=False, is_active=True)
 		ads = Course.objects.filter(ads_query).values('id')
 		return ads.count()
@@ -65,32 +65,32 @@ class SkillSubCategory(models.Model):
 	def get_absolute_url(self):
 		return reverse('subcategories_edit',kwargs={"pk":self.pk})
 
-	def get_ads(self):
+	def get_course(self):
 	    ads_query = Q(category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Course.objects.filter(ads_query)
 	    return ads
 
-	def get_ads_count(self):
+	def get_course_count(self):
 	    ads_query = Q(category__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Course.objects.filter(ads_query).values('id')
 	    return ads.count()
 
-	def get_ads_in_region(self, region_id):
+	def get_course_in_region(self, region_id):
 	    ads_query = Q(category__id=self.id, city__region__id=region_id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Course.objects.filter(ads_query)
 	    return ads
 
-	def get_ads_in_region_count(self, region_id):
+	def get_course_in_region_count(self, region_id):
 	    ads_query = Q(category__id=self.id, city__region__id=region_id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Course.objects.filter(ads_query).values('id')
 	    return ads.count()
 
-	def get_ads_in_city(self, city_id):
+	def get_course_in_city(self, city_id):
 	    ads_query = Q(category__id=self.id, city__id=city_id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Course.objects.filter(ads_query)
 	    return ads
 
-	def get_ads_in_city_count(self, city_id):
+	def get_course_in_city_count(self, city_id):
 	    ads_query = Q(category__id=self.id, city__id=city_id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Course.objects.filter(ads_query).values('id')
 	    return ads.count()
