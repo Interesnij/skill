@@ -1353,6 +1353,18 @@ color:red;
     z-index: 2;
 }
 
+.skill_content .items:not(.selectize-input).list .item .detail {
+    right: 2rem;
+    bottom: 2rem;
+    left: inherit;
+    border: .1rem solid #28A745;
+    padding: 1rem;
+    text-transform: none;
+    font-size: 1.4rem;
+    border-radius: .3rem;
+    z-index: 2;
+}
+
 .items:not(.selectize-input).list .item .detail:after {
     display: none;
 }
