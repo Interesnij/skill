@@ -1120,7 +1120,7 @@ color:red;
 .item.item-sold .wrapper {
     opacity: .3;
 }
-.items:not(.selectize-input) .item.author .meta figure {
+.item.author .meta figure {
     margin-right: 0;
     float: left;
 }
@@ -1287,11 +1287,11 @@ color:red;
     bottom: 2rem;
 }
 /*------ Tag ------*/
-.items:not(.selectize-input).list .item .tag {
+.list .item .tag {
     top: 2rem;
 }
 /*------ Meta ------*/
-.items:not(.selectize-input).list .item .meta {
+.list .item .meta {
     position: absolute;
     padding: 3rem 2rem 0 0;
     right: 0;
@@ -1302,15 +1302,15 @@ color:red;
     top: 0;
     z-index: 1;
 }
-.items:not(.selectize-input).list .item .meta figure {
+.list .item .meta figure {
     display: block;
     margin-right: 0;
 }
-.items:not(.selectize-input).list .item .meta:before {
+.list .item .meta:before {
     display: none;
 }
 /*------ Description ------*/
-.items:not(.selectize-input).list .item .description {
+.list .item .description {
     position: absolute;
     bottom: 2rem;
     padding: 0;
@@ -1319,11 +1319,11 @@ color:red;
     height: 4rem;
     overflow: hidden;
 }
-.items:not(.selectize-input).list .item .description p {
+.list .item .description p {
     width: 80%;
 }
 /*------ Detail ------*/
-.items:not(.selectize-input).list .item .detail {
+.list .item .detail {
     right: 2rem;
     bottom: 2rem;
     left: inherit;
@@ -1335,94 +1335,94 @@ color:red;
     z-index: 2;
 }
 
-.items:not(.selectize-input).list .item .detail:after {
+.list .item .detail:after {
     display: none;
 }
 /*------ Additional Info ------*/
-.items:not(.selectize-input).list .item .additional-info {
+.list .item .additional-info {
     padding: 9rem 0 8rem 0;
     margin-right: 2rem;
     position: relative;
     margin-left: 27rem;
 }
-.items:not(.selectize-input).list .item .additional-info ul {
+.list .item .additional-info ul {
     background-color: #f9f9f9;
     border-radius: .3rem;
     margin-bottom: 0;
     padding: 1.5rem;
 }
-.items:not(.selectize-input).list .item .additional-info ul li {
+.list .item .additional-info ul li {
     display: inline-block;
     margin-right: 5rem;
 }
-.items:not(.selectize-input).list .item .additional-info ul li figure {
+.list .item .additional-info ul li figure {
     float: none;
 }
-.items:not(.selectize-input).list .item .additional-info ul li aside {
+.list .item .additional-info ul li aside {
     text-align: left;
 }
-.items:not(.selectize-input).list .item.call-to-action {
+.list .item.call-to-action {
     height: 15rem;
 }
-.items:not(.selectize-input).list.compact .item {
+.list.compact .item {
     min-height: 17rem;
 }
-.items:not(.selectize-input).list.compact .item .image {
+.list.compact .item .image {
     padding-right: 20rem;
 }
-.items:not(.selectize-input).list.compact .item .image .background-image {
+.list.compact .item .image .background-image {
     width: 20rem;
 }
-.items:not(.selectize-input).list.compact .item .image .image-wrapper:before {
+.list.compact .item .image .image-wrapper:before {
     opacity: .6;
     height: 8rem;
 }
-.items:not(.selectize-input).list.compact .item .additional-info {
+.list.compact .item .additional-info {
     margin-left: 22rem;
     padding: 8rem 0 6.3rem 0;
 }
-.items:not(.selectize-input).list.compact .item .additional-info ul {
+.list.compact .item .additional-info ul {
     padding: .4rem .4rem 0 .4rem;
 }
 /*background-color: transparent;*/
-.items:not(.selectize-input).list.compact .item .additional-info ul li figure {
+.list.compact .item .additional-info ul li figure {
     padding: 0;
     margin-bottom: -.4rem;
     font-size: 1rem;
 }
-.items:not(.selectize-input).list.compact .item h3, .items:not(.selectize-input).list.compact .item h4, .items:not(.selectize-input).list.compact .item .description {
+.list.compact .item h3, .list.compact .item h4, .list.compact .item .description {
     left: 22rem;
 }
-.items:not(.selectize-input).list.compact .item h3 .tag.category {
+.list.compact .item h3 .tag.category {
     left: -20.3rem;
 }
-.items:not(.selectize-input).list.compact .item .price {
+.list.compact .item .price {
     padding: .3rem 1.1rem;
     font-size: 1.3rem;
 }
-.items:not(.selectize-input).list.compact .item .description {
+.list.compact .item .description {
     padding-right: 20rem;
     bottom: 1.4rem;
 }
 .items:not(.selectize-input).list.compact .item .description p {
     font-size: 1.2rem;
 }
-.items:not(.selectize-input).list.compact .item .detail {
+.list.compact .item .detail {
     border: inherit;
     text-transform: uppercase;
     font-size: 1.1rem;
     bottom: 2rem;
     padding: 0;
 }
-.items:not(.selectize-input).list.compact .item .detail:hover {
+.list.compact .item .detail:hover {
     background-color: transparent;
     color: #ff0000;
 }
 
-.items:not(.selectize-input).list.compact .item .detail:after {
+.list.compact .item .detail:after {
     display: block;
 }
-.items:not(.selectize-input).list.compact .item .admin-controls {
+.list.compact .item .admin-controls {
     position: absolute;
     right: 0;
     height: 8rem;
@@ -1435,11 +1435,11 @@ color:red;
     z-index: 1;
     background-color: #fff;
 }
-.items:not(.selectize-input).list.compact .item .admin-controls a {
+.list.compact .item .admin-controls a {
     display: block;
     padding: .4rem 0;
 }
-.items:not(.selectize-input).list.compact .item .admin-controls a i {
+.list.compact .item .admin-controls a i {
     margin-right: 1rem;
 }
 
