@@ -16,6 +16,7 @@ class Region(models.Model):
     class Meta:
         verbose_name = "Регион"
         verbose_name_plural = "Регионы"
+        ordering = ["order"]
 
     def get_ads(self):
 	    from ad_posts.models import Ad
