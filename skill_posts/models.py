@@ -40,6 +40,7 @@ class Course(models.Model):
     data_end = models.DateTimeField(null=True, blank=True, verbose_name="Время конца")
 
     is_reklama = models.BooleanField(default=False, verbose_name='Это реклама')
+    votes_off = models.BooleanField(default=False, verbose_name='Лайки-дизлайки отключены')
 
     def __str__(self):
         return self.title

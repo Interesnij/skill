@@ -24,6 +24,7 @@ class Ad(models.Model):
     is_sold = models.BooleanField(default=False, verbose_name='Объявление не актуально')
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Время публикации")
     is_reklama = models.BooleanField(default=False, verbose_name='Это реклама')
+    votes_off = models.BooleanField(default=False, verbose_name='Лайки-дизлайки отключены')
 
     def __str__(self):
         return self.title

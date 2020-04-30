@@ -92,6 +92,7 @@ class Anketa(models.Model):
 
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Время публикации")
     is_reklama = models.BooleanField(default=False, verbose_name='Это реклама')
+    votes_off = models.BooleanField(default=False, verbose_name='Лайки-дизлайки отключены')
 
     def __str__(self):
         return self.title
@@ -103,9 +104,9 @@ class Anketa(models.Model):
         ordering=["-created"]
 
     def all_visits_count(self):
-        from stst.models import CourseNumbers
+        from stst.models import AnketaNumbers
 
-        return CourseNumbers.objects.filter(course=self.pk).values('pk').count()
+        return AnketaNumbers.objects.filter(anketa=self.pk).values('pk').count()
 
     def likes(self):
         from common.model.votes import CourseVotes
