@@ -69,7 +69,6 @@
                                 <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
                                 <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
                             </h4>
-                            <div class="price">{{ object.price|intcomma }}</div>
                             <div class="admin-controls">
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="#">Изменить</a>
@@ -81,7 +80,7 @@
                                 </a>
                             </div>
                             <div class="description">
-                                <p>{{ object.description|truncatechars:300 }}</p>
+                                <p>{{ object.about|truncatechars:300 }}</p>
                             </div>
                             <div class="additional-info">
                               <ul> </ul>
@@ -132,7 +131,6 @@
                                 <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
                                 <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
                             </h4>
-                            <div class="price">{{ object.price|intcomma }}</div>
                             <div class="admin-controls">
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="#">Изменить</a>
@@ -144,7 +142,7 @@
                                 </a>
                             </div>
                             <div class="description">
-                                <p>{{ object.description|truncatechars:300 }}</p>
+                                <p>{{ object.about|truncatechars:300 }}</p>
                             </div>
                             <div class="additional-info">
                               <ul> </ul>
