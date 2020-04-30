@@ -41,6 +41,15 @@
         <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
     </h4>
     <div class="price rubl"> {{ object.price }}</div>
+    <div class="admin-controls">
+        &nbsp;&nbsp;&nbsp;
+        <a href="#">
+          <span class="ad_favorite">В избранное</span>
+        </a>
+        <a href="#">
+          <span class="ad_claim">Пожаловаться</span>
+        </a>
+    </div>
     <div class="description">
         <p>{{ object.description|truncatechars:300 }}</p>
     </div>

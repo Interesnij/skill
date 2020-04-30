@@ -73,14 +73,12 @@
                             <div class="admin-controls">
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="#">Изменить</a>
-                                &nbsp;&nbsp;
-                                <span>
-                                  <span style="cursor:pointer" class="anketa_unactive">Активно</span>
-                                </span>
-                                &nbsp;&nbsp;&nbsp;
-                                <span>
-                                  <span style="cursor:pointer" class="anketa_remove">Удалить</span>
-                                </span>
+                                <a href="#">
+                                  <span class="anketa_unactive">Активно</span>
+                                </a>
+                                <a href="#">
+                                  <span class="anketa_remove">Удалить</span>
+                                </a>
                             </div>
                             <div class="description">
                                 <p>{{ object.description|truncatechars:300 }}</p>
@@ -138,14 +136,12 @@
                             <div class="admin-controls">
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="#">Изменить</a>
-                                &nbsp;&nbsp;
-                                <span>
+                                <a href="#">
                                   <span style="cursor:pointer" class="anketa_active">Черновик</span>
-                                </span>
-                                &nbsp;&nbsp;&nbsp;
-                                <span>
+                                </a>
+                                <a href="#">
                                   <span style="cursor:pointer" class="anketa_remove">Удалить</span>
-                                </span>
+                                </a>
                             </div>
                             <div class="description">
                                 <p>{{ object.description|truncatechars:300 }}</p>
