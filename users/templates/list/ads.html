@@ -1,5 +1,5 @@
 {% extends "bases/base.html" %}
-{% load staticfiles humanize thumbnail %}
+{% load humanize %}
 
 {% block title %}Мои объявления{% endblock %}
 {% block content %}
@@ -42,7 +42,7 @@
                                             {% if object.image %}
                                               <img src="{{ object.image.url }}" alt="">
                                             {% else %}
-                                              <img src="{% static 'images/no_img.jpg' %}" alt="">
+                                              <img src="/static/images/no_img.jpg" alt="">
                                             {% endif %}
                                           </a>
                                       </div>
@@ -108,7 +108,7 @@
                                           {% if object.image %}
                                             <img src="{{ object.image.url }}" alt="">
                                           {% else %}
-                                            <img src="{% static 'images/no_img.jpg' %}" alt="">
+                                            <img src="/static/images/no_img.jpg" alt="">
                                           {% endif %}
                                         </a>
                                     </div>
@@ -171,7 +171,7 @@
                                             {% if object.image %}
                                               <img src="{{ object.image.url }}" alt="">
                                             {% else %}
-                                              <img src="{% static 'images/no_img.jpg' %}" alt="">
+                                              <img src="/static/images/no_img.jpg" alt="">
                                             {% endif %}
                                           </a>
                                       </div>
