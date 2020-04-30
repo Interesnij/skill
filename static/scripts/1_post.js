@@ -1,4 +1,5 @@
- on('body', 'click', '.ad_sold', function() {
+ on('body', 'click', '.ad_sold', function(e) {
+   e.preventDefaul();
    item = this.parentElement.parentElement.parentElement.parentElement;
    pk = item.getAttribute("data-pk");
    parent = this.parentElement;
@@ -16,7 +17,8 @@
    link.send( null );
 })
 
-on('body', 'click', '.ad_unsold', function() {
+on('body', 'click', '.ad_unsold', function(e) {
+  e.preventDefaul();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -34,7 +36,8 @@ on('body', 'click', '.ad_unsold', function() {
   link.send( null );
 })
 
-on('body', 'click', '.ad_remove', function() {
+on('body', 'click', '.ad_remove', function(e) {
+  e.preventDefaul();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -52,7 +55,8 @@ on('body', 'click', '.ad_remove', function() {
   link.send( null );
 })
 
-on('body', 'click', '.ad_unremove', function() {
+on('body', 'click', '.ad_unremove', function(e) {
+  e.preventDefaul();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -142,7 +146,8 @@ on('body', 'click', '.course_unremove', function() {
   link.send( null );
 })
 
-on('body', 'click', '.ad_active', function() {
+on('body', 'click', '.ad_active', function(e) {
+  e.preventDefaul();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
