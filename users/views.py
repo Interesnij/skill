@@ -40,12 +40,12 @@ class UserAdsView(ListView):
 
 
 class UserCoursesView(ListView):
-    template_name = "list/courses.html"
+    template_name = None
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        #self.template_name = self.user.get_my_template(folder="list/", template="courses.html", request=request)
+        self.template_name = self.user.get_my_template(folder="list/", template="courses.html", request=request)
         return super(UserCoursesView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
