@@ -1,4 +1,4 @@
-{% load liked_user %}
+{% load liked_user is_favorite %}
 
 <div class="item">
 <div class="wrapper">
@@ -44,7 +44,11 @@
     <div class="admin-controls">
         &nbsp;&nbsp;&nbsp;
         <a href="#">
-          <span class="module_favorite">В избранное</span>
+          {% if request.user|is_ad_favorite:object.pk %}
+            <span class="module_unfavorite">Забыть</span>
+          {% else %}
+            <span class="module_favorite">Запомнить</span>
+          {% endif %} 
         </a>
         <a href="#">
           <span class="module_claim">Пожаловаться</span>
