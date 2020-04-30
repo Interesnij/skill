@@ -79,7 +79,7 @@ on('body', 'click', '.anketa_remove', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_unremove");
+    new_span.classList.add("anketa_unremove");
     new_span.style.cursor = "pointer";
     new_span.innerHTML = "Отмена";
     parent.innerHTML = "";
@@ -97,7 +97,7 @@ on('body', 'click', '.anketa_unremove', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_remove");
+    new_span.classList.add("anketa_remove");
     new_span.style.cursor = "pointer";
     new_span.innerHTML = "Удалить";
     parent.innerHTML = "";
@@ -115,7 +115,7 @@ on('body', 'click', '.course_remove', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_unremove");
+    new_span.classList.add("course_unremove");
     new_span.style.cursor = "pointer";
     new_span.innerHTML = "Отмена";
     parent.innerHTML = "";
@@ -133,7 +133,7 @@ on('body', 'click', '.course_unremove', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_remove");
+    new_span.classList.add("course_remove");
     new_span.style.cursor = "pointer";
     new_span.innerHTML = "Удалить";
     parent.innerHTML = "";
@@ -187,7 +187,7 @@ on('body', 'click', '.course_active', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_unactive");
+    new_span.classList.add("course_unactive");
     new_span.style.cursor = "pointer";
     new_span.innerHTML = "Активный";
     parent.innerHTML = "";
@@ -205,7 +205,7 @@ on('body', 'click', '.course_unactive', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_active");
+    new_span.classList.add("course_active");
     new_span.style.cursor = "pointer";
     new_span.innerHTML = "Черновик";
     parent.innerHTML = "";
@@ -223,7 +223,7 @@ on('body', 'click', '.anketa_active', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_unactive");
+    new_span.classList.add("anketa_unactive");
     new_span.style.cursor = "pointer";
     new_span.innerHTML = "Активный";
     parent.innerHTML = "";
@@ -241,7 +241,7 @@ on('body', 'click', '.anketa_unactive', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_active");
+    new_span.classList.add("anketa_active");
     new_span.style.cursor = "pointer";
     new_span.innerHTML = "Черновик";
     parent.innerHTML = "";
