@@ -2,6 +2,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import ListView
 from users.models import User
 from ad_posts.models import Ad
+from skill_posts.models import Courses
 
 
 class ProfileUserView(TemplateView):
@@ -18,64 +19,62 @@ class ProfileUserView(TemplateView):
         return context
 
 
-class UserAdActiveView(ListView):
+class UserAdsView(ListView):
     template_name = None
     model = Ad
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        self.template_name = self.user.get_my_template(folder="list/", template="ad_active.html", request=request)
-        return super(UserAdActiveView,self).get(request,*args,**kwargs)
+        self.template_name = self.user.get_my_template(folder="list/", template="ads.html", request=request)
+        return super(UserAdsView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(UserAdActiveView, self).get_context_data(**kwargs)
+        context = super(UserAdsView, self).get_context_data(**kwargs)
         context['user'] = self.user
         return context
 
     def get_queryset(self):
-        ads = self.user.get_my_active_ads()
+        ads = self.user.get_my_ads()
         return ads
 
 
-class UserAdSoldView(ListView):
+class UserCoursesView(ListView):
     template_name = None
-    model = Ad
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        self.template_name = self.user.get_my_template(folder="list/", template="ad_sold.html", request=request)
-        return super(UserAdSoldView,self).get(request,*args,**kwargs)
+        self.template_name = self.user.get_my_template(folder="list/", template="courses.html", request=request)
+        return super(UserCoursesView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(UserAdSoldView, self).get_context_data(**kwargs)
+        context = super(UserCoursesView, self).get_context_data(**kwargs)
         context['user'] = self.user
         return context
 
     def get_queryset(self):
-        ads = self.user.get_my_sold_ads()
-        return ads
+        courses = self.user.get_my_courses()
+        return courses
 
 
-class UserAdDefView(ListView):
+class UserAnketsView(ListView):
     template_name = None
-    model = Ad
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        self.template_name = self.user.get_my_template(folder="list/", template="ad_def.html", request=request)
-        return super(UserAdDefView,self).get(request,*args,**kwargs)
+        self.template_name = self.user.get_my_template(folder="list/", template="ankets.html", request=request)
+        return super(UserAnketsView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(UserAdDefView, self).get_context_data(**kwargs)
+        context = super(UserAnketsView, self).get_context_data(**kwargs)
         context['user'] = self.user
         return context
 
     def get_queryset(self):
-        ads = self.user.get_my_noactive_ads()
-        return ads
+        courses = self.user.get_my_ankets()
+        return courses
 
 
 class UserFavoriteView(ListView):
@@ -144,9 +143,9 @@ class UserSettingsView(TemplateView):
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
         self.template_name = self.user.get_my_template(folder="list/", template="settings.html", request=request)
-        return super(SubscribesView,self).get(request,*args,**kwargs)
+        return super(UserSettingsView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(SubscribesView, self).get_context_data(**kwargs)
+        context = super(UserSettingsView, self).get_context_data(**kwargs)
         context['user'] = self.user
         return context

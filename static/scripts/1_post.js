@@ -81,7 +81,7 @@ on('body', 'click', '.ad_active', function() {
     new_span = document.createElement("span");
     new_span.classList.add("ad_unactive");
     new_span.style.cursor = "pointer";
-    new_span.innerHTML = "Видно";
+    new_span.innerHTML = "Активное";
     parent.innerHTML = "";
     parent.append(new_span);
   }};
@@ -99,7 +99,7 @@ on('body', 'click', '.ad_unactive', function() {
     new_span = document.createElement("span");
     new_span.classList.add("ad_active");
     new_span.style.cursor = "pointer";
-    new_span.innerHTML = "Не видно";
+    new_span.innerHTML = "Черновик";
     parent.innerHTML = "";
     parent.append(new_span);
   }};

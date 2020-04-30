@@ -63,7 +63,11 @@ SKILL_APPS = [
     'skill_model',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + BASIC_APPS + AD_APPS + SKILL_APPS
+LOVE_APPS = [
+    'love_posts',
+]
+
+INSTALLED_APPS = DJANGO_APPS + BASIC_APPS + AD_APPS + SKILL_APPS + LOVE_APPS
 
 CKEDITOR_CONFIGS = {
        'default': {

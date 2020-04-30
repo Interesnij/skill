@@ -29,6 +29,8 @@ urlpatterns = [
     url(r'^skill_categories/', include('skill_categories.urls')),
     url(r'^skill_posts/', include('skill_posts.urls')),
 
+    url(r'^love_posts/', include('love_posts.urls')),
+
     url(r'^logout/$', auth_views.LogoutView.as_view(template_name="account/logout.html"), name='logout'),
     url(r'^signup/$', TemplateView.as_view(template_name="account/signup.html"), name='signup'),
     url(r'^login/$', TemplateView.as_view(template_name="account/login.html"), name='login'),

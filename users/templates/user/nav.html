@@ -2,23 +2,23 @@
     <a class="nav-link icon" href="{% url 'user' pk=request.user.pk %}">
         <i class="fa fa-user"></i>Мои профиль
     </a>
-    <a class="nav-link icon" href="{% url 'user_ad_active' pk=request.user.pk %}">
-        <i class="fa fa-heart"></i>Активные товары
+    <a class="nav-link icon" href="{% url 'user_ads' pk=request.user.pk %}">
+        <i class="fa fa-heart"></i>Мои объявления
     </a>
-    <a class="nav-link icon" href="{% url 'user_ad_deferred' pk=request.user.pk %}">
-        <i class="fa fa-ban"></i>Отложенные товары
+    <a class="nav-link icon" href="{% url 'user_courses' pk=request.user.pk %}">
+        <i class="fa fa-heart"></i>Мои курсы
+    </a>
+    <a class="nav-link icon" href="{% url 'user_ankets' pk=request.user.pk %}">
+        <i class="fa fa-heart"></i>Мои анкеты
     </a>
     <a class="nav-link icon" href="{% url 'user_favorite' pk=request.user.pk %}">
         <i class="fa fa-star"></i>Избранное
     </a>
     <a class="nav-link icon" href="{% url 'my_subscribes' pk=request.user.pk %}">
-        <i class="fa fa-user"></i>Подписки
+        <i class="fa fa-user"></i>Мои подписки
     </a>
     <a class="nav-link icon" href="{% url 'subscribes' pk=request.user.pk %}">
-        <i class="fa fa-user"></i>Подписавшиеся
-    </a>
-    <a class="nav-link icon" href="{% url 'user_ad_sold' pk=request.user.pk %}">
-        <i class="fa fa-check"></i>Проданные товары
+        <i class="fa fa-user"></i>Мои подписчики
     </a>
     <a class="nav-link icon" href="{% url 'user_settings' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Настройки

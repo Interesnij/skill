@@ -216,26 +216,26 @@ class User(AbstractUser):
         else:
             return "Местоположение не указано"
 
-    def get_my_active_ads(self):
+    def get_my_ads(self):
         from ad_posts.models import Ad
 
-        ads_query = Q(creator_id=self.id, is_active=True, is_sold=False, is_deleted=False)
+        ads_query = Q(creator_id=self.id, is_deleted=False)
         ads = Ad.objects.filter(ads_query)
         return ads
 
-    def get_my_noactive_ads(self):
-        from ad_posts.models import Ad
+    def get_my_courses(self):
+        from skill_posts.models import Courses
 
-        ads_query = Q(creator_id=self.id, is_active=False, is_sold=False, is_deleted=False)
-        ads = Ad.objects.filter(ads_query)
-        return ads
+        courses_query = Q(creator_id=self.id, is_deleted=False)
+        courses = Courses.objects.filter(courses_query)
+        return courses
 
-    def get_my_sold_ads(self):
-        from ad_posts.models import Ad
+    def get_my_ankets(self):
+        from love_posts.models import Anketa
 
-        ads_query = Q(creator_id=self.id, is_active=False, is_sold=True, is_deleted=False)
-        ads = Ad.objects.filter(ads_query)
-        return ads
+        courses_query = Q(creator_id=self.id, is_deleted=False)
+        courses = Anketa.objects.filter(courses_query)
+        return courses
 
     def get_my_favorite_ads(self):
         from ad_posts.models import Ad
