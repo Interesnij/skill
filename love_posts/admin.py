@@ -1,4 +1,4 @@
 from django.contrib import admin
-from skill_posts.models import Course
+from love_posts.models import Anketa
 
-admin.site.register(Course)
+admin.site.register(Anketa)
