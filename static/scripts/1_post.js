@@ -1,5 +1,5 @@
  on('body', 'click', '.ad_sold', function(e) {
-   e.preventDefaul();
+   e.preventDefault();
    item = this.parentElement.parentElement.parentElement.parentElement;
    pk = item.getAttribute("data-pk");
    parent = this.parentElement;
@@ -18,7 +18,7 @@
 })
 
 on('body', 'click', '.ad_unsold', function(e) {
-  e.preventDefaul();
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -37,7 +37,7 @@ on('body', 'click', '.ad_unsold', function(e) {
 })
 
 on('body', 'click', '.ad_remove', function(e) {
-  e.preventDefaul();
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -56,7 +56,7 @@ on('body', 'click', '.ad_remove', function(e) {
 })
 
 on('body', 'click', '.ad_unremove', function(e) {
-  e.preventDefaul();
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -74,7 +74,8 @@ on('body', 'click', '.ad_unremove', function(e) {
   link.send( null );
 })
 
-on('body', 'click', '.anketa_remove', function() {
+on('body', 'click', '.anketa_remove', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -92,7 +93,8 @@ on('body', 'click', '.anketa_remove', function() {
   link.send( null );
 })
 
-on('body', 'click', '.anketa_unremove', function() {
+on('body', 'click', '.anketa_unremove', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -110,7 +112,8 @@ on('body', 'click', '.anketa_unremove', function() {
   link.send( null );
 })
 
-on('body', 'click', '.course_remove', function() {
+on('body', 'click', '.course_remove', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -128,7 +131,8 @@ on('body', 'click', '.course_remove', function() {
   link.send( null );
 })
 
-on('body', 'click', '.course_unremove', function() {
+on('body', 'click', '.course_unremove', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -147,7 +151,7 @@ on('body', 'click', '.course_unremove', function() {
 })
 
 on('body', 'click', '.ad_active', function(e) {
-  e.preventDefaul();
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -165,7 +169,8 @@ on('body', 'click', '.ad_active', function(e) {
   link.send( null );
 })
 
-on('body', 'click', '.ad_unactive', function() {
+on('body', 'click', '.ad_unactive', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -183,7 +188,8 @@ on('body', 'click', '.ad_unactive', function() {
   link.send( null );
 })
 
-on('body', 'click', '.course_active', function() {
+on('body', 'click', '.course_active', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -201,7 +207,8 @@ on('body', 'click', '.course_active', function() {
   link.send( null );
 })
 
-on('body', 'click', '.course_unactive', function() {
+on('body', 'click', '.course_unactive', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -219,7 +226,8 @@ on('body', 'click', '.course_unactive', function() {
   link.send( null );
 })
 
-on('body', 'click', '.anketa_active', function() {
+on('body', 'click', '.anketa_active', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
@@ -237,7 +245,8 @@ on('body', 'click', '.anketa_active', function() {
   link.send( null );
 })
 
-on('body', 'click', '.anketa_unactive', function() {
+on('body', 'click', '.anketa_unactive', function(e) {
+  e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
