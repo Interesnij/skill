@@ -69,7 +69,7 @@ class Course(models.Model):
 
 class CourseFavourites(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="Курс")
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='anketa_favorites', on_delete=models.CASCADE, verbose_name="Пользователь")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='course_favorites', on_delete=models.CASCADE, verbose_name="Пользователь")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Дата добавления")
 
     def __str__(self):
