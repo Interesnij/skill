@@ -14,5 +14,7 @@ urlpatterns = [
 
     url(r'^progs/', include('users.url.progs')),
     url(r'^ad_progs/', include('users.url.ad_progs')),
+    url(r'^skill_progs/', include('users.url.skill_progs')),
+    url(r'^love_progs/', include('users.url.love_progs')),
 
 ]
