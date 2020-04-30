@@ -109,11 +109,11 @@ class Anketa(models.Model):
         return AnketaNumbers.objects.filter(anketa=self.pk).values('pk').count()
 
     def likes(self):
-        from common.model.votes import CourseVotes
-        likes = CourseVotes.objects.filter(parent=self, vote__gt=0)
+        from common.model.votes import AnketaVotes
+        likes = AnketaVotes.objects.filter(parent=self, vote__gt=0)
         return likes
 
     def dislikes(self):
-        from common.model.votes import CourseVotes
-        dislikes = CourseVotes.objects.filter(parent=self, vote__lt=0)
+        from common.model.votes import AnketaVotes
+        dislikes = AnketaVotes.objects.filter(parent=self, vote__lt=0)
         return dislikes
