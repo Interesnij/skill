@@ -1,5 +1,5 @@
 {% extends "bases/base.html" %}
-{% load staticfiles humanize thumbnail %}
+{% load humanize %}
 {% block title %}{{ user.get_full_name }}{% endblock %}
 {% block content %}
 
@@ -65,7 +65,7 @@
                     </div>
                     <div class="background">
                         <div class="background-image original-size background-repeat-x">
-                            <img src="{% static 'images/gradient-background.png' %}" alt="">
+                            <img src="/static/images/gradient-background.png" alt="">
                         </div>
                     </div>
                 </section>
@@ -88,12 +88,8 @@
                                 <div>
                                 <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
                                       {% for object in object_list %}
-                                        <div class="item">
-                                            {% include 'generic/ad_wrapper.html' %}
-                                        </div>
-
-                                        {% endfor %}
-
+                                        {% include 'generic/ad.html' %}
+                                      {% endfor %}
                                     </div>
                                 </div>
                             </section>

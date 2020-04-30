@@ -98,8 +98,8 @@ class Anketa(models.Model):
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
-        verbose_name = "Курс"
-        verbose_name_plural = "Курсы"
+        verbose_name = "Анкета"
+        verbose_name_plural = "Анкеты"
         ordering=["-created"]
 
     def all_visits_count(self):

@@ -833,6 +833,12 @@ color:red;
     animation-duration: .7s;
     animation-fill-mode: forwards;/*background-color: $color-default; transition: $transition;*/
 }
+
+.love_content .page-title a:hover::after {
+    animation-name: love_content_animation;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;/*background-color: $color-default; transition: $transition;*/
+}
 .hero .page-title a:after {
     background-color: #000;
     width: 100%;
@@ -1094,7 +1100,18 @@ color:red;
     position: absolute;
 }
 .skill_content .item .detail:after {
-    background-color: #28A745;
+    background-color: #8b00ff;
+}
+
+.love_content .item .detail {
+    bottom: 1.8rem;
+    left: 1.8rem;
+    color: #28A745;
+    transition: .3s background-color ease;
+    position: absolute;
+}
+.love_content .item .detail:after {
+    background-color: #8b00ff;
 }
 
 .items:not(.selectize-input) .item figure {
@@ -1358,6 +1375,17 @@ color:red;
     bottom: 2rem;
     left: inherit;
     border: .1rem solid #28A745;
+    padding: 1rem;
+    text-transform: none;
+    font-size: 1.4rem;
+    border-radius: .3rem;
+    z-index: 2;
+}
+.love_content .items:not(.selectize-input).list .item .detail {
+    right: 2rem;
+    bottom: 2rem;
+    left: inherit;
+    border: .1rem solid #8b00ff;
     padding: 1rem;
     text-transform: none;
     font-size: 1.4rem;
@@ -2070,6 +2098,22 @@ color:red;
         background-color: #28A745;
     }
 }
+@keyframes love_content_animation {
+    0% {
+        width: 100%;
+    }
+    30% {
+        width: 0%;
+    }
+    60% {
+        width: 100%;
+        background-color: #8b00ff;
+    }
+    100% {
+        left: 0;
+        background-color: #8b00ff;
+    }
+}
 @keyframes show-form-slide-animation {
     0% {
         opacity: 0;
@@ -2284,7 +2328,9 @@ a:hover, a:focus, a:active {
 .skill_content a:hover {
     color: #28A745;
 }
-
+.love_content a:hover {
+    color: #8b00ff;
+}
 
 .module_1 a.underline:hover::after {
     animation-name: module_1_animation;
@@ -2293,6 +2339,11 @@ a:hover, a:focus, a:active {
 }
 .skill_content a.underline:hover::after {
     animation-name: skill_content_animation;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+}
+.love_content a.underline:hover::after {
+    animation-name: love_content_animation;
     animation-duration: .7s;
     animation-fill-mode: forwards;
 }
@@ -2761,6 +2812,13 @@ label.required:after {
 .skill_content .form-group label {
     font-size: 2.4rem;
     color: #28A745;
+    position: absolute;
+    top: -5rem;
+    font-weight: normal;
+}
+.love_content .form-group label {
+    font-size: 2.4rem;
+    color: #8b00ff;
     position: absolute;
     top: -5rem;
     font-weight: normal;

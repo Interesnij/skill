@@ -1,7 +1,7 @@
 {% extends "bases/base.html" %}
 {% load staticfiles humanize thumbnail %}
 
-{% block title %}Мои активные товары{% endblock %}
+{% block title %}Мои объявления{% endblock %}
 {% block content %}
 
 <section class="content module_1">
@@ -12,6 +12,7 @@
                     {% include 'user/nav.html' %}
                 </div>
                 <div class="col-md-9">
+                  <h2>Мои объявления</h2>
                             <div class="section-title clearfix">
                                 <div class="float-right d-xs-none thumbnail-toggle">
                                     <a href="#" class="change-class active" data-change-from-class="list" data-change-to-class="masonry" data-parent-class="items">
@@ -49,7 +50,7 @@
                                           <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
                                           <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
                                       </h4>
-                                      <div class="price rubl">&#8399; {{ object.price|intcomma }}</div>
+                                      <div class="price rubl">{{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
                                           &nbsp;&nbsp;&nbsp;
                                           <a href="#">Изменить</a>
@@ -217,7 +218,7 @@
                                       <a href="{% url 'ad_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
                                   </div>
                               </div>
-                              
+
                               {% else %}
                                 <h3 style="text-align:center">У Вас нет активных объявлений...</h3>
                               {% endif %}
