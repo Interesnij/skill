@@ -227,7 +227,7 @@ class User(AbstractUser):
         from skill_posts.models import Course
 
         courses_query = Q(creator_id=self.id, is_deleted=False)
-        courses = Courses.objects.filter(courses_query)
+        courses = Course.objects.filter(courses_query)
         return courses
 
     def get_my_ankets(self):
