@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from skill_posts.views import LovePostsView, AnketaDetailView, AnketaCreate
+from love_posts.views import LovePostsView, AnketaDetailView, AnketaCreate
 
 
 urlpatterns = [
