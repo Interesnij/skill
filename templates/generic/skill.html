@@ -46,6 +46,15 @@
     </h4>
     {% endif %}
     <div class="price">{% if object.price %} {{ object.price }} {% else %}Бесплатно{% endif %}</div>
+    <div class="admin-controls">
+        &nbsp;&nbsp;&nbsp;
+        <a href="#">
+          <span class="course_favorite">В избранное</span>
+        </a>
+        <a href="#">
+          <span class="course_claim">Пожаловаться</span>
+        </a>
+    </div>
     <div class="description">
         <p>{{ object.description|truncatechars:300 }}</p>
     </div>

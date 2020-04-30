@@ -1,4 +1,4 @@
- on('body', 'click', '.ad_sold', function(e) {
+ on('body', 'click', '.module_sold', function(e) {
    e.preventDefault();
    item = this.parentElement.parentElement.parentElement.parentElement;
    pk = item.getAttribute("data-pk");
@@ -8,7 +8,7 @@
    link.onreadystatechange = function () {
    if ( link.readyState == 4 && link.status == 200 ) {
      new_span = document.createElement("span");
-     new_span.classList.add("ad_unsold");
+     new_span.classList.add("module_unsold");
      new_span.innerHTML = "Продано";
      parent.innerHTML = "";
      parent.append(new_span);
@@ -16,7 +16,7 @@
    link.send( null );
 })
 
-on('body', 'click', '.ad_unsold', function(e) {
+on('body', 'click', '.module_unsold', function(e) {
   e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
@@ -26,7 +26,7 @@ on('body', 'click', '.ad_unsold', function(e) {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_sold");
+    new_span.classList.add("module_sold");
     new_span.innerHTML = "Не продано";
     parent.innerHTML = "";
     parent.append(new_span);
@@ -34,7 +34,7 @@ on('body', 'click', '.ad_unsold', function(e) {
   link.send( null );
 })
 
-on('body', 'click', '.ad_remove', function(e) {
+on('body', 'click', '.module_remove', function(e) {
   e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
@@ -44,7 +44,7 @@ on('body', 'click', '.ad_remove', function(e) {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_unremove");
+    new_span.classList.add("module_unremove");
     new_span.innerHTML = "Отмена";
     parent.innerHTML = "";
     parent.append(new_span);
@@ -52,7 +52,7 @@ on('body', 'click', '.ad_remove', function(e) {
   link.send( null );
 })
 
-on('body', 'click', '.ad_unremove', function(e) {
+on('body', 'click', '.module_unremove', function(e) {
   e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
@@ -62,7 +62,7 @@ on('body', 'click', '.ad_unremove', function(e) {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_remove");
+    new_span.classList.add("module_remove");
     new_span.innerHTML = "Удалить";
     parent.innerHTML = "";
     parent.append(new_span);
@@ -70,7 +70,7 @@ on('body', 'click', '.ad_unremove', function(e) {
   link.send( null );
 })
 
-on('body', 'click', '.ad_active', function(e) {
+on('body', 'click', '.module_active', function(e) {
   e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
@@ -80,7 +80,7 @@ on('body', 'click', '.ad_active', function(e) {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_unactive");
+    new_span.classList.add("module_unactive");
     new_span.innerHTML = "Активное";
     parent.innerHTML = "";
     parent.append(new_span);
@@ -88,7 +88,7 @@ on('body', 'click', '.ad_active', function(e) {
   link.send( null );
 })
 
-on('body', 'click', '.ad_unactive', function(e) {
+on('body', 'click', '.module_unactive', function(e) {
   e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
@@ -98,7 +98,7 @@ on('body', 'click', '.ad_unactive', function(e) {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
-    new_span.classList.add("ad_active");
+    new_span.classList.add("module_active");
     new_span.innerHTML = "Черновик";
     parent.innerHTML = "";
     parent.append(new_span);

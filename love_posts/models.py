@@ -117,3 +117,18 @@ class Anketa(models.Model):
         from common.model.votes import AnketaVotes
         dislikes = AnketaVotes.objects.filter(parent=self, vote__lt=0)
         return dislikes
+
+
+class AnketaFavourites(models.Model):
+    anketa = models.ForeignKey(Anketa, on_delete=models.CASCADE, verbose_name="Анкета")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='anketa_favorites', on_delete=models.CASCADE, verbose_name="Пользователь")
+    created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Дата добавления")
+
+    def __str__(self):
+        return self.user
+
+    class Meta:
+        verbose_name = "Избранная анкета"
+        verbose_name_plural = "Избранные анкеты"
+        unique_together = ('anketa', 'user',)
+        indexes = (BrinIndex(fields=['created']),)

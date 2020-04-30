@@ -79,7 +79,6 @@ class UserAnketsView(ListView):
 
 class UserFavoriteView(ListView):
     template_name = None
-    model = Ad
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):

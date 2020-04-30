@@ -163,6 +163,15 @@ class User(AbstractUser):
     def is_added_user_with_id(self, user_id):
         return self.added_user.filter(adding_user__id=user_id).exists()
 
+    def is_ad_in_favorite(self, ad_id):
+        return self.ad_favorites.filter(ad__id=ad_id).exists()
+
+    def is_course_in_favorite(self, course_id):
+        return self.course_favorites.filter(course__id=course_id).exists()
+
+    def is_anketa_in_favorite(self, anketa_id):
+        return self.anketa_favorites.filter(anketa__id=anketa_id).exists()
+
     def is_blocked_with_user_with_id(self, user_id):
         from users.model.list import UserBlock
         return UserBlock.users_are_blocked(user_a_id=self.pk, user_b_id=user_id)
@@ -240,7 +249,7 @@ class User(AbstractUser):
     def get_my_favorite_ads(self):
         from ad_posts.models import Ad
 
-        favorites_query = Q(creator__favorites_user__user_id=self.id, is_active=True, is_sold=False, is_deleted=False)
+        favorites_query = Q(creator__ad_favorites__user_id=self.id, is_active=True, is_sold=False, is_deleted=False)
         favorites_query.add(~Q(Q(creator__blocked_by_users__blocker_id=self.id) | Q(creator__user_blocks__blocked_user_id=self.id)), Q.AND)
         favorites = Ad.objects.filter(favorites_query)
         return favorites

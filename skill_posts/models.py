@@ -65,3 +65,18 @@ class Course(models.Model):
         from common.model.votes import CourseVotes
         dislikes = CourseVotes.objects.filter(parent=self, vote__lt=0)
         return dislikes
+
+
+class CourseFavourites(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, verbose_name="Курс")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='anketa_favorites', on_delete=models.CASCADE, verbose_name="Пользователь")
+    created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Дата добавления")
+
+    def __str__(self):
+        return self.user
+
+    class Meta:
+        verbose_name = "Избранная анкета"
+        verbose_name_plural = "Избранные анкеты"
+        unique_together = ('course', 'user',)
+        indexes = (BrinIndex(fields=['created']),)

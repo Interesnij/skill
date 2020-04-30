@@ -69,14 +69,14 @@
                                           <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
                                           <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
                                       </h4>
-                                      <div class="price rubl">{{ object.price|intcomma }}</div>
+                                      <div class="price">{{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
                                           &nbsp;&nbsp;&nbsp;<a href="#">Изменить</a>
                                           <a href="#">
-                                            <span class="ad_sold">Не продано</span>
+                                            <span class="module_sold">Не продано</span>
                                           </a>
                                           <a href="#">
-                                            <span class="ad_remove">Удалить</span>
+                                            <span class="module_remove">Удалить</span>
                                           </a>
                                       </div>
                                       <div class="description">
@@ -158,10 +158,10 @@
                                         &nbsp;&nbsp;&nbsp;
                                         <a href="#">Изменить</a>
                                         <a href="#">
-                                          <span class="ad_unsold">Продано</span>
+                                          <span class="module_unsold">Продано</span>
                                         </a>
                                         <a href="#">
-                                          <span class="ad_remove">Удалить</span>
+                                          <span class="module_remove">Удалить</span>
                                         </a>
                                     </div>
                                     <div class="description">
@@ -240,10 +240,10 @@
                                           &nbsp;&nbsp;&nbsp;
                                           <a href="#">Изменить</a>
                                           <a href="#">
-                                            <span class="ad_active">Черновик</span>
+                                            <span class="module_active">Черновик</span>
                                           </a>
                                           <a href="#">
-                                            <span class="ad_remove">Удалить</span>
+                                            <span class="module_remove">Удалить</span>
                                           </a>
                                       </div>
                                       <div class="description">

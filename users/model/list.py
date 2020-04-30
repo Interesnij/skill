@@ -6,21 +6,6 @@ from ad_posts.models import Ad
 from django.db.models import Q
 
 
-class Favourites(models.Model):
-    ad = models.ForeignKey(Ad, on_delete=models.CASCADE, verbose_name="Объявление")
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='favorites_user', on_delete=models.CASCADE, verbose_name="Пользователь")
-    created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Дата добавления")
-
-    def __str__(self):
-        return self.ad.title
-
-    class Meta:
-        verbose_name = "Избранное"
-        verbose_name_plural = "Избранное"
-        unique_together = ('ad', 'user',)
-        indexes = (BrinIndex(fields=['created']),)
-
-
 class ChatAd(models.Model):
     ad = models.ForeignKey(Ad, related_name='chat_ad', on_delete=models.CASCADE, verbose_name="Обсуждаемый товар")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Дата добавления")
