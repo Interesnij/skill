@@ -87,8 +87,8 @@ class Anketa(models.Model):
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     city = models.ForeignKey(City, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Город")
     image = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
-    is_active = models.BooleanField(default=False, verbose_name='Курс активен')
-    is_deleted = models.BooleanField(default=False, verbose_name='Курс удален')
+    is_active = models.BooleanField(default=False, verbose_name='Анкета активна')
+    is_deleted = models.BooleanField(default=False, verbose_name='Анкета удалена')
 
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Время публикации")
     is_reklama = models.BooleanField(default=False, verbose_name='Это реклама')
