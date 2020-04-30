@@ -2,7 +2,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import ListView
 from users.models import User
 from ad_posts.models import Ad
-from skill_posts.models import Courses
+from skill_posts.models import Course
 
 
 class ProfileUserView(TemplateView):
