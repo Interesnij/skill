@@ -75,7 +75,7 @@ on('body', 'click', '.anketa_remove', function() {
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
-  link.open( 'GET', "/users/anketa_progs/delete/" + pk + "/", true );
+  link.open( 'GET', "/users/love_progs/delete/" + pk + "/", true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
@@ -93,7 +93,7 @@ on('body', 'click', '.anketa_unremove', function() {
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
-  link.open( 'GET', "/users/anketa_progs/undelete/" + pk + "/", true );
+  link.open( 'GET', "/users/love_progs/undelete/" + pk + "/", true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
