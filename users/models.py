@@ -224,7 +224,7 @@ class User(AbstractUser):
         return ads
 
     def get_my_courses(self):
-        from skill_posts.models import Courses
+        from skill_posts.models import Course
 
         courses_query = Q(creator_id=self.id, is_deleted=False)
         courses = Courses.objects.filter(courses_query)
