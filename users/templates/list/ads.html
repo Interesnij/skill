@@ -23,7 +23,8 @@
                                 </div>
                             </div>
                             <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
-
+                              {% for object in object_list %}
+                              
                               {% if object.is_active %}
                               <div class="item" data-pk="{{ object.pk }}">
                                   <div class="ribbon-featured">Активно</div>
