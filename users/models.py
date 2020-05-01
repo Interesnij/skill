@@ -281,7 +281,7 @@ class User(AbstractUser):
     def get_my_subscribs(self):
         """Это те, на кого я подписался"""
 
-        subscribs_query = Q(adding_user__added_user__id=self.id, is_deleted=False)
+        subscribs_query = Q(adding_user__adding_user__id=self.id, is_deleted=False)
         subscribs_query.add(~Q(Q(blocked_by_users__blocker_id=self.id) | Q(user_blocks__blocked_user_id=self.id)), Q.AND)
         subscribs = User.objects.filter(subscribs_query)
         return subscribs
