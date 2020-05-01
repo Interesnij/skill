@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <h2>Избранное</h2>
-                            <div id="" class="items compact grid grid-xl-3-items grid-lg-2-items grid-md-2-items">
+                            <div id="" class="items compact list grid-xl-3-items grid-lg-2-items grid-md-2-items">
 
                               {% for object in request.user.get_my_favorite_ads %}
                                 <div class="item" data-pk="{{ object.pk }}">
@@ -165,8 +165,6 @@
                                         <a href="{% url 'course_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
                                     </div>
                                 </div>
-                                  {% empty %}
-                                  <h3 style="text-align:center">У Вас нет избранных курсов...</h3>
                                   {% endfor %}
 
                                   {% for object in request.user.get_my_favorite_anketa %}
