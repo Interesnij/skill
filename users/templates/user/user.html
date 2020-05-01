@@ -50,7 +50,7 @@
                                             <aside>{{ user.phone }}</aside>
                                         </li>
                                         <li>
-                                          <span class="user_unsubscribe">Отписаться</span>
+                                          <span class="user_subscribe">Подписаться</span>
                                         </li>
                                         <li>
                                           <span class="user_block">Заблокировать</span>
@@ -73,7 +73,6 @@
                 <div class="container">
                     <div class="row flex-column-reverse flex-md-row">
                         <div class="col-md-9">
-                            {% if object_list %}
                             <section>
                                 <h2>Активные объявления</h2>
                                 <div class="section-title clearfix">
@@ -88,11 +87,20 @@
                                 </div>
                                 <div>
                                 <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
-                                      {% for object in object_list %}
-                                        {% include 'generic/ad.html' %}
-                                      {% endfor %}
-                                    </div>
+                                  <h2>Активные объявления</h2>
+                                  {% for object in user.get_ads %}
+                                    {% include 'generic/ad.html' %}
+                                  {% endfor %}
+                                  <h2>Активные курсы</h2>
+                                  {% for object in user.get_courses %}
+                                    {% include 'generic/courses.html' %}
+                                  {% endfor %}
+                                  <h2>Активные анкеты</h2>
+                                  {% for object in user.get_ankets %}
+                                    {% include 'generic/anketa.html' %}
+                                  {% endfor %}
                                 </div>
+                              </div>
                             </section>
                             {% else %}
                             <h3 style="text-align:center">У пользователя нет объявлений...</h3>
