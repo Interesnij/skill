@@ -1862,7 +1862,6 @@ color:red;
 }
 .ribbon-featured .ribbon-content {
     box-shadow: 0 0.1rem rgba(0,0,0,.15);
-    background-color: #ff0000;
     text-transform: uppercase;
     color: #fff;
     font-weight: 600;
@@ -1870,8 +1869,28 @@ color:red;
     z-index: 1;
     padding: .7rem;
 }
-.ribbon-featured .ribbon-content:after {
+
+.module_1 .ribbon-featured .ribbon-content{
+  background-color: #ff0000;
+}
+.module_1 .ribbon-featured .ribbon-content:after{
+  background-color: #ff0000;
+}
+.module_1 .ribbon-featured .ribbon-content:before {
     background-color: #ff0000;
+}
+.module_1 .ribbon-featured .ribbon-start, .ribbon-featured .ribbon-start::after {
+    background: #ff0000;
+}
+.module_1 .ribbon-featured .ribbon-end:before, .ribbon-featured .ribbon-end .ribbon-shadow::before {
+  border-color: transparent #ff0000 transparent transparent;
+}
+.module_1 .ribbon-featured .ribbon-end:after, .ribbon-featured .ribbon-end .ribbon-shadow::after {
+    border-color: transparent #ff0000 transparent transparent;
+}
+
+
+.ribbon-featured .ribbon-content:after {
     width: .5rem;
     height: 100%;
     content: "";
@@ -1880,7 +1899,6 @@ color:red;
     right: -.5rem;
 }
 .ribbon-featured .ribbon-content:before {
-    background-color: #ff0000;
     width: 1rem;
     height: 1rem;
     position: absolute;
@@ -1890,7 +1908,6 @@ color:red;
     border-top-right-radius: 50%;
 }
 .ribbon-featured .ribbon-start, .ribbon-featured .ribbon-start::after {
-    background: #ff0000;
     content: "";
     display: inline-block;
     height: 1rem;
@@ -1922,13 +1939,13 @@ color:red;
     left: 0;
     content: "";
 }
+
+
 .ribbon-featured .ribbon-end:before, .ribbon-featured .ribbon-end .ribbon-shadow::before {
     border-width: 0 1.5rem 1.5rem 0;
-    border-color: transparent #ff0000 transparent transparent;
 }
 .ribbon-featured .ribbon-end:after, .ribbon-featured .ribbon-end .ribbon-shadow::after {
     border-width: 0 0 1.5rem 1.5rem;
-    border-color: transparent transparent #ff0000 transparent;
     bottom: 0;
 }
 .ribbon-featured .ribbon-end .ribbon-shadow::before {

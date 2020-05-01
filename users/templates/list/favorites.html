@@ -4,7 +4,7 @@
 {% block title %}Избранное{% endblock %}
 {% block content %}
 
-<section class="content module_1">
+<section class="content">
     <section class="block">
         <div class="container">
             <div class="row">
@@ -26,7 +26,7 @@
                             <div id="" class="items compact list grid-xl-3-items grid-lg-2-items grid-md-2-items">
 
                               {% for object in request.user.get_my_favorite_ads %}
-                                <div class="item" data-pk="{{ object.pk }}">
+                                <div class="item module_1" data-pk="{{ object.pk }}">
                                     <div class="ribbon-featured">Объявление</div>
                                     <div class="wrapper">
                                         <div class="image">
@@ -85,7 +85,7 @@
                                 {% endfor %}
 
                                 {% for object in request.user.get_my_favorite_courses %}
-                                <div class="item" data-pk="{{ object.pk }}">
+                                <div class="item skill_content" data-pk="{{ object.pk }}">
                                     <div class="ribbon-featured">Курс</div>
                                     <div class="wrapper">
                                         <div class="image">
@@ -168,7 +168,7 @@
                                   {% endfor %}
 
                                   {% for object in request.user.get_my_favorite_anketa %}
-                                  <div class="item" data-pk="{{ object.pk }}">
+                                  <div class="item love_content" data-pk="{{ object.pk }}">
                                       <div class="ribbon-featured">Анкета</div>
                                       <div class="wrapper">
                                         <div class="image">
