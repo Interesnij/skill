@@ -25,8 +25,6 @@
                       </div>
                   </div>
                             <div class="authors masonry items grid-xl-3-items grid-lg-2-items grid-md-2-items">
-                              {% if object_list %}
-
                               {% for object in object_list %}
                               <div class="item author">
                                 <div class="wrapper">
@@ -48,34 +46,34 @@
                                     <a href="">{{ object.get_last_location.region_ru }}</a>,
                                     <a href="">{{ object.get_last_location.city_ru }}</a>
                                 </h4>
-                                <div class="meta">
-                                    <figure>{% if object.get_online %}Онлайн {% else %} Был {{ object.last_activity }}{% endif %}</figure>&nbsp;
-                                    <figure>
-                                        <a href="{% url 'user' pk=object.pk %}">Товаров<strong> {{ object.ad_set.count }}</strong></a>
-                                    </figure>
+                                <div class="admin-controls">
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a href="#">
+                                      <span class="user_unsubscribe">Отписаться</span>
+                                    </a>
+                                    <a href="#">
+                                      <span class="user_block">Заблокировать</span>
+                                    </a>
                                 </div>
-                                <!--end description-->
                                 <div class="additional-info">
                                     <ul>
                                       <li>
                                           <figure>Телефон</figure>
                                           <aside>{{ object.phone }}</aside>
                                       </li>
-                                      <li style="text-align: center;padding-top: 10px;">
-                                          <a class='like-button' style="cursor: pointer" id="">
-                                            <i class="fa fa-heart-o"></i> ОТПИСАТЬСЯ
-                                          </a>
+                                      <li>
+                                          <figure>Активность</figure>
+                                          <aside>{% if object.get_online %}Онлайн {% else %} Был {{ object.last_activity }}{% endif %}</aside>
                                       </li>
                                     </ul>
                                 </div>
                                 <a href="{% url 'user' pk=object.pk %}" class="detail text-caps underline">Подробнее</a>
                             </div>
                         </div>
-                                {% endfor %}
+                        {% empty %}
+                        <h3 style="text-align:center">У Вас пока нет подписок...</h3>
+                    {% endfor %}
 
-                                {% else %}
-                                <h3 style="text-align:center">У Вас пока нет подписок...</h3>
-                                {% endif %}
                             </div>
                         </div>
                       </div>
