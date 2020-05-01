@@ -81,7 +81,7 @@
                                         <a href="{% url 'ad_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
                                     </div>
                                 </div>
-                                {% else %}
+                                {% empty %}
                                 <h3 style="text-align:center">У Вас нет избранных объявлений...</h3>
                                 {% endfor %}
 
@@ -167,7 +167,7 @@
                                         <a href="{% url 'course_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
                                     </div>
                                 </div>
-                                  {% else %}
+                                  {% empty %}
                                   <h3 style="text-align:center">У Вас нет избранных курсов...</h3>
                                   {% endfor %}
 
@@ -251,7 +251,7 @@
                                       </div>
                                   </div>
 
-                                    {% else %}
+                                    {% empty %}
                                     <h3 style="text-align:center">У Вас нет избранных анкет...</h3>
                                     {% endfor %}
                             </div>
