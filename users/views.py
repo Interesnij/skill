@@ -131,6 +131,26 @@ class SubscribesView(ListView):
         return users
 
 
+class UserBlackListView(ListView):
+    template_name = None
+    model = User
+    paginate_by = 30
+
+    def get(self,request,*args,**kwargs):
+        self.user=User.objects.get(pk=self.kwargs["pk"])
+        self.template_name = self.user.get_my_template(folder="list/", template="blacklist.html", request=request)
+        return super(UserBlackListView,self).get(request,*args,**kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(UserBlackListView, self).get_context_data(**kwargs)
+        context['user'] = self.user
+        return context
+
+    def get_queryset(self):
+        users = self.user.get_my_blacklist()
+        return users
+
+
 class UserSettingsView(TemplateView):
     template_name = None
 

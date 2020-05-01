@@ -260,6 +260,12 @@ class User(AbstractUser):
         favorites = Ad.objects.filter(favorites_query)
         return favorites
 
+    def get_my_blacklist(self):
+
+        blacklist_query = Q(blocked_by_users__blocker_id=self.id, is_deleted=False)
+        blacklist = User.objects.filter(blacklist_query)
+        return blacklist
+
     def get_my_favorite_courses(self):
         from skill_posts.models import Course
 

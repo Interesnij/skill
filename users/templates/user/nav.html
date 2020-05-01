@@ -20,6 +20,9 @@
     <a class="nav-link icon" href="{% url 'subscribes' pk=request.user.pk %}">
         <i class="fa fa-user"></i>Мои подписчики
     </a>
+    <a class="nav-link icon" href="{% url 'user_blacklist' pk=request.user.pk %}">
+        <i class="fa fa-user"></i>Черный список
+    </a>
     <a class="nav-link icon" href="{% url 'user_settings' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Настройки
     </a>

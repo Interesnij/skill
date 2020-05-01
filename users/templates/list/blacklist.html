@@ -1,18 +1,19 @@
 {% extends "bases/base.html" %}
 {% load humanize %}
 
-{% block title %}Мои подписчики{% endblock %}
+{% block title %}Черный список{% endblock %}
 {% block content %}
 
 <section class="content module_1">
     <section class="block">
+
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
                     {% include 'user/nav.html' %}
                 </div>
                 <div class="col-md-9">
-                  <h2>Мои подписчики</h2>
+                  <h2>Черный список</h2>
 
                   <div class="section-title clearfix">
                     <div class="float-right d-xs-none thumbnail-toggle">
@@ -52,7 +53,7 @@
                                       <span class="user_subscribe">Подписаться</span>
                                     </a>
                                     <a href="#">
-                                      <span class="user_block">Заблокировать</span>
+                                      <span class="user_unblock">Разблокировать</span>
                                     </a>
                                 </div>
                                 <div class="additional-info">
@@ -71,7 +72,7 @@
                             </div>
                         </div>
                         {% empty %}
-                        <h3 style="text-align:center">У Вас пока нет подписчиков...</h3>
+                        <h3 style="text-align:center">У Вас пока нет подписок...</h3>
                     {% endfor %}
 
                             </div>
