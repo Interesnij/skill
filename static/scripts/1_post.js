@@ -1,6 +1,4 @@
 function send_change(a, link, new_class, html){
-  item = a.parentElement.parentElement.parentElement.parentElement;
-  pk = item.getAttribute("data-pk");
   parent = a.parentElement;
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'GET', link + pk, true );
@@ -18,12 +16,16 @@ function send_change(a, link, new_class, html){
 
  on('body', 'click', '.module_sold', function(e) {
    e.preventDefault();
-   send_change(this, "/users/ad_progs/sold/", "module_unsold", "Продано")
+   item = this.parentElement.parentElement.parentElement.parentElement;
+   pk = item.getAttribute("data-pk");
+   send_change(this, "/users/ad_progs/sold/" + pk, "module_unsold", "Продано")
 })
 
 on('body', 'click', '.module_unsold', function(e) {
   e.preventDefault();
-  send_change(this, "/users/ad_progs/unsold/", "module_sold", "Не продано")
+  item = this.parentElement.parentElement.parentElement.parentElement;
+  pk = item.getAttribute("data-pk");
+  send_change(this, "/users/ad_progs/unsold/" + pk, "module_sold", "Не продано")
 })
 
 on('body', 'click', '.module_remove', function(e) {
