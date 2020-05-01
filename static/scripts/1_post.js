@@ -3,7 +3,7 @@ function send_change(a, link, new_class, html){
   pk = item.getAttribute("data-pk");
   parent = this.parentElement;
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
-  link.open( 'GET', link, true );
+  link.open( 'GET', link + pk, true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     new_span = document.createElement("span");
@@ -17,12 +17,12 @@ function send_change(a, link, new_class, html){
 
  on('body', 'click', '.module_sold', function(e) {
    e.preventDefault();
-   send_change(this, "/users/ad_progs/sold/" + pk + "/", "module_unsold", "Продано")
+   send_change(this, "/users/ad_progs/sold/", "module_unsold", "Продано")
 })
 
 on('body', 'click', '.module_unsold', function(e) {
   e.preventDefault();
-  send_change(this, "/users/ad_progs/unsold/" + pk + "/", "module_sold", "Не продано")
+  send_change(this, "/users/ad_progs/unsold/", "module_sold", "Не продано")
 })
 
 on('body', 'click', '.module_remove', function(e) {
