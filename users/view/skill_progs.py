@@ -1,7 +1,7 @@
 from django.views import View
 from users.models import User
 from django.http import HttpResponse
-from skill_posts.models import Course
+from skill_posts.models import Course, CourseFavourites
 
 
 class SkillActive(View):
@@ -46,4 +46,25 @@ class SkillUnDelete(View):
             course.save(update_fields=['is_deleted'])
             return HttpResponse('')
         else:
+            return HttpResponse('')
+
+
+class SkillFavorite(View):
+    def get(self,request,*args,**kwargs):
+        course = Course.objects.get(pk=self.kwargs["pk"])
+        if request.user.pk != course.creator.pk and course.is_deleted != True:
+            CourseFavourites.objects.create(course=course, user=request.user)
+            return HttpResponse('')
+        else:
+            return HttpResponse('')
+
+
+class SkillUnFavorite(View):
+    def get(self,request,*args,**kwargs):
+        course = Course.objects.get(pk=self.kwargs["pk"])
+        try:
+            favorite = CourseFavourites.objects.get(course=course, user=request.user)
+            favorite.delete()
+            return HttpResponse('')
+        except:
             return HttpResponse('')

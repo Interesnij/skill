@@ -1,7 +1,7 @@
 from django.views import View
 from users.models import User
 from django.http import HttpResponse
-from ad_posts.models import Ad
+from ad_posts.models import Ad, AdFavourites
 
 
 class AdSold(View):
@@ -69,4 +69,25 @@ class AdUnDelete(View):
             ad.save(update_fields=['is_deleted'])
             return HttpResponse('')
         else:
+            return HttpResponse('')
+
+
+class AdFavorite(View):
+    def get(self,request,*args,**kwargs):
+        ad = Ad.objects.get(pk=self.kwargs["pk"])
+        if request.user.pk != ad.creator.pk and ad.is_deleted != True:
+            AdFavourites.objects.create(ad=ad, user=request.user)
+            return HttpResponse('')
+        else:
+            return HttpResponse('')
+
+
+class AdUnFavorite(View):
+    def get(self,request,*args,**kwargs):
+        ad = Ad.objects.get(pk=self.kwargs["pk"])
+        try:
+            favorite = AdFavourites.objects.get(ad=ad, user=request.user)
+            favorite.delete()
+            return HttpResponse('')
+        except:
             return HttpResponse('')

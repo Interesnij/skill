@@ -1,7 +1,7 @@
 from django.views import View
 from users.models import User
 from django.http import HttpResponse
-from love_posts.models import Anketa
+from love_posts.models import Anketa, AnketaFavourites
 
 
 class AnketaActive(View):
@@ -46,4 +46,25 @@ class AnketaUnDelete(View):
             anketa.save(update_fields=['is_deleted'])
             return HttpResponse('')
         else:
+            return HttpResponse('')
+
+
+class AnketaFavorite(View):
+    def get(self,request,*args,**kwargs):
+        anketa = Anketa.objects.get(pk=self.kwargs["pk"])
+        if request.user.pk != anketa.creator.pk and anketa.is_deleted != True:
+            AnketaFavourites.objects.create(anketa=anketa, user=request.user)
+            return HttpResponse('')
+        else:
+            return HttpResponse('')
+
+
+class AnketaUnFavorite(View):
+    def get(self,request,*args,**kwargs):
+        anketa = Anketa.objects.get(pk=self.kwargs["pk"])
+        try:
+            favorite = AnketaFavourites.objects.get(anketa=anketa, user=request.user)
+            favorite.delete()
+            return HttpResponse('')
+        except:
             return HttpResponse('')
