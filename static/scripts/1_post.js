@@ -1,7 +1,7 @@
 function send_change(a, link, new_class, html){
   parent = a.parentElement;
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
-  link.open( 'GET', link + pk, true );
+  link.open( 'GET', link, true );
   console.log(link + pk);
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
