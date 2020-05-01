@@ -22,3 +22,10 @@ def is_anketa_favorite(user, anketa_id):
         return True
     else:
         return False
+
+@register.filter
+def is_user_blocked(user, anketa_id):
+    if user.is_anketa_in_favorite(anketa_id):
+        return True
+    else:
+        return False
