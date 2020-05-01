@@ -28,3 +28,17 @@ on('body', 'click', '.module_unactive', function(e) {
   e.preventDefault();
   send_change(this, "/users/ad_progs/unactive/", "module_active", "Черновик")
 })
+
+on('body', 'click', '.module_unactive', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/ad_progs/unactive/", "module_active", "Черновик")
+})
+
+on('body', 'click', '.module_unfavorite', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/ad_progs/unfavorite/", "module_favorite", "Запомнить")
+})
+on('body', 'click', '.module_favorite', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/ad_progs/favorite/", "module_unfavorite", "Забыть")
+})

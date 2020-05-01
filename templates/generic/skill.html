@@ -47,6 +47,7 @@
     {% endif %}
     <div class="price">{% if object.price %} {{ object.price }} {% else %}Бесплатно{% endif %}</div>
     <div class="admin-controls">
+      {% if request.user.pk != object.creator.pk %}
         &nbsp;&nbsp;&nbsp;
         <a href="#">
           {% if request.user|is_course_favorite:object.pk %}
@@ -55,6 +56,10 @@
             <span class="course_favorite">Запомнить</span>
           {% endif %}
         </a>
+        <a href="#">
+          <span class="course_claim">Пожаловаться</span>
+        </a>
+      {% endif %}
     </div>
     <div class="description">
         <p>{{ object.description|truncatechars:300 }}</p>
