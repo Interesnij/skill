@@ -17,3 +17,12 @@ on('body', 'click', '.anketa_unactive', function(e) {
   e.preventDefault();
   send_change(this, "/users/love_progs/unactive/", "anketa_active", "Черновик")
 })
+
+on('body', 'click', '.anketa_unfavorite', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/love_progs/unfavorite/", "anketa_favorite", "Запомнить")
+})
+on('body', 'click', '.anketa_favorite', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/love_progs/favorite/", "anketa_unfavorite", "Забыть")
+})
