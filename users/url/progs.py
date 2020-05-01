@@ -6,7 +6,7 @@ from users.view.progs import (
                                 PhoneSend,
                                 PhoneVerify,
                                 AddSubscribe,
-                                DeleteSubscribe
+                                UnSubscribe
                             )
 from django.contrib.auth.decorators import login_required
 
@@ -19,5 +19,5 @@ urlpatterns = [
     url(r'^phone_verify/(?P<phone>\d+)/(?P<code>\d+)/$', login_required(PhoneVerify.as_view())),
 
     url(r'^subscribe/(?P<pk>\d+)/$', login_required(AddSubscribe.as_view())),
-    url(r'^unsubscribe/(?P<pk>\d+)/$', login_required(DeleteSubscribe.as_view())),
+    url(r'^unsubscribe/(?P<pk>\d+)/$', login_required(UnSubscribe.as_view())),
 ]

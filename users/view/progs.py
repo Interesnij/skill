@@ -104,7 +104,7 @@ class AddSubscribe(View):
             return HttpResponse('')
 
 
-class RemoveSubscribe(View):
+class UnSubscribe(View):
     def get(self,request,*args,**kwargs):
         user = User.objects.get(pk=self.kwargs["pk"])
         try:
