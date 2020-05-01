@@ -1879,13 +1879,13 @@ color:red;
 .module_1 .ribbon-featured .ribbon-content:before {
     background-color: #ff0000;
 }
-.module_1 .ribbon-featured .ribbon-start, .ribbon-featured .ribbon-start::after {
+.module_1 .ribbon-featured .ribbon-start, .module_1 .ribbon-featured .ribbon-start::after {
     background: #ff0000;
 }
-.module_1 .ribbon-featured .ribbon-end:before, .ribbon-featured .ribbon-end .ribbon-shadow::before {
+.module_1 .ribbon-featured .ribbon-end:before, .module_1 .ribbon-featured .ribbon-end .ribbon-shadow::before {
   border-color: transparent #ff0000 transparent transparent;
 }
-.module_1 .ribbon-featured .ribbon-end:after, .ribbon-featured .ribbon-end .ribbon-shadow::after {
+.module_1 .ribbon-featured .ribbon-end:after, .module_1 .ribbon-featured .ribbon-end .ribbon-shadow::after {
     border-color: transparent #ff0000 transparent transparent;
 }
 
