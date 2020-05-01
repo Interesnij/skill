@@ -177,6 +177,9 @@ class User(AbstractUser):
         from users.model.list import UserBlock
         return UserBlock.users_are_blocked(user_a_id=self.pk, user_b_id=user_id)
 
+    def has_blocked_user_with_id(self, user_id):
+        return self.user_blocks.filter(blocked_user_id=user_id).exists()
+
     def unsubscribe_user(self, user):
         return self.unsubscribe_user_with_id(user.pk)
 
