@@ -1,5 +1,14 @@
 from django.conf.urls import url
-from users.view.ad_progs import AdSold, AdUnSold, AdActive, AdUnActive, AdDelete, AdUnDelete, AdFavorite, AdUnFavorite
+from users.view.ad_progs import (
+                                    AdSold,
+                                    AdUnSold,
+                                    AdActive,
+                                    AdUnActive,
+                                    AdDelete,
+                                    AdUnDelete,
+                                    AdFavorite,
+                                    AdUnFavorite
+                                )
 from django.contrib.auth.decorators import login_required
 
 

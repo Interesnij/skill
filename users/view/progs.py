@@ -1,5 +1,6 @@
 from django.views import View
 from users.models import User
+from users.model.list import Subscribe
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -9,14 +10,14 @@ class UserBanCreate(View):
     def get(self,request,*args,**kwargs):
         self.user = User.objects.get(pk=self.kwargs["pk"])
         request.user.block_user_with_pk(self.user.pk)
-        return HttpResponse('Пользователь заблокирован')
+        return HttpResponse('')
 
 
 class UserUnbanCreate(View):
     def get(self,request,*args,**kwargs):
         self.user = User.objects.get(pk=self.kwargs["pk"])
         request.user.unblock_user_with_pk(self.user.pk)
-        return HttpResponse('Пользователь разблокирован')
+        return HttpResponse('')
 
 
 class UserAdView(View):
@@ -91,3 +92,24 @@ class PhoneSend(View):
                 data = 'Введите, пожалуйста, корректное количество цифр Вашего телефона'
                 response = render(request,'generic/response/phone.html',{'response_text':data})
                 return response
+
+
+class AddSubscribe(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.pk != user and request.user.is_blocked_with_user_with_id(user_id=user.pk):
+            Subscribe.objects.create(adding_user=request.user, added_user=user)
+            return HttpResponse('')
+        else:
+            return HttpResponse('')
+
+
+class RemoveSubscribe(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        try:
+            subscribe = Subscribe.objects.get(adding_user=request.user, added_user=user)
+            subscribe.delete()
+            return HttpResponse('')
+        except:
+            return HttpResponse('')

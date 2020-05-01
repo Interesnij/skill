@@ -1,5 +1,12 @@
 from django.conf.urls import url
-from users.view.skill_progs import SkillActive, SkillUnActive, SkillDelete, SkillUnDelete, SkillFavorite, SkillUnFavorite
+from users.view.skill_progs import (
+                                    SkillActive,
+                                    SkillUnActive,
+                                    SkillDelete,
+                                    SkillUnDelete,
+                                    SkillFavorite,
+                                    SkillUnFavorite
+                                    )
 from django.contrib.auth.decorators import login_required
 
 

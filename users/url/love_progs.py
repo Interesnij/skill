@@ -1,5 +1,12 @@
 from django.conf.urls import url
-from users.view.love_progs import AnketaActive, AnketaUnActive, AnketaDelete, AnketaUnDelete, AnketaFavorite, AnketaUnFavorite
+from users.view.love_progs import (
+                                    AnketaActive,
+                                    AnketaUnActive,
+                                    AnketaDelete,
+                                    AnketaUnDelete,
+                                    AnketaFavorite,
+                                    AnketaUnFavorite
+                                )
 from django.contrib.auth.decorators import login_required
 
 
