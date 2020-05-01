@@ -4,7 +4,8 @@ on('body', 'click', '.user_subscribe', function(e) {
   try{
     next_block = this.parent.nextElementSibling;
     target = next_block.querySelector(".user_unblock");
-    send_change(target, "/users/progs/unblock/", "user_unsubscribe", "Отписаться");
+    send_change(target, "/users/progs/unblock/", "user_unsubscribe", "Отписаться")
+  }catch{null}
 })
 
 on('body', 'click', '.user_unsubscribe', function(e) {
