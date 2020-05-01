@@ -4,6 +4,7 @@ from django.conf import settings
 from django.db.models import Q
 from rest_framework.exceptions import PermissionDenied
 from django.db import models
+from rest_framework.exceptions import ValidationError, PermissionDenied
 
 
 class User(AbstractUser):
@@ -192,7 +193,10 @@ class User(AbstractUser):
 
     def block_user_with_id(self, user_id):
         from users.model.list import UserBlock
-        check_can_block_user_with_id(user=self, user_id=user_id)
+        if user_id == user.pk:
+            raise ValidationError('Вы не можете блокировать себя')
+            if user.is_blocked_with_user_with_id(user_id=user_id):
+                raise PermissionDenied('Вы в черном списке у этого пользователя.')
 
         if self.is_adding_user_with_id(user_id=user_id):
             self.unsubscribe_user_with_id(user_id=user_id)
@@ -209,7 +213,8 @@ class User(AbstractUser):
         return self.unblock_user_with_id(user_id=user.pk)
 
     def unblock_user_with_id(self, user_id):
-        check_can_unblock_user_with_id(user=self, user_id=user_id)
+        if not user.has_blocked_user_with_id(user_id=user_id):
+            raise ValidationError('Вы не можете разблокировать учетную запись, которую вы не заблокировали')
         self.user_blocks.filter(blocked_user_id=user_id).delete()
         return User.objects.get(pk=user_id)
 
