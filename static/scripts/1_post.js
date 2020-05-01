@@ -18,14 +18,14 @@ function send_change(a, link, new_class, html){
    e.preventDefault();
    item = this.parentElement.parentElement.parentElement.parentElement;
    pk = item.getAttribute("data-pk");
-   send_change(this, "/users/ad_progs/sold/" + pk, "module_unsold", "Продано")
+   send_change(this, "/users/ad_progs/sold/" + pk + "/", "module_unsold", "Продано")
 })
 
 on('body', 'click', '.module_unsold', function(e) {
   e.preventDefault();
   item = this.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
-  send_change(this, "/users/ad_progs/unsold/" + pk, "module_sold", "Не продано")
+  send_change(this, "/users/ad_progs/unsold/" + pk + "/", "module_sold", "Не продано")
 })
 
 on('body', 'click', '.module_remove', function(e) {
