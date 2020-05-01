@@ -40,7 +40,8 @@
         <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
         <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
     </h4>
-    <div class="price rubl"> {{ object.price }}</div>
+    <div class="price"> {{ object.price }}</div>
+    {% if request.user.pk != objects.creator.pk %}
     <div class="admin-controls">
         &nbsp;&nbsp;&nbsp;
         <a href="#">
@@ -48,12 +49,13 @@
             <span class="module_unfavorite">Забыть</span>
           {% else %}
             <span class="module_favorite">Запомнить</span>
-          {% endif %} 
+          {% endif %}
         </a>
         <a href="#">
           <span class="module_claim">Пожаловаться</span>
         </a>
     </div>
+    {% endif %}
     <div class="description">
         <p>{{ object.description|truncatechars:300 }}</p>
     </div>

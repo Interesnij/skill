@@ -49,7 +49,7 @@
                                             <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
                                             <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
                                         </h4>
-                                        <div class="price rubl">{{ object.price|incomma }}</div>
+                                        <div class="price rubl">{{ object.price|intcomma }}</div>
                                         <div class="admin-controls">
                                             &nbsp;&nbsp;&nbsp;
                                             <a href="#">
