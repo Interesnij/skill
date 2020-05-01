@@ -270,7 +270,7 @@ class User(AbstractUser):
         favorites = Anketa.objects.filter(favorites_query)
         return favorites
 
-    def get_my_subscribs(self):
+    def get_subscribs(self):
         """Это те, кто на меня подписался"""
 
         subscribs_query = Q(added_user__adding_user__id=self.id, is_deleted=False)
@@ -278,7 +278,7 @@ class User(AbstractUser):
         subscribs = User.objects.filter(subscribs_query)
         return subscribs
 
-    def get_subscribs(self):
+    def get_my_subscribs(self):
         """Это те, на кого я подписался"""
 
         subscribs_query = Q(adding_user__added_user__id=self.id, is_deleted=False)
