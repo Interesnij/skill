@@ -10,7 +10,7 @@ on('body', 'click', '.user_subscribe', function(e) {
 
 on('body', 'click', '.user_unsubscribe', function(e) {
   e.preventDefault();
-  send_change(this, "/users/progs/unsubscribe/", "user_block", "Заблокировать");
+  send_change(this, "/users/progs/unsubscribe/", "user_subscribe", "Подписаться");
 })
 
 on('body', 'click', '.user_block', function(e) {
