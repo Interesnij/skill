@@ -1,7 +1,7 @@
 function send_change(a, link, new_class, html){
   item = a.parentElement.parentElement.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
-  parent = this.parentElement;
+  parent = a.parentElement;
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'GET', link + pk, true );
   console.log(link + pk);
