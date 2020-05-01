@@ -19,8 +19,8 @@ on('body', 'click', '.user_block', function(e) {
   send_change(this, "/users/progs/block/", "user_unblock", "Разблокировать");
   try{
   target = parent.previousElementSibling.querySelector(".user_unsubscribe");
-  target.classList.add(".user_subscribe");
-  target.classList.remove(".user_unsubscribe");
+  target.classList.add("user_subscribe");
+  target.classList.remove("user_unsubscribe");
   target.innerHTML = "Подписаться";
   }catch{null}
 })
