@@ -1,7 +1,9 @@
 function send_change(a, _link, new_class, html){
   parent = a.parentElement;
+  item = a.parentElement.parentElement.parentElement.parentElement;
+  pk = item.getAttribute("data-pk");
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
-  link.open( 'GET', _link, true );
+  link.open( 'GET', _link + pk + "/", true );
   console.log(_link);
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
@@ -16,16 +18,12 @@ function send_change(a, _link, new_class, html){
 
  on('body', 'click', '.module_sold', function(e) {
    e.preventDefault();
-   item = this.parentElement.parentElement.parentElement.parentElement;
-   pk = item.getAttribute("data-pk");
-   send_change(this, "/users/ad_progs/sold/" + pk + "/", "module_unsold", "Продано")
+   send_change(this, "/users/ad_progs/sold/", "module_unsold", "Продано")
 })
 
 on('body', 'click', '.module_unsold', function(e) {
   e.preventDefault();
-  item = this.parentElement.parentElement.parentElement.parentElement;
-  pk = item.getAttribute("data-pk");
-  send_change(this, "/users/ad_progs/unsold/" + pk + "/", "module_sold", "Не продано")
+  send_change(this, "/users/ad_progs/unsold/", "module_sold", "Не продано")
 })
 
 on('body', 'click', '.module_remove', function(e) {
