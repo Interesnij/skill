@@ -25,7 +25,7 @@
                             <div id="" class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
                               <h2>Избранные объявления</h2>
                               {% for object in request.user.get_my_favorite_ads %}
-                                <div class="item">
+                                <div class="item" data-pk="{{ object.pk }}">
                                     <div class="ribbon-featured">Избранный</div>
                                     <div class="wrapper">
                                         <div class="image">
