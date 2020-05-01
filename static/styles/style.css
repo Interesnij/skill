@@ -1100,7 +1100,7 @@ color:red;
     position: absolute;
 }
 .skill_content .item .detail:after {
-    background-color: #8b00ff;
+    background-color: #28A745;
 }
 
 .love_content .item .detail {
@@ -1111,7 +1111,7 @@ color:red;
     position: absolute;
 }
 .love_content .item .detail:after {
-    background-color: #8b00ff;
+    background-color: #28A745;
 }
 
 .items:not(.selectize-input) .item figure {
