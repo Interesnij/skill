@@ -254,6 +254,22 @@ class User(AbstractUser):
         favorites = Ad.objects.filter(favorites_query)
         return favorites
 
+    def get_my_favorite_courses(self):
+        from skill_posts.models import Course
+
+        favorites_query = Q(coursefavourites__user_id=self.id, is_active=True, is_deleted=False)
+        favorites_query.add(~Q(Q(coursefavourites__user_id__blocked_by_users__blocker_id=self.id) | Q(coursefavourites__user_id__user_blocks__blocked_user_id=self.id)), Q.AND)
+        favorites = Course.objects.filter(favorites_query)
+        return favorites
+
+    def get_my_favorite_anketa(self):
+        from love_posts.models import Anketa
+
+        favorites_query = Q(anketafavourites__user_id=self.id, is_active=True, is_deleted=False)
+        favorites_query.add(~Q(Q(anketafavourites__user_id__blocked_by_users__blocker_id=self.id) | Q(anketafavourites__user_id__user_blocks__blocked_user_id=self.id)), Q.AND)
+        favorites = Anketa.objects.filter(favorites_query)
+        return favorites
+
     def get_my_subscribs(self):
         """Это те, кто на меня подписался"""
 

@@ -77,9 +77,8 @@ class UserAnketsView(ListView):
         return courses
 
 
-class UserFavoriteView(ListView):
+class UserFavoriteView(TemplateView):
     template_name = None
-    paginate_by = 30
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
@@ -90,10 +89,6 @@ class UserFavoriteView(ListView):
         context = super(UserFavoriteView, self).get_context_data(**kwargs)
         context['user'] = self.user
         return context
-
-    def get_queryset(self):
-        ads = self.user.get_my_favorite_ads()
-        return ads
 
 
 class MySubscribeView(ListView):
