@@ -22,11 +22,12 @@
                                   </a>
                                 </div>
                             </div>
-                            <div id="" class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
-                              <h2>Избранные объявления</h2>
+                            <h2>Избранное</h2>
+                            <div id="" class="items compact grid grid-xl-3-items grid-lg-2-items grid-md-2-items">
+
                               {% for object in request.user.get_my_favorite_ads %}
                                 <div class="item" data-pk="{{ object.pk }}">
-                                    <div class="ribbon-featured">Избранный</div>
+                                    <div class="ribbon-featured">Объявление</div>
                                     <div class="wrapper">
                                         <div class="image">
                                             <h3>
@@ -81,14 +82,11 @@
                                         <a href="{% url 'ad_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
                                     </div>
                                 </div>
-                                {% empty %}
-                                <h3 style="text-align:center">У Вас нет избранных объявлений...</h3>
                                 {% endfor %}
 
-                                <h2>Избранные курсы</h2>
                                 {% for object in request.user.get_my_favorite_courses %}
                                 <div class="item" data-pk="{{ object.pk }}">
-                                    <div class="ribbon-featured">Активно</div>
+                                    <div class="ribbon-featured">Курс</div>
                                     <div class="wrapper">
                                         <div class="image">
                                             <h3>
@@ -171,10 +169,9 @@
                                   <h3 style="text-align:center">У Вас нет избранных курсов...</h3>
                                   {% endfor %}
 
-                                  <h2>Избранные курсы</h2>
                                   {% for object in request.user.get_my_favorite_anketa %}
                                   <div class="item" data-pk="{{ object.pk }}">
-                                      <div class="ribbon-featured">Активно</div>
+                                      <div class="ribbon-featured">Анкета</div>
                                       <div class="wrapper">
                                         <div class="image">
                                             <h3>
@@ -250,10 +247,7 @@
                                           <a href="{% url 'anketa_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
                                       </div>
                                   </div>
-
-                                    {% empty %}
-                                    <h3 style="text-align:center">У Вас нет избранных анкет...</h3>
-                                    {% endfor %}
+                                {% endfor %}
                             </div>
                         </div>
                       </div>
