@@ -238,7 +238,7 @@ class User(AbstractUser):
         ads = Ad.objects.filter(ads_query)
         return ads
 
-    def get_my_ads(self):
+    def get_ads(self):
         from ad_posts.models import Ad
 
         ads_query = Q(creator_id=self.id, is_deleted=False, is_active=True)
@@ -252,7 +252,7 @@ class User(AbstractUser):
         courses = Course.objects.filter(courses_query)
         return courses
 
-    def get_my_courses(self):
+    def get_courses(self):
         from skill_posts.models import Course
 
         courses_query = Q(creator_id=self.id, is_deleted=False, is_active=True)
@@ -262,14 +262,14 @@ class User(AbstractUser):
     def get_my_ankets(self):
         from love_posts.models import Anketa
 
-        courses_query = Q(creator_id=self.id, is_deleted=False,  is_active=True)
+        courses_query = Q(creator_id=self.id, is_deleted=False)
         courses = Anketa.objects.filter(courses_query)
         return courses
 
     def get_ankets(self):
         from love_posts.models import Anketa
 
-        courses_query = Q(creator_id=self.id, is_deleted=False)
+        courses_query = Q(creator_id=self.id, is_deleted=False, is_active=True)
         courses = Anketa.objects.filter(courses_query)
         return courses
 
