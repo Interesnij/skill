@@ -1106,12 +1106,12 @@ color:red;
 .love_content .item .detail {
     bottom: 1.8rem;
     left: 1.8rem;
-    color: #28A745;
+    color: #8b00ff;
     transition: .3s background-color ease;
     position: absolute;
 }
 .love_content .item .detail:after {
-    background-color: #28A745;
+    background-color: #8b00ff;
 }
 
 .items:not(.selectize-input) .item figure {
