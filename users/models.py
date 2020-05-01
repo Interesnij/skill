@@ -182,8 +182,6 @@ class User(AbstractUser):
 
     def unsubscribe_user_with_id(self, user_id):
         from users.model.list import Subscribe
-
-        check_not_can_follow_user_with_id(user=self, user_id=user_id)
         subscribe = Subscribe.objects.get(adding_user=self, added_user__id=user_id)
         subscribe.delete()
 
