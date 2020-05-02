@@ -1,3 +1,4 @@
 from django.contrib import admin
+from faq.models import Quan
 
-# Register your models here.
+admin.site.register(Quan)
