@@ -2566,7 +2566,8 @@ header, footer {
     background-color: #8b00ff;
     border-color: #8b00ff;
 }
-.btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active {
+.btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary:active,
+.btn.btn-love:hover, .btn.btn-love:focus, .btn.btn-love:active {
     color: #fff;
     box-shadow: 0 .1rem 1.5rem rgba(0,0,0,.4);
 }
