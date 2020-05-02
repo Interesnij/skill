@@ -18,13 +18,19 @@ class Ad(models.Model):
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name="Город")
     category = models.ForeignKey('ad_categories.AdSubCategory', on_delete=models.CASCADE, verbose_name="Ккатегория")
-    image = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
     is_active = models.BooleanField(default=False, verbose_name='Объявление опубликовано')
     is_deleted = models.BooleanField(default=False, verbose_name='Объявление удалено')
     is_sold = models.BooleanField(default=False, verbose_name='Объявление не актуально')
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Время публикации")
     is_reklama = models.BooleanField(default=False, verbose_name='Это реклама')
     votes_off = models.BooleanField(default=False, verbose_name='Лайки-дизлайки отключены')
+
+    image = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
+    img1 = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
+    img2 = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
+    img3 = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
+    img4 = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
+    img5 = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
 
     def __str__(self):
         return self.title
@@ -49,11 +55,6 @@ class Ad(models.Model):
         from common.model.votes import AdVotes
         dislikes = AdVotes.objects.filter(parent=self, vote__lt=0)
         return dislikes
-
-
-class AdImage(models.Model):
-    ad = models.ForeignKey(Ad, on_delete=models.CASCADE, verbose_name="Объявление")
-    image = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
 
 
 class AdDesign(models.Model):
