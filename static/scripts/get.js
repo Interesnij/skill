@@ -27,15 +27,14 @@ on('body', 'change', imageLoader, function() {
     if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg")
     {if (typeof FileReader != "undefined") {
       image_holder = this;
-      image_holder.innerHTML = "";
       reader = new FileReader();
       reader.onload = function(e) {
         $img = document.createElement("img"),
         $img.id = "targetImageCrop";
         $img.src = e.target.result;
         $img.class = "thumb-image";
-        image_holder.append($img)
-        image_holder.style.display == "none";
+        image_holder.append($img);
+        image_holder.style.display == "block";
       }
         reader.readAsDataURL(this.files);
     }
