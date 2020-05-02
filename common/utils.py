@@ -100,7 +100,7 @@ def last_ankets_for_russia():
     from django.db.models import Q
 
     ankets_query = Q(city__region__country__id=1, creator__is_blocked=False, is_deleted=False, is_active=True)
-    ankets = Course.objects.filter(ankets_query)
+    ankets = Anketa.objects.filter(ankets_query)
     return ankets[:21]
 
 def get_first_location(request, user):
