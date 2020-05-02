@@ -18,7 +18,7 @@ on('body', 'click', '.more_search_fields', function(e) {
 on('body', 'click', '#image-holder', function() {
 img = this;
 entrou = false;
-var imageLoader = document.getElementById("id_image");
+var imageLoader = document.querySelector("id_image");
 imageLoader.click();
 on('body', 'change', imageLoader, function() {
   if (!entrou) {
