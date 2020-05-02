@@ -20,7 +20,7 @@ img = this;
 entrou = false;
 var imageLoader = document.getElementById("id_image");
 imageLoader.click();
-on('#ajax', 'change', imageLoader, function() {
+on('body', 'change', imageLoader, function() {
   if (!entrou) {
     imgPath = this.value;
     extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
