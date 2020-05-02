@@ -47,7 +47,7 @@ console.log("upload comment image 2")});});
 var image_Loader = document.getElementById("id_image");
 var entrou = false;
 $("#image-holder").on("click", function() {
-$("#id_image").click();
+image_Loader.click();
 });
 
 $("#id_image").on("change", function() {
