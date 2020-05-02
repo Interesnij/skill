@@ -4,7 +4,7 @@
 <div class="wrapper">
     <div class="image">
         <h3>
-            <a href="{% url 'anketa_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
+            <a href="{% url 'anketa_detail' pk=object.pk %}" class="title">{{ object.creator }}</a>
             <span class="tag">
               <span>
                 <svg fill="currentColor" class="svg_default" style="width:15px" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
@@ -60,26 +60,7 @@
     <div class="description">
         <p>{{ object.about|truncatechars:300 }}</p>
     </div>
-    <div class="additional-info">
-      <ul>
-        <li>
-          <figure>Имя</figure>
-          <aside>
-            <a href="{% url 'user' pk=object.creator.pk %}">
-            {{ object.creator.first_name }}
-            </a>
-          </aside>
-        </li>
-        <li>
-          <figure>Фамилия</figure>
-          <aside>
-            <a href="{% url 'user' pk=object.creator.pk %}">
-              {{ object.creator.last_name }}
-            </a>
-          </aside>
-        </li>
-      </ul>
-    </div>
+    <div class="additional-info"></div>
     <a href="{% url 'anketa_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
 </div>
 </div>
