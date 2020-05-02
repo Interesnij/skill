@@ -95,6 +95,14 @@ def last_courses_for_russia():
     courses = Course.objects.filter(ads_query)
     return courses[:21]
 
+def last_ankets_for_russia():
+    from love_posts.models import Anketa
+    from django.db.models import Q
+
+    ankets_query = Q(city__region__country__id=1, creator__is_blocked=False, is_deleted=False, is_active=True)
+    ankets = Course.objects.filter(ankets_query)
+    return ankets[:21]
+
 def get_first_location(request, user):
     import json, requests
     from users.model.profile import OneUserLocation

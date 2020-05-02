@@ -1,10 +1,26 @@
 {% extends "bases/base.html" %}
 {% load staticfiles %}
 
-{% block title %}Выбор модуля{% endblock %}
+{% block title %}Многопрофильный сайт по всей России{% endblock %}
 {% block content %}
-<div class="container">
-  <a href="{% url 'ads_main' %}">Объявления по России</a>
-  <a href="{% url 'courses_main' %}">Обучающие курсы по России</a>
+
+<div class="page-title">
+    <div class="container">
+      <h1 class="opacity-40 center">
+        <a href="{% url 'ads_main' %}">Продавайте</a>,
+        <a href="{% url 'courses_main' %}">Обучайтесь</a> и
+        <a href="{% url 'ankets_main' %}">Знакомьтесь</a> по всей России
+      </h1>
+    </div>
 </div>
+
+<section class="content">
+
+    {% include 'main/ads/new_ads.html' %}
+
+    {% include 'main/courses/new_courses.html' %}
+
+    {% include 'main/ankets/new_ankets.html' %}
+
+</section>
 {% endblock %}
