@@ -42,7 +42,6 @@ on('body', 'change', imageLoader, function() {
      else {this.value = null;}
   } entrou = true;
   setTimeout(function() { entrou = false; }, 1000);
-  this.previousElementSibling.previousElementSibling.style.display == "block";
 }
 });
 });
