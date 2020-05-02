@@ -29,5 +29,5 @@ on('#ajax', 'change', imageLoader, function() {
   setTimeout(function() { entrou = false; }, 1000);
   this.previousElementSibling.previousElementSibling.style.display == "block";
 }
-}});
+});
 });
