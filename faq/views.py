@@ -23,5 +23,5 @@ class FaqView(ListView):
         return super(FaqView,self).get(request,*args,**kwargs)
 
     def get_queryset(self):
-        quans = Quan.models.only("pk")
+        quans = Quan.objects.only("pk")
         return quans
