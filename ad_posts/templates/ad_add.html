@@ -62,7 +62,7 @@
   on('body', 'click', '#image-holder', function() {
   img = this;
   entrou = false;
-  imageLoader = this.previousElementSibling;
+  var imageLoader = document.getElementById("id_image");
   imageLoader.click();
   on('#ajax', 'change', imageLoader, function() {
     if (!entrou) {
@@ -87,7 +87,9 @@
     } entrou = true;
     setTimeout(function() { entrou = false; }, 1000);
     this.previousElementSibling.previousElementSibling.style.display == "block";
-});
+  }
+  }});
+  });
 </script>
 
 
