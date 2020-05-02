@@ -14,4 +14,4 @@ class Quan(models.Model):
 		verbose_name = "Вопросы-ответы"
 		verbose_name_plural = "Вопросы-ответы"
 		ordering = ['-created']
-        indexes = (BrinIndex(fields=['created']),)
+		indexes = (BrinIndex(fields=['created']),)
