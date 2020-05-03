@@ -58,4 +58,4 @@ class City(models.Model):
 
         ankets_query = Q(city__id=self.id, creator_id=self.id, is_deleted=False, is_active=True)
         ankets = Anketa.objects.filter(ankets_query)
-        return ankets[0:21]s
+        return ankets[0:21]
