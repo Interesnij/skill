@@ -9,7 +9,7 @@ class RegionView(TemplateView):
 	def get(self,request,*args,**kwargs):
 		import re
 
-        self.region = Region.objects.get(name_en=self.kwargs["region_name"])
+		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
 		if request.user.is_authenticated and not request.user.is_deleted:
 			self.template_name = "region/region.html"
 		elif request.user.is_authenticated and request.user.is_deleted:
