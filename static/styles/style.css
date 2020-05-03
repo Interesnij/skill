@@ -831,7 +831,6 @@ color:red;
 }
 .hero .secondary-navigation a, .hero .secondary-navigation span {
     padding: .8rem;
-    display: inline-block;
     text-decoration: none;
 }
 
