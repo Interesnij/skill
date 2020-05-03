@@ -101,29 +101,29 @@ class CoursesRegionView(ListView):
 class AnketsRegionView(ListView):
 	from love_posts.models import Anketa
 
-    template_name = None
+	template_name = None
 	model = Anketa
-    paginate_by = 30
+	paginate_by = 30
 
-    def get(self,request,*args,**kwargs):
-        self.region = Region.objects.get(name_en=self.kwargs["region_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "region/ankets_region.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "region/ankets_ads_region.html"
+	def get(self,request,*args,**kwargs):
+		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
+		if request.user.is_authenticated and not request.user.is_deleted:
+			self.template_name = "region/ankets_region.html"
+		elif request.user.is_authenticated and request.user.is_deleted:
+			self.template_name = "generic/user_deleted.html"
+		elif request.user.is_anonymous:
+			self.template_name = "region/ankets_ads_region.html"
 
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
-        return super(AnketsRegionView,self).get(request,*args,**kwargs)
+		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+			self.template_name = "mob_" + self.template_name
+		return super(AnketsRegionView,self).get(request,*args,**kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super(AnketsRegionView, self).get_context_data(**kwargs)
-        context['region'] = self.region
-        return context
+	def get_context_data(self, **kwargs):
+		context = super(AnketsRegionView, self).get_context_data(**kwargs)
+		context['region'] = self.region
+		return context
 
 	def get_queryset(self):
-        ankets = self.region.get_ankets()
-        return ankets
+		ankets = self.region.get_ankets()
+		return ankets
