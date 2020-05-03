@@ -49,13 +49,13 @@ class Region(models.Model):
     def get_ankets(self):
         from love_posts.models import Anketa
 
-        ankets_query = Q(creator_id=self.id, is_deleted=False, is_active=True)
+        ankets_query = Q(city__region__id=self.id, creator_id=self.id, is_deleted=False, is_active=True)
         ankets = Anketa.objects.filter(ankets_query)
         return ankets
 
     def get_last_ankets(self):
         from love_posts.models import Anketa
 
-        ankets_query = Q(creator_id=self.id, is_deleted=False, is_active=True)
+        ankets_query = Q(city__region__id=self.id, creator_id=self.id, is_deleted=False, is_active=True)
         ankets = Anketa.objects.filter(ankets_query)
         return ankets[0:21]

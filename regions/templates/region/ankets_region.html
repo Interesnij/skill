@@ -19,7 +19,10 @@
 <div class="page-title">
     <div class="container">
       <h1 class="opacity-40 center">
-        Россия, {{ region.name_ru }} :: модуль знакомств
+        <a href="{% url 'region' region_name=region.name_en %}">
+          Россия, {{ region.name_ru }}
+        </a>
+        :: модуль знакомств
       </h1>
     </div>
 </div>
