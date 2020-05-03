@@ -16,18 +16,38 @@
 </a>
 {% endblock %}
 {% block content %}
-
+<div class="page-title">
+    <div class="container">
+      <h1 class="opacity-40 center">
+        Россия, {{ region.name_ru }} :: модуль академии
+      </h1>
+    </div>
+</div>
 {% include 'region/skill_form.html' %}
 
 <section class="content skill_content">
   <section class="block">
       <div class="container">
-        <h2>Россия, {{ region.name_ru }} :: модуль академии</h2>
+        <h2>Россия, {{ region.name_ru }} :: академия, категории</h2>
         <h4 class="row">
           {% for cat in skill_categories %}
               <span class="col-md-3">
                 <a href="{% url 'course_category_region' cat_name=cat.name_en region_name=region.name_en %}">
                   {{ cat.name_ru }} ({{ cat.get_course_count }})
+                </a>
+              </span>
+          {% endfor %}
+         </h4>
+      </div>
+  </section>
+  <section class="block">
+      <div class="container">
+        <h2>Города региона :: академия</h2>
+        <h4 class="row">
+          {% for object in region.city_set.all %}
+              <span class="col-md-3">
+                <a href="{% url 'city' city_name=cat.object %}">
+                  {{ object.name_ru }}
                 </a>
               </span>
           {% endfor %}
