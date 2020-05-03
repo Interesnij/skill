@@ -4,7 +4,13 @@
     font-size: 20px;
   }
 </style>
-
+<div class="page-title">
+    <div class="container">
+      <h1 class="opacity-40 center">
+        Выберите регион или город
+      </h1>
+    </div>
+</div>
 {% for object in regions %}
 <h5 class="reg_item"><a href="{% url 'region' region_name=object.name_en %}">{{ object.name_ru }}</a></h5>
 {% for city in object.city_set.all %}
