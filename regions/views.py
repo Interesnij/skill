@@ -34,35 +34,34 @@ class RegionView(TemplateView):
 class AdsRegionView(ListView):
 	from ad_posts.models import Ad
 
-    template_name = None
+	template_name = None
 	model = Ad
-    paginate_by = 30
+	paginate_by = 30
 
-    def get(self,request,*args,**kwargs):
-        self.region = Region.objects.get(name_en=self.kwargs["region_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "region/ads_region.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "region/anon_ads_region.html"
+	def get(self,request,*args,**kwargs):
+		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
+		if request.user.is_authenticated and not request.user.is_deleted:
+			self.template_name = "region/ads_region.html"
+		elif request.user.is_authenticated and request.user.is_deleted:
+			self.template_name = "generic/user_deleted.html"
+		elif request.user.is_anonymous:
+			self.template_name = "region/anon_ads_region.html"
 
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
-        return super(AdsRegionView,self).get(request,*args,**kwargs)
+		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+			self.template_name = "mob_" + self.template_name
+		return super(AdsRegionView,self).get(request,*args,**kwargs)
 
-    def get_context_data(self, **kwargs):
+	def get_context_data(self, **kwargs):
 		from ad_categories.models import AdCategory
 
-        context = super(AdsRegionView, self).get_context_data(**kwargs)
-        context['region'] = self.region
-        context['ad_categories'] = AdCategory.objects.only("pk")
-        return context
-
+		context = super(AdsRegionView, self).get_context_data(**kwargs)
+		context['region'] = self.region
+		context['ad_categories'] = AdCategory.objects.only("pk")
+		return context
 	def get_queryset(self):
-        ads = self.region.get_ads()
-        return ads
+		ads = self.region.get_ads()
+		return ads
 
 
 class CoursesRegionView(ListView):
