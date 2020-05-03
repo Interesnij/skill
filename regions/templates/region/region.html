@@ -29,7 +29,7 @@
     <div class="container">
         <div class="section-title clearfix">
           <div class="float-xl-left float-md-left float-sm-none">
-            <h2><a href="{% url 'ads_region' name_en=region.name_en %}">{{ region.name_ru }} :: последние объявления
+            <h2><a href="{% url 'ads_region' region_name=region.name_en %}">{{ region.name_ru }} :: последние объявления
         </div>
         <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
           {% for object in last_ads %}
