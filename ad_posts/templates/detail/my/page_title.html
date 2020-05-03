@@ -1,0 +1,22 @@
+{% load humanize %}
+
+<div class="page-title" data-pk="{{ ad.pk }}">
+    <div class="container clearfix">
+        <div class="float-left float-xs-none">
+            <h1>{{ ad.title }}</h1>
+            <h4 class="location">
+                <a href="{% url 'region' region_name=ad.city.region.name_en %}">{{ ad.city.region }}</a>,
+                <a href="{% url 'city' city_name=ad.city.name_en %}">{{ ad.city }}</a>
+            </h4>
+        </div>
+        <div class="float-right float-xs-none price">
+            <div class="number"> {{ ad.price|intcomma }} руб.</div>
+            <div class="opacity-50">
+              <a href="">Изменить</a> /
+              <a href="#">
+                <span class="module_remove">Удалить</span>
+              </a>
+            </div>
+        </div>
+    </div>
+</div>
