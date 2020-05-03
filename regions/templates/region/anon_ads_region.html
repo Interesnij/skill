@@ -19,7 +19,10 @@
 <div class="page-title">
     <div class="container">
       <h1 class="opacity-40 center">
-        Россия, {{ region.name_ru }} :: модуль объявлений
+        <a href="{% url 'region' region_name=region.name_en %}">
+          Россия, {{ region.name_ru }}
+        </a>
+        :: модуль объявлений
       </h1>
     </div>
 </div>
@@ -42,7 +45,7 @@
   </section>
   <section class="block">
       <div class="container">
-        <h2>Россия, {{ region.name_ru }} :: академия, категории</h2>
+        <h2>Россия, {{ region.name_ru }} :: объявления, категории</h2>
         <h4 class="row">
           {% for cat in ad_categories %}
               <span class="col-md-3">
