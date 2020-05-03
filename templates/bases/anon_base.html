@@ -12,7 +12,28 @@
 </head>
 
 <body>
-  {% include "base_block/anon_navbar.html" %}
+  <div class="hero">
+          <div class="secondary-navigation">
+            <div class="container">
+              <div class="left">
+                <a style="font-size:20px;color:white" href="{% url 'main' %}">
+                  Название
+                </a>
+                {% block icon %}{% endblock %}
+              </div>
+              <div class="right dropdown" style="padding-right:10px;font-size:20px;">
+                <span>Привет, гость!</span>
+                <img src="{% static 'images/anonim.jpg' %}" style="border-radius:50%;width:30px;height:30px;margin-bottom:3px;">
+                <div class="dropdown-menu">
+                    <a href="{% url 'login' %}" class="dropdown-item">Вход</a>
+                    <a href="{% url 'signup' %}" class="dropdown-item">Регистрация</a>
+                    <a href="{% url 'main' %}" class="dropdown-item">О сайте</a>
+                    <a href="{% url 'faq' %}" class="dropdown-item">Вопросы-ответы</a>
+                </div>
+              </div>
+          </div>
+        </div>
+  </div>
 
   {% block content %}
   {% endblock %}
