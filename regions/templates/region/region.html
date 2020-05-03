@@ -15,9 +15,9 @@
       <h1 class="opacity-40 center">
         <span class="module_1">
         <a href="{% url 'ads_region' name_en=region.name_en %}">Продавайте</a></span>,
-        <span class="skill_content"><a href="{% url 'courses_region' name_en=region.name_en %}">Обучайтесь</a></span>
+        <span class="skill_content"><a href="{% url 'courses_region' region_name=region.name_en %}">Обучайтесь</a></span>
         и
-        <span class="love_content"><a href="{% url 'ankets_region' name_en=region.name_en %}">Знакомьтесь</a></span>
+        <span class="love_content"><a href="{% url 'ankets_region' region_name=region.name_en %}">Знакомьтесь</a></span>
         в регионе {{ region.name_ru }}
       </h1>
     </div>
@@ -29,7 +29,7 @@
     <div class="container">
         <div class="section-title clearfix">
           <div class="float-xl-left float-md-left float-sm-none">
-            <h2><a href="{% url 'ads_main' %}">{{ region.name_ru }} :: последние объявления
+            <h2><a href="{% url 'ads_region' name_en=region.name_en %}">{{ region.name_ru }} :: последние объявления
         </div>
         <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
           {% for object in last_ads %}
@@ -43,7 +43,7 @@
       <div class="container">
           <div class="section-title clearfix">
             <div class="float-xl-left float-md-left float-sm-none">
-              <h2><a href="{% url 'courses_region' name_en=region.name_en %}">{{ region.name_ru }} :: Последние курсы</a></h2>
+              <h2><a href="{% url 'courses_region' region_name=region.name_en %}">{{ region.name_ru }} :: Последние курсы</a></h2>
             </div>
           </div>
           <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
@@ -58,7 +58,7 @@
       <div class="container">
         <div class="section-title clearfix">
             <div class="float-xl-left float-md-left float-sm-none">
-              <h2><a href="{% url 'ankets_region' name_en=region.name_en %}">{{ region.name_ru }} :: Последние анкеты</a></h2>
+              <h2><a href="{% url 'ankets_region' region_name=region.name_en %}">{{ region.name_ru }} :: Последние анкеты</a></h2>
             </div>
         </div>
         <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
