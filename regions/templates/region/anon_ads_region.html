@@ -1,14 +1,28 @@
 {% extends "bases/base.html" %}
-{% load humanize staticfiles thumbnail %}
-{% block title %}Россия, {{ region.name_ru }}{% endblock %}
+{% load humanize %}
+{% block title %}Объявления в России, {{ region.name_ru }}{% endblock %}
+{% block icon %}
+<a style="font-size:20px" class="get_russia" tooltip='Вы в локации "Россия"' flow="down" href="#">
+  <svg height="24" style="padding-top: 5px;" viewBox="0 0 24 24" width="24">
+    <path fill="#FFFFFF" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+  </svg>
+</a>
+<a style="font-size:20px" tooltip="Вы в модуле объявлений" flow="down">
+  <svg fill="#FF0000" style="padding-top: 5px;" width="24" height="24"enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+    <g><rect x="0"/></g>
+    <g><g><g><path d="M9.01,14H2v2h7.01v3L13,15l-3.99-4V14z M14.99,13v-3H22V8h-7.01V5L11,9L14.99,13z"/></g></g></g>
+  </svg>
+</a>
+{% endblock %}
 {% block content %}
 
-{% include 'region/hero_form.html' %}
+{% include 'region/ad_form.html' %}
 
 <section class="content module_1">
   <section class="block">
       <div class="container">
-        <h2>Россия, {{ region.name_ru }}</h2>
+        <h2>Россия, {{ region.name_ru }} :: модуль объявления</h2>
         <h4 class="row">
           {% for cat in ad_categories %}
               <span class="col-md-3">

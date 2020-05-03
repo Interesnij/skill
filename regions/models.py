@@ -24,3 +24,38 @@ class Region(models.Model):
 	    ads_query = Q(city__region__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
 	    ads = Ad.objects.filter(ads_query)
 	    return ads
+
+    def get_last_ads(self):
+	    from ad_posts.models import Ad
+
+	    ads_query = Q(city__region__id=self.id, creator__is_blocked=False, is_deleted=False, is_active=True)
+	    ads = Ad.objects.filter(ads_query)
+	    return ads[0:21]
+
+    def get_courses(self):
+        from skill_posts.models import Course
+
+        courses_query = Q(city__region__id=self.id, creator__is_blocked=False, is_private=False, is_deleted=False, is_active=True)
+        courses = Course.objects.filter(courses_query)
+        return courses
+
+    def get_last_courses(self):
+        from skill_posts.models import Course
+
+        courses_query = Q(city__region__id=self.id, creator__is_blocked=False, is_private=False, is_deleted=False, is_active=True)
+        courses = Course.objects.filter(courses_query)
+        return courses[0:21]
+
+    def get_ankets(self):
+        from love_posts.models import Anketa
+
+        ankets_query = Q(creator_id=self.id, is_deleted=False, is_active=True)
+        ankets = Anketa.objects.filter(ankets_query)
+        return ankets
+
+    def get_last_ankets(self):
+        from love_posts.models import Anketa
+
+        ankets_query = Q(creator_id=self.id, is_deleted=False, is_active=True)
+        ankets = Anketa.objects.filter(ankets_query)
+        return ankets[0:21]
