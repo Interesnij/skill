@@ -1,10 +1,14 @@
-{{ country.name_ru }}
+<style>
+  .reg_item{
+    margin-top:20px;
+    font-size: 20px;
+  }
+</style>
 
 {% for object in regions %}
-
-<h5><a href="{% url 'region' region_name=object.name_en %}">{{ object.name_ru }}</a></h5>
+<h5 class="reg_item"><a href="{% url 'region' region_name=object.name_en %}">{{ object.name_ru }}</a></h5>
 {% for city in object.city_set.all %}
 <span><a href="{% url 'city' city_name=city.name_en %}">{{ city.name_ru }}</a></span>
 {% endfor %}
-<br>
+
 {% endfor %}
