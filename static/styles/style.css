@@ -915,7 +915,7 @@ color:red;
 .hero .page-title .price {
     text-align: right;
 }
-.hero .page-title .price .number {
+.page-title .price .number {
     font-family: 'Varela Round',sans-serif;
     color: #ff0000;
     font-size: 3.6rem;
