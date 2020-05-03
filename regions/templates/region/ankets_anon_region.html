@@ -32,7 +32,7 @@
         <h4 class="row">
           {% for object in region.city_set.all %}
               <span class="col-md-3">
-                <a href="{% url 'city' city_name=cat.object %}">
+                <a href="{% url 'city' city_name=object.name_en %}">
                   {{ object.name_ru }}
                 </a>
               </span>
