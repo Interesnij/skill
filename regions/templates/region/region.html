@@ -24,10 +24,10 @@
     </div>
 </div>
 
-<section class="content skill_content">
+<section class="content">
   <section class="block">
       <div class="container">
-        <h2>Города региона :: академия</h2>
+        <h2>{{ region.name_ru }} :: города</h2>
         <h4 class="row">
           {% for object in region.city_set.all %}
               <span class="col-md-3">
