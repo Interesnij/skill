@@ -5,7 +5,7 @@ from regions.models import Region
 from cities.models import City
 
 
-class CitiesView(TemplateView):
+class CityView(TemplateView):
 	template_name = None
 
 	def get(self,request,*args,**kwargs):
@@ -22,10 +22,10 @@ class CitiesView(TemplateView):
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
 			self.template_name = "mob_" + self.template_name
-		return super(CitiesView,self).get(request,*args,**kwargs)
+		return super(CityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
-		context = super(CitiesView, self).get_context_data(**kwargs)
+		context = super(CityView, self).get_context_data(**kwargs)
 		context['last_ads'] = self.city.get_last_ads()
 		context['last_courses'] = self.city.get_last_courses()
 		context['last_ankets'] = self.city.get_last_ankets()
@@ -33,7 +33,7 @@ class CitiesView(TemplateView):
 		return context
 
 
-class AdCitiesView(ListView):
+class AdCityView(ListView):
 	from ad_posts.models import Ad
 
 	template_name = None
@@ -52,12 +52,12 @@ class AdCitiesView(ListView):
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
 			self.template_name = "mob_" + self.template_name
-		return super(AdCitiesView,self).get(request,*args,**kwargs)
+		return super(AdCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
 		from ad_categories.models import AdCategory
 
-		context = super(AdCitiesView, self).get_context_data(**kwargs)
+		context = super(AdCityView, self).get_context_data(**kwargs)
 		context['city'] = self.city
 		context['ad_categories'] = AdCategory.objects.only("pk")
 		return context
@@ -66,7 +66,7 @@ class AdCitiesView(ListView):
 		return ads
 
 
-class CoursesCitiesView(ListView):
+class CoursesCityView(ListView):
 	from skill_posts.models import Course
 
 	template_name = None
@@ -85,12 +85,12 @@ class CoursesCitiesView(ListView):
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
 			self.template_name = "mob_" + self.template_name
-		return super(CoursesCitiesView,self).get(request,*args,**kwargs)
+		return super(CoursesCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
 		from skill_categories.models import SkillCategory
 
-		context = super(CoursesCitiesView, self).get_context_data(**kwargs)
+		context = super(CoursesCityView, self).get_context_data(**kwargs)
 		context['city'] = self.city
 		context['skill_categories'] = SkillCategory.objects.only("pk")
 		return context
@@ -100,7 +100,7 @@ class CoursesCitiesView(ListView):
 		return courses
 
 
-class AnketsCitiesView(ListView):
+class AnketsCityView(ListView):
 	from love_posts.models import Anketa
 
 	template_name = None
@@ -119,10 +119,10 @@ class AnketsCitiesView(ListView):
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
 			self.template_name = "mob_" + self.template_name
-		return super(AnketsCitiesView,self).get(request,*args,**kwargs)
+		return super(AnketsCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
-		context = super(AnketsCitiesView, self).get_context_data(**kwargs)
+		context = super(AnketsCityView, self).get_context_data(**kwargs)
 		context['city'] = self.city
 		return context
 
