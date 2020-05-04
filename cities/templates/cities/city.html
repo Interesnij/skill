@@ -31,7 +31,7 @@
     <div class="container">
         <div class="section-title clearfix">
           <div class="float-xl-left float-md-left float-sm-none">
-            <h2><a href="{% url 'ads_region' region_name=region.name_en %}">{{ region.name_ru }} :: последние объявления</a></h2>
+            <h2><a href="{% url 'ads_city' city_name=city.name_en %}">{{ city.name_ru }} :: последние объявления</a></h2>
           </div>
         </div>
         <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
@@ -48,7 +48,7 @@
       <div class="container">
           <div class="section-title clearfix">
             <div class="float-xl-left float-md-left float-sm-none">
-              <h2><a href="{% url 'courses_region' region_name=region.name_en %}">{{ region.name_ru }} :: Последние курсы</a></h2>
+              <h2><a href="{% url 'courses_city' city_name=city.name_en %}">{{ city.name_ru }} :: Последние курсы</a></h2>
             </div>
           </div>
           <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
@@ -65,7 +65,7 @@
       <div class="container">
         <div class="section-title clearfix">
             <div class="float-xl-left float-md-left float-sm-none">
-              <h2><a href="{% url 'ankets_region' region_name=region.name_en %}">{{ region.name_ru }} :: Последние анкеты</a></h2>
+              <h2><a href="{% url 'ankets_city' city_name=city.name_en %}">{{ city.name_ru }} :: Последние анкеты</a></h2>
             </div>
         </div>
         <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
