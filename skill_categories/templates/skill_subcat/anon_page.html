@@ -1,4 +1,4 @@
-{% extends "bases/base.html" %}
+{% extends "bases/anon_base.html" %}
 {% load humanize staticfiles thumbnail %}
 {% block title %}Россия :: {{ sub_category.name_ru }}{% endblock %}
 {% block content %}
@@ -29,7 +29,7 @@
         </div>
         <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
             {% for object in object_list %}
-              {% include 'generic/skill.html' %}
+              {% include 'generic/anon_skill.html' %}
             {% endfor %}
           </div>
 
