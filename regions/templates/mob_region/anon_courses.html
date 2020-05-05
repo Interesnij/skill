@@ -1,8 +1,8 @@
-{% extends "mob_bases/base.html" %}
+{% extends "mob_bases/anon_base.html" %}
 {% load humanize %}
-{% block title %}Курсы в г.{{ city.city_ru }}, {{ city.region.name_ru }}{% endblock %}
+{% block title %}Курсы в России, {{ region.name_ru }}{% endblock %}
 {% block icon %}
-<a style="font-size:20px" class="get_russia" tooltip='Вы в городе "{{ city.name_ru }}"' flow="down" href="#">
+<a style="font-size:20px" class="get_russia" tooltip='Вы в регионе "{{ region.name_ru }}"' flow="down" href="#">
   <svg height="24" style="padding-top: 5px;" viewBox="0 0 24 24" width="24">
     <path fill="#FFFFFF" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
@@ -19,23 +19,37 @@
     <div class="container">
       <h1 class="opacity-40 center">
         <a href="{% url 'region' region_name=region.name_en %}">
-          Россия, {{ city.name_ru }}
+          Россия, {{ region.name_ru }}
         </a>
         :: модуль академии
       </h1>
     </div>
 </div>
-{% include 'cities/skill_form.html' %}
+{% include 'region/skill_form.html' %}
 
 <section class="content skill_content">
   <section class="block">
       <div class="container">
-        <h2>Россия, {{ city.name_ru }} :: категории курсов</h2>
+        <h2>Россия, {{ region.name_ru }} :: категории курсов</h2>
         <h4 class="row">
           {% for cat in skill_categories %}
               <span class="col-md-3">
                 <a href="{% url 'course_category_region' cat_name=cat.name_en region_name=region.name_en %}">
                   {{ cat.name_ru }} ({{ cat.get_course_count }})
+                </a>
+              </span>
+          {% endfor %}
+         </h4>
+      </div>
+  </section>
+  <section class="block">
+      <div class="container">
+        <h2>Города региона :: академия</h2>
+        <h4 class="row">
+          {% for object in region.city_set.all %}
+              <span class="col-md-3">
+                <a href="{% url 'city' city_name=object.name_en %}">
+                  {{ object.name_ru }}
                 </a>
               </span>
           {% endfor %}
@@ -60,7 +74,7 @@
         </div>
         <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
             {% for object in object_list %}
-              {% include 'generic/course.html' %}
+              {% include 'generic/anon_course.html' %}
             {% endfor %}
           </div>
 

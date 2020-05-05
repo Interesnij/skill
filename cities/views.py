@@ -114,7 +114,7 @@ class AnketsCityView(ListView):
 		elif request.user.is_authenticated and request.user.is_deleted:
 			self.template_name = "generic/user_deleted.html"
 		elif request.user.is_anonymous:
-			self.template_name = "cities/ankets_anon.html"
+			self.template_name = "cities/anon_ankets.html"
 
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):

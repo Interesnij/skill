@@ -1,39 +1,46 @@
 {% extends "mob_bases/anon_base.html" %}
-{% load staticfiles %}
+{% block title %}Модуль академии по всей России{% endblock %}
+{% block icon %}
+<a style="font-size:20px" class="get_russia" tooltip='Вы в локации "Россия"' flow="down" href="#">
+  <svg height="24" style="padding-top: 5px;" viewBox="0 0 24 24" width="24">
+    <path fill="#FFFFFF" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+  </svg>
+</a>
+<a style="font-size:20px" tooltip="Вы в модуле академии" flow="down">
+  <svg fill="#28A745" style="padding-top: 5px;" width="24" height="24"enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+  </svg>
+</a>
+{% endblock %}
 
-{% block title %}Сайт объявлений по всей России{% endblock %}
 {% block content %}
-<style>
-  .hero .page-title .current_link{
-    color: #ff0000;
-  }
-  .hero .page-title .current_link:after {
-    background-color: #ff0000
-  }
-</style>
 <div class="page-title">
     <div class="container">
       <h1 class="opacity-40 center">
-          <a href="#">Обучайтесь</a>, <a class="current_link">Продавайте</a> на одном сайте!
+        Россия :: модуль академии
       </h1>
     </div>
 </div>
+{% include 'main/courses/skill_form.html' %}
 
-{% include 'generic/big_form.html' %}
+<section class="content skill_content">
+  <section class="block">
+      <div class="container">
+        <h2>Категории курсов</h2>
+        <h4 class="row">
+          {% for cat in skill_categories %}
+              <span class="col-md-3">
+                <a href="{% url 'skill_category' cat_name=cat.name_en %}">
+                  {{ cat.name_ru }} ({{ cat.get_course_count }})
+                </a>
+              </span>
+          {% endfor %}
+         </h4>
+      </div>
+  </section>
 
-<div class="background">
-    <div class="background-image">
-        <img src="{% static 'images/hero-background-image-02.jpg' %}" alt="">
-    </div>
-</div>
-</div>
-</header>
-
-<section class="content">
-
-    {% include 'main/new_ads.html' %}
-
-    {% include 'main/categories.html' %}
+    {% include 'main/courses/new_courses.html' %}
 
     <section class="block" style="background: black;color: white;">
         <div class="container">
@@ -43,7 +50,7 @@
                     <div class="col-md-3">
                         <div class="feature-box">
                             <figure>
-                                <img src="{% static 'images/feature-user.png' %}" alt="">
+                                <img src="/static/images/feature-user.png" alt="">
                                 <span style="color: black;">1</span>
                             </figure>
                             <h3>Создаёте аккаунт</h3>
@@ -53,7 +60,7 @@
                     <div class="col-md-3">
                         <div class="feature-box">
                             <figure>
-                                <img src="{% static 'images/feature-upload.png' %}" alt="">
+                                <img src="/static/images/feature-upload.png" alt="">
                                 <span style="color: black;">2</span>
                             </figure>
                             <h3>Добавляете объявление</h3>
@@ -63,7 +70,7 @@
                     <div class="col-md-3">
                         <div class="feature-box">
                             <figure>
-                                <img src="{% static 'images/feature-like.png' %}" alt="">
+                                <img src="/static/images/feature-like.png" alt="">
                                 <span style="color: black;">3</span>
                             </figure>
                             <h3>Ждёте покупателя</h3>
@@ -73,7 +80,7 @@
                     <div class="col-md-3">
                         <div class="feature-box">
                             <figure>
-                                <img src="{% static 'images/feature-wallet.png' %}" alt="">
+                                <img src="/static/images/feature-wallet.png" alt="">
                                 <span style="color: black;">4</span>
                             </figure>
                             <h3>Получаете оплату</h3>
