@@ -13,26 +13,27 @@
 
 <body>
   <div class="hero">
-          <div class="secondary-navigation">
-            <div class="container">
-              <div class="left" style="display:flex">
-                <a style="font-size:20px;color:white" href="{% url 'main' %}">
-                  Модули
-                </a>
-                {% block icon %}{% endblock %}
-              </div>
-              <div class="right dropdown" style="padding-right:10px;font-size:20px;padding-top:8px">
-                <span>Привет, гость!</span>
-                <img src="{% static 'images/anonim.jpg' %}" style="border-radius:50%;width:30px;height:30px;margin-bottom:3px;">
-                <div class="dropdown-menu">
-                    <a href="{% url 'login' %}" class="dropdown-item">Вход</a>
-                    <a href="{% url 'signup' %}" class="dropdown-item">Регистрация</a>
-                    <a href="{% url 'main' %}" class="dropdown-item">О сайте</a>
-                    <a href="{% url 'faq' %}" class="dropdown-item">Вопросы-ответы</a>
-                </div>
-              </div>
+    <div class="secondary-navigation">
+        <div class="container">
+          <div class="left" style="display:flex">
+            <a style="font-size:20px;color:white" href="{% url 'main' %}">
+              Модули
+            </a>
+            {% block icon %}{% endblock %}
+          </div>
+          <div class="right dropdown" style="padding-right:10px;font-size:20px;padding-top:8px">
+            <span>Мой профиль</span>
+            <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px;margin-bottom:3px;">
+            <div class="dropdown-menu">
+                <a href="{% url 'user' pk=request.user.pk %}" class="dropdown-item">Мой профиль</a>
+                <a href="{% url 'ad_add' %}" class="dropdown-item">Подать объявление</a>
+                <a href="" class="dropdown-item">Разместить курс</a>
+                <a href="{% url 'logout' %}" class="dropdown-item">Выйти</a>
+                <a href="{% url 'faq' %}" class="dropdown-item">Вопросы-ответы</a>
+            </div>
           </div>
         </div>
+    </div>
   </div>
 
   {% block content %}
