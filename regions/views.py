@@ -42,11 +42,11 @@ class AdsRegionView(ListView):
 	def get(self,request,*args,**kwargs):
 		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
 		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "region/ads_region.html"
+			self.template_name = "region/ads.html"
 		elif request.user.is_authenticated and request.user.is_deleted:
 			self.template_name = "generic/user_deleted.html"
 		elif request.user.is_anonymous:
-			self.template_name = "region/anon_ads_region.html"
+			self.template_name = "region/anon_ads.html"
 
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
@@ -75,11 +75,11 @@ class CoursesRegionView(ListView):
 	def get(self,request,*args,**kwargs):
 		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
 		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "region/courses_region.html"
+			self.template_name = "region/courses.html"
 		elif request.user.is_authenticated and request.user.is_deleted:
 			self.template_name = "generic/user_deleted.html"
 		elif request.user.is_anonymous:
-			self.template_name = "region/anon_courses_region.html"
+			self.template_name = "region/anon_courses.html"
 
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
@@ -109,11 +109,11 @@ class AnketsRegionView(ListView):
 	def get(self,request,*args,**kwargs):
 		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
 		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "region/ankets_region.html"
+			self.template_name = "region/ankets.html"
 		elif request.user.is_authenticated and request.user.is_deleted:
 			self.template_name = "generic/user_deleted.html"
 		elif request.user.is_anonymous:
-			self.template_name = "region/ankets_ads_region.html"
+			self.template_name = "region/anon_ankets.html"
 
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):

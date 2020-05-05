@@ -1,16 +1,17 @@
 {% extends "bases/base.html" %}
 {% load humanize %}
-{% block title %}Курсы в г.{{ city.city_ru }}, {{ city.region.name_ru }}{% endblock %}
+{% block title %}Объявления в России, {{ region.name_ru }}{% endblock %}
 {% block icon %}
-<a style="font-size:20px" class="get_russia" tooltip='Вы в городе "{{ city.name_ru }}"' flow="down" href="#">
+<a style="font-size:20px" class="get_russia" tooltip='Вы в регионе "{{ region.name_ru }}"' flow="down" href="#">
   <svg height="24" style="padding-top: 5px;" viewBox="0 0 24 24" width="24">
     <path fill="#FFFFFF" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
     <path d="M0 0h24v24H0z" fill="none"/>
   </svg>
 </a>
-<a style="font-size:20px" tooltip="Вы в модуле академии" flow="down">
-  <svg fill="#28A745" style="padding-top: 5px;" width="24" height="24"enable-background="new 0 0 24 24" viewBox="0 0 24 24">
-    <path d="M0 0h24v24H0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+<a style="font-size:20px" tooltip="Вы в модуле объявлений" flow="down">
+  <svg fill="#FF0000" style="padding-top: 5px;" width="24" height="24"enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+    <g><rect x="0"/></g>
+    <g><g><g><path d="M9.01,14H2v2h7.01v3L13,15l-3.99-4V14z M14.99,13v-3H22V8h-7.01V5L11,9L14.99,13z"/></g></g></g>
   </svg>
 </a>
 {% endblock %}
@@ -19,22 +20,36 @@
     <div class="container">
       <h1 class="opacity-40 center">
         <a href="{% url 'region' region_name=region.name_en %}">
-          Россия, {{ city.name_ru }}
+          Россия, {{ region.name_ru }}
         </a>
-        :: модуль академии
+        :: модуль объявлений
       </h1>
     </div>
 </div>
-{% include 'cities/skill_form.html' %}
+{% include 'region/ad_form.html' %}
 
-<section class="content skill_content">
+<section class="content module_1">
   <section class="block">
       <div class="container">
-        <h2>Россия, {{ city.name_ru }} :: категории курсов</h2>
+        <h2>Города региона :: объявления</h2>
         <h4 class="row">
-          {% for cat in skill_categories %}
+          {% for object in region.city_set.all %}
               <span class="col-md-3">
-                <a href="{% url 'course_category_region' cat_name=cat.name_en region_name=region.name_en %}">
+                <a href="{% url 'city' city_name=object.name_en %}">
+                  {{ object.name_ru }}
+                </a>
+              </span>
+          {% endfor %}
+         </h4>
+      </div>
+  </section>
+  <section class="block">
+      <div class="container">
+        <h2>Россия, {{ region.name_ru }} :: категории объявлений</h2>
+        <h4 class="row">
+          {% for cat in ad_categories %}
+              <span class="col-md-3">
+                <a href="{% url 'ad_category_region' cat_name=cat.name_en region_name=region.name_en %}">
                   {{ cat.name_ru }} ({{ cat.get_course_count }})
                 </a>
               </span>
@@ -60,7 +75,7 @@
         </div>
         <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
             {% for object in object_list %}
-              {% include 'generic/anon_course.html' %}
+              {% include 'generic/anon_ad.html' %}
             {% endfor %}
           </div>
 
