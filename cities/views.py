@@ -17,7 +17,7 @@ class CityView(TemplateView):
 		elif request.user.is_authenticated and request.user.is_deleted:
 			self.template_name = "generic/user_deleted.html"
 		elif request.user.is_anonymous:
-			self.template_name = "cities/anon_region.html"
+			self.template_name = "cities/anon_city.html"
 
 		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
 		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
