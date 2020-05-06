@@ -12,7 +12,7 @@ def get_template_ad_detail(ad, folder, template, request):
     elif request.user.pk != ad.creator.pk and request.user.is_authenticated:
         if not request.user.is_phone_verified:
             template_name = "main/phone_verification.html"
-        elif request.user.is_blocked_with_user_with_id(user_id=self.pk):
+        elif request.user.is_blocked_with_user_with_id(user_id=ad.creator.pk):
             template_name = "generic/you_are_block.html"
         elif request.user.is_deleted:
             template_name = "generic/deleted_page.html"
