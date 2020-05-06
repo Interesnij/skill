@@ -76,7 +76,7 @@ class CourseFavourites(models.Model):
         return self.user
 
     class Meta:
-        verbose_name = "Избранная анкета"
-        verbose_name_plural = "Избранные анкеты"
+        verbose_name = "Избранный курс"
+        verbose_name_plural = "Избранные курсы"
         unique_together = ('course', 'user',)
         indexes = (BrinIndex(fields=['created']),)

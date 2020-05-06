@@ -59,10 +59,10 @@ class SkillRegionCategoryView(ListView):
         MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
         if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
             self.template_name = "mob_" + self.template_name
-        return super(AdRegionCategoryView,self).get(request,*args,**kwargs)
+        return super(SkillRegionCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(AdRegionCategoryView, self).get_context_data(**kwargs)
+        context = super(SkillRegionCategoryView, self).get_context_data(**kwargs)
         context['category'] = self.cat
         context['region'] = self.region
         context['skill_categories'] = SkillCategory.objects.only("pk")
@@ -184,10 +184,10 @@ class SkillCitySubCategoryView(ListView):
         MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
         if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
             self.template_name = "mob_" + self.template_name
-        return super(AdCitySubCategoryView,self).get(request,*args,**kwargs)
+        return super(SkillCitySubCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(AdCitySubCategoryView, self).get_context_data(**kwargs)
+        context = super(SkillCitySubCategoryView, self).get_context_data(**kwargs)
         context['sub_category'] = self.cat
         context['city'] = self.city
         context['skill_categories'] = SkillCategory.objects.only("pk")
