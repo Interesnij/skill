@@ -1,3 +1,10 @@
+.img_cat_header{
+  width: 24px;
+  height: 24px;
+  background: #F2F2F2;
+  border-radius: 50px;
+}
+
 [tooltip] {
   position: relative; /* opinion 1 */
 }
