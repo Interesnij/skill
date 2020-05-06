@@ -16,7 +16,7 @@ class CourseDetailView(TemplateView):
         from common.get_templates import get_template_ad_detail
 
         self.course = Course.objects.get(pk=self.kwargs["pk"])
-        self.template_name = request.user.get_template_course_detail(course=self.course, folder="detail/", template="course.html", request=request)
+        self.template_name = get_template_course_detail(course=self.course, folder="detail/", template="course.html", request=request)
         return super(CourseDetailView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):

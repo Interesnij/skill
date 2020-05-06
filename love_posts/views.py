@@ -15,7 +15,7 @@ class AnketaDetailView(TemplateView):
         from common.get_templates import get_template_anketa_detail
 
         self.anketa = Anketa.objects.get(pk=self.kwargs["pk"])
-        self.template_name = request.user.get_template_anketa_detail(anketa=self.anketa, folder="detail/", template="anketa.html", request=request)
+        self.template_name = get_template_anketa_detail(anketa=self.anketa, folder="detail/", template="anketa.html", request=request)
         return super(AnketaDetailView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
