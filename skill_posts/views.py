@@ -13,7 +13,7 @@ class CourseDetailView(TemplateView):
     template_name = None
 
     def get(self,request,*args,**kwargs):
-        from common.get_templates import get_template_ad_detail
+        from common.get_templates import get_template_course_detail
 
         self.course = Course.objects.get(pk=self.kwargs["pk"])
         self.template_name = get_template_course_detail(course=self.course, folder="detail/", template="course.html", request=request)
