@@ -4,6 +4,9 @@
   background: #F2F2F2;
   border-radius: 50px;
 }
+.get_russia{
+  cursor:pointer
+}
 
 [tooltip] {
   position: relative; /* opinion 1 */
