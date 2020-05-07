@@ -14,7 +14,7 @@
   </svg>
 </a>
 <a style="font-size:20px"
-   tooltip="{{ category.name_ru }}"
+   tooltip="{{ sub_category.category.name_ru }}"
    flow="down"
    href="{% url 'ad_category_city' city_name=city.name_en cat_name=sub_category.category.name_en %}">
    <img class="img_cat_header" src="{{ sub_category.category.image.url }}" />
