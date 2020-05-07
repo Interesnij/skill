@@ -34,7 +34,7 @@
         <h4 class="row">
           {% for cat in category.skillsubcategory_set.all %}
               <span class="col-md-3">
-                <a href="{% url 'skill_category_city' cat_name=cat.name_en city_name=city.name_en %}">
+                <a href="{% url 'skill_subcategory_city' subcat_name=cat.name_en city_name=city.name_en %}">
                   {{ cat.name_ru }} ({{ cat|cat_city_count:city.pk }})
                 </a>
               </span>
