@@ -1,0 +1,86 @@
+{% extends "bases/base.html" %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+
+{% include "detail/anon/page_title.html" %}
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                  {% include 'ad_images.html' %}
+
+                    <section>
+                        <h2>Описание</h2>
+                        <p>{{ ad.description }}</p>
+                    </section>
+
+                    <section>
+                        <h2>Детали</h2>
+                        <div class="row">
+                          <div class="col-md-8">
+                              <dl>
+                                <dt>Категория</dt>             <dd> {{ ad.category.category }}</dd>
+                                <dt>Подкатегория</dt>          <dd> {{ ad.category }}</dd>
+
+                                <dt>Тип</dt><dd> {{ ad.sport.type_protect }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_sport }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_bikes }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_rolls }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_scoo }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_bili }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_water }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_combat }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_winter }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_ball }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_tou }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_hunting }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_fit }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.sport.type_nutrition }}</dd>
+                                <dt>Рама / Рост велосипедиста</dt><dd> {{ ad.sport.frame }}</dd>
+                                <dt>Цвет</dt><dd> {{ ad.sport.color }}</dd>
+
+                                <dt>Для детей</dt><dd> {{ ad.sport.for_kind }}</dd>
+                              </dl>
+                          </div>
+                       </div>
+                    </section>
+
+                    {% include 'section_author.html' %}
+                </div>
+
+                <div class="col-md-4">
+                    <aside class="sidebar">
+
+                      {% include 'section_simular.html' %}
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+var ready = (callback) => {if (document.readyState != "loading") callback();else document.addEventListener("DOMContentLoaded", callback)}
+
+ready(() => {
+  var list = document.querySelectorAll('dd');
+  var count = list.length;
+  for(i=0; i<count; i++) {
+    if(list[i].innerHTML == " " || list[i].innerHTML == " False" ){
+      list[i].previousElementSibling.remove();
+      list[i].remove();
+    }
+    else if(list[i].innerHTML == " True"){
+      list[i].innerHTML = "Есть";
+      list[i].classList.add("current_dd");
+    }
+    else{
+      list[i].classList.add("current_dd")
+    }}
+})
+</script>
+{% endblock %}

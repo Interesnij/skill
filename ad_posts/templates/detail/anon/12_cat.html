@@ -1,0 +1,100 @@
+{% extends "bases/base.html" %}
+{% block title %}{{ ad.title }}{% endblock %}
+{% block content %}
+
+{% include "detail/anon/page_title.html" %}
+
+<section class="content">
+    <section class="block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                  {% include 'ad_images.html' %}
+
+                    <section>
+                        <h2>Описание</h2>
+                        <p>{{ ad.description }}</p>
+                    </section>
+
+                    <section>
+                        <h2>Детали</h2>
+                        <div class="row">
+                          <div class="col-md-8">
+                              <dl>
+                                <dt>Категория</dt>             <dd> {{ ad.category.category }}</dd>
+                                <dt>Подкатегория</dt>          <dd> {{ ad.category }}</dd>
+
+                                <dt>Тип фотоаппарата</dt><dd> {{ ad.fotovideo.type_foto }}</dd>
+                                <dt>Категория</dt><dd> {{ ad.fotovideo.cat_foto }}</dd>
+                                <dt>Марка камеры</dt><dd> {{ ad.fotovideo.brand_foto }}</dd>
+                                <dt>Марка</dt><dd> {{ ad.fotovideo.brand }}</dd>
+                                <dt>Марка видеокамеры</dt><dd> {{ ad.fotovideo.type_video }}</dd>
+                                <dt>Тип видеонаблюдение</dt><dd> {{ ad.fotovideo.video_control }}</dd>
+                                <dt>Тип подключения</dt><dd> {{ ad.fotovideo.connection }}</dd>
+                                <dt>Марка объектива</dt><dd> {{ ad.fotovideo.brand_lens }}</dd>
+                                <dt>Тип объектива</dt><dd> {{ ad.fotovideo.type_lens }}</dd>
+                                <dt>Тип байонета</dt><dd> {{ ad.fotovideo.type_bayonet }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.fotovideo.type_flashes }}</dd>
+                                <dt>Марка фотовспышки</dt><dd> {{ ad.fotovideo.brand_flashes }}</dd>
+                                <dt>Поворотная головка</dt><dd> {{ ad.fotovideo.swivel_head }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.fotovideo.type_aks }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.fotovideo.tripods }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.fotovideo.studio }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.fotovideo.frame }}</dd>
+                                <dt>Тип</dt><dd> {{ ad.fotovideo.type_optics }}</dd>
+                                <dt>Бренд</dt><dd> {{ ad.fotovideo.brand_compact }}</dd>
+                                <dt>Видоискатель</dt><dd> {{ ad.fotovideo.viewfinder }}</dd>
+                                <dt>Стабилизатор изображения</dt><dd> {{ ad.fotovideo.stabilizer }}</dd>
+                                <dt>Качество видео</dt><dd> {{ ad.fotovideo.quality }}</dd>
+                                <dt>Формат носителя</dt><dd> {{ ad.fotovideo.media }}</dd>
+                                <dt>Оптический Zoom</dt><dd> {{ ad.fotovideo.zoom }}</dd>
+
+                                <dt>Экшн-камера</dt><dd> {{ ad.fotovideo.action }}</dd>
+                                <dt>Съемка в 360 градусов</dt><dd> {{ ad.fotovideo.s360 }}</dd>
+                                <dt>WI-FI</dt><dd> {{ ad.fotovideo.wi_fi }}</dd>
+                                <dt>Датчик движения</dt><dd> {{ ad.fotovideo.monitor_sensor }}</dd>
+                                <dt>Встроенный микрофон</dt><dd> {{ ad.fotovideo.microfon }}</dd>
+                                <dt>Автофокус</dt><dd> {{ ad.fotovideo.autofocus }}</dd>
+                                <dt>Воспроизведение видео</dt><dd> {{ ad.fotovideo.video }}</dd>
+                              </dl>
+                          </div>
+                       </div>
+                    </section>
+
+                    {% include 'section_author.html' %}
+                </div>
+
+                <div class="col-md-4">
+                    <aside class="sidebar">
+
+                      {% include 'section_simular.html' %}
+
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<script>
+var ready = (callback) => {if (document.readyState != "loading") callback();else document.addEventListener("DOMContentLoaded", callback)}
+
+ready(() => {
+  var list = document.querySelectorAll('dd');
+  var count = list.length;
+  for(i=0; i<count; i++) {
+    if(list[i].innerHTML == " " || list[i].innerHTML == " False" ){
+      list[i].previousElementSibling.remove();
+      list[i].remove();
+    }
+    else if(list[i].innerHTML == " True"){
+      list[i].innerHTML = "Есть";
+      list[i].classList.add("current_dd");
+    }
+    else{
+      list[i].classList.add("current_dd")
+    }}
+})
+</script>
+{% endblock %}
