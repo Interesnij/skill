@@ -19,7 +19,13 @@
 </a>
 {% endblock %}
 {% block content %}
-
+<div class="page-title">
+    <div class="container">
+      <h1 class="opacity-40 center">
+        {{ region.name_ru }} :: объявления, {{ category.name_ru }}
+      </h1>
+    </div>
+</div>
 {% include 'ad_cat_region/hero_form.html' %}
 
 <section class="content module_1">

@@ -1,14 +1,36 @@
-{% extends "bases/anon_base.html" %}
-{% load humanize ad_count %}
-{% block title %}Россия, {{ city.region.name_ru }}, {{ city.name_ru }} :: {{ sub_category.category.name_ru }}, {{ sub_category.name_ru }}{% endblock %}
+{% extends "bases/anonbase.html" %}
+{% load ad_count %}
+{% block title %}{{ city.region.name_ru }}, {{ city.name_ru }} :: академия - {{ sub_category.category.name_ru }}, {{ sub_category.name_ru }}{% endblock %}
+{% block icon %}
+<a style="font-size:20px" class="get_russia" tooltip='{{ city.region.name_ru }}, {{ city.name_ru }}' flow="down">
+  <svg height="24" style="padding-top: 5px;" viewBox="0 0 24 24" width="24">
+    <path fill="#FFFFFF" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+  </svg>
+</a>
+<a style="font-size:20px" tooltip="Модуль академии" flow="down" href="{% url 'courses_main' %}">
+  <svg fill="#28A745" style="padding-top: 5px;" width="24" height="24"enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+  </svg>
+</a>
+<a style="font-size:20px"
+   tooltip="{{ sub_category.category.name_ru }}"
+   flow="down"
+   href="{% url 'skill_category_city' city_name=city.name_en cat_name=sub_category.category.name_en %}">
+   <img class="img_cat_header" src="{{ sub_category.category.image.url }}" />
+</a>
+{% endblock %}
 {% block content %}
-
+<div class="page-title">
+    <div class="container">
+      <h1 class="opacity-40 center">
+        {{ city.region.name_ru }}, {{ city.name_ru }} :: курсы <br> {{ sub_category.category.name_ru }}, {{ sub_category.name_ru }}
+      </h1>
+    </div>
+</div>
 {% include 'skill_subcat_city/hero_form.html' %}
 
 <section class="content skill_content">
-  <div class="container">
-    <h2>Россия, {{ city.region.name_ru }}, {{ city.name_ru }} :: {{ sub_category.category.name_ru }}, {{ sub_category.name_ru }}</h2>
-  </div>
   <section class="block">
       <div class="container">
         <div class="row">
