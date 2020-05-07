@@ -16,7 +16,7 @@
 <a style="font-size:20px"
    tooltip="{{ category.name_ru }}"
    flow="down"
-   href="{% url 'ad_category_region' region_name=region.name_en cat_name=category.name_en %}">
+   href="{% url 'ad_category_region' region_name=region.name_en cat_name=sub_category.category.name_en %}">
    <img class="img_cat_header" src="{{ category.image.url }}" />
 </a>
 {% endblock %}
