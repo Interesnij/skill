@@ -13,10 +13,18 @@
     <g><g><g><path d="M9.01,14H2v2h7.01v3L13,15l-3.99-4V14z M14.99,13v-3H22V8h-7.01V5L11,9L14.99,13z"/></g></g></g>
   </svg>
 </a>
-<a style="font-size:20px" tooltip="{{ category.name_ru }} " flow="down">
+<a style="font-size:20px" tooltip="{{ category.name_ru }}" flow="down">
   <img class="img_cat_header" src="{{ category.image.url }}" />
 </a>
 {% endblock %}
+{% block navigation %}
+<div class="header_navigation container">
+  <a class="get_russia" tooltip='Нажмите для смены локации' flow="down" href="#">Россия</a> /
+  <a href="{% url 'ads_main' %}">Модуль объявлений</a> /
+  <a>{{ category.name_ru }}</a>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="page-title">
     <div class="container">

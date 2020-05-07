@@ -9,6 +9,12 @@
   </svg>
 </a>
 {% endblock %}
+{% block navigation %}
+<div class="header_navigation container">
+  <a class="get_russia" tooltip='Нажмите для смены локации' flow="down" href="#">Россия, г.{{ city.city_ru }}, {{ city.region.name_ru }}</a>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="page-title">
     <div class="container">

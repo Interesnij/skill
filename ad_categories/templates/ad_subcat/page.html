@@ -20,6 +20,15 @@
   <img class="img_cat_header" src="{{ sub_category.category.image.url }}" />
 </a>
 {% endblock %}
+{% block navigation %}
+<div class="header_navigation container">
+  <a class="get_russia" tooltip='Нажмите для смены локации' flow="down" href="#">Россия</a> /
+  <a href="{% url 'ads_main' %}">Модуль объявлений</a> /
+  <a href="{% url 'ad_category' cat_name=sub_category.category.name_en %}">{{ category.name_ru }}</a> /
+  <a>{{ sub_category.category.name_ru }}</a>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="page-title">
     <div class="container">

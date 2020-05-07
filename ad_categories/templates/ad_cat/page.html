@@ -17,6 +17,14 @@
   <img class="img_cat_header" src="{{ category.image.url }}" />
 </a>
 {% endblock %}
+{% block navigation %}
+<div class="header_navigation container">
+  <a class="get_russia" tooltip='Нажмите для смены локации' flow="down" href="#">Россия</a> /
+  <a href="{% url 'ads_main' %}">Модуль объявлений</a> /
+  <a>{{ category.name_ru }}</a>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="page-title">
     <div class="container">
