@@ -44,6 +44,7 @@ on('body', 'click', '.module_favorite', function(e) {
 })
 
 on('body', 'click', '.ad_like', function() {
+  like = this;
   pk = document.getElementById("creator_pk").getAttribute("data-pk");
   uuid = document.querySelector(".page-title").getAttribute("data-uuid");
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
@@ -56,14 +57,10 @@ on('body', 'click', '.ad_like', function() {
     dislikes_count = dislike.querySelector(".dislikes_count");
     likes_count.innerHTML = jsonResponse.like_count;
     dislikes_count.innerHTML = jsonResponse.dislike_count;
-    document.querySelector(".likes_count").classList.toggle("btn_success");
-    document.querySelector(".likes_count").classList.toggle("btn_default");
+    like.classList.toggle("btn_success");
+    like.classList.toggle("btn_default");
     dislike.classList.add("btn_default");
     dislike.classList.remove("btn_danger");
-    console.log(this);
-    console.log(dislike);
-    console.log(likes_count);
-    console.log(dislikes_count);
   }};
   link.send( null );
 })
