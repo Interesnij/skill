@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from ad_posts.views import AdPostsView, AdDetailView, AdCreate, FormAdd
 
 
