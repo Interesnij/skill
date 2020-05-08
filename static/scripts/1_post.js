@@ -52,7 +52,7 @@ on('body', 'click', '.ad_like', function() {
   if ( link.readyState == 4 && link.status == 200 ) {
     like = this;
     jsonResponse = JSON.parse(link.responseText);
-    dislike = like.parentElement.nextElementSibling.querySelector(".ad_dislike");
+    dislike = like.parent.nextElementSibling.querySelector(".ad_dislike");
     likes_count = like.querySelector(".likes_count");
     dislikes_count = dislike.querySelector(".dislikes_count");
     likes_count.innerHTML = jsonResponse.like_count;
