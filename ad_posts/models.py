@@ -51,10 +51,20 @@ class Ad(models.Model):
         likes = AdVotes.objects.filter(parent=self, vote__gt=0)
         return likes
 
+    def likes_count(self):
+        from common.model.votes import AdVotes
+        likes = AdVotes.objects.filter(parent=self, vote__gt=0).values("pk")
+        return likes.count()
+
     def dislikes(self):
         from common.model.votes import AdVotes
         dislikes = AdVotes.objects.filter(parent=self, vote__lt=0)
         return dislikes
+
+    def dislikes_count(self):
+        from common.model.votes import AdVotes
+        dislikes = AdVotes.objects.filter(parent=self, vote__lt=0).values("pk")
+        return dislikes.count()
 
 
 class AdDesign(models.Model):
