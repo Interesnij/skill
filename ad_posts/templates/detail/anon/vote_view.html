@@ -1,0 +1,26 @@
+{% load liked_user %}
+
+<section>
+  <h2>Статистика</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <span class="ad_like {% if ad.likes|user_in:request.user %}btn_success{% else %}btn_default{% endif %}">
+        Оценили
+      </span
+      <span class="likes_count" data-count="like">
+        {{ ad.likes.count }}
+      </span>
+    </div>
+    <div class="col-md-4">
+      <span class="ad_dislike {% if ad.dislikes|user_in:request.user %}btn_danger{% else %}btn_default{% endif %}">
+        Не оценили
+      </span>
+      <span class="dislikes_count" data-count="dislike">
+        {{ ad.dislikes.count }}
+      </span>
+    </div>
+    <div class="col-md-4">
+      Увидели
+    </div>
+ </div>
+</section>
