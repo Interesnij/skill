@@ -25,8 +25,8 @@ class AdLike(View):
                 result = True
                 #item.notification_user_like(request.user)
         return HttpResponse(json.dumps({"result": result,
-                                        "like_count": str(ad.likes.count),
-                                        "dislike_count": str(ad.dislikes.count)}),
+                                        "like_count": str(ad.likes.count()),
+                                        "dislike_count": str(ad.dislikes.count())}),
                                     content_type="application/json")
 
 
@@ -49,6 +49,6 @@ class AdDisLike(View):
                 result = True
                 #item.notification_user_dislike(request.user)
         return HttpResponse(json.dumps({"result": result,
-                                        "like_count": str(ad.likes.count),
-                                        "dislike_count": str(ad.dislikes.count)}),
+                                        "like_count": str(ad.likes.count()),
+                                        "dislike_count": str(ad.dislikes.count())}),
                                     content_type="application/json")
