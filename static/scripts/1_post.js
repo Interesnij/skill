@@ -44,14 +44,14 @@ on('body', 'click', '.module_favorite', function(e) {
 })
 
 on('body', 'click', '.ad_like', function() {
-  like = this;
   pk = document.getElementById("creator_pk").getAttribute("data-pk");
   uuid = document.querySelector(".page-title").getAttribute("data-uuid");
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'GET', "/posts/votes/like/" + uuid + "/" + pk + "/", true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
-    jsonResponse = JSON.parse(link__.responseText);
+    like = this;
+    jsonResponse = JSON.parse(link.responseText);
     dislike = like.parentElement.nextElementSibling.querySelector(".ad_dislike");
     likes_count = like.querySelector(".likes_count");
     dislikes_count = dislike.querySelector(".dislikes_count");
