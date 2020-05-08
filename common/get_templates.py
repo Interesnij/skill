@@ -27,10 +27,18 @@ def get_template_ad_detail(ad, folder, template, request):
     if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
         template_name = "mob_" + template_name
         if request.user.is_authenticated and ad.creator.pk != request.user.pk:
-            AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=1)
+            try:
+                AdNumbers.objects.get(user=request.user.pk, ad=ad.pk)
+                pass
+            except:
+                AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=1)
     else:
         if request.user.is_authenticated and ad.creator.pk != request.user.pk:
-            AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=0)
+            try:
+                AdNumbers.objects.create(user=request.user.pk, ad=ad.pk)
+                pass
+            except:
+                AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=0)
     return template_name
 
 def get_template_course_detail(course, folder, template, request):
