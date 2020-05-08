@@ -50,18 +50,17 @@ on('body', 'click', '.ad_like', function() {
   link.open( 'GET', "/posts/votes/like/" + uuid + "/" + pk + "/", true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
-    like = this;
     jsonResponse = JSON.parse(link.responseText);
-    dislike = like.parent.nextElementSibling.querySelector(".ad_dislike");
-    likes_count = like.querySelector(".likes_count");
+    dislike = this.parentElement.nextElementSibling.querySelector(".ad_dislike");
+    likes_count = this.querySelector(".likes_count");
     dislikes_count = dislike.querySelector(".dislikes_count");
     likes_count.innerHTML = jsonResponse.like_count;
     dislikes_count.innerHTML = jsonResponse.dislike_count;
-    like.classList.toggle("btn_success");
-    like.classList.toggle("btn_default");
+    this.classList.toggle("btn_success");
+    this.classList.toggle("btn_default");
     dislike.classList.add("btn_default");
     dislike.classList.remove("btn_danger");
-    console.log(like);
+    console.log(this);
     console.log(dislike);
     console.log(likes_count);
     console.log(dislikes_count);
