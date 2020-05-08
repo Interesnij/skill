@@ -102,6 +102,10 @@ class User(AbstractUser):
     def is_ad_in_favorite(self, ad_id):
         return self.ad_favorites.filter(ad__id=ad_id).exists()
 
+    def is_ad_visited(self, ad_id):
+        from stst.models import AdNumbers
+        return AdNumbers.objects.get(user=self.pk, ad=ad_id).exists()
+
     def is_course_in_favorite(self, course_id):
         return self.course_favorites.filter(course__id=course_id).exists()
 
