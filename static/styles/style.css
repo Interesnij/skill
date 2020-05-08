@@ -8,6 +8,8 @@
 .anketa_dislike {
   cursor:pointer
 }
+.btn_success , .btn_success span{ color:#41cd52}
+.btn_danger , .btn_danger span{ color:#FF0000} 
 
 .header_navigation{
   padding-left: 2.4rem;
