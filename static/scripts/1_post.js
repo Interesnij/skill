@@ -61,6 +61,10 @@ on('body', 'click', '.ad_like', function() {
     like.classList.toggle("btn_default");
     dislike.classList.add("btn_default");
     dislike.classList.remove("btn_danger");
+    console.log(like);
+    console.log(dislike);
+    console.log(likes_count);
+    console.log(dislikes_count);
   }};
   link.send( null );
 })
