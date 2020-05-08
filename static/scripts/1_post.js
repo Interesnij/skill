@@ -51,7 +51,7 @@ on('body', 'click', '.ad_like', function() {
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     jsonResponse = JSON.parse(link.responseText);
-    dislike = this.parentElement.nextElementSibling.querySelector(".ad_dislike");
+    dislike = document.querySelector.querySelector(".ad_dislike");
     likes_count = this.querySelector(".likes_count");
     dislikes_count = dislike.querySelector(".dislikes_count");
     likes_count.innerHTML = jsonResponse.like_count;
