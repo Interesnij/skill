@@ -64,3 +64,25 @@ on('body', 'click', '.ad_like', function() {
   }};
   link.send( null );
 })
+
+on('body', 'click', '.ad_dislike', function() {
+  dislike = this;
+  pk = document.getElementById("creator_pk").getAttribute("data-pk");
+  uuid = document.querySelector(".page-title").getAttribute("data-uuid");
+  link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+  link.open( 'GET', "/posts/votes/dislike/" + uuid + "/" + pk + "/", true );
+  link.onreadystatechange = function () {
+  if ( link.readyState == 4 && link.status == 200 ) {
+    jsonResponse = JSON.parse(link.responseText);
+    like = dislike.parentElement.previousElementSibling.querySelector(".ad_like");
+    likes_count = like.querySelector(".likes_count");
+    dislikes_count = dislike.querySelector(".dislikes_count");
+    likes_count.innerHTML = jsonResponse.like_count;
+    dislikes_count.innerHTML = jsonResponse.dislike_count;
+    dislike.classList.toggle("btn_danger");
+    dislike.classList.toggle("btn_default");
+    like.classList.add("btn_default");
+    like.classList.remove("btn_success");
+  }};
+  link.send( null );
+})
