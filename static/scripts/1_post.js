@@ -52,12 +52,12 @@ on('body', 'click', '.ad_like', function() {
   if ( link.readyState == 4 && link.status == 200 ) {
     jsonResponse = JSON.parse(link.responseText);
     dislike = document.querySelector(".ad_dislike");
-    likes_count = this.querySelector(".likes_count");
+    likes_count = document.querySelector(".likes_count");
     dislikes_count = dislike.querySelector(".dislikes_count");
     likes_count.innerHTML = jsonResponse.like_count;
     dislikes_count.innerHTML = jsonResponse.dislike_count;
-    this.classList.toggle("btn_success");
-    this.classList.toggle("btn_default");
+    document.querySelector(".likes_count").classList.toggle("btn_success");
+    document.querySelector(".likes_count").classList.toggle("btn_default");
     dislike.classList.add("btn_default");
     dislike.classList.remove("btn_danger");
     console.log(this);
