@@ -59,10 +59,10 @@ def get_template_course_detail(course, folder, template, request):
     MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
     if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
         template_name = "mob_" + template_name
-        if request.user.is_authenticated and course.creator.pk != request.user.pk:
+        if request.user.is_authenticated and course.creator.pk != request.user.pk and not request.user.is_course_visited(course.pk):
             CourseNumbers.objects.create(user=request.user.pk, course=course.pk, platform=1)
     else:
-        if request.user.is_authenticated and course.creator.pk != request.user.pk:
+        if request.user.is_authenticated and course.creator.pk != request.user.pk and not request.user.is_course_visited(course.pk):
             CourseNumbers.objects.create(user=request.user.pk, course=course.pk, platform=0)
     return template_name
 
@@ -92,9 +92,9 @@ def get_template_anketa_detail(anketa, folder, template, request):
     MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
     if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
         template_name = "mob_" + template_name
-        if request.user.is_authenticated and anketa.creator.pk != request.user.pk:
+        if request.user.is_authenticated and anketa.creator.pk != request.user.pk and not request.user.is_anketa_visited(anketa.pk):
             AnketaNumbers.objects.create(user=request.user.pk, anketa=anketa.pk, platform=1)
     else:
-        if request.user.is_authenticated and anketa.creator.pk != request.user.pk:
+        if request.user.is_authenticated and anketa.creator.pk != request.user.pk and not request.user.is_anketa_visited(anketa.pk):
             AnketaNumbers.objects.create(user=request.user.pk, anketa=anketa.pk, platform=0)
     return template_name

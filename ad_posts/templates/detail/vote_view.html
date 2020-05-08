@@ -7,7 +7,7 @@
       <span class="ad_like {% if ad.likes|user_in:request.user %}btn_success{% else %}btn_default{% endif %}">
         Оценили
       </span
-      <span class="likes_count" data-count="like">
+      <span class="likes_count" data-count="like" >
         {{ ad.likes.count }}
       </span>
     </div>

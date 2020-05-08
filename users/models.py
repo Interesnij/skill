@@ -106,6 +106,14 @@ class User(AbstractUser):
         from stst.models import AdNumbers
         return AdNumbers.objects.filter(user=self.pk, ad=ad_id).exists()
 
+    def is_course_visited(self, course_id):
+        from stst.models import CourseNumbers 
+        return CourseNumbers.objects.filter(user=self.pk, course=course_id).exists()
+
+    def is_anketa_visited(self, anketa_id):
+        from stst.models import AnketaNumbers
+        return AnketaNumbers.objects.filter(user=self.pk, anketa=anketa_id).exists()
+
     def is_course_in_favorite(self, course_id):
         return self.course_favorites.filter(course__id=course_id).exists()
 

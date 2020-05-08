@@ -1,3 +1,14 @@
+.likes_count,
+.dislikes_count,
+.ad_like,
+.ad_dislike,
+.course_like,
+.course_dislike,
+.anketa_like,
+.anketa_dislike {
+  cursor:pointer
+}
+
 .header_navigation{
   padding-left: 2.4rem;
 }
