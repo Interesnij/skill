@@ -29,12 +29,14 @@ def get_template_ad_detail(ad, folder, template, request):
         if request.user.is_authenticated and ad.creator.pk != request.user.pk:
             try:
                 AdNumbers.objects.get(user=request.user.pk, ad=ad.pk)
+                pass
             except:
                 AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=1)
     else:
         if request.user.is_authenticated and ad.creator.pk != request.user.pk:
             try:
                 AdNumbers.objects.get(user=request.user.pk, ad=ad.pk)
+                pass
             except:
                 AdNumbers.objects.create(user=request.user.pk, ad=ad.pk, platform=0)
     return template_name
