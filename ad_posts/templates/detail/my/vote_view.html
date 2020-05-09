@@ -1,16 +1,25 @@
-{% load liked_user %}
 
 <section>
   <h2>Статистика</h2>
   <div class="row">
     <div class="col-md-4">
-      Оценили
+      <span class="">
+          Оценили
+        <span class="likes_count">
+          {{ ad.likes.count }}
+        </span>
+      </span>
     </div>
     <div class="col-md-4">
-      Не оценили
+      <span class="">
+          Не оценили
+        <span class="dislikes_count">
+          {{ ad.dislikes.count }}
+        </span>
+      </span>
     </div>
     <div class="col-md-4">
-      Увидели
+      Увидели {{ ad.all_visits_count }}
     </div>
  </div>
 </section>
