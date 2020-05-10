@@ -1,9 +1,10 @@
 
   var imageLoader = document.getElementById("id_image");
 var entrou = false;
-$("#image-holder").on("click", function() {
+ on('body', 'click', '.module_sold', function(e) {
+$("body").on('click', '#image-holder', function() {
   $("#id_image").click();
-  console.log("clock!!!")
+  console.log("click!!!")
 });
 
 $("#id_image").on("change", function() {
