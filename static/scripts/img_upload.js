@@ -20,8 +20,7 @@ img.onchange = function() {
       ggg.append($img);
 
       };
-      reader.readAsDataURL(ggg.files);
-      console.log(ggg[0], ggg[0].files[0])
+      reader.readAsDataURL(img.value);
     }
   } else { this.value = null; }
 } entrou = true;
