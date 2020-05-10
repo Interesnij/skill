@@ -21,7 +21,7 @@ img.onchange = function() {
 
       };
       reader.readAsDataURL(img);
-      console.log($(this)[0], $(this)[0].files[0])
+      console.log(ggg[0], ggg[0].files[0])
     }
   } else { this.value = null; }
 } entrou = true;
