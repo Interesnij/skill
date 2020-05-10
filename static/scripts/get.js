@@ -32,7 +32,8 @@ document.body.querySelectorAll('.background-image').forEach(box => {
 on('body', 'click', '.change-class', function(e) {
   e.preventDefault();
   _this = this;
-  var parentClass = _this.getAttribute("data-parent-class");
+
+  parentClass = "." + _this.getAttribute("data-parent-class");
   parentClass.classlist.remove(_this.getAttribute("data-change-from-class"));
   parentClass.classlist.add(_this.getAttribute("data-change-to-class"));
   _this.parentElement.querySelector(".change-class").classlist.remove("active");
