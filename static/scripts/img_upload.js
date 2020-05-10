@@ -16,7 +16,7 @@ img.click();
         src: e.target.result,
         class: "thumb-image" }).appendTo(ggg);
       };
-      ggg.show();
+      //ggg.show();
       reader.readAsDataURL($(this)[0].files[0]);
     }
   } else { this.value = null; }
