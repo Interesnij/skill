@@ -42,7 +42,7 @@ on('body', 'click', '.change-class', function(e) {
   all_tabs = _this.parentElement.querySelectorAll(".change-class");
   for (var i = 0; i < all_tabs.length; i++) {
     if(all_tabs[i].classList.contains("active")){
-      all_tabs[i].classList.delete("active");
+      all_tabs[i].classList.remove("active");
   }};
   _this.classList.add("active");
 });
