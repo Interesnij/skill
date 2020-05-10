@@ -15,11 +15,7 @@ on('body', 'click', '.more_search_fields', function(e) {
   this.nextElementSibling.classList.toggle("show");
 });
 
-$(".background-image").each(function() {
-      $(this).css("background-image", "url("+ $(this).find("img").attr("src") +")" );
-    });
-
-document.body.querySelectorAll('.background-image').forEach(
-  adres = this.querySelector("img").getAttribute("src");
-  this.style.backgroundImage = "url(" + adres +")";
-   )}
+document.body.querySelectorAll('.background-image').forEach(box => {
+  adres = box.querySelector("img").getAttribute("src");
+  box.style.backgroundImage = "url(" + adres +")"; 
+   })
