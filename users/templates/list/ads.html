@@ -27,7 +27,7 @@
 
                               {% if object.is_active %}
                               <div class="item" data-pk="{{ object.pk }}">
-                                <div class='ribbon-featured'>
+                                <div class='red ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Активно</div>
                                   <div class='ribbon-end'>
@@ -113,7 +113,7 @@
                               </div>
                               {% elif object.is_sold %}
                               <div class="item item-sold" data-pk="{{ object.pk }}">
-                                <div class='ribbon-featured'>
+                                <div class='red ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Продано</div>
                                   <div class='ribbon-end'>
@@ -201,7 +201,7 @@
 
                               {% elif not object.is_active %}
                               <div class="item" data-pk="{{ object.pk }}">
-                                  <div class="ribbon-featured">
+                                  <div class="red ribbon-featured">
                                     <div class='ribbon-start'></div>
                                     <div class='ribbon-content'>Черновик</div>
                                     <div class='ribbon-end'>
