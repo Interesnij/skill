@@ -19,7 +19,7 @@ img.onchange = function() {
       $img.class = "thumb-image";
       ggg.append($img)
       };
-      reader.readAsDataURL($(this)[0].files[0]);
+      reader.readAsDataURL($img);
       console.log($(this)[0], $(this)[0].files[0])
     }
   } else { this.value = null; }
