@@ -27,7 +27,13 @@
 
                               {% for object in request.user.get_my_favorite_ads %}
                                 <div class="item" data-pk="{{ object.pk }}">
-                                    <div class="ribbon-featured">Объявление</div>
+                                  <div class='ribbon-featured'>
+                                    <div class='ribbon-start'></div>
+                                    <div class='ribbon-content'>Объявление</div>
+                                    <div class='ribbon-end'>
+                                      <figure class='ribbon-shadow'></figure>
+                                    </div>
+                                  </div>
                                     <div class="wrapper">
                                         <div class="image">
                                             <h3>
@@ -86,7 +92,13 @@
 
                                 {% for object in request.user.get_my_favorite_courses %}
                                 <div class="item" data-pk="{{ object.pk }}">
-                                    <div class="ribbon-featured">Курс</div>
+                                  <div class='ribbon-featured'>
+                                    <div class='ribbon-start'></div>
+                                    <div class='ribbon-content'>Курс</div>
+                                    <div class='ribbon-end'>
+                                      <figure class='ribbon-shadow'></figure>
+                                    </div>
+                                  </div>
                                     <div class="wrapper">
                                         <div class="image">
                                             <h3>
@@ -165,7 +177,13 @@
 
                                   {% for object in request.user.get_my_favorite_anketa %}
                                   <div class="item" data-pk="{{ object.pk }}">
-                                      <div class="ribbon-featured">Анкета</div>
+                                    <div class='ribbon-featured'>
+                                      <div class='ribbon-start'></div>
+                                      <div class='ribbon-content'>Анкета</div>
+                                      <div class='ribbon-end'>
+                                        <figure class='ribbon-shadow'></figure>
+                                      </div>
+                                    </div>
                                       <div class="wrapper">
                                         <div class="image">
                                             <h3>
