@@ -305,15 +305,15 @@
                  for="img0"
                  style="
                  {% if ad.image %}
-                 background-image: {{ ad.image.url }};
+                 background-image: url({{ ad.image.url }});
                  {% else %}
-                 background-image: /static/images/no_img.jpg;
+                 background-image: url(/static/images/no_img.jpg);
                  {% endif %}
                  background-size: cover;
                  background-position: center;">
           </label>
           {% if ad.img1 %}
-          <label class="carousel__indicator" style="background-image:{{ ad.img1.url }};background-size:cover;background-position:center;" for="img1"></label>
+          <label class="carousel__indicator" style="background-image:url({{ ad.img1.url }});background-size:cover;background-position:center;" for="img1"></label>
           {% endif %}
         </div>
       </ul>
