@@ -13,11 +13,12 @@ img.onchange = function() {
     ggg.innerHTML = "";
     reader = new FileReader();
     reader.onload = function(e) {
-      $img = document.createElement("img");
-      $img.id = "targetImageCrop";
-      $img.src = e.target.result;
-      $img.class = "thumb-image";
-      ggg.append($img);
+      $img = $("<img />", {
+        id: "targetImageCrop",
+        src: e.target.result,
+        class: "thumb-image" }).appendTo(ggg);
+      };
+      //ggg.append($img);
       reader.readAsDataURL($(this)[0].files[0]);
     }
   } else { this.value = null; }
