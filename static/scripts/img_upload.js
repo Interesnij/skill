@@ -16,10 +16,10 @@ img.click();
         src: e.target.result,
         class: "thumb-image" }).appendTo(ggg);
       };
-      image_holder.show();
+      ggg.show();
       reader.readAsDataURL($(this)[0].files[0]);
     }
   } else { this.value = null; }
 } entrou = true;
-setTimeout(function() { entrou = false; }, 1000);
-console.log("upload comment image 2")});});
+setTimeout(function() { entrou = false; }, 1000)});
+});
