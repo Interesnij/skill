@@ -115,7 +115,11 @@
                               <div class="item item-sold" data-pk="{{ object.pk }}">
                                 <div class="ribbon-diagonal">
                                     <div class="ribbon-diagonal__inner">
-                                        <span>Продано</span>
+                                      <div class='ribbon-start'></div>
+                                      <div class='ribbon-content'>Продано</div>
+                                      <div class='ribbon-end'>
+                                        <figure class='ribbon-shadow'></figure>
+                                      </div>
                                     </div>
                                 </div>
                                 <div class="wrapper">
@@ -199,7 +203,13 @@
 
                               {% elif not object.is_active %}
                               <div class="item" data-pk="{{ object.pk }}">
-                                  <div class="ribbon-featured">Черновик</div>
+                                  <div class="ribbon-featured">
+                                    <div class='ribbon-start'></div>
+                                    <div class='ribbon-content'>Черновик</div>
+                                    <div class='ribbon-end'>
+                                      <figure class='ribbon-shadow'></figure>
+                                    </div>
+                                  </div>
                                   <div class="wrapper">
 
                                     <div class="image">

@@ -17,18 +17,6 @@ $(document).ready(function($) {
         }
     });
 
-    $(".ribbon-featured").each(function() {
-        var thisText = $(this).text();
-        $(this).html("");
-        $(this).append(
-            "<div class='ribbon-start'></div>" +
-            "<div class='ribbon-content'>" + thisText + "</div>" +
-            "<div class='ribbon-end'>" +
-                "<figure class='ribbon-shadow'></figure>" +
-            "</div>"
-        );
-    });
-
     if( $(".owl-carousel").length ){
         var galleryCarousel = $(".gallery-carousel");
 
@@ -97,20 +85,6 @@ $(document).ready(function($) {
             $(".gallery-carousel-thumbs").find("a[href='#" + hash + "']").trigger("click");
         });
     }
-
-
-//  iCheck
-
-    $("input[type=checkbox], input[type=radio]").iCheck();
-
-    var framedInputRadio = $(".framed input[type=radio]");
-    framedInputRadio.on('ifChecked', function(){
-        $(this).closest(".framed").addClass("active");
-    });
-    framedInputRadio.on('ifUnchecked', function(){
-        $(this).closest(".framed").removeClass("active");
-    });
-});
 
 
 $("[data-background-image]").each(function() {
