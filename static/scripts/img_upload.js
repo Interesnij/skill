@@ -6,7 +6,7 @@ img = this.previousElementSibling.querySelector("#id_image");
 img.click();
 
 img.onchange = function() {
-  if (!entrou) {imgPath = ggg.value;
+  if (!entrou) {imgPath = img.value;
     extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
   if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg")
   {if (typeof FileReader != "undefined") {
