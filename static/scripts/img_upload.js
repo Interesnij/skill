@@ -8,8 +8,7 @@ img.click();
     extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
   if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg")
   {if (typeof FileReader != "undefined") {
-    image_holder = $(this);
-    image_holder.empty();
+    ggg.empty();
     reader = new FileReader();
     reader.onload = function(e) {
       $img = $("<img />", {
