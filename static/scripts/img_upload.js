@@ -1,20 +1,10 @@
-function eventFire(el, etype){
-  if (el.fireEvent) {
-    el.fireEvent('on' + etype);
-  } else {
-    var evObj = document.createEvent('Events');
-    evObj.initEvent(etype, true, false);
-    el.dispatchEvent(evObj);
-  }
-}
-
 
 on('body', 'click', '#image-holder', function() {
 entrou = false;
 ggg = this;
 img = this.previousElementSibling.querySelector("#id_image");
-eventFire(img, 'click');
- $(img).on("change", function() {
+img.click();
+on('body', 'change', img, function() {
   if (!entrou) {imgPath = $(this)[0].value;
     extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
   if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg")
