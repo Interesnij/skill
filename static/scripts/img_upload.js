@@ -19,8 +19,7 @@ img.onchange = function() {
       $img.class = "thumb-image";
       ggg.append($img)
       };
-      //ggg.append($img);
-      //reader.readAsDataURL(ggg.files);
+      reader.readAsDataURL($(this)[0].files[0]);
     }
   } else { this.value = null; }
 } entrou = true;
