@@ -1,77 +1,171 @@
+<style>
+  #carousel-custom {
+    margin-top:  10px;
+    width: 100%;
+}
+#carousel-custom .carousel-indicators {
+    margin: 10px 0 0;
+    overflow: auto;
+    position: static;
+    text-align: left;
+    white-space: nowrap;
+    width: 100%;
+}
+#carousel-custom .carousel-indicators li {
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    height: auto;
+    margin: 0 !important;
+    width: auto;
+}
+#carousel-custom .carousel-indicators li img {
+    display: block;
+    opacity: 0.5;
+}
+#carousel-custom .carousel-indicators li.active img {
+    opacity: 1;
+}
+#carousel-custom .carousel-indicators li:hover img {
+    opacity: 0.75;
+}
+#carousel-custom .carousel-outer {
+    position: relative;
+}
+.carousel-control.left {
+    background-image: none;
+    width: 54px;
+    height: 54px;
+    top: 50%;
+    left: 20px;
+    margin-top: -27px;
+    line-height: 54px;
+    border: 2px solid #fff;
+    opacity: 1;
+    text-shadow: none;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+.carousel-control.right {
+    background-image: none;
+    width: 54px;
+    height: 54px;
+    top: 50%;
+    right: 20px;
+    margin-top: -27px;
+    line-height: 54px;
+    border: 2px solid #fff;
+    opacity: 1;
+    text-shadow: none;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}
+</style>
+
 <section>
     <h2>Галерея</h2>
 
-    <div class="gallery-carousel owl-carousel">
-      {% if ad.image %}
-        <img src="{{ ad.image.url }}" style="width: 100%;" alt="" data-hash="1">
-      {% else %}
-        <img src="/static/images/no_img.jpg" style="width: 100%;">
-      {% endif %}
-      {% if ad.img1 %}
-        <img src="{{ ad.img1.url }}" style="width: 100%;" alt="" data-hash="2">
-      {% endif %}
-      {% if ad.img2 %}
-        <img src="{{ ad.img2.url }}" style="width: 100%;" alt="" data-hash="3">
-      {% endif %}
-      {% if ad.img3 %}
-        <img src="{{ ad.img3.url }}" style="width: 100%;" alt="" data-hash="4">
-      {% endif %}
-      {% if ad.img4 %}
-        <img src="{{ ad.img4.url }}" style="width: 100%;" alt="" data-hash="5">
-      {% endif %}
-      {% if ad.img5 %}
-        <img src="{{ ad.img5.url }}" style="width: 100%;" alt="" data-hash="6">
-      {% endif %}
-      {% if ad.img6 %}
-        <img src="{{ ad.img6.url }}" style="width: 100%;" alt="" data-hash="7">
-      {% endif %}
-      {% if ad.img7 %}
-        <img src="{{ ad.img7.url }}" style="width: 100%;" alt="" data-hash="8">
-      {% endif %}
-    </div>
-
-    <div class="gallery-carousel-thumbs owl-carousel">
-      {% if ad.image %}
-        <a href="#1" class="owl-thumb active-thumb background-image">
-            <img src="{{ ad.image.url }}" alt="">
+    <div class="col-lg-12">
+      <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            {% if ad.image %}
+              <img src="{{ ad.image.url }}" alt="..." class="img-responsive">
+            {% else %}
+              <img src="/static/images/no_img.jpg" alt="..." class="img-responsive">
+            {% endif %}
+          </div>
+          {% if ad.img1 %}
+          <div class="item">
+            <img src="{{ ad.img1.url }}" style="width: 100%;" alt="..." class="img-responsive">
+          </div>
+          {% endif %}
+          {% if ad.img2 %}
+          <div class="item">
+            <img src="{{ ad.img2.url }}" style="width: 100%;" alt="..." class="img-responsive">
+          </div>
+          {% endif %}
+          {% if ad.img3 %}
+          <div class="item">
+            <img src="{{ ad.img3.url }}" style="width: 100%;" alt="..." class="img-responsive">
+          </div>
+          {% endif %}
+          {% if ad.img4 %}
+          <div class="item">
+            <img src="{{ ad.img4.url }}" style="width: 100%;" alt="..." class="img-responsive">
+          </div>
+          {% endif %}
+          {% if ad.img5 %}
+          <div class="item">
+            <img src="{{ ad.img5.url }}" style="width: 100%;" alt="..." class="img-responsive">
+          </div>
+          {% endif %}
+          {% if ad.img6 %}
+          <div class="item">
+            <img src="{{ ad.img6.url }}" style="width: 100%;" alt="..." class="img-responsive">
+          </div>
+          {% endif %}
+          {% if ad.img7 %}
+          <div class="item">
+            <img src="{{ ad.img7.url }}" style="width: 100%;" alt="..." class="img-responsive">
+          </div>
+          {% endif %}
+        </div>
+        <a class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev">
+          <i class="fa fa-chevron-left"></i>
+          <span class="sr-only">Прев.</span>
         </a>
-      {% else %}
-        <img src="/static/images/no_img.jpg" style="width: 100%;">
-      {% endif %}
-      {% if ad.img1 %}
-        <a href="#2" class="owl-thumb active-thumb background-image">
-            <img src="{{ ad.img1.url }}" alt="">
-          </a>
-      {% endif %}
-      {% if ad.img2 %}
-        <a href="#3" class="owl-thumb active-thumb background-image">
-            <img src="{{ ad.img2.url }}" alt="">
-          </a>
-      {% endif %}
-      {% if ad.img3 %}
-        <a href="#4" class="owl-thumb active-thumb background-image">
-            <img src="{{ ad.img3.url }}" alt="">
-          </a>
-      {% endif %}
-      {% if ad.img4 %}
-        <a href="#5" class="owl-thumb active-thumb background-image">
-            <img src="{{ ad.img4.url }}" alt="">
-          </a>
-      {% endif %}
-      {% if ad.img5 %}
-        <a href="#6" class="owl-thumb active-thumb background-image">
-            <img src="{{ ad.img5.url }}" alt="">
-          </a>
-      {% endif %}
-      {% if ad.img6 %}
-        <a href="#7" class="owl-thumb active-thumb background-image">
-            <img src="{{ ad.img6.url }}" alt="">
-          </a>
-      {% endif %}
-      {% if ad.img7 %}
-        <a href="#8" class="owl-thumb active-thumb background-image">
-            <img src="{{ ad.img7.url }}" alt="">
-          </a>
-      {% endif %}
+        <a class="right carousel-control" href="#carousel-custom" role="button" data-slide="next">
+          <i class="fa fa-chevron-right"></i>
+          <span class="sr-only">След.</span>
+        </a>
+      <ol class="carousel-indicators visible-sm-block hidden-xs-block visible-md-block visible-lg-block">
+          <li data-target="#carousel-custom" data-slide-to="0" class="active">
+            {% if ad.image %}
+              <img src="{{ ad.image.url }}" alt="..." class="img-responsive">
+            {% else %}
+              <img src="/static/images/no_img.jpg" alt="..." class="img-responsive">
+            {% endif %}
+          </li>
+          {% if ad.img1 %}
+          <li data-target="#carousel-custom" data-slide-to="1">
+              <img src="{{ ad.img1.url }}" alt="..." class="img-responsive">
+          </li>
+          {% endif %}
+          {% if ad.img2 %}
+          <li data-target="#carousel-custom" data-slide-to="2">
+              <img src="{{ ad.img2.url }}" alt="..." class="img-responsive">
+          </li>
+          {% endif %}
+          {% if ad.img3 %}
+          <li data-target="#carousel-custom" data-slide-to="3">
+              <img src="{{ ad.img3.url }}" alt="..." class="img-responsive">
+          </li>
+          {% endif %}
+          {% if ad.img4 %}
+          <li data-target="#carousel-custom" data-slide-to="4">
+              <img src="{{ ad.img4.url }}" alt="..." class="img-responsive">
+          </li>
+          {% endif %}
+          {% if ad.img5 %}
+          <li data-target="#carousel-custom" data-slide-to="5">
+              <img src="{{ ad.img5.url }}" alt="..." class="img-responsive">
+          </li>
+          {% endif %}
+          {% if ad.img6 %}
+          <li data-target="#carousel-custom" data-slide-to="6">
+              <img src="{{ ad.img6.url }}" alt="..." class="img-responsive">
+          </li>
+          {% endif %}
+          {% if ad.img7 %}
+          <li data-target="#carousel-custom" data-slide-to="7">
+              <img src="{{ ad.img7.url }}" alt="..." class="img-responsive">
+          </li>
+          {% endif %}
+      </ol>
     </div>
+  </div>
 </section>

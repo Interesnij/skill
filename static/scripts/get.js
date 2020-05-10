@@ -37,17 +37,3 @@ on('body', 'click', '.change-class', function(e) {
   }};
   _this.classList.add("active");
 });
-
-if( document.body.querySelector(".owl-carousel") ){
-    var galleryCarousel = document.body.querySelector(".gallery-carousel");
-
-    galleryCarousel.owlCarousel({
-        loop: false,
-        margin: 0,
-        nav: true,
-        items: 1,
-        navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
-        autoHeight: true,
-        dots: false
-    });
-};
