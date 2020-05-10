@@ -41,8 +41,8 @@ on('body', 'click', '.change-class', function(e) {
   parent.classList.add(_this.getAttribute("data-change-to-class"));
   all_tabs = _this.parentElement.querySelectorAll(".change-class");
   for (var i = 0; i < all_tabs.length; i++) {
-    if(box[i].classList.contains("active")){
-      box[i].classList.delete("active");
+    if(all_tabs[i].classList.contains("active")){
+      all_tabs[i].classList.delete("active");
   }};
   _this.classList.add("active");
 });
