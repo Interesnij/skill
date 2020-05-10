@@ -3,6 +3,7 @@
 var entrou = false;
 $("#image-holder").on("click", function() {
   $("#id_image").click();
+  console.log("clock!!!")
 });
 
 $("#id_image").on("change", function() {
