@@ -34,7 +34,8 @@ on('body', 'click', '.change-class', function(e) {
   _this = this;
 
   parentClass = "." + _this.getAttribute("data-parent-class");
-  parentClass.classlist.remove(_this.getAttribute("data-change-from-class"));
+  remove_class = _this.getAttribute("data-change-from-class");
+  parentClass.classlist.remove(remove_class);
   parentClass.classlist.add(_this.getAttribute("data-change-to-class"));
   _this.parentElement.querySelector(".change-class").classlist.remove("active");
   _this.classlist.add("active");
