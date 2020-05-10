@@ -1,3 +1,43 @@
+.green .ribbon-content{
+  background-color: #28A745
+}
+.green .ribbon-start, .green .ribbon-start::after{
+  background: #28A745;
+}
+.green .ribbon-content::before {
+  background: #28A745;
+}
+.green .ribbon-content::after {
+  background: #28A745;
+}
+.green .ribbon-end::before, .green .ribbon-end .ribbon-shadow::before{
+  border-color: transparent #28A745 transparent transparent;
+}
+.green .ribbon-end::after, .green .ribbon-end .ribbon-shadow::after{
+  border-color: transparent transparent #28A745 transparent;
+  bottom: 0px;
+}
+
+.purple .ribbon-content{
+  background-color: #8B00FF
+}
+.purple .ribbon-start, .purple .ribbon-start::after{
+  background: #8B00FF;
+}
+.purple .ribbon-content::before {
+  background: #8B00FF;
+}
+.purple .ribbon-content::after {
+  background: #8B00FF;
+}
+.purple .ribbon-end::before, .purple .ribbon-end .ribbon-shadow::before{
+  border-color: transparent #8B00FF transparent transparent;
+}
+.purple .ribbon-end::after, .purple .ribbon-end .ribbon-shadow::after{
+  border-color: transparent transparent #8B00FF transparent;
+  bottom: 0px;
+}
+
 .likes_count,
 .dislikes_count,
 .ad_like,

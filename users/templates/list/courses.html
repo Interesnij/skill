@@ -3,27 +3,7 @@
 
 {% block title %}Мои курсы{% endblock %}
 {% block content %}
-<style>
-  .green .ribbon-content{
-    background-color: green
-  }
-  .green .ribbon-start, .green .ribbon-start::after{
-    background: green;
-  }
-  .green .ribbon-content::before {
-    background: green;
-  }
-  .green .ribbon-content::after {
-    background: green;
-  }
-  .green .ribbon-end::before, .green .ribbon-end .ribbon-shadow::before{
-    border-color: transparent green transparent transparent;
-  }
-  .green .ribbon-end::after, .green .ribbon-end .ribbon-shadow::after{
-    border-color: transparent transparent green transparent;
-    bottom: 0px;
-  }
-</style>
+
 <section class="content skill_content">
     <section class="block">
         <div class="container">
@@ -136,7 +116,7 @@
                               </div>
                               {% elif object.is_sold %}
                               <div class="item item-sold" data-pk="{{ object.pk }}">
-                                <div class='ribbon-featured'>
+                                <div class='purple ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Черновик</div>
                                   <div class='ribbon-end'>
@@ -224,7 +204,7 @@
 
                               {% elif not object.is_active %}
                               <div class="item" data-pk="{{ object.pk }}">
-                                <div class='ribbon-featured'>
+                                <div class='purple ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Черновик</div>
                                   <div class='ribbon-end'>
