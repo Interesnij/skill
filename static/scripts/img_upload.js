@@ -15,10 +15,11 @@ img.click();
       $img.id = "targetImageCrop";
       $img.src = e.target.result;
       $img.class = "thumb-image";
-      ggg.append($img)
+      ggg.append($img);
       reader.readAsDataURL($(this)[0].files[0]);
     }
   } else { this.value = null; }
 } entrou = true;
-setTimeout(function() { entrou = false; }, 1000)});
+setTimeout(function() { entrou = false; }, 1000)
+});
 });
