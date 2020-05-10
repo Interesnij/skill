@@ -1,5 +1,6 @@
 $('body').on('click', '#image-holder', function() {
 entrou = false;
+ggg = this;
 img = this.previousElementSibling.querySelector("#id_image");
 img.click();
  $(img).on("change", function() {
@@ -14,7 +15,7 @@ img.click();
       $img = $("<img />", {
         id: "targetImageCrop",
         src: e.target.result,
-        class: "thumb-image" }).appendTo(image_holder);
+        class: "thumb-image" }).appendTo(ggg);
       };
       image_holder.show();
       reader.readAsDataURL($(this)[0].files[0]);
