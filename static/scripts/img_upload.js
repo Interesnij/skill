@@ -1,40 +1,26 @@
-
-  var imageLoader = document.getElementById("id_image");
-var entrou = false;
-
-$("body").on('click', '#image-holder', function() {
-  $("#id_image").click();
-  console.log("click!!!")
-});
-
-$("body").on('change', '#image-holder', function() {
-  if (!entrou) {
-    var imgPath = $(this)[0].value;
-    var extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
-
-    if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
-      if (typeof FileReader != "undefined") {
-        var image_holder = $("#image-holder");
-        image_holder.empty();
-
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          $img = $("<img />", {
-            id: "targetImageCrop",
-            src: e.target.result,
-            class: "thumb-image"
-          }).appendTo(image_holder);
-        };
-
-        image_holder.show();
-        reader.readAsDataURL($(this)[0].files[0]);
-      }
-    } else {
-      this.value = null;
+$('body').on('click', '#image-holder', function() {
+entrou = false;
+img = this.previousElementSibling.querySelector("#id_image");
+img.click();
+ $(img).on("change", function() {
+  if (!entrou) {imgPath = $(this)[0].value;
+    extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
+  if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg")
+  {if (typeof FileReader != "undefined") {
+    image_holder = $(this);
+    image_holder.empty();
+    reader = new FileReader();
+    reader.onload = function(e) {
+      $img = $("<img />", {
+        id: "targetImageCrop",
+        src: e.target.result,
+        class: "thumb-image" }).appendTo(image_holder);
+      };
+      image_holder.show();
+      reader.readAsDataURL($(this)[0].files[0]);
     }
-  }
-  entrou = true;
-  setTimeout(function() {
-    entrou = false;
-  }, 1000);
-});
+  } else { this.value = null; }
+} entrou = true;
+setTimeout(function() { entrou = false; }, 1000);
+img.prev().prev().show();
+console.log("upload comment image 2")});});
