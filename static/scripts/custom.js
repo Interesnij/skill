@@ -85,19 +85,3 @@ $(document).ready(function($) {
             $(".gallery-carousel-thumbs").find("a[href='#" + hash + "']").trigger("click");
         });
     }
-
-
-$("[data-background-image]").each(function() {
-      $(this).css("background-image", "url("+ $(this).attr("data-background-image") +")" );
-});
-
-
-
-    $(".change-class").on("click", function(e){
-            e.preventDefault();
-            var parentClass = $( "."+$(this).attr("data-parent-class") );
-            parentClass.removeClass( $(this).attr("data-change-from-class") );
-            parentClass.addClass( $(this).attr("data-change-to-class") );
-            $(this).parent().find(".change-class").removeClass("active");
-            $(this).addClass("active");
-        });
