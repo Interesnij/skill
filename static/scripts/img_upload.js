@@ -5,7 +5,7 @@ ggg = this;
 img = this.previousElementSibling.querySelector("#id_image");
 img.click();
 
-$('body').on(img, "change", function() {
+img.onchange = function() {
   if (!entrou) {imgPath = $(this)[0].value;
     extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
   if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg")
@@ -23,5 +23,5 @@ $('body').on(img, "change", function() {
   } else { this.value = null; }
 } entrou = true;
 setTimeout(function() { entrou = false; }, 1000)
-}});
+}};
 });
