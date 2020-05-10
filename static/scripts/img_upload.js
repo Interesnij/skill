@@ -4,7 +4,7 @@ entrou = false;
 ggg = this;
 img = this.previousElementSibling.querySelector("#id_image");
 img.click();
-on('body', 'change', img, function() {
+$(body).on(img, "change", function() {
   if (!entrou) {imgPath = $(this)[0].value;
     extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
   if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg")
