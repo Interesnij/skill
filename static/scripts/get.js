@@ -39,6 +39,6 @@ on('body', 'click', '.change-class', function(e) {
   parent = document.body.querySelector(parentClass);
   parent.classList.remove(remove_class);
   parent.classList.add(_this.getAttribute("data-change-to-class"));
-  _this.parentElement.querySelector(".change-class").classlist.remove("active");
-  _this.classlist.add("active");
+  _this.parentElement.querySelector(".change-class").classList.remove("active");
+  _this.classList.add("active");
 });
