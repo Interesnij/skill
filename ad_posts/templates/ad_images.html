@@ -1,224 +1,333 @@
 <style>
-  #carousel-custom {
-    margin-top:  10px;
-    width: 100%;
-}
-#carousel-custom .carousel-indicators {
-    margin: 10px 0 0;
-    position: static;
-    text-align: left;
-    white-space: nowrap;
-    width: 100%;
-}
-#carousel-custom .carousel-indicators li {
-    background-color: transparent;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    display: inline-block;
-    height: auto;
-    margin: 0 !important;
-    width: auto;
-}
-#carousel-custom .carousel-indicators li img {
-    display: block;
-    opacity: 0.5;
-}
-#carousel-custom .carousel-indicators li.active img {
-    opacity: 1;
-}
-#carousel-custom .carousel-indicators li:hover img {
-    opacity: 0.75;
-}
-#carousel-custom .carousel-outer {
+  @import url("https://fonts.googleapis.com/css?family=Roboto:900");
+  /**
+    * style variables
+  */
+  /**
+    * Control & indicator mixin
+  */
+  .carousel {
+    height: 300px;
+    width: 400px;
+    overflow: hidden;
+    text-align: center;
     position: relative;
-}
-.carousel-control.left {
-    background-image: none;
-    width: 54px;
-    height: 54px;
-    top: 50%;
-    left: 20px;
-    margin-top: -27px;
-    line-height: 54px;
-    border: 2px solid #fff;
-    opacity: 1;
-    text-shadow: none;
-    -webkit-transition: all 0.2s ease-in-out 0s;
-    -o-transition: all 0.2s ease-in-out 0s;
-    transition: all 0.2s ease-in-out 0s;
-}
-.carousel-control.right {
-    background-image: none;
-    width: 54px;
-    height: 54px;
-    top: 50%;
-    right: 20px;
-    margin-top: -27px;
-    line-height: 54px;
-    border: 2px solid #fff;
-    opacity: 1;
-    text-shadow: none;
-    -webkit-transition: all 0.2s ease-in-out 0s;
-    -o-transition: all 0.2s ease-in-out 0s;
-    transition: all 0.2s ease-in-out 0s;
-}
-#carousel-custom .carousel-indicators li {
-    background-color: transparent;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    display: inline-block;
-    height: auto;
-    margin: 0 !important;
-    width: auto;
-}
-#carousel-custom .carousel-indicators li img {
-    display: block;
-    opacity: 0.5;
-}
-#carousel-custom .carousel-indicators li.active img {
-    opacity: 1;
-}
-.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
-    display: block;
-    max-width: 100%;
-}
-
-@media not all, (-webkit-transform-3d){
-.carousel-inner>.item.active, .carousel-inner>.item.next.left, .carousel-inner>.item.prev.right {
-    left: 0;
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-}
-
-.carousel-inner>.item {
-    -webkit-transition: -webkit-transform .6s ease-in-out;
-    -o-transition: -o-transform .6s ease-in-out;
-    transition: transform .6s ease-in-out;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-}
-}
-.carousel-inner>.item {
-    position: relative;
+    padding: 0;
+    list-style: none;
+  /**
+    * Where the magic happens
+    */
+  /**
+      * Control element - right/left arrows
+    */
+  /**
+      * Element for holding slide indicators
+    */
+  /**
+      * Indicator for indicating active slide
+    */
+  /**
+      * Create rules for when slides are contained within a track
+    */
+  }
+  .carousel__controls,
+  .carousel__activator {
     display: none;
-    -webkit-transition: .6s ease-in-out left;
-    -o-transition: .6s ease-in-out left;
-    transition: .6s ease-in-out left;
-}
-.carousel-inner>.active, .carousel-inner>.next, .carousel-inner>.prev {
+  }
+  .carousel__activator:nth-of-type(1):checked ~ .carousel__track {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  .carousel__activator:nth-of-type(1):checked ~ .carousel__slide:nth-of-type(1) {
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .carousel__activator:nth-of-type(1):checked ~ .carousel__controls:nth-of-type(1) {
     display: block;
-}
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(1):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(1) {
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(2):checked ~ .carousel__track {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  .carousel__activator:nth-of-type(2):checked ~ .carousel__slide:nth-of-type(2) {
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .carousel__activator:nth-of-type(2):checked ~ .carousel__controls:nth-of-type(2) {
+    display: block;
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(2):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(2) {
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(3):checked ~ .carousel__track {
+    -webkit-transform: translateX(-200%);
+            transform: translateX(-200%);
+  }
+  .carousel__activator:nth-of-type(3):checked ~ .carousel__slide:nth-of-type(3) {
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .carousel__activator:nth-of-type(3):checked ~ .carousel__controls:nth-of-type(3) {
+    display: block;
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(3):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(3) {
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(4):checked ~ .carousel__track {
+    -webkit-transform: translateX(-300%);
+            transform: translateX(-300%);
+  }
+  .carousel__activator:nth-of-type(4):checked ~ .carousel__slide:nth-of-type(4) {
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .carousel__activator:nth-of-type(4):checked ~ .carousel__controls:nth-of-type(4) {
+    display: block;
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(4):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(4) {
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(5):checked ~ .carousel__track {
+    -webkit-transform: translateX(-400%);
+            transform: translateX(-400%);
+  }
+  .carousel__activator:nth-of-type(5):checked ~ .carousel__slide:nth-of-type(5) {
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .carousel__activator:nth-of-type(5):checked ~ .carousel__controls:nth-of-type(5) {
+    display: block;
+    opacity: 1;
+  }
+  .carousel__activator:nth-of-type(5):checked ~ .carousel__indicators .carousel__indicator:nth-of-type(5) {
+    opacity: 1;
+  }
+  .carousel__control {
+    height: 30px;
+    width: 30px;
+    margin-top: -15px;
+    top: 50%;
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    border-width: 5px 5px 0 0;
+    border-style: solid;
+    border-color: #fafafa;
+    opacity: 0.35;
+    outline: 0;
+    z-index: 3;
+  }
+  .carousel__control:hover {
+    opacity: 1;
+  }
+  .carousel__control--backward {
+    left: 10px;
+    -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+  }
+  .carousel__control--forward {
+    right: 10px;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .carousel__indicators {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .carousel__indicator {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    display: inline-block;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0.35;
+    margin: 0 2.5px 0 2.5px;
+  }
+  .carousel__indicator:hover {
+    opacity: 0.75;
+  }
+  .carousel__track {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    -webkit-transition: -webkit-transform 0.5s ease 0s;
+    transition: -webkit-transform 0.5s ease 0s;
+    transition: transform 0.5s ease 0s;
+    transition: transform 0.5s ease 0s, -webkit-transform 0.5s ease 0s;
+  }
+  .carousel__track .carousel__slide {
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+  }
+  .carousel__track .carousel__slide:nth-of-type(1) {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  .carousel__track .carousel__slide:nth-of-type(2) {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  .carousel__track .carousel__slide:nth-of-type(3) {
+    -webkit-transform: translateX(200%);
+            transform: translateX(200%);
+  }
+  .carousel__track .carousel__slide:nth-of-type(4) {
+    -webkit-transform: translateX(300%);
+            transform: translateX(300%);
+  }
+  .carousel__track .carousel__slide:nth-of-type(5) {
+    -webkit-transform: translateX(400%);
+            transform: translateX(400%);
+  }
+  .carousel--scale .carousel__slide {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  .carousel__slide {
+    height: 100%;
+    position: absolute;
+    overflow-y: auto;
+    opacity: 0;
+  }
+  /**
+    * Theming
+  */
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    background-color: #111;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #fff;
+  }
+  .carousel-container {
+    display: inline-block;
+  }
+  .my-carousel {
+    border-radius: 5px;
+    margin: 30px;
+  }
+  .carousel__slide {
+    overflow: hidden;
+  }
+  .carousel--thumb .carousel__indicator {
+    height: 30px;
+    width: 30px;
+  }
+
+  .carousel__indicator {
+    background-color: #fafafa;
+  }
 </style>
 
 <section>
     <h2>Галерея</h2>
-    <div class="container">
 
-    <div class="row">
-    <div class="col-lg-12">
-      <div id="carousel-custom" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            {% if ad.image %}
-              <img src="{{ ad.image.url }}" alt="..." class="img-responsive">
-            {% else %}
-              <img src="/static/images/no_img.jpg" alt="..." class="img-responsive">
-            {% endif %}
-          </div>
+    <div class="carousel-container">
+      <h2>thumbnail indicators</h2>
+
+      <ul class="carousel my-carousel carousel--thumb">
+        <input class="carousel__activator" type="radio" id="img0" name="thumb" checked="checked"/>
+        <input class="carousel__activator" type="radio" id="img1" name="thumb"/>
+        <div class="carousel__controls">
+          <label class="carousel__control carousel__control--backward" for="img0"></label>
+          <label class="carousel__control carousel__control--forward" for="img1"></label>
+        </div>
+        {% if ad.img1 %}
+        <div class="carousel__controls">
+          <label class="carousel__control carousel__control--backward" for="img0"></label>
+          <label class="carousel__control carousel__control--forward" for="img1"></label>
+        </div>
+        {% endif %}
+
+        <li class="carousel__slide">
+          {% if ad.image %}
+            <img src="{{ ad.image.url }}">
+          {% else %}
+            <img src="/static/images/no_img.jpg">
+          {% endif %}
+        </li>
+        {% if ad.img1 %}
+        <li class="carousel__slide">
+          <img src="{{ ad.image.url }}">
+        </li>
+        {% endif %}
+
+        <div class="carousel__indicators">
+          <label class="carousel__indicator"
+                 for="img0"
+                 style="
+                 {% if ad.image %}
+                 background-image: {{ ad.image.url }};
+                 {% else %}
+                 background-image: /static/images/no_img.jpg;
+                 {% endif %}
+                 background-size: cover;
+                 background-position: center;">
+          </label>
           {% if ad.img1 %}
-          <div class="item">
-            <img src="{{ ad.img1.url }}" style="width: 100%;" alt="..." class="img-responsive">
-          </div>
-          {% endif %}
-          {% if ad.img2 %}
-          <div class="item">
-            <img src="{{ ad.img2.url }}" style="width: 100%;" alt="..." class="img-responsive">
-          </div>
-          {% endif %}
-          {% if ad.img3 %}
-          <div class="item">
-            <img src="{{ ad.img3.url }}" style="width: 100%;" alt="..." class="img-responsive">
-          </div>
-          {% endif %}
-          {% if ad.img4 %}
-          <div class="item">
-            <img src="{{ ad.img4.url }}" style="width: 100%;" alt="..." class="img-responsive">
-          </div>
-          {% endif %}
-          {% if ad.img5 %}
-          <div class="item">
-            <img src="{{ ad.img5.url }}" style="width: 100%;" alt="..." class="img-responsive">
-          </div>
-          {% endif %}
-          {% if ad.img6 %}
-          <div class="item">
-            <img src="{{ ad.img6.url }}" style="width: 100%;" alt="..." class="img-responsive">
-          </div>
-          {% endif %}
-          {% if ad.img7 %}
-          <div class="item">
-            <img src="{{ ad.img7.url }}" style="width: 100%;" alt="..." class="img-responsive">
-          </div>
+          <label class="carousel__indicator" style="background-image:{{ ad.image.url }};background-size:cover;background-position:center;" for="img1"></label>
           {% endif %}
         </div>
-
-        <a class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev">
-          Прев.
-          <span class="sr-only">Прев.</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-custom" role="button" data-slide="next">
-          След.
-          <span class="sr-only">След.</span>
-        </a>
-
-      <ol class="carousel-indicators visible-sm-block hidden-xs-block visible-md-block visible-lg-block">
-          <li data-target="#carousel-custom" data-slide-to="0" class="active">
-            {% if ad.image %}
-              <img src="{{ ad.image.url }}" alt="..." class="img-responsive">
-            {% else %}
-              <img src="/static/images/no_img.jpg" alt="..." class="img-responsive">
-            {% endif %}
-          </li>
-          {% if ad.img1 %}
-          <li data-target="#carousel-custom" data-slide-to="1">
-              <img src="{{ ad.img1.url }}" alt="..." class="img-responsive">
-          </li>
-          {% endif %}
-          {% if ad.img2 %}
-          <li data-target="#carousel-custom" data-slide-to="2">
-              <img src="{{ ad.img2.url }}" alt="..." class="img-responsive">
-          </li>
-          {% endif %}
-          {% if ad.img3 %}
-          <li data-target="#carousel-custom" data-slide-to="3">
-              <img src="{{ ad.img3.url }}" alt="..." class="img-responsive">
-          </li>
-          {% endif %}
-          {% if ad.img4 %}
-          <li data-target="#carousel-custom" data-slide-to="4">
-              <img src="{{ ad.img4.url }}" alt="..." class="img-responsive">
-          </li>
-          {% endif %}
-          {% if ad.img5 %}
-          <li data-target="#carousel-custom" data-slide-to="5">
-              <img src="{{ ad.img5.url }}" alt="..." class="img-responsive">
-          </li>
-          {% endif %}
-          {% if ad.img6 %}
-          <li data-target="#carousel-custom" data-slide-to="6">
-              <img src="{{ ad.img6.url }}" alt="..." class="img-responsive">
-          </li>
-          {% endif %}
-          {% if ad.img7 %}
-          <li data-target="#carousel-custom" data-slide-to="7">
-              <img src="{{ ad.img7.url }}" alt="..." class="img-responsive">
-          </li>
-          {% endif %}
-      </ol>
+      </ul>
     </div>
-  </div>
-</div>
-</div>
 </section>
