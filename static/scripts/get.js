@@ -50,4 +50,4 @@ if( document.body.querySelector(".owl-carousel") ){
         autoHeight: true,
         dots: false
     });
-});
+};
