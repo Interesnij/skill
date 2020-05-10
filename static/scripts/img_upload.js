@@ -1,8 +1,19 @@
+function eventFire(el, etype){
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
+
 on('body', 'click', '#image-holder', function() {
 entrou = false;
 ggg = this;
 img = this.previousElementSibling.querySelector("#id_image");
-img.click();
+eventFire(img, 'click');
  $(img).on("change", function() {
   if (!entrou) {imgPath = $(this)[0].value;
     extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
