@@ -22,5 +22,4 @@ img.click();
   } else { this.value = null; }
 } entrou = true;
 setTimeout(function() { entrou = false; }, 1000);
-img.prev().prev().show();
 console.log("upload comment image 2")});});
