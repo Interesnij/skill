@@ -20,15 +20,6 @@ document.body.querySelectorAll('.background-image').forEach(box => {
   box.style.backgroundImage = "url(" + adres +")";
    })
 
-//   $(".change-class").on("click", function(e){
-//           e.preventDefault();
-//           var parentClass = $( "."+$(this).attr("data-parent-class") );
-//           parentClass.removeClass( $(this).attr("data-change-from-class") );
-//           parentClass.addClass( $(this).attr("data-change-to-class") );
-//           $(this).parent().find(".change-class").removeClass("active");
-//           $(this).addClass("active");
-//       });
-
 on('body', 'click', '.change-class', function(e) {
   e.preventDefault();
   _this = this;
@@ -45,4 +36,18 @@ on('body', 'click', '.change-class', function(e) {
       all_tabs[i].classList.remove("active");
   }};
   _this.classList.add("active");
+});
+
+if( document.body.querySelector(".owl-carousel") ){
+    var galleryCarousel = document.body.querySelector(".gallery-carousel");
+
+    galleryCarousel.owlCarousel({
+        loop: false,
+        margin: 0,
+        nav: true,
+        items: 1,
+        navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+        autoHeight: true,
+        dots: false
+    });
 });
