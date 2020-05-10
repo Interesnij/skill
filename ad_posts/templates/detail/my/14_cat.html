@@ -1,5 +1,10 @@
 {% extends "bases/base.html" %}
 {% block title %}{{ ad.title }}{% endblock %}
+{% block navigation %}
+<div class="header_navigation container">
+  <a href="javascript:history.back()">Вернуться назад</a>
+</div>
+{% endblock %}
 {% block content %}
 
 {% include "detail/my/page_title.html" %}
