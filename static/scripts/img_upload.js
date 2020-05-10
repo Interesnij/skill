@@ -7,7 +7,7 @@ $("body").on('click', '#image-holder', function() {
   console.log("click!!!")
 });
 
-$("#id_image").on("change", function() {
+$("body").on('change', '#image-holder', function() {
   if (!entrou) {
     var imgPath = $(this)[0].value;
     var extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
