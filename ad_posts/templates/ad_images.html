@@ -296,7 +296,7 @@
         </li>
         {% if ad.img1 %}
         <li class="carousel__slide">
-          <img src="{{ ad.image.url }}">
+          <img src="{{ ad.img1.url }}">
         </li>
         {% endif %}
 
@@ -313,7 +313,7 @@
                  background-position: center;">
           </label>
           {% if ad.img1 %}
-          <label class="carousel__indicator" style="background-image:{{ ad.image.url }};background-size:cover;background-position:center;" for="img1"></label>
+          <label class="carousel__indicator" style="background-image:{{ ad.img1.url }};background-size:cover;background-position:center;" for="img1"></label>
           {% endif %}
         </div>
       </ul>
