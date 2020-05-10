@@ -35,10 +35,14 @@ on('body', 'click', '.change-class', function(e) {
 
   parentClass = "." + _this.getAttribute("data-parent-class");
   remove_class = _this.getAttribute("data-change-from-class");
-  console.log(parentClass, remove_class);
+
   parent = document.body.querySelector(parentClass);
   parent.classList.remove(remove_class);
   parent.classList.add(_this.getAttribute("data-change-to-class"));
-  _this.parentElement.querySelector(".change-class.active").classList.delete("active");
+  all_tabs = _this.parentElement.querySelectorAll(".change-class");
+  for (var i = 0; i < all_tabs.length; i++) {
+    if(box[i].classList.contains("active")){
+      box[i].classList.delete("active");
+  }};
   _this.classList.add("active");
 });
