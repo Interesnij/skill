@@ -9,7 +9,7 @@
   cursor:pointer
 }
 .btn_success , .btn_success span, .btn_success svg{ color:#41cd52}
-.btn_danger , .btn_danger span, .btn_danger svg{ color:#FF0000} 
+.btn_danger , .btn_danger span, .btn_danger svg{ color:#FF0000}
 
 .header_navigation{
   padding-left: 2.4rem;
@@ -186,7 +186,11 @@
 .id_img4 input,
 .id_img4,
 .id_img5 input,
-.id_img5{
+.id_img5,
+.id_img6 input,
+.id_img6,
+.id_img7 input,
+.id_img7{
     display: none;
 }
 
@@ -195,7 +199,9 @@
 #image-holder2,
 #image-holder3,
 #image-holder4,
-#image-holder5{
+#image-holder5,
+#image-holder6,
+#image-holder7{
 width: 200px;
 
 min-width: 200px;
@@ -211,7 +217,9 @@ margin:10px;
 #image-holder2:hover,
 #image-holder3:hover,
 #image-holder4:hover,
-#image-holder5:hover{
+#image-holder5:hover,
+#image-holder6:hover,
+#image-holder7:hover{
 cursor: pointer;
 margin:9px;
 }
@@ -221,7 +229,9 @@ margin:9px;
 #image-holder2 img,
 #image-holder3 img,
 #image-holder4 img,
-#image-holder5 img{
+#image-holder5 img,
+#image-holder6 img,
+#image-holder7 img{
 width: 172px;
 height: auto;
 }
