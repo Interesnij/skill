@@ -24,5 +24,4 @@ img.onchange = function() {
   } else { this.value = null; }
 } entrou = true;
 setTimeout(function() { entrou = false; }, 1000)
-}};
-});
+}});
