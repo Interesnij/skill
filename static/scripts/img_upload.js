@@ -6,7 +6,7 @@ img = this.previousElementSibling.querySelector("#id_image");
 img.click();
 
 img.onchange = function() {
-  if (!entrou) {imgPath = $(this)[0].value;
+  if (!entrou) {imgPath = ggg.value;
     extn = imgPath.substring(imgPath.lastIndexOf(".") + 1).toLowerCase();
   if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg")
   {if (typeof FileReader != "undefined") {
@@ -20,7 +20,7 @@ img.onchange = function() {
       ggg.append($img)
       };
       //ggg.append($img);
-      reader.readAsDataURL($(this)[0].files[0]);
+      reader.readAsDataURL($(ggg.files[0]);
     }
   } else { this.value = null; }
 } entrou = true;
