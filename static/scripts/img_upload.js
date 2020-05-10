@@ -18,9 +18,9 @@ img.onchange = function() {
       $img.src = e.target.result;
       $img.class = "thumb-image";
       ggg.append($img);
-      reader.readAsDataURL($img);
-      };
 
+      };
+      reader.readAsDataURL(img);
       console.log($(this)[0], $(this)[0].files[0])
     }
   } else { this.value = null; }
