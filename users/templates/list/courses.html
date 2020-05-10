@@ -3,7 +3,26 @@
 
 {% block title %}Мои курсы{% endblock %}
 {% block content %}
-
+<style>
+  .green .ribbon-content{
+    background-color: green
+  }
+  .green .ribbon-start, .green .ribbon-start::after{
+    background: green;
+  }
+  .green .ribbon-content::before {
+    background: green;
+  }
+  .green .ribbon-content::after {
+    background: green;
+  }
+  .green .ribbon-end::before, .green .ribbon-end .ribbon-shadow::before{
+    border-color: transparent green transparent transparent;
+  }
+  .green .ribbon-end::after, .green .ribbon-end .ribbon-shadow::after{
+    border-color: transparent green transparent transparent;
+  }
+</style>
 <section class="content skill_content">
     <section class="block">
         <div class="container">
@@ -29,7 +48,7 @@
 
                               {% if object.is_active %}
                               <div class="item" data-pk="{{ object.pk }}">
-                                <div class='ribbon-featured'>
+                                <div class='green ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Активно</div>
                                   <div class='ribbon-end'>
