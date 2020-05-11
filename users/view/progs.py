@@ -97,7 +97,7 @@ class PhoneSend(View):
 class AddSubscribe(View):
     def get(self,request,*args,**kwargs):
         user = User.objects.get(pk=self.kwargs["pk"])
-        if request.user.pk != user and request.user.is_blocked_with_user_with_id(user_id=user.pk):
+        if request.user != user and request.user.is_blocked_with_user_with_id(user_id=user.pk):
             Subscribe.objects.create(adding_user=request.user, added_user=user)
             return HttpResponse('')
         else:
