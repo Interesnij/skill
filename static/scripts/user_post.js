@@ -5,7 +5,10 @@ on('body', 'click', '.user_subscribe', function(e) {
   send_change(_this, "/users/progs/subscribe/", "user_unsubscribe", "отписаться");
   try{
     target = parent.nextElementSibling.querySelector(".user_unblock");
-    send_change(target, "/users/progs/unblock/", "user_block", "заблокировать")
+    send_change(target, "/users/progs/unblock/", "user_block", "заблокировать");
+    target.classList.add("user_unsubscribe");
+    target.classList.remove("user_subscribe");
+    target.innerHTML = "отписаться";
   }catch{null}
 })
 
