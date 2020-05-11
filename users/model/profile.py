@@ -120,7 +120,7 @@ class IPUser(models.Model):
 
 
 class UserSkillStaff(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user_skill_staff', verbose_name="Особый пользователь")
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_skill_staff', verbose_name="Особый пользователь")
     is_administrator = models.BooleanField(default=False, verbose_name="Это администратор")
     is_moderator = models.BooleanField(default=False, verbose_name="Это модератор")
     is_editor = models.BooleanField(default=False, verbose_name="Это редактор")
