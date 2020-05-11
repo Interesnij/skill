@@ -29,5 +29,5 @@ on('body', 'click', '.user_block', function(e) {
 on('body', 'click', '.user_unblock', function(e) {
   e.preventDefault();
   send_change(this, "/users/progs/unblock/", "user_block", "заблокировать");
-  this.parentElement.querySelector(".user_subscribe").style.opacity="1";
+  this.parentElement.previousElementSibling.querySelector(".user_subscribe").style.opacity="1";
 })
