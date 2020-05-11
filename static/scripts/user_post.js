@@ -1,7 +1,8 @@
 on('body', 'click', '.user_subscribe', function(e) {
   e.preventDefault();
-  parent = this.parentElement;
-  send_change(this, "/users/progs/subscribe/", "user_unsubscribe", "отписаться");
+  _this = this;
+  parent = _this.parentElement;
+  send_change(_this, "/users/progs/subscribe/", "user_unsubscribe", "отписаться");
   try{
     target = parent.nextElementSibling.querySelector(".user_unblock");
     send_change(target, "/users/progs/unblock/", "user_block", "заблокировать")
