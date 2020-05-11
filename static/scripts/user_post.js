@@ -3,7 +3,7 @@ on('body', 'click', '.user_subscribe', function(e) {
   parent = this.parentElement;
   send_change(this, "/users/progs/subscribe/", "user_unsubscribe", "отписаться");
   try{
-    target = parent.nextElementSibling.querySelector(".unuser_block");
+    target = parent.nextElementSibling.querySelector(".user_unblock");
     send_change(target, "/users/progs/unblock/", "user_block", "заблокировать")
   }catch{null}
 })
