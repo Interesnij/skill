@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="additional-info">
                                     <ul>
-                                          <a href="#">
+                                          <a href="#"{% if request.user|is_user_blocked:user.pk %}style="opacity:0"{% endif %}>
                                             {% if request.user|is_my_subscribe:user.pk %}
                                               <span class="user_unsubscribe">отписаться</span>
                                             {% else %}
