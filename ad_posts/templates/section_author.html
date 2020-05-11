@@ -21,24 +21,21 @@
 
             <div class="col-md-7">
               <div class="author-description">
+                <a href="{% url 'user' pk=ad.creator.pk %}" class="text-uppercase">
                   <h3>{{ ad.creator.get_full_name }}</h3>
-                  <a href="{% url 'user' pk=ad.creator.pk %}" class="text-uppercase">Объявления
-                      <span class="appendix">( {{ ad.creator.ad_set.count }} )</span>
-                  </a>
-                  <hr>
-                  <dl>
-                      <dt>Активность</dt>
-                      <dd>{% if ad.creator.get_online %}Онлайн {% else %} Был {{ ad.creator.last_activity }}{% endif %}</dd>
-
-                      <dt>Регион</dt>
-                      <dd> {{ ad.creator.get_last_location.region_ru }}</dd>
-
-                      <dt>Город</dt>
-                      <dd> {{ ad.creator.get_last_location.city_ru }}</dd>
-
-                      <dt>Телефон</dt>
-                      <dd> {{ ad.creator.phone }}</dd>
-                  </dl>
+                </a>
+                <span class="appendix">( {{ ad.creator.ad_set.count }} )</span>
+                <hr>
+                <dl>
+                  <dt>Активность</dt>
+                  <dd>{% if ad.creator.get_online %}Онлайн {% else %} Был {{ ad.creator.last_activity }}{% endif %}</dd>
+                  <dt>Регион</dt>
+                  <dd> {{ ad.creator.get_last_location.region_ru }}</dd>
+                  <dt>Город</dt>
+                  <dd> {{ ad.creator.get_last_location.city_ru }}</dd>
+                  <dt>Телефон</dt>
+                  <dd> {{ ad.creator.phone }}</dd>
+                </dl>
               </div>
             </div>
         </div>

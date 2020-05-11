@@ -107,7 +107,7 @@ class User(AbstractUser):
         return AdNumbers.objects.filter(user=self.pk, ad=ad_id).exists()
 
     def is_course_visited(self, course_id):
-        from stst.models import CourseNumbers 
+        from stst.models import CourseNumbers
         return CourseNumbers.objects.filter(user=self.pk, course=course_id).exists()
 
     def is_anketa_visited(self, anketa_id):
@@ -123,6 +123,63 @@ class User(AbstractUser):
     def is_blocked_with_user_with_id(self, user_id):
         from users.model.list import UserBlock
         return UserBlock.users_are_blocked(user_a_id=self.pk, user_b_id=user_id)
+
+    def is_ad_administrator(self):
+        return self.user_ad_staff.get(is_administrator=True).exists()
+
+    def is_ad_moderator(self):
+        return self.user_ad_staff.get(is_moderator=True).exists()
+
+    def is_ad_editor(self):
+        return self.user_ad_staff.get(is_editor=True).exists()
+
+    def is_ad_advertiser(self):
+        return self.user_ad_staff.get(is_advertiser=True).exists()
+
+    def is_ad_staff(self):
+        if self.is_ad_administrator or self.is_ad_editor or self.is_ad_moderator:
+            return True
+        else:
+            return False
+
+    def is_anketa_administrator(self):
+        return self.user_anketa_staff.get(is_administrator=True).exists()
+
+    def is_anketa_moderator(self):
+        return self.user_anketa_staff.get(is_moderator=True).exists()
+
+    def is_anketa_editor(self):
+        return self.user_anketa_staff.get(is_editor=True).exists()
+
+    def is_anketa_advertiser(self):
+        return self.user_anketa_staff.get(is_advertiser=True).exists()
+
+    def is_anketa_staff(self):
+        if self.is_anketa_administrator or self.is_anketa_editor or self.is_anketa_moderator:
+            return True
+        else:
+            return False
+
+    def is_skill_administrator(self):
+        return self.user_skill_staff.get(is_administrator=True).exists()
+
+    def is_teacher(self):
+        return self.user_skill_staff.get(is_teacher=True).exists()
+
+    def is_skill_moderator(self):
+        return self.user_skill_staff.get(is_moderator=True).exists()
+
+    def is_skill_editor(self):
+        return self.user_skill_staff.get(is_editor=True).exists()
+
+    def is_skill_advertiser(self):
+        return self.user_skill_staff.get(is_advertiser=True).exists()
+
+    def is_skill_staff(self):
+        if self.is_skill_administrator or self.is_skill_editor or self.is_skill_moderator:
+            return True
+        else:
+            return False
 
     def has_blocked_user_with_id(self, user_id):
         return self.user_blocks.filter(blocked_user_id=user_id).exists()
@@ -265,3 +322,276 @@ class User(AbstractUser):
         subscribs_query.add(~Q(Q(blocked_by_users__blocker_id=self.id) | Q(user_blocks__blocked_user_id=self.id)), Q.AND)
         subscribs = User.objects.filter(subscribs_query)
         return subscribs
+
+
+    def add_skill_administrator(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = True
+            user_staff.is_editor = False
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserSkillStaff.objects.create(user=self, is_administrator=True)
+        return user_staff
+
+    def add_skill_moderator(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_moderator = True
+            user_staff.is_administrator = False
+            user_staff.is_editor = False
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserSkillStaff.objects.create(user=self, is_moderator=True)
+        return user_staff
+
+    def add_skill_editor(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = False
+            user_staff.is_editor = True
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserSkillStaff.objects.create(user=self, is_editor=True)
+        return user_staff
+
+    def add_skill_advertiser(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = False
+            user_staff.is_editor = False
+            user_staff.is_advertiser = True
+            user_staff.save()
+        except:
+            user_staff = UserSkillStaff.objects.create(user=self, is_advertiser=True)
+        return user_staff
+
+    def add_skill_teacher(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_teacher = True
+            user_staff.save()
+        except:
+            user_staff = UserSkillStaff.objects.create(user=self, is_teacher=True)
+        return user_staff
+
+    def remove_skill_administrator(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_administrator = False
+            user_staff.save(update_fields=['is_administrator'])
+            return user_staff
+        except:
+            pass
+
+    def remove_skill_moderator(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.save(update_fields=['is_moderator'])
+            return user_staff
+        except:
+            pass
+
+    def remove_skill_editor(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_editor = False
+            user_staff.save(update_fields=['is_editor'])
+            return user_staff
+        except:
+            pass
+
+    def remove_skill_advertiser(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_advertiser = False
+            user_staff.save(update_fields=['is_advertiser'])
+            return user_staff
+        except:
+            pass
+
+    def remove_skill_teacher(self):
+        try:
+            user_staff = UserSkillStaff.objects.get(user=self)
+            user_staff.is_teacher = False
+            user_staff.save()
+            return user_staff
+        except:
+            pass
+
+
+    def add_ad_administrator(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = True
+            user_staff.is_editor = False
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserAdStaff.objects.create(user=self, is_administrator=True)
+        return user_staff
+
+    def add_ad_moderator(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_moderator = True
+            user_staff.is_administrator = False
+            user_staff.is_editor = False
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserAdStaff.objects.create(user=self, is_moderator=True)
+        return user_staff
+
+    def add_ad_editor(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = False
+            user_staff.is_editor = True
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserAdStaff.objects.create(user=self, is_editor=True)
+        return user_staff
+
+    def add_ad_advertiser(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = False
+            user_staff.is_editor = False
+            user_staff.is_advertiser = True
+            user_staff.save()
+        except:
+            user_staff = UserAdStaff.objects.create(user=self, is_advertiser=True)
+        return user_staff
+
+    def remove_ad_administrator(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_administrator = False
+            user_staff.save(update_fields=['is_administrator'])
+            return user_staff
+        except:
+            pass
+
+    def remove_ad_moderator(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.save(update_fields=['is_moderator'])
+            return user_staff
+        except:
+            pass
+
+    def remove_ad_editor(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_editor = False
+            user_staff.save(update_fields=['is_editor'])
+            return user_staff
+        except:
+            pass
+
+    def remove_ad_advertiser(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_advertiser = False
+            user_staff.save(update_fields=['is_advertiser'])
+            return user_staff
+        except:
+            pass
+
+
+    def add_ad_administrator(self):
+        try:
+            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = True
+            user_staff.is_editor = False
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserAdStaff.objects.create(user=self, is_administrator=True)
+        return user_staff
+
+    def add_anketa_moderator(self):
+        try:
+            user_staff = UserAnketaStaff.objects.get(user=self)
+            user_staff.is_moderator = True
+            user_staff.is_administrator = False
+            user_staff.is_editor = False
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserAnketaStaff.objects.create(user=self, is_moderator=True)
+        return user_staff
+
+    def add_anketa_editor(self):
+        try:
+            user_staff = UserAnketaStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = False
+            user_staff.is_editor = True
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserAnketaStaff.objects.create(user=self, is_editor=True)
+        return user_staff
+
+    def add_anketa_advertiser(self):
+        try:
+            user_staff = UserAnketaStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = False
+            user_staff.is_editor = False
+            user_staff.is_advertiser = True
+            user_staff.save()
+        except:
+            user_staff = UserAnketaStaff.objects.create(user=self, is_advertiser=True)
+        return user_staff
+
+    def remove_anketa_administrator(self):
+        try:
+            user_staff = UserAnketaStaff.objects.get(user=self)
+            user_staff.is_administrator = False
+            user_staff.save(update_fields=['is_administrator'])
+            return user_staff
+        except:
+            pass
+
+    def remove_anketa_moderator(self):
+        try:
+            user_staff = UserAnketaStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.save(update_fields=['is_moderator'])
+            return user_staff
+        except:
+            pass
+
+    def remove_anketa_editor(self):
+        try:
+            user_staff = UserAnketaStaff.objects.get(user=self)
+            user_staff.is_editor = False
+            user_staff.save(update_fields=['is_editor'])
+            return user_staff
+        except:
+            pass
+
+    def remove_anketa_advertiser(self):
+        try:
+            user_staff = UserAnketaStaff.objects.get(user=self)
+            user_staff.is_advertiser = False
+            user_staff.save(update_fields=['is_advertiser'])
+            return user_staff
+        except:
+            pass

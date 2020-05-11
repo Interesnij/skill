@@ -4,13 +4,14 @@ from django.conf import settings
 from pilkit.processors import ResizeToFill, ResizeToFit
 from imagekit.models import ProcessedImageField
 from ad_posts.helpers import upload_to_user_directory
+from django.utils import timezone
 
 
 class UserProfile(models.Model):
     id = models.BigIntegerField(primary_key=True, db_index=False)
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, db_index=False, related_name="profile", verbose_name="Пользователь", on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="profile", verbose_name="Пользователь", on_delete=models.CASCADE)
     bio = models.TextField(max_length=1000, blank=True, verbose_name="Биография")
-    sity = models.CharField(max_length=100, blank=True, verbose_name="Местоположение")
+    сity = models.CharField(max_length=100, blank=True, verbose_name="Город")
     status = models.CharField(max_length=100, blank=True, verbose_name="статус-слоган")
     vk_url = models.URLField(blank=True, verbose_name="Ссылка на vk")
     youtube_url = models.URLField(blank=True, verbose_name="Ссылка на youtube")
@@ -116,3 +117,49 @@ class IPUser(models.Model):
 
     def __str__(self):
         return '{} - {}, {}, {}'.format(self.user.get_full_name(), self.ip_1, self.ip_2, self.ip_3)
+
+
+class UserSkillStaff(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='user_skill_staff', verbose_name="Особый пользователь")
+    is_administrator = models.BooleanField(default=False, verbose_name="Это администратор")
+    is_moderator = models.BooleanField(default=False, verbose_name="Это модератор")
+    is_editor = models.BooleanField(default=False, verbose_name="Это редактор")
+    is_advertiser = models.BooleanField(default=False, verbose_name="Это рекламодатель")
+    is_teacher = models.BooleanField(default=False, verbose_name="Это преподаватель")
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+    class Meta:
+        verbose_name = 'Особые полномочия в академии'
+        verbose_name_plural = 'Особые полномочия в академии'
+
+
+class UserAdStaff(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_ad_staff', verbose_name="Особый пользователь")
+    is_administrator = models.BooleanField(default=False, verbose_name="Это администратор")
+    is_moderator = models.BooleanField(default=False, verbose_name="Это модератор")
+    is_editor = models.BooleanField(default=False, verbose_name="Это редактор")
+    is_advertiser = models.BooleanField(default=False, verbose_name="Это рекламодатель")
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+    class Meta:
+        verbose_name = 'Особые полномочия в объявлениях'
+        verbose_name_plural = 'Особые полномочия в объявлениях'
+
+
+class UserAnketaStaff(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_anketa_staff', verbose_name="Особый пользователь")
+    is_administrator = models.BooleanField(default=False, verbose_name="Это администратор")
+    is_moderator = models.BooleanField(default=False, verbose_name="Это модератор")
+    is_editor = models.BooleanField(default=False, verbose_name="Это редактор")
+    is_advertiser = models.BooleanField(default=False, verbose_name="Это рекламодатель")
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+    class Meta:
+        verbose_name = 'Особые полномочия в знакомствах'
+        verbose_name_plural = 'Особые полномочия в знакомствах'
