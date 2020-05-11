@@ -120,7 +120,7 @@ class IPUser(models.Model):
 
 
 class UserSkillStaff(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_skill_staff', verbose_name="Особый пользователь")
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_skill_staff', verbose_name="Особый пользователь")
     is_administrator = models.BooleanField(default=False, verbose_name="Это администратор")
     is_moderator = models.BooleanField(default=False, verbose_name="Это модератор")
     is_editor = models.BooleanField(default=False, verbose_name="Это редактор")
@@ -136,7 +136,7 @@ class UserSkillStaff(models.Model):
 
 
 class UserAdStaff(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_ad_staff', verbose_name="Особый пользователь")
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_ad_staff', verbose_name="Особый пользователь")
     is_administrator = models.BooleanField(default=False, verbose_name="Это администратор")
     is_moderator = models.BooleanField(default=False, verbose_name="Это модератор")
     is_editor = models.BooleanField(default=False, verbose_name="Это редактор")
@@ -151,7 +151,7 @@ class UserAdStaff(models.Model):
 
 
 class UserAnketaStaff(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_anketa_staff', verbose_name="Особый пользователь")
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_anketa_staff', verbose_name="Особый пользователь")
     is_administrator = models.BooleanField(default=False, verbose_name="Это администратор")
     is_moderator = models.BooleanField(default=False, verbose_name="Это модератор")
     is_editor = models.BooleanField(default=False, verbose_name="Это редактор")
