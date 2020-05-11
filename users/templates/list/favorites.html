@@ -26,7 +26,7 @@
                             <div id="" class="items compact list grid-xl-3-items grid-lg-2-items grid-md-2-items">
 
                               {% for object in request.user.get_my_favorite_ads %}
-                                <div class="item" data-pk="{{ object.pk }}">
+                                <div class="red item" data-pk="{{ object.pk }}">
                                   <div class='ribbon-featured'>
                                     <div class='ribbon-start'></div>
                                     <div class='ribbon-content'>Объявление</div>
@@ -92,7 +92,7 @@
 
                                 {% for object in request.user.get_my_favorite_courses %}
                                 <div class="item" data-pk="{{ object.pk }}">
-                                  <div class='ribbon-featured'>
+                                  <div class='green ribbon-featured'>
                                     <div class='ribbon-start'></div>
                                     <div class='ribbon-content'>Курс</div>
                                     <div class='ribbon-end'>
@@ -177,7 +177,7 @@
 
                                   {% for object in request.user.get_my_favorite_anketa %}
                                   <div class="item" data-pk="{{ object.pk }}">
-                                    <div class='ribbon-featured'>
+                                    <div class='purple ribbon-featured'>
                                       <div class='ribbon-start'></div>
                                       <div class='ribbon-content'>Анкета</div>
                                       <div class='ribbon-end'>
