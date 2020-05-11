@@ -19,16 +19,16 @@ on('body', 'click', '.user_block', function(e) {
   send_change(this, "/users/progs/block/", "user_unblock", "разблокировать");
   try{
   target = parent.previousElementSibling.querySelector(".user_unsubscribe");
-  }catch{parent.previousElementSibling.querySelector(".user_subscribe")}
-  target.style.opacity="0";
+  parent.previousElementSibling.style.opacity="0";
   target.classList.add("user_subscribe");
   target.classList.remove("user_unsubscribe");
   target.innerHTML = "подписаться";
+  }catch{parent.previousElementSibling.style.opacity="0"}
 
 })
 
 on('body', 'click', '.user_unblock', function(e) {
   e.preventDefault();
   send_change(this, "/users/progs/unblock/", "user_block", "заблокировать");
-  this.parentElement.previousElementSibling.querySelector(".user_subscribe").style.opacity="1";
+  this.parentElement.previousElementSibling.style.opacity="1";
 })
