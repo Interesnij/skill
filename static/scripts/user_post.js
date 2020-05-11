@@ -1,6 +1,6 @@
 on('body', 'click', '.user_subscribe', function(e) {
   e.preventDefault();
-  parent = this.parent;
+  parent = this.parentElement;
   send_change(this, "/users/progs/subscribe/", "user_unsubscribe", "отписаться");
   try{
     target = parent.nextElementSibling.querySelector(".unuser_block");
@@ -15,7 +15,7 @@ on('body', 'click', '.user_unsubscribe', function(e) {
 
 on('body', 'click', '.user_block', function(e) {
   e.preventDefault();
-  parent = this.parent;
+  parent = this.parentElement;
   send_change(this, "/users/progs/block/", "user_unblock", "разблокировать");
   try{
   target = parent.previousElementSibling.querySelector(".user_unsubscribe");
