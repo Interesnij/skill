@@ -2,7 +2,12 @@
 {% load humanize status %}
 {% block title %}{{ user.get_full_name }}{% endblock %}
 {% block content %}
-
+<style>
+  .setting_ul a{
+    font-size: 18px;
+    margin-right: 10px;
+  }
+</style>
 <section class="content module_1">
             <section class="block">
                 <section>
@@ -44,7 +49,7 @@
                                     </figure>
                                 </div>
                                 <div class="additional-info">
-                                    <ul>
+                                    <ul class="setting_ul">
                                           <a href="#"{% if request.user|is_user_blocked:user.pk %}style="opacity:0"{% endif %}>
                                             {% if request.user|is_my_subscribe:user.pk %}
                                               <span class="user_unsubscribe">отписаться</span>
