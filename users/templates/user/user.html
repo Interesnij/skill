@@ -7,7 +7,7 @@
             <section class="block">
                 <section>
                     <div class="container">
-                        <div class="author big">
+                        <div class="author big" data-pk="{{ user.pk }}">
                             <div class="author-image">
                                 <div class="background-image">
                                   {% if user.avatar %}
@@ -26,7 +26,7 @@
                                       <span style="color:#00AB83;font-size: 18px;"> онлайн </span>
                                       {% else %}
                                       <span style="color:#6C757D;font-size: 18px;">Был {{ user.last_activity }}</span>
-                                      {% endif %}
+                                      {% endif %} 
                                     </h4>
 
                                     <figure>
@@ -46,20 +46,20 @@
                                 <div class="additional-info">
                                     <ul>
                                         <li>
-                                            <figure>Телефон</figure>
-                                            <aside>{{ user.phone }}</aside>
+                                          <a href="#"><span class="user_subscribe">подписаться</span></a>
                                         </li>
                                         <li>
-                                          <a href="#"><span class="user_subscribe">ПОДПИСАТЬСЯ</span></a>
+                                          <a href="#"><span class="user_block">заблокировать</span></a>
                                         </li>
                                         <li>
-                                          <a href="#"><span class="user_block">ЗАБЛОКИРОВАТЬ</span></a>
+                                          <a href="#"><span class="user_claim">пожаловаться</span></a>
                                         </li>
                                     </ul>
                                 </div>
                                 <p>
                                   <h3>Регион: {{ user.get_last_location.region_ru }}</h3>
                                   <h3>Город: {{ user.get_last_location.city_ru }}</h3>
+                                  <h3>Телефон: {{ user.phone }}</h3>
                                   <h3>Зарегистрирован: {{ user.date_joined }}</h3>
                             </div>
                         </div>
