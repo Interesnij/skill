@@ -16,7 +16,7 @@ on('body', 'click', '.user_unsubscribe', function(e) {
 on('body', 'click', '.user_block', function(e) {
   e.preventDefault();
   parent = this.parent;
-  send_change(this, "/users/progs/block/", "user_unblock", "Разблокировать");
+  send_change(this, "/users/progs/block/", "user_unblock", "разблокировать");
   try{
   target = parent.previousElementSibling.querySelector(".user_unsubscribe");
   target.classList.add("user_subscribe");
@@ -27,5 +27,5 @@ on('body', 'click', '.user_block', function(e) {
 
 on('body', 'click', '.user_unblock', function(e) {
   e.preventDefault();
-  send_change(this, "/users/progs/unblock/", "user_block", "Заблокировать")
+  send_change(this, "/users/progs/unblock/", "user_block", "заблокировать")
 })

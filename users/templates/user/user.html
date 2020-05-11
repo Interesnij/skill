@@ -1,5 +1,5 @@
 {% extends "bases/base.html" %}
-{% load humanize %}
+{% load humanize status %}
 {% block title %}{{ user.get_full_name }}{% endblock %}
 {% block content %}
 
@@ -46,13 +46,27 @@
                                 <div class="additional-info" data-pk="{{ user.pk }}">
                                     <ul>
                                         <li>
-                                          <a href="#"><span class="user_subscribe">подписаться</span></a>
+                                          <a href="#">
+                                            {% if request.user|is_my_subscribe:user.pk %}
+                                              <span class="user_unblock">отписаться</span>
+                                            {% else %}
+                                              <span class="user_subscribe">подписаться</span>
+                                            {% endif %}
+                                          </a>
                                         </li>
                                         <li>
-                                          <a href="#"><span class="user_block">заблокировать</span></a>
+                                          <a href="#">
+                                            {% if request.user|is_user_blocked:user.pk %}
+                                              <span class="user_unblock">разблокировать</span>
+                                            {% else %}
+                                              <span class="user_block">заблокировать</span>
+                                            {% endif %}
+                                          </a>
                                         </li>
                                         <li>
-                                          <a href="#"><span class="user_claim">пожаловаться</span></a>
+                                          <a href="#">
+                                              <span class="user_claim">пожаловаться</span>
+                                          </a>
                                         </li>
                                     </ul>
                                 </div>

@@ -50,16 +50,12 @@ class User(AbstractUser):
         elif request.user.pk != self.pk and request.user.is_authenticated:
             if not request.user.is_phone_verified:
                 template_name = "main/phone_verification.html"
-            elif request.user.is_blocked_with_user_with_id(user_id=self.pk):
+            elif request.user.is_blocked:
                 template_name = "generic/you_are_block.html"
-            elif request.user.is_adding_user_with_id(user_id=self.pk):
-                template_name = folder + "adding_" + template
-            elif request.user.is_added_user_with_id(user_id=self.pk):
-                template_name = folder + "added_" + template
+            elif request.user.is_blocked_with_user_with_id(user_id=self.pk):
+                template_name = folder + "block_" + template
             elif request.user.is_deleted:
                 template_name = "generic/deleted_page.html"
-            elif request.user.is_blocked:
-                template_name = "generic/blocked_page.html"
             else:
                 template_name = folder + template
         elif request.user.is_anonymous:
@@ -123,6 +119,10 @@ class User(AbstractUser):
     def is_blocked_with_user_with_id(self, user_id):
         from users.model.list import UserBlock
         return UserBlock.users_are_blocked(user_a_id=self.pk, user_b_id=user_id)
+
+    def is_user_blocked(self, user_id):
+        from users.model.list import UserBlock
+        return UserBlock.users_are_blocked(user_a_id=user_id, user_b_id=self.pk)
 
     def is_ad_administrator(self):
         return self.user_ad_staff.get(is_administrator=True).exists()

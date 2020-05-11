@@ -22,3 +22,18 @@ def is_anketa_favorite(user, anketa_id):
         return True
     else:
         return False
+
+
+@register.filter
+def is_user_blocked(user, user_id):
+    if user.is_user_blocked(user_id):
+        return True
+    else:
+        return False
+
+@register.filter
+def is_my_subscribe(user, user_id):
+    if user.is_adding_user_with_id(user_id):
+        return True
+    else:
+        return False
