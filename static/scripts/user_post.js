@@ -1,16 +1,16 @@
 on('body', 'click', '.user_subscribe', function(e) {
   e.preventDefault();
   parent = this.parent;
-  send_change(this, "/users/progs/subscribe/", "user_unsubscribe", "Отписаться");
+  send_change(this, "/users/progs/subscribe/", "user_unsubscribe", "отписаться");
   try{
-    target = parent.nextElementSibling.querySelector(".user_unblock");
-    send_change(target, "/users/progs/unblock/", "user_unsubscribe", "Отписаться")
+    target = parent.nextElementSibling.querySelector(".unuser_block");
+    send_change(target, "/users/progs/unblock/", "user_block", "заблокировать")
   }catch{null}
 })
 
 on('body', 'click', '.user_unsubscribe', function(e) {
   e.preventDefault();
-  send_change(this, "/users/progs/unsubscribe/", "user_subscribe", "Подписаться");
+  send_change(this, "/users/progs/unsubscribe/", "user_subscribe", "подписаться");
 })
 
 on('body', 'click', '.user_block', function(e) {
@@ -21,7 +21,7 @@ on('body', 'click', '.user_block', function(e) {
   target = parent.previousElementSibling.querySelector(".user_unsubscribe");
   target.classList.add("user_subscribe");
   target.classList.remove("user_unsubscribe");
-  target.innerHTML = "Подписаться";
+  target.innerHTML = "подписаться";
   }catch{null}
 })
 
