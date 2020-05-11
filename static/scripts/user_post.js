@@ -1,14 +1,10 @@
 on('body', 'click', '.user_subscribe', function(e) {
   e.preventDefault();
-  _this = this;
-  parent = _this.parentElement;
+  parent = this.parentElement;
   send_change(_this, "/users/progs/subscribe/", "user_unsubscribe", "отписаться");
   try{
     target = parent.nextElementSibling.querySelector(".user_unblock");
     send_change(target, "/users/progs/unblock/", "user_block", "заблокировать");
-    _this.classList.add("user_unsubscribe");
-    _this.classList.remove("user_subscribe");
-    _this.innerHTML = "отписаться";
   }catch{null}
 })
 
