@@ -56,7 +56,7 @@
                                         </li>
                                         <li>
                                           <a href="#">
-                                            {% if request.user|is_user_blocked:user.pk %}
+                                            {% if user|is_user_blocked:request.user.pk %}
                                               <span class="user_unblock">разблокировать</span>
                                             {% else %}
                                               <span class="user_block">заблокировать</span>
