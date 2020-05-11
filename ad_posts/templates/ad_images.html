@@ -246,16 +246,16 @@
     <h2>Галерея</h2>
 
     <div class="carousel-container">
-      <h2>thumbnail indicators</h2>
 
       <ul class="carousel my-carousel carousel--thumb col-md-12">
         <input class="carousel__activator" type="radio" id="img0" name="thumb" checked="checked"/>
         <input class="carousel__activator" type="radio" id="img1" name="thumb"/>
+
+        {% if ad.img1 %}
         <div class="carousel__controls">
           <label class="carousel__control carousel__control--backward" for="img0"></label>
           <label class="carousel__control carousel__control--forward" for="img1"></label>
         </div>
-        {% if ad.img1 %}
         <div class="carousel__controls">
           <label class="carousel__control carousel__control--backward" for="img0"></label>
           <label class="carousel__control carousel__control--forward" for="img1"></label>
@@ -274,7 +274,7 @@
           <img src="{{ ad.img1.url }}" style="width:100%">
         </li>
         {% endif %}
-
+        {% if ad.img1 %}
         <div class="carousel__indicators">
           <label class="carousel__indicator"
                  for="img0"
@@ -287,10 +287,28 @@
                  background-size: cover;
                  background-position: center;">
           </label>
-          {% if ad.img1 %}
+
           <label class="carousel__indicator" style="background-image:url({{ ad.img1.url }});background-size:cover;background-position:center;" for="img1"></label>
+          {% if ad.img2 %}
+          <label class="carousel__indicator" style="background-image:url({{ ad.img2.url }});background-size:cover;background-position:center;" for="img2"></label>
+          {% endif %}
+          {% if ad.img3 %}
+          <label class="carousel__indicator" style="background-image:url({{ ad.img3.url }});background-size:cover;background-position:center;" for="img3"></label>
+          {% endif %}
+          {% if ad.img4 %}
+          <label class="carousel__indicator" style="background-image:url({{ ad.img4.url }});background-size:cover;background-position:center;" for="img4"></label>
+          {% endif %}
+          {% if ad.img5 %}
+          <label class="carousel__indicator" style="background-image:url({{ ad.img5.url }});background-size:cover;background-position:center;" for="img5"></label>
+          {% endif %}
+          {% if ad.img6 %}
+          <label class="carousel__indicator" style="background-image:url({{ ad.img6.url }});background-size:cover;background-position:center;" for="img6"></label>
+          {% endif %}
+          {% if ad.img7 %}
+          <label class="carousel__indicator" style="background-image:url({{ ad.img7.url }});background-size:cover;background-position:center;" for="img7"></label>
           {% endif %}
         </div>
+        {% endif %}
       </ul>
     </div>
 </section>
