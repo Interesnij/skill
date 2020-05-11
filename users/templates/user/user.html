@@ -48,7 +48,7 @@
                                         <li>
                                           <a href="#">
                                             {% if request.user|is_my_subscribe:user.pk %}
-                                              <span class="user_unblock">отписаться</span>
+                                              <span class="user_unsubscribe">отписаться</span>
                                             {% else %}
                                               <span class="user_subscribe">подписаться</span>
                                             {% endif %}
