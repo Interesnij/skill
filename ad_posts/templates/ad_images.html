@@ -1,11 +1,5 @@
 <style>
-  @import url("https://fonts.googleapis.com/css?family=Roboto:900");
-  /**
-    * style variables
-  */
-  /**
-    * Control & indicator mixin
-  */
+
   .carousel {
     height: 300px;
     width: 400px;
@@ -14,22 +8,7 @@
     position: relative;
     padding: 0;
     list-style: none;
-  /**
-    * Where the magic happens
-    */
-  /**
-      * Control element - right/left arrows
-    */
-  /**
-      * Element for holding slide indicators
-    */
-  /**
-      * Indicator for indicating active slide
-    */
-  /**
-      * Create rules for when slides are contained within a track
-    */
-  }
+
   .carousel__controls,
   .carousel__activator {
     display: none;
@@ -286,14 +265,14 @@
 
         <li class="carousel__slide">
           {% if ad.image %}
-            <img src="{{ ad.image.url }}">
+            <img src="{{ ad.image.url }}" style="width:100%">
           {% else %}
             <img src="/static/images/no_img.jpg">
           {% endif %}
         </li>
         {% if ad.img1 %}
         <li class="carousel__slide">
-          <img src="{{ ad.img1.url }}">
+          <img src="{{ ad.img1.url }}" style="width:100%">
         </li>
         {% endif %}
 
