@@ -17,7 +17,7 @@
                                   {% endif %}
                                 </div>
                             </div>
-                            <div class="author-description">
+                            <div class="author-description" data-pk="{{ user.pk }}">
                                 <div class="section-title">
                                   <h2>{{ user.get_full_name }}</h2>
 
@@ -43,9 +43,8 @@
                                         </div>
                                     </figure>
                                 </div>
-                                <div class="additional-info" data-pk="{{ user.pk }}">
+                                <div class="additional-info">
                                     <ul>
-                                        <li>
                                           <a href="#">
                                             {% if request.user|is_my_subscribe:user.pk %}
                                               <span class="user_unsubscribe">отписаться</span>
@@ -53,8 +52,7 @@
                                               <span class="user_subscribe">подписаться</span>
                                             {% endif %}
                                           </a>
-                                        </li>
-                                        <li>
+
                                           <a href="#">
                                             {% if request.user|is_user_blocked:user.pk %}
                                               <span class="user_unblock">разблокировать</span>
@@ -62,12 +60,10 @@
                                               <span class="user_block">заблокировать</span>
                                             {% endif %}
                                           </a>
-                                        </li>
-                                        <li>
+
                                           <a href="#">
                                               <span class="user_claim">пожаловаться</span>
                                           </a>
-                                        </li>
                                     </ul>
                                 </div>
                                 <p>
