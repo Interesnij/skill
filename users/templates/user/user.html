@@ -7,7 +7,7 @@
             <section class="block">
                 <section>
                     <div class="container">
-                        <div class="author big" data-pk="{{ user.pk }}">
+                        <div class="author big">
                             <div class="author-image">
                                 <div class="background-image">
                                   {% if user.avatar %}
@@ -43,9 +43,9 @@
                                         </div>
                                     </figure>
                                 </div>
-                                <div class="additional-info">
+                                <div class="additional-info" data-pk="{{ user.pk }}">
                                     <ul>
-                                        <li> 
+                                        <li>
                                           <a href="#"><span class="user_subscribe">подписаться</span></a>
                                         </li>
                                         <li>
