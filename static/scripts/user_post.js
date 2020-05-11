@@ -19,11 +19,12 @@ on('body', 'click', '.user_block', function(e) {
   send_change(this, "/users/progs/block/", "user_unblock", "разблокировать");
   try{
   target = parent.previousElementSibling.querySelector(".user_unsubscribe");
+  }catch{parent.previousElementSibling.querySelector(".user_subscribe")}
   target.style.opacity="0";
   target.classList.add("user_subscribe");
   target.classList.remove("user_unsubscribe");
   target.innerHTML = "подписаться";
-  }catch{null}
+
 })
 
 on('body', 'click', '.user_unblock', function(e) {
