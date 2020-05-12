@@ -20,7 +20,20 @@
 
 <section class="content love_content">
 
-    {% include 'main/ankets/new_ankets.html' %}
+  <section class="block">
+          <div class="container">
+              <div class="section-title clearfix">
+                  <div class="float-xl-left float-md-left float-sm-none">
+                      <h2>Россия :: Последние анкеты</h2>
+                  </div>
+              </div>
+              <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
+                {% for object in last_ankets %}
+                    {% include 'generic/ankets/anon_anketa.html' %}
+                  {% endfor %}
+              </div>
+          </div>
+      </section>
 
 </section>
 {% endblock %}
