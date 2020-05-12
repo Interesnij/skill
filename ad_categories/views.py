@@ -17,17 +17,10 @@ class AdCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
-        self.cat=AdCategory.objects.get(name_en=self.kwargs["cat_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "ad_cat/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "ad_cat/anon_page.html"
+        from common.get_templates import get_ads_template
 
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.cat=AdCategory.objects.get(name_en=self.kwargs["cat_name"])
+        self.template_name = get_ads_template(folder="ad_cat/", template="page.html", request=request)
         return super(AdCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -47,18 +40,11 @@ class AdRegionCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
+        from common.get_templates import get_ads_template
+
         self.cat=AdCategory.objects.get(name_en=self.kwargs["cat_name"])
         self.region=Region.objects.get(name_en=self.kwargs["region_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "ad_cat_region/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "ad_cat_region/anon_page.html"
-
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.template_name = get_ads_template(folder="ad_cat_region/", template="page.html", request=request)
         return super(AdRegionCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -79,18 +65,11 @@ class AdCityCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
+        from common.get_templates import get_ads_template
+
         self.cat=AdCategory.objects.get(name_en=self.kwargs["cat_name"])
         self.city=City.objects.get(name_en=self.kwargs["city_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "ad_cat_city/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "ad_cat_city/anon_page.html"
-
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.template_name = get_ads_template(folder="ad_cat_city/", template="page.html", request=request)
         return super(AdCityCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -110,17 +89,10 @@ class AdSubCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
-        self.cat=AdSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "ad_subcat/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "ad_subcat/anon_page.html"
+        from common.get_templates import get_ads_template
 
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.cat=AdSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
+        self.template_name = get_ads_template(folder="ad_subcat/", template="page.html", request=request)
         return super(AdSubCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -140,18 +112,11 @@ class AdRegionSubCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
+        from common.get_templates import get_ads_template
+
         self.cat=AdSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
         self.region=Region.objects.get(name_en=self.kwargs["region_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "ad_subcat_region/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "ad_subcat_region/anon_page.html"
-
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.template_name = get_ads_template(folder="ad_subcat_region/", template="page.html", request=request)
         return super(AdRegionSubCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -172,18 +137,11 @@ class AdCitySubCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
+        from common.get_templates import get_ads_template
+
         self.cat=AdSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
         self.city=City.objects.get(name_en=self.kwargs["city_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "ad_subcat_city/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "ad_subcat_city/anon_page.html"
-
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.template_name = get_ads_template(folder="ad_subcat_city/", template="page.html", request=request)
         return super(AdCitySubCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
