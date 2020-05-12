@@ -14,7 +14,9 @@ def get_template(folder, template, request):
     return template_name
 
 def get_ads_template(folder, template, request):
-    if request.user.is_authenticated and not request.user.is_deleted:
+    if request.user.is_superuser or request.user.is_ad_staff:
+        template_name = folder + "staff_" + template
+    elif request.user.is_authenticated and not request.user.is_deleted:
         template_name = folder + template
     elif request.user.is_authenticated and request.user.is_deleted:
         template_name = "generic/user_deleted.html"
@@ -27,7 +29,9 @@ def get_ads_template(folder, template, request):
     return template_name
 
 def get_skills_template(folder, template, request):
-    if request.user.is_authenticated and not request.user.is_deleted:
+    if request.user.is_superuser or request.user.is_skill_staff:
+        template_name = folder + "staff_" + template
+    elif request.user.is_authenticated and not request.user.is_deleted:
         template_name = folder + template
     elif request.user.is_authenticated and request.user.is_deleted:
         template_name = "generic/user_deleted.html"
@@ -40,7 +44,9 @@ def get_skills_template(folder, template, request):
     return template_name
 
 def get_ankets_template(folder, template, request):
-    if request.user.is_authenticated and not request.user.is_deleted:
+    if request.user.is_superuser or request.user.is_anketa_staff:
+        template_name = folder + "staff_" + template
+    elif request.user.is_authenticated and not request.user.is_deleted:
         template_name = folder + template
     elif request.user.is_authenticated and request.user.is_deleted:
         template_name = "generic/user_deleted.html"
