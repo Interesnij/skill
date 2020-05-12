@@ -5,9 +5,11 @@
     <a class="nav-link icon" href="{% url 'user_ads' pk=request.user.pk %}">
         <i class="fa fa-heart"></i>Мои объявления
     </a>
+    {% if user.is_teacher %}
     <a class="nav-link icon" href="{% url 'my_courses' pk=request.user.pk %}">
         <i class="fa fa-heart"></i>Мои курсы
     </a>
+    {% endif %}
     <a class="nav-link icon" href="{% url 'user_ankets' pk=request.user.pk %}">
         <i class="fa fa-heart"></i>Мои анкеты
     </a>
