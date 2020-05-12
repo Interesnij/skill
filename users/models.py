@@ -50,6 +50,8 @@ class User(AbstractUser):
         elif request.user.pk != self.pk and request.user.is_authenticated:
             if not request.user.is_phone_verified:
                 template_name = "main/phone_verification.html"
+            elif request.user.is_phone_verified:
+                template_name = "main/phone_verification.html"
             elif request.user.is_blocked:
                 template_name = "generic/you_are_block.html"
             elif request.user.is_blocked_with_user_with_id(user_id=self.pk):
@@ -189,6 +191,11 @@ class User(AbstractUser):
         return self.can_work_staff_ad_user.get(can_work_editor=True).exists()
     def is_can_work_ad_advertiser(self):
         return self.can_work_staff_ad_user.get(can_work_advertiser=True).exists()
+    def is_skill_staff_worker(self):
+        if self.is_can_work_ad_administrator or self.is_can_work_ad_editor or self.is_can_work_ad_advertiser or self.is_can_work_ad_moderator:
+            return True
+        else:
+            return False
 
     def is_can_work_skill_administrator(self):
         return self.can_work_staff_skill_user.get(can_work_administrator=True).exists()
@@ -200,6 +207,11 @@ class User(AbstractUser):
         return self.can_work_staff_skill_user.get(can_work_advertiser=True).exists()
     def is_can_work_skill_teacher(self):
         return self.can_work_staff_skill_user.get(can_work_teacher=True).exists()
+    def is_skill_staff_worker(self):
+        if self.is_can_work_skill_administrator or self.is_can_work_skill_editor or self.is_can_work_skill_advertiser or self.is_can_work_skill_moderator or self.is_can_work_skill_teacher:
+            return True
+        else:
+            return False
 
     def is_can_work_anketa_administrator(self):
         return self.can_work_staff_anketa_user.get(can_work_administrator=True).exists()
@@ -209,6 +221,11 @@ class User(AbstractUser):
         return self.can_work_staff_anketa_user.get(can_work_editor=True).exists()
     def is_can_work_anketa_advertiser(self):
         return self.can_work_staff_anketa_user.get(can_work_advertiser=True).exists()
+    def is_skill_staff_worker(self):
+        if self.is_can_work_anketa_administrator or self.is_can_work_anketa_editor or self.is_can_work_aanketa_advertiser or self.is_can_work_anketa_moderator:
+            return True
+        else:
+            return False
 
     def has_blocked_user_with_id(self, user_id):
         return self.user_blocks.filter(blocked_user_id=user_id).exists()
