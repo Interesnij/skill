@@ -1,7 +1,45 @@
 import re
 
 def get_template(folder, template, request):
+    if request.user.is_authenticated and not request.user.is_deleted:
+        template_name = folder + template
+    elif request.user.is_authenticated and request.user.is_deleted:
+        template_name = "generic/user_deleted.html"
+    elif request.user.is_anonymous:
+        template_name = folder + "anon_" + template
 
+    MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+    if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+        template_name = "mob_" + template_name
+    return template_name
+
+def get_ads_template(folder, template, request):
+    if request.user.is_authenticated and not request.user.is_deleted:
+        template_name = folder + template
+    elif request.user.is_authenticated and request.user.is_deleted:
+        template_name = "generic/user_deleted.html"
+    elif request.user.is_anonymous:
+        template_name = folder + "anon_" + template
+
+    MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+    if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+        template_name = "mob_" + template_name
+    return template_name
+
+def get_skills_template(folder, template, request):
+    if request.user.is_authenticated and not request.user.is_deleted:
+        template_name = folder + template
+    elif request.user.is_authenticated and request.user.is_deleted:
+        template_name = "generic/user_deleted.html"
+    elif request.user.is_anonymous:
+        template_name = folder + "anon_" + template
+
+    MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+    if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+        template_name = "mob_" + template_name
+    return template_name
+
+def get_ankets_template(folder, template, request):
     if request.user.is_authenticated and not request.user.is_deleted:
         template_name = folder + template
     elif request.user.is_authenticated and request.user.is_deleted:

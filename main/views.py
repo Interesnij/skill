@@ -27,18 +27,9 @@ class AdsPageView(TemplateView):
 	template_name = None
 
 	def get(self,request,*args,**kwargs):
-		import re
+		from common.get_templates import get_ads_template
 
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "main/ads/ads.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "main/ads/anon_ads.html"
-
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.template_name = get_template(folder="main/ads/", template="ads.html", request=request)
 		return super(AdsPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -54,18 +45,9 @@ class CoursesPageView(TemplateView):
 	template_name = None
 
 	def get(self,request,*args,**kwargs):
-		import re
+		from common.get_templates import get_skills_template
 
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "main/courses/courses.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "main/courses/anon_courses.html"
-
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.template_name = get_template(folder="main/courses/", template="courses.html", request=request)
 		return super(CoursesPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -81,18 +63,9 @@ class AnketsPageView(TemplateView):
 	template_name = None
 
 	def get(self,request,*args,**kwargs):
-		import re
+		from common.get_templates import get_skills_template
 
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "main/ankets/ankets.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "main/ankets/anon_ankets.html"
-
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.template_name = get_template(folder="main/ankets/", template="ankets.html", request=request)
 		return super(AnketsPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
