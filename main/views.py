@@ -29,7 +29,7 @@ class AdsPageView(TemplateView):
 	def get(self,request,*args,**kwargs):
 		from common.get_templates import get_ads_template
 
-		self.template_name = get_template(folder="main/ads/", template="ads.html", request=request)
+		self.template_name = get_ads_template(folder="main/ads/", template="ads.html", request=request)
 		return super(AdsPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -47,7 +47,7 @@ class CoursesPageView(TemplateView):
 	def get(self,request,*args,**kwargs):
 		from common.get_templates import get_skills_template
 
-		self.template_name = get_template(folder="main/courses/", template="courses.html", request=request)
+		self.template_name = get_skills_template(folder="main/courses/", template="courses.html", request=request)
 		return super(CoursesPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -63,9 +63,9 @@ class AnketsPageView(TemplateView):
 	template_name = None
 
 	def get(self,request,*args,**kwargs):
-		from common.get_templates import get_skills_template
+		from common.get_templates import get_ankets_template
 
-		self.template_name = get_template(folder="main/ankets/", template="ankets.html", request=request)
+		self.template_name = get_ankets_template(folder="main/ankets/", template="ankets.html", request=request)
 		return super(AnketsPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
