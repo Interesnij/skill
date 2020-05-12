@@ -14,7 +14,6 @@ class AnketaActive(View):
         else:
             return HttpResponse('')
 
-
 class AnketaUnActive(View):
     def get(self,request,*args,**kwargs):
         anketa = Anketa.objects.get(pk=self.kwargs["pk"])
@@ -37,7 +36,6 @@ class AnketaDelete(View):
         else:
             return HttpResponse('')
 
-
 class AnketaUnDelete(View):
     def get(self,request,*args,**kwargs):
         anketa = Anketa.objects.get(pk=self.kwargs["pk"])
@@ -58,7 +56,6 @@ class AnketaFavorite(View):
         else:
             return HttpResponse('')
 
-
 class AnketaUnFavorite(View):
     def get(self,request,*args,**kwargs):
         anketa = Anketa.objects.get(pk=self.kwargs["pk"])
@@ -68,3 +65,139 @@ class AnketaUnFavorite(View):
             return HttpResponse('')
         except:
             return HttpResponse('')
+
+
+class AnketaAdminCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_administrator:
+            user.add_anketa_administrator()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class AnketaAdminDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_administrator:
+            user.remove_anketa_administrator()
+        return HttpResponse("")
+
+
+class AnketaModerCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_moderator:
+            user.add_anketa_moderator()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class AnketaModerDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_moderator:
+            user.remove_anketa_moderator()
+        return HttpResponse("")
+
+
+class AnketaEditorCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_editor:
+            user.add_anketa_editor()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class AnketaEditorDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_editor:
+            user.remove_anketa_editor()
+        return HttpResponse("")
+
+
+class AnketaAdvertiserCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_advertiser:
+            user.add_anketa_advertiser()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class AnketaAdvertiserDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_advertiser:
+            user.remove_anketa_advertiser()
+        return HttpResponse("")
+
+
+class AnketaWorkerAdminCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_anketa_administrator_worker()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class AnketaWorkerAdminDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_anketa_administrator_worker()
+        return HttpResponse("")
+
+
+class AnketaWorkerModerCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_anketa_moderator_worker()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class AnketaWorkerModerDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_anketa_moderator_worker()
+        return HttpResponse("")
+
+
+class AnketaWorkerEditorCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_anketa_editor_worker()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class AnketaWorkerEditorDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_anketa_editor_worker())
+        return HttpResponse("")
+
+
+class AnketaWorkerAdvertiserCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_advertiser:
+            user.add_anketa_advertiser()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class AnketaWorkerAdvertiserDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_advertiser:
+            user.remove_anketa_advertiser()
+        return HttpResponse("")

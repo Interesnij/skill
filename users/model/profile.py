@@ -163,3 +163,49 @@ class UserAnketaStaff(models.Model):
     class Meta:
         verbose_name = 'Особые полномочия в знакомствах'
         verbose_name_plural = 'Особые полномочия в знакомствах'
+
+
+class CanAddStaffAdUser(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='can_work_staff_ad_user', verbose_name="Создатель персонала")
+    can_work_administrator = models.BooleanField(default=False, verbose_name="Может добавлять администраторов объявлений")
+    can_work_moderator = models.BooleanField(default=False, verbose_name="Может добавлять модераторов объявлений")
+    can_work_editor = models.BooleanField(default=False, verbose_name="Может добавлять редакторов объявлений")
+    can_work_advertiser = models.BooleanField(default=False, verbose_name="Может добавлять рекламодателей объявлений")
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+    class Meta:
+        verbose_name = 'Создатель персонала в объявлениях'
+        verbose_name_plural = 'Создатели персонала в объявлениях'
+
+
+class CanAddStaffSkillUser(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='can_work_staff_skill_user', verbose_name="Создатель персонала")
+    can_work_administrator = models.BooleanField(default=False, verbose_name="Может добавлять администраторов академии")
+    can_work_moderator = models.BooleanField(default=False, verbose_name="Может добавлять модераторов академии")
+    can_work_editor = models.BooleanField(default=False, verbose_name="Может добавлять редакторов академии")
+    can_work_advertiser = models.BooleanField(default=False, verbose_name="Может добавлять рекламодателей академии")
+    can_work_teacher = models.BooleanField(default=False, verbose_name="Может добавлять преподаателей академии")
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+    class Meta:
+        verbose_name = 'Создатель персонала в академии'
+        verbose_name_plural = 'Создатели персонала в академии'
+
+
+class CanAddStaffAnketaUser(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='can_work_staff_anketa_user', verbose_name="Создатель персонала")
+    can_work_administrator = models.BooleanField(default=False, verbose_name="Может добавлять администраторов в знакомствах")
+    can_work_moderator = models.BooleanField(default=False, verbose_name="Может добавлять модераторов в знакомствах")
+    can_work_editor = models.BooleanField(default=False, verbose_name="Может добавлять редакторов в знакомствах")
+    can_work_advertiser = models.BooleanField(default=False, verbose_name="Может добавлять рекламодателей в знакомствах")
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+    class Meta:
+        verbose_name = 'Создатель персонала в знакомствах'
+        verbose_name_plural = 'Создатели персонала в знакомствах'

@@ -181,6 +181,35 @@ class User(AbstractUser):
         else:
             return False
 
+    def is_can_work_ad_administrator(self):
+        return self.can_work_staff_ad_user.get(can_work_administrator=True).exists()
+    def is_can_work_ad_moderator(self):
+        return self.can_work_staff_ad_user.get(can_work_moderator=True).exists()
+    def is_can_work_ad_editor(self):
+        return self.can_work_staff_ad_user.get(can_work_editor=True).exists()
+    def is_can_work_ad_advertiser(self):
+        return self.can_work_staff_ad_user.get(can_work_advertiser=True).exists()
+
+    def is_can_work_skill_administrator(self):
+        return self.can_work_staff_skill_user.get(can_work_administrator=True).exists()
+    def is_can_work_skill_moderator(self):
+        return self.can_work_staff_skill_user.get(can_work_moderator=True).exists()
+    def is_can_work_skill_editor(self):
+        return self.can_work_staff_skill_user.get(can_work_editor=True).exists()
+    def is_can_work_skill_advertiser(self):
+        return self.can_work_staff_skill_user.get(can_work_advertiser=True).exists()
+    def is_can_work_skill_teacher(self):
+        return self.can_work_staff_skill_user.get(can_work_teacher=True).exists()
+
+    def is_can_work_anketa_administrator(self):
+        return self.can_work_staff_anketa_user.get(can_work_administrator=True).exists()
+    def is_can_work_anketa_moderator(self):
+        return self.can_work_staff_anketa_user.get(can_work_moderator=True).exists()
+    def is_can_work_anketa_editor(self):
+        return self.can_work_staff_anketa_user.get(can_work_editor=True).exists()
+    def is_can_work_anketa_advertiser(self):
+        return self.can_work_staff_anketa_user.get(can_work_advertiser=True).exists()
+
     def has_blocked_user_with_id(self, user_id):
         return self.user_blocks.filter(blocked_user_id=user_id).exists()
 
@@ -323,8 +352,8 @@ class User(AbstractUser):
         subscribs = User.objects.filter(subscribs_query)
         return subscribs
 
-
     def add_skill_administrator(self):
+        from user.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -335,7 +364,6 @@ class User(AbstractUser):
         except:
             user_staff = UserSkillStaff.objects.create(user=self, is_administrator=True)
         return user_staff
-
     def add_skill_moderator(self):
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
@@ -347,7 +375,6 @@ class User(AbstractUser):
         except:
             user_staff = UserSkillStaff.objects.create(user=self, is_moderator=True)
         return user_staff
-
     def add_skill_editor(self):
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
@@ -359,7 +386,6 @@ class User(AbstractUser):
         except:
             user_staff = UserSkillStaff.objects.create(user=self, is_editor=True)
         return user_staff
-
     def add_skill_advertiser(self):
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
@@ -371,7 +397,6 @@ class User(AbstractUser):
         except:
             user_staff = UserSkillStaff.objects.create(user=self, is_advertiser=True)
         return user_staff
-
     def add_skill_teacher(self):
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
@@ -389,7 +414,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_skill_moderator(self):
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
@@ -398,7 +422,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_skill_editor(self):
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
@@ -407,7 +430,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_skill_advertiser(self):
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
@@ -416,7 +438,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_skill_teacher(self):
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
@@ -425,7 +446,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
 
     def add_ad_administrator(self):
         try:
@@ -438,7 +458,6 @@ class User(AbstractUser):
         except:
             user_staff = UserAdStaff.objects.create(user=self, is_administrator=True)
         return user_staff
-
     def add_ad_moderator(self):
         try:
             user_staff = UserAdStaff.objects.get(user=self)
@@ -450,7 +469,6 @@ class User(AbstractUser):
         except:
             user_staff = UserAdStaff.objects.create(user=self, is_moderator=True)
         return user_staff
-
     def add_ad_editor(self):
         try:
             user_staff = UserAdStaff.objects.get(user=self)
@@ -462,7 +480,6 @@ class User(AbstractUser):
         except:
             user_staff = UserAdStaff.objects.create(user=self, is_editor=True)
         return user_staff
-
     def add_ad_advertiser(self):
         try:
             user_staff = UserAdStaff.objects.get(user=self)
@@ -483,7 +500,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_ad_moderator(self):
         try:
             user_staff = UserAdStaff.objects.get(user=self)
@@ -492,7 +508,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_ad_editor(self):
         try:
             user_staff = UserAdStaff.objects.get(user=self)
@@ -501,7 +516,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_ad_advertiser(self):
         try:
             user_staff = UserAdStaff.objects.get(user=self)
@@ -511,19 +525,17 @@ class User(AbstractUser):
         except:
             pass
 
-
-    def add_ad_administrator(self):
+    def add_anketa_administrator(self):
         try:
-            user_staff = UserAdStaff.objects.get(user=self)
+            user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_moderator = False
             user_staff.is_administrator = True
             user_staff.is_editor = False
             user_staff.is_advertiser = False
             user_staff.save()
         except:
-            user_staff = UserAdStaff.objects.create(user=self, is_administrator=True)
+            user_staff = UserAnketaStaff.objects.create(user=self, is_administrator=True)
         return user_staff
-
     def add_anketa_moderator(self):
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
@@ -535,7 +547,6 @@ class User(AbstractUser):
         except:
             user_staff = UserAnketaStaff.objects.create(user=self, is_moderator=True)
         return user_staff
-
     def add_anketa_editor(self):
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
@@ -547,7 +558,6 @@ class User(AbstractUser):
         except:
             user_staff = UserAnketaStaff.objects.create(user=self, is_editor=True)
         return user_staff
-
     def add_anketa_advertiser(self):
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
@@ -568,7 +578,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_anketa_moderator(self):
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
@@ -577,7 +586,6 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_anketa_editor(self):
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
@@ -586,12 +594,227 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
-
     def remove_anketa_advertiser(self):
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_advertiser = False
             user_staff.save(update_fields=['is_advertiser'])
+            return user_staff
+        except:
+            pass
+
+    def add_ad_administrator_worker(self):
+        try:
+            user_staff = CanAddStaffAdUser.objects.get(user=self)
+            user_staff.is_administrator = True
+            user_staff.save(update_fields=['is_administrator'])
+        except:
+            user_staff = CanAddStaffAdUser.objects.create(user=self, is_administrator=True)
+        return user_staff
+    def add_ad_moderator_worker(self):
+        try:
+            user_staff = CanAddStaffAdUser.objects.get(user=self)
+            user_staff.is_moderator = True
+            user_staff.save(update_fields=['is_moderator'])
+        except:
+            user_staff = CanAddStaffAdUser.objects.create(user=self, is_moderator=True)
+        return user_staff
+    def add_ad_editor_worker(self):
+        try:
+            user_staff = CanAddStaffAdUser.objects.get(user=self)
+            user_staff.is_editor = True
+            user_staff.save(update_fields=['is_editor'])
+        except:
+            user_staff = CanAddStaffAdUser.objects.create(user=self, is_editor=True)
+        return user_staff
+    def add_ad_advirtiser_worker(self):
+        try:
+            user_staff = CanAddStaffAdUser.objects.get(user=self)
+            user_staff.is_advirtiser = True
+            user_staff.save(update_fields=['is_advirtiser'])
+        except:
+            user_staff = CanAddStaffAdUser.objects.create(user=self, is_advertiser=True)
+        return user_staff
+
+    def remove_ad_administrator_worker(self):
+        try:
+            user_staff = CanAddStaffAdUser.objects.get(user=self)
+            user_staff.is_administrator = False
+            user_staff.save(update_fields=['is_administrator'])
+            return user_staff
+        except:
+            pass
+    def remove_ad_moderator_worker(self):
+        try:
+            user_staff = CanAddStaffAdUser.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.save(update_fields=['is_moderator'])
+            return user_staff
+        except:
+            pass
+    def remove_ad_editor_worker(self):
+        try:
+            user_staff = CanAddStaffAdUser.objects.get(user=self)
+            user_staff.is_editor = False
+            user_staff.save(update_fields=['is_editor'])
+            return user_staff
+        except:
+            pass
+    def remove_ad_advirtiser_worker(self):
+        try:
+            user_staff = CanAddStaffAdUser.objects.get(user=self)
+            user_staff.is_advirtiser = False
+            user_staff.save(update_fields=['is_advirtiser'])
+            return user_staff
+        except:
+            pass
+
+
+    def add_skill_administrator_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_administrator = True
+            user_staff.save(update_fields=['is_administrator'])
+        except:
+            user_staff = CanAddStaffSkillUser.objects.create(user=self, is_administrator=True)
+        return user_staff
+    def add_skill_moderator_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_moderator = True
+            user_staff.save(update_fields=['is_moderator'])
+        except:
+            user_staff = CanAddStaffSkillUser.objects.create(user=self, is_moderator=True)
+        return user_staff
+    def add_skill_editor_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_editor = True
+            user_staff.save(update_fields=['is_editor'])
+        except:
+            user_staff = CanAddStaffSkillUser.objects.create(user=self, is_editor=True)
+        return user_staff
+    def add_skill_advirtiser_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_advirtiser = True
+            user_staff.save(update_fields=['is_advirtiser'])
+        except:
+            user_staff = CanAddStaffSkillUser.objects.create(user=self, is_advertiser=True)
+        return user_staff
+    def add_skill_teacher_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_teacher = True
+            user_staff.save(update_fields=['is_teacher'])
+        except:
+            user_staff = CanAddStaffSkillUser.objects.create(user=self, is_teacher=True)
+        return user_staff
+
+    def remove_skill_administrator_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_administrator = False
+            user_staff.save(update_fields=['is_administrator'])
+            return user_staff
+        except:
+            pass
+    def remove_skill_moderator_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.save(update_fields=['is_moderator'])
+            return user_staff
+        except:
+            pass
+    def remove_skill_editor_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_editor = False
+            user_staff.save(update_fields=['is_editor'])
+            return user_staff
+        except:
+            pass
+    def remove_skill_advirtiser_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_advirtiser = False
+            user_staff.save(update_fields=['is_advirtiser'])
+            return user_staff
+        except:
+            pass
+    def remove_skill_teacher_worker(self):
+        try:
+            user_staff = CanAddStaffSkillUser.objects.get(user=self)
+            user_staff.is_teacher = False
+            user_staff.save(update_fields=['is_teacher'])
+            return user_staff
+        except:
+            pass
+
+
+    def add_anketa_administrator_worker(self):
+        try:
+            user_staff = CanAddStaffAnketaUser.objects.get(user=self)
+            user_staff.is_administrator = True
+            user_staff.save(update_fields=['is_administrator'])
+        except:
+            user_staff = CanAddStaffAnketaUser.objects.create(user=self, is_administrator=True)
+        return user_staff
+    def add_anketa_moderator_worker(self):
+        try:
+            user_staff = CanAddStaffAnketaUser.objects.get(user=self)
+            user_staff.is_moderator = True
+            user_staff.save(update_fields=['is_moderator'])
+        except:
+            user_staff = CanAddStaffAnketaUser.objects.create(user=self, is_moderator=True)
+        return user_staff
+    def add_anketa_editor_worker(self):
+        try:
+            user_staff = CanAddStaffAnketaUser.objects.get(user=self)
+            user_staff.is_editor = True
+            user_staff.save(update_fields=['is_editor'])
+        except:
+            user_staff = CanAddStaffAnketaUser.objects.create(user=self, is_editor=True)
+        return user_staff
+    def add_anketa_advirtiser_worker(self):
+        try:
+            user_staff = CanAddStaffAnketaUser.objects.get(user=self)
+            user_staff.is_advirtiser = True
+            user_staff.save(update_fields=['is_advirtiser'])
+        except:
+            user_staff = CanAddStaffAnketaUser.objects.create(user=self, is_advertiser=True)
+        return user_staff
+
+    def remove_anketa_administrator_worker(self):
+        try:
+            user_staff = CanAddStaffAnketaUser.objects.get(user=self)
+            user_staff.is_administrator = False
+            user_staff.save(update_fields=['is_administrator'])
+            return user_staff
+        except:
+            pass
+    def remove_anketa_moderator_worker(self):
+        try:
+            user_staff = CanAddStaffAnketaUser.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.save(update_fields=['is_moderator'])
+            return user_staff
+        except:
+            pass
+    def remove_anketa_editor_worker(self):
+        try:
+            user_staff = CanAddStaffAnketaUser.objects.get(user=self)
+            user_staff.is_editor = False
+            user_staff.save(update_fields=['is_editor'])
+            return user_staff
+        except:
+            pass
+    def remove_anketa_advirtiser_worker(self):
+        try:
+            user_staff = CanAddStaffAnketaUser.objects.get(user=self)
+            user_staff.is_advirtiser = False
+            user_staff.save(update_fields=['is_advirtiser'])
             return user_staff
         except:
             pass

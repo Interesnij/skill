@@ -14,7 +14,6 @@ class SkillActive(View):
         else:
             return HttpResponse('')
 
-
 class SkillUnActive(View):
     def get(self,request,*args,**kwargs):
         course = Course.objects.get(pk=self.kwargs["pk"])
@@ -37,7 +36,6 @@ class SkillDelete(View):
         else:
             return HttpResponse('')
 
-
 class SkillUnDelete(View):
     def get(self,request,*args,**kwargs):
         course = Course.objects.get(pk=self.kwargs["pk"])
@@ -58,7 +56,6 @@ class SkillFavorite(View):
         else:
             return HttpResponse('')
 
-
 class SkillUnFavorite(View):
     def get(self,request,*args,**kwargs):
         course = Course.objects.get(pk=self.kwargs["pk"])
@@ -68,3 +65,173 @@ class SkillUnFavorite(View):
             return HttpResponse('')
         except:
             return HttpResponse('')
+
+
+class SkillAdminCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_anketa_administrator:
+            user.add_anketa_administrator()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillAdminDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_administrator:
+            user.remove_skill_administrator()
+        return HttpResponse("")
+
+
+class SkillModerCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_moderator:
+            user.add_skill_moderator()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillModerDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_moderator:
+            user.remove_skill_moderator()
+        return HttpResponse("")
+
+
+class SkillEditorCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_editor:
+            user.add_skill_editor()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillEditorDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_editor:
+            user.remove_skill_editor()
+        return HttpResponse("")
+
+
+class SkillAdvertiserCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_advertiser:
+            user.add_skill_advertiser()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillAdvertiserDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_advertiser:
+            user.remove_skill_advertiser()
+        return HttpResponse("")
+
+
+class SkillTeacherCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_advertiser:
+            user.add_skill_teacher()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillTeacherDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_skill_advertiser:
+            user.remove_skill_teacher()
+        return HttpResponse("")
+
+
+class SkillWorkerAdminCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_anketa_administrator_worker()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillWorkerAdminDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_skill_administrator_worker()
+        return HttpResponse("")
+
+
+class SkillWorkerModerCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_skill_moderator_worker()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillWorkerModerDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_skill_moderator_worker()
+        return HttpResponse("")
+
+
+class SkillWorkerEditorCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_skill_editor_worker()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillWorkerEditorDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_skill_editor_worker()
+        return HttpResponse("")
+
+
+class SkillWorkerAdvertiserCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_skill_advertiser_worker()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillWorkerAdvertiserDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_skill_advertiser_worker()
+        return HttpResponse("")
+
+
+class SkillWorkerTeacherCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_skill_teacher_worker()
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class SkillWorkerTeacherDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_skill_teacher_worker()
+        return HttpResponse("")
