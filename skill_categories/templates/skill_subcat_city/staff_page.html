@@ -1,0 +1,63 @@
+{% extends "bases/base.html" %}
+{% load ad_count %}
+{% block title %}{{ city.region.name_ru }}, {{ city.name_ru }} :: академия - {{ sub_category.category.name_ru }}, {{ sub_category.name_ru }}{% endblock %}
+{% block navigation %}
+<div class="header_navigation container">
+  <a class="get_russia" tooltip='Нажмите для смены локации' flow="down" href="#">Россия, {{ city.region.name_ru }}, {{ city.name_ru }}</a> /
+  <a href="{% url 'courses_city' city_name=city.name_en %}">Модуль академии</a> /
+  <a href="{% url 'skill_category_city' city_name=city.name_en cat_name=sub_category.category.name_en %}">{{ sub_category.category.name_ru }}</a> /
+  <a>{{ sub_category.name_ru }}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="page-title">
+    <div class="container">
+      <h1 class="opacity-40 center">
+        {{ city.region.name_ru }}, {{ city.name_ru }} :: курсы <br> {{ sub_category.category.name_ru }}, {{ sub_category.name_ru }}
+      </h1>
+    </div>
+</div>
+{% include 'skill_subcat_city/hero_form.html' %}
+
+<section class="content skill_content">
+  <section class="block">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+        {% if object_list %}
+
+        <div class="section-title clearfix">
+          <div class="float-right d-xs-none thumbnail-toggle">
+            <a href="#" class="change-class active" data-change-from-class="list" data-change-to-class="masonry" data-parent-class="items">
+                плитка
+            </a>
+            <a href="#" class="change-class " data-change-from-class="masonry" data-change-to-class="list" data-parent-class="items">
+                список
+            </a>
+          </div>
+        </div>
+        <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
+            {% for object in object_list %}
+              {% include 'generic/skills/staff_skill.html' %}
+            {% endfor %}
+          </div>
+
+          {% else %}
+          <h1 style="height:400px;text-align:center">
+            <br><br><br><br><br>
+            Пока нет объявлений :-)</h1>
+          {% endif %}
+      </div>
+
+      <div class="col-md-3">
+          <aside class="sidebar">
+            Фильтры
+          </aside>
+      </div>
+    </div>
+</div>
+  </section>
+</section>
+
+{% endblock %}
