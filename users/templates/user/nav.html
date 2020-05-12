@@ -23,17 +23,17 @@
     <a class="nav-link icon" href="{% url 'user_blacklist' pk=request.user.pk %}">
         <i class="fa fa-user"></i>Черный список
     </a>
-    {% if user.is superuser or user.is_skill_staff_worker %}
+    {% if user.is_superuser or user.is_skill_staff_worker %}
     <a class="nav-link icon" href="">
         <i class="fa fa-settings"></i>Академия
     </a>
     {% endif %}
-    {% if user.is superuser or user.is_ad_staff_worker %}
+    {% if user.is_superuser or user.is_ad_staff_worker %}
     <a class="nav-link icon" href="">
         <i class="fa fa-settings"></i>Объявления
     </a>
     {% endif %}
-    {% if user.is superuser or user.is_anketa_staff_worker %}
+    {% if user.is_superuser or user.is_anketa_staff_worker %}
     <a class="nav-link icon" href="">
         <i class="fa fa-settings"></i>Знакомства
     </a>
