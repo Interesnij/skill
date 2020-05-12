@@ -7,18 +7,9 @@ class MainPageView(TemplateView):
 	template_name = None
 
 	def get(self,request,*args,**kwargs):
-		import re
+		from common.get_templates import get_template
 
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "main/main.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "main/anon_main.html"
-
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.template_name = get_template(folder="main/", template="main.html", request=request)
 		return super(MainPageView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):

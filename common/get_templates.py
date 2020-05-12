@@ -1,5 +1,20 @@
+import re
+
+def get_template(folder, template, request):
+
+    if request.user.is_authenticated and not request.user.is_deleted:
+        template_name = folder + template
+    elif request.user.is_authenticated and request.user.is_deleted:
+        template_name = "generic/user_deleted.html"
+    elif request.user.is_anonymous:
+        template_name = folder + "anon_" + template
+
+    MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
+    if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
+        template_name = "mob_" + template_name
+
+
 def get_template_ad_detail(ad, folder, template, request):
-    import re
     from stst.models import AdNumbers
 
     cat_pk = str(ad.category.category.pk)
@@ -34,7 +49,6 @@ def get_template_ad_detail(ad, folder, template, request):
     return template_name
 
 def get_template_course_detail(course, folder, template, request):
-    import re
     from stst.models import CourseNumbers
 
     if course.creator.pk == request.user.pk:
@@ -67,7 +81,6 @@ def get_template_course_detail(course, folder, template, request):
     return template_name
 
 def get_template_anketa_detail(anketa, folder, template, request):
-    import re
     from stst.models import AnketaNumbers
 
     if anketa.creator.pk == request.user.pk:
