@@ -35,7 +35,7 @@ class AdCityView(ListView):
 		from common.get_templates import get_ads_template
 
 		self.city = City.objects.get(name_en=self.kwargs["city_name"])
-		self.template_name = get_ads_template(folder="cities/", template="ads.html", request=request)
+		self.template_name = get_ads_template(folder="cities/ads/", template="ads.html", request=request)
 		return super(AdCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -61,7 +61,7 @@ class CoursesCityView(ListView):
 		from common.get_templates import get_skills_template
 
 		self.city = City.objects.get(name_en=self.kwargs["city_name"])
-		self.template_name = get_skills_template(folder="cities/", template="courses.html", request=request)
+		self.template_name = get_skills_template(folder="cities/courses/", template="courses.html", request=request)
 		return super(CoursesCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -88,7 +88,7 @@ class AnketsCityView(ListView):
 		from common.get_templates import get_ankets_template
 
 		self.city = City.objects.get(name_en=self.kwargs["city_name"])
-		self.template_name = get_ankets_template(folder="cities/", template="ankets.html", request=request)
+		self.template_name = get_ankets_template(folder="cities/ankets/", template="ankets.html", request=request)
 		return super(AnketsCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):

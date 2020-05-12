@@ -35,7 +35,7 @@ class AdsRegionView(ListView):
 		from common.get_templates import get_ads_template
 
 		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
-		self.template_name = get_ads_template(folder="region/", template="ads.html", request=request)
+		self.template_name = get_ads_template(folder="region/ads/", template="ads.html", request=request)
 		return super(AdsRegionView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -61,7 +61,7 @@ class CoursesRegionView(ListView):
 		from common.get_templates import get_skills_template
 
 		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
-		self.template_name = get_skills_template(folder="region/", template="courses.html", request=request)
+		self.template_name = get_skills_template(folder="region/courses/", template="courses.html", request=request)
 		return super(CoursesRegionView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -88,7 +88,7 @@ class AnketsRegionView(ListView):
 		from common.get_templates import get_ankets_template
 
 		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
-		self.template_name = get_ankets_template(folder="region/", template="ankets.html", request=request)
+		self.template_name = get_ankets_template(folder="region/ankets/", template="ankets.html", request=request)
 		return super(AnketsRegionView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
