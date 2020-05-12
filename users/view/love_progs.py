@@ -182,7 +182,7 @@ class AnketaWorkerEditorDelete(View):
     def get(self,request,*args,**kwargs):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
-            user.remove_anketa_editor_worker())
+            user.remove_anketa_editor_worker()
         return HttpResponse("")
 
 
