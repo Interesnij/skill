@@ -32,17 +32,10 @@ class AdCityView(ListView):
 	paginate_by = 30
 
 	def get(self,request,*args,**kwargs):
-		self.city = City.objects.get(name_en=self.kwargs["city_name"])
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "cities/ads.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "cities/anon_ads.html"
+		from common.get_templates import get_ads_template
 
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.city = City.objects.get(name_en=self.kwargs["city_name"])
+		self.template_name = get_ads_template(folder="cities/", template="ads.html", request=request)
 		return super(AdCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -65,17 +58,10 @@ class CoursesCityView(ListView):
 	paginate_by = 30
 
 	def get(self,request,*args,**kwargs):
-		self.city = City.objects.get(name_en=self.kwargs["city_name"])
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "cities/courses.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "cities/anon_courses.html"
+		from common.get_templates import get_skills_template
 
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.city = City.objects.get(name_en=self.kwargs["city_name"])
+		self.template_name = get_skills_template(folder="cities/", template="courses.html", request=request)
 		return super(CoursesCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -99,17 +85,10 @@ class AnketsCityView(ListView):
 	paginate_by = 30
 
 	def get(self,request,*args,**kwargs):
-		self.city = City.objects.get(name_en=self.kwargs["city_name"])
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "cities/ankets.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "cities/anon_ankets.html"
+		from common.get_templates import get_ankets_template
 
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.city = City.objects.get(name_en=self.kwargs["city_name"])
+		self.template_name = get_ankets_template(folder="cities/", template="ankets.html", request=request)
 		return super(AnketsCityView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):

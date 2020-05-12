@@ -17,17 +17,10 @@ class SkillCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
-        self.cat=SkillCategory.objects.get(name_en=self.kwargs["cat_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "skill_cat/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "skill_cat/anon_page.html"
+        from common.get_templates import get_skills_template
 
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.cat=SkillCategory.objects.get(name_en=self.kwargs["cat_name"])
+        self.template_name = get_skills_template(folder="skill_cat/", template="page.html", request=request)
         return super(SkillCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -47,18 +40,11 @@ class SkillRegionCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
+        from common.get_templates import get_skills_template
+
         self.cat=SkillCategory.objects.get(name_en=self.kwargs["cat_name"])
         self.region=Region.objects.get(name_en=self.kwargs["region_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "skill_cat_region/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "skill_cat_region/anon_page.html"
-
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.template_name = get_skills_template(folder="skill_cat_region/", template="page.html", request=request)
         return super(SkillRegionCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -79,18 +65,11 @@ class SkillCityCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
+        from common.get_templates import get_skills_template
+
         self.cat=SkillCategory.objects.get(name_en=self.kwargs["cat_name"])
         self.city=City.objects.get(name_en=self.kwargs["city_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "skill_cat_city/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "skill_cat_city/anon_page.html"
-
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.template_name = get_skills_template(folder="skill_cat_city/", template="page.html", request=request)
         return super(SkillCityCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -110,17 +89,10 @@ class SkillSubCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
-        self.cat=SkillSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "skill_subcat/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "skill_subcat/anon_page.html"
+        from common.get_templates import get_skills_template
 
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.cat=SkillSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
+        self.template_name = get_skills_template(folder="skill_subcat/", template="page.html", request=request)
         return super(SkillSubCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -140,18 +112,11 @@ class SkillRegionSubCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
+        from common.get_templates import get_skills_template
+
         self.cat=SkillSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
         self.region=Region.objects.get(name_en=self.kwargs["region_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "skill_subcat_region/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "skill_subcat_region/anon_page.html"
-
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.template_name = get_skills_template(folder="skill_subcat_region/", template="page.html", request=request)
         return super(SkillRegionSubCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
@@ -172,18 +137,11 @@ class SkillCitySubCategoryView(ListView):
     paginate_by = 30
 
     def get(self,request,*args,**kwargs):
+        from common.get_templates import get_skills_template
+
         self.cat=SkillSubCategory.objects.get(name_en=self.kwargs["subcat_name"])
         self.city=City.objects.get(name_en=self.kwargs["city_name"])
-        if request.user.is_authenticated and not request.user.is_deleted:
-            self.template_name = "skill_subcat_city/page.html"
-        elif request.user.is_authenticated and request.user.is_deleted:
-            self.template_name = "generic/user_deleted.html"
-        elif request.user.is_anonymous:
-            self.template_name = "skill_subcat_city/anon_page.html"
-
-        MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-        if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-            self.template_name = "mob_" + self.template_name
+        self.template_name = get_skills_template(folder="skill_subcat_city/", template="page.html", request=request)
         return super(SkillCitySubCategoryView,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):

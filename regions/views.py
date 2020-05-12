@@ -12,7 +12,7 @@ class RegionView(TemplateView):
 
 		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
 		self.template_name = get_template(folder="region/", template="region.html", request=request)
-		
+
 		return super(RegionView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -32,17 +32,10 @@ class AdsRegionView(ListView):
 	paginate_by = 30
 
 	def get(self,request,*args,**kwargs):
-		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "region/ads.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "region/anon_ads.html"
+		from common.get_templates import get_ads_template
 
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
+		self.template_name = get_ads_template(folder="region/", template="ads.html", request=request)
 		return super(AdsRegionView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -65,17 +58,10 @@ class CoursesRegionView(ListView):
 	paginate_by = 30
 
 	def get(self,request,*args,**kwargs):
-		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "region/courses.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "region/anon_courses.html"
+		from common.get_templates import get_skills_template
 
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
+		self.template_name = get_skills_template(folder="region/", template="courses.html", request=request)
 		return super(CoursesRegionView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
@@ -99,17 +85,10 @@ class AnketsRegionView(ListView):
 	paginate_by = 30
 
 	def get(self,request,*args,**kwargs):
-		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
-		if request.user.is_authenticated and not request.user.is_deleted:
-			self.template_name = "region/ankets.html"
-		elif request.user.is_authenticated and request.user.is_deleted:
-			self.template_name = "generic/user_deleted.html"
-		elif request.user.is_anonymous:
-			self.template_name = "region/anon_ankets.html"
+		from common.get_templates import get_ankets_template
 
-		MOBILE_AGENT_RE=re.compile(r".*(iphone|mobile|androidtouch)",re.IGNORECASE)
-		if MOBILE_AGENT_RE.match(request.META['HTTP_USER_AGENT']):
-			self.template_name = "mob_" + self.template_name
+		self.region = Region.objects.get(name_en=self.kwargs["region_name"])
+		self.template_name = get_ankets_template(folder="region/", template="ankets.html", request=request)
 		return super(AnketsRegionView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self, **kwargs):
