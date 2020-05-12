@@ -1,0 +1,81 @@
+{% extends "bases/base.html" %}
+{% load humanize %}
+{% block title %}Многомодульный сайт :: {{ city.name_ru }}{% endblock %}
+
+{% block navigation %}
+<div class="header_navigation container">
+  <a class="get_russia" tooltip='Нажмите для смены локации' flow="down" href="#">Россия, г.{{ city.city_ru }}, {{ city.region.name_ru }}</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="page-title">
+    <div class="container">
+      <h1 class="opacity-40 center">
+        <span class="module_1">
+        <a href="{% url 'ads_city' city_name=city.name_en %}">Продавайте</a></span>,
+        <span class="skill_content"><a href="{% url 'courses_city' city_name=city.name_en %}">Обучайтесь</a></span>
+        и
+        <span class="love_content"><a href="{% url 'ankets_city' city_name=city.name_en %}">Знакомьтесь</a></span>
+        <br>
+        в городе {{ city.name_ru }}
+      </h1>
+    </div>
+</div>
+
+<section class="content">
+  <section class="content">
+  {% if last_ads %}
+  <section class="block module_1">
+    <div class="container">
+        <div class="section-title clearfix">
+          <div class="float-xl-left float-md-left float-sm-none">
+            <h2><a href="{% url 'ads_city' city_name=city.name_en %}">г.{{ city.name_ru }} :: последние объявления</a></h2>
+          </div>
+        </div>
+        <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
+          {% for object in last_ads %}
+            {% include 'generic/ads/ad.html' %}
+          {% endfor %}
+        </div>
+      </div>
+  </section>
+  {% endif %}
+
+  {% if last_courses %}
+    <section class="block skill_content">
+      <div class="container">
+          <div class="section-title clearfix">
+            <div class="float-xl-left float-md-left float-sm-none">
+              <h2><a href="{% url 'courses_city' city_name=city.name_en %}">г.{{ city.name_ru }} :: Последние курсы</a></h2>
+            </div>
+          </div>
+          <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
+            {% for object in last_courses %}
+              {% include 'generic/skills/skill.html' %}
+            {% endfor %}
+          </div>
+        </div>
+    </section>
+{% endif %}
+
+{% if last_ankets %}
+    <section class="block love_content">
+      <div class="container">
+        <div class="section-title clearfix">
+            <div class="float-xl-left float-md-left float-sm-none">
+              <h2><a href="{% url 'ankets_city' city_name=city.name_en %}">г.{{ city.name_ru }} :: Последние анкеты</a></h2>
+            </div>
+        </div>
+        <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
+          {% for object in last_ankets %}
+            {% include 'generic/ankets/staff_anketa.html' %}
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+{% endif %}
+</section>
+</section>
+
+{% endblock %}
