@@ -45,7 +45,7 @@ class CoursesPageView(TemplateView):
 	template_name = None
 
 	def get(self,request,*args,**kwargs):
-		from common.get_templates import get_skills_template
+		from common.utils import get_skills_template
 
 		self.template_name = get_template(folder="main/courses/", template="courses.html", request=request)
 		return super(CoursesPageView,self).get(request,*args,**kwargs)
@@ -63,7 +63,7 @@ class AnketsPageView(TemplateView):
 	template_name = None
 
 	def get(self,request,*args,**kwargs):
-		from common.get_templates import get_skills_template
+		from common.utils import get_skills_template
 
 		self.template_name = get_template(folder="main/ankets/", template="ankets.html", request=request)
 		return super(AnketsPageView,self).get(request,*args,**kwargs)
