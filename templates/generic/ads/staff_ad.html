@@ -47,12 +47,20 @@
         <a href="#">
           {% if request.user|is_ad_favorite:object.pk %}
             <span class="module_unfavorite">Забыть</span>
-          {% else %}
+            {% else %}
             <span class="module_favorite">Запомнить</span>
           {% endif %}
         </a>
         <a href="#">
           <span class="module_claim">Пожаловаться</span>
+        </a>
+      </span>
+      <span style="display: flex;align-items: center;justify-content: center;">
+        <a href="#">
+          <span class="module_staff_unactive">Неактивно</span>
+        </a>
+        <a href="#">
+          <span class="module_staff_remove">Удалить</span>
         </a>
       </span>
     </div>

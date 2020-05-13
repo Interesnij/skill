@@ -1,7 +1,7 @@
 {% load liked_user status %}
 
-<div class="item" data-pk="{{ object.pk }}">
-<div class="wrapper">
+<div class="item">
+<div class="wrapper" data-pk="{{ object.pk }}">
     <div class="image">
         <h3>
             <a href="{% url 'anketa_detail' pk=object.pk %}" class="title">{{ object.creator }}</a>
@@ -44,24 +44,27 @@
     </h4>
     {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
-        &nbsp;&nbsp;&nbsp;
-        <a href="#">
-          {% if request.user|is_anketa_favorite:object.pk %}
-            <span class="anketa_unfavorite">Забыть</span>
-          {% else %}
-            <span class="anketa_favorite">Запомнить</span>
-          {% endif %}
-        </a>
-        <a href="#">
-          <span class="anketa_claim">Пожаловаться</span>
-        </a>
+        <span style="display: flex;align-items: center;justify-content: center;">
+          <a href="#">
+            {% if request.user|is_anketa_favorite:object.pk %}
+              <span class="anketa_unfavorite">Забыть</span>
+            {% else %}
+              <span class="anketa_favorite">Запомнить</span>
+            {% endif %}
+          </a>
+          <a href="#">
+            <span class="anketa_claim">Пожаловаться</span>
+          </a>
+        </span>
         {% if request.user.is_anketa_staff %}
-        <a href="#">
-          <span class="anketa_staff_unactive">Неактивно</span>
-        </a>
-        <a href="#">
-          <span class="anketa_staff_remove">Удалить</span>
-        </a>
+        <span style="display: flex;align-items: center;justify-content: center;">
+          <a href="#">
+            <span class="anketa_staff_unactive">Неактивно</span>
+          </a>
+          <a href="#">
+            <span class="anketa_staff_remove">Удалить</span>
+          </a>
+        </span>
         {% endif %}
     </div>
     {% endif %}

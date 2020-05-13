@@ -1,7 +1,7 @@
 {% load liked_user status %}
 
-<div class="item" data-pk="{{ object.pk }}">
-<div class="wrapper">
+<div class="item">
+<div class="wrapper" data-pk="{{ object.pk }}">
     <div class="image">
         <h3>
             <a href="{% url 'course_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -48,7 +48,7 @@
     <div class="price">{% if object.price %} {{ object.price }} {% else %}Бесплатно{% endif %}</div>
     {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
-        &nbsp;&nbsp;&nbsp;
+      <span style="display: flex;align-items: center;justify-content: center;">
         <a href="#">
           {% if request.user|is_course_favorite:object.pk %}
             <span class="course_unfavorite">Забыть</span>
@@ -56,6 +56,8 @@
             <span class="course_favorite">Запомнить</span>
           {% endif %}
         </a>
+      </span>
+      <span style="display: flex;align-items: center;justify-content: center;">
         <a href="#">
           <span class="course_claim">Пожаловаться</span>
         </a>
@@ -67,6 +69,7 @@
           <span class="course_staff_remove">Удалить</span>
         </a>
         {% endif %}
+      </span>
     </div>
     {% endif %}
     <div class="description">

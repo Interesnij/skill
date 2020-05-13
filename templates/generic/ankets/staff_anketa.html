@@ -44,7 +44,7 @@
     </h4>
     <div class="admin-controls">
       {% if request.user.pk != object.creator.pk %}
-        &nbsp;&nbsp;&nbsp;
+      <span style="display: flex;align-items: center;justify-content: center;">
         <a href="#">
           {% if request.user|is_anketa_favorite:object.pk %}
             <span class="anketa_unfavorite">Забыть</span>
@@ -55,7 +55,15 @@
         <a href="#">
           <span class="anketa_claim">Пожаловаться</span>
         </a>
-      {% endif %}
+      </span>
+      <span style="display: flex;align-items: center;justify-content: center;">
+        <a href="#">
+          <span class="module_staff_unactive">Неактивно</span>
+        </a>
+        <a href="#">
+          <span class="module_staff_remove">Удалить</span>
+        </a>
+      </span>
     </div>
     <div class="description">
         <p>{{ object.about|truncatechars:300 }}</p>
