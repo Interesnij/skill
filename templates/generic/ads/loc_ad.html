@@ -43,24 +43,27 @@
     <div class="price"> {{ object.price }}</div>
     {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
-        &nbsp;&nbsp;&nbsp;
+      <span style="display: flex;align-items: center;justify-content: center;">
         <a href="#">
-          {% if request.user|is_ad_favorite:object.pk %}
-            <span class="module_unfavorite">Забыть</span>
-          {% else %}
-            <span class="module_favorite">Запомнить</span>
+          {% if request.user|is_course_favorite:object.pk %}
+            <span class="course_unfavorite">Забыть</span>
+            {% else %}
+            <span class="course_favorite">Запомнить</span>
           {% endif %}
         </a>
         <a href="#">
-          <span class="module_claim">Пожаловаться</span>
+          <span class="course_claim">Пожаловаться</span>
         </a>
+      </span>
         {% if request.user.is_ad_staff %}
+      <span style="display: flex;align-items: center;justify-content: center;">
         <a href="#">
           <span class="module_staff_unactive">Неактивно</span>
         </a>
         <a href="#">
           <span class="module_staff_remove">Удалить</span>
         </a>
+      </span>
         {% endif %}
     </div>
     {% endif %}
