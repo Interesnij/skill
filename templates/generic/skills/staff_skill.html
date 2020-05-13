@@ -17,7 +17,6 @@
     </div>
     {% if object.city %}
     <h4 class="location">
-
         {% if object.city.region %}
           <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
         {% endif %}
@@ -27,7 +26,7 @@
     <div class="price">{% if object.price %} {{ object.price }} {% else %}Бесплатно{% endif %}</div>
     {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
-      <span style="display: flex;align-items: center;justify-content: center;">
+      <span class="admin-span">
         <a href="#">
           {% if request.user|is_course_favorite:object.pk %}
             <span class="course_unfavorite">Забыть</span>
@@ -39,7 +38,7 @@
           <span class="course_claim">Пожаловаться</span>
         </a>
       </span>
-      <span style="display: flex;align-items: center;justify-content: center;">
+      <span class="admin-span">
         <a href="#">
           <span class="course_staff_unactive">Неактивно</span>
         </a>
