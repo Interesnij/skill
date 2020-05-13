@@ -1,7 +1,7 @@
 {% load liked_user status %}
 
-<div class="item" data-pk="{{ object.pk }}">
-<div class="wrapper">
+<div class="item">
+<div class="wrapper" data-pk="{{ object.pk }}">
     <div class="image">
         <h3>
             <a href="{% url 'anketa_detail' pk=object.pk %}" class="title">{{ object.creator }}</a>
