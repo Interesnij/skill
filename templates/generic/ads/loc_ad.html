@@ -5,7 +5,7 @@
     <div class="image">
         <h3>
             <a href="{% url 'ad_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
-            {% load 'generic/blocks/card_tag.html' %}
+            {% include 'generic/blocks/card_tag.html' %}
         </h3>
         <a href="{% url 'ad_detail' pk=object.pk %}" class="image-wrapper background-image">
           {% if object.image %}
