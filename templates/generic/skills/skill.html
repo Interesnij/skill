@@ -49,16 +49,18 @@
     <div class="admin-controls">
       {% if request.user.pk != object.creator.pk %}
         &nbsp;&nbsp;&nbsp;
-        <a href="#">
-          {% if request.user|is_course_favorite:object.pk %}
-            <span class="course_unfavorite">Забыть</span>
-          {% else %}
-            <span class="course_favorite">Запомнить</span>
-          {% endif %}
-        </a>
-        <a href="#">
-          <span class="course_claim">Пожаловаться</span>
-        </a>
+        <span style="display: flex;align-items: center;justify-content: center;">
+          <a href="#">
+            {% if request.user|is_course_favorite:object.pk %}
+              <span class="course_unfavorite">Забыть</span>
+              {% else %}
+              <span class="course_favorite">Запомнить</span>
+            {% endif %}
+          </a>
+          <a href="#">
+            <span class="course_claim">Пожаловаться</span>
+          </a>
+        </span>
       {% endif %}
     </div>
     <div class="description">
