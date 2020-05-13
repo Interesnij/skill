@@ -1791,7 +1791,6 @@ color:red;
 }
 .items:not(.selectize-input).list.compact .item .admin-controls a {
     display: block;
-    padding: .4rem 0;
 }
 .items:not(.selectize-input).list.compact .item .admin-controls a i {
     margin-right: 1rem;
