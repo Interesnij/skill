@@ -28,7 +28,7 @@
                     {% for object in object_list %}
 
                     {% if object.is_active %}
-                    <div class="item" data-pk="{{ object.pk }}">
+                    <div class="item">
                       <div class='purple ribbon-featured'>
                         <div class='ribbon-start'></div>
                         <div class='ribbon-content'>Активно</div>
@@ -36,7 +36,7 @@
                           <figure class='ribbon-shadow'></figure>
                         </div>
                       </div>
-                        <div class="wrapper">
+                        <div class="wrapper" data-pk="{{ object.pk }}">
                           <div class="image">
                               <h3>
                                   <a href="{% url 'anketa_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -76,7 +76,7 @@
                                 <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
                             </h4>
                             <div class="admin-controls">
-                                &nbsp;&nbsp;&nbsp;
+                              <span style="display: flex;align-items: center;justify-content: center;">
                                 <a href="#">Изменить</a>
                                 <a href="#">
                                   <span class="anketa_unactive">Активно</span>
@@ -84,6 +84,7 @@
                                 <a href="#">
                                   <span class="anketa_remove">Удалить</span>
                                 </a>
+                              </span>
                             </div>
                             <div class="description">
                                 <p>{{ object.about|truncatechars:300 }}</p>
@@ -96,7 +97,7 @@
                     </div>
 
                     {% elif not object.is_active %}
-                    <div class="item" data-pk="{{ object.pk }}">
+                    <div class="item">
                       <div class='purple ribbon-featured'>
                         <div class='ribbon-start'></div>
                         <div class='ribbon-content'>Черновик</div>
@@ -104,7 +105,7 @@
                           <figure class='ribbon-shadow'></figure>
                         </div>
                       </div>
-                        <div class="wrapper">
+                        <div class="wrapper" data-pk="{{ object.pk }}">
                             <div class="image">
                                 <h3>
                                     <a href="{% url 'anketa_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -144,7 +145,7 @@
                                 <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
                             </h4>
                             <div class="admin-controls">
-                                &nbsp;&nbsp;&nbsp;
+                              <span style="display: flex;align-items: center;justify-content: center;">
                                 <a href="#">Изменить</a>
                                 <a href="#">
                                   <span style="cursor:pointer" class="anketa_active">Черновик</span>
@@ -152,6 +153,7 @@
                                 <a href="#">
                                   <span style="cursor:pointer" class="anketa_remove">Удалить</span>
                                 </a>
+                              </span>
                             </div>
                             <div class="description">
                                 <p>{{ object.about|truncatechars:300 }}</p>

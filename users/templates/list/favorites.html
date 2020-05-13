@@ -26,7 +26,7 @@
                             <div id="" class="items compact list grid-xl-3-items grid-lg-2-items grid-md-2-items">
 
                               {% for object in request.user.get_my_favorite_ads %}
-                                <div class="red item" data-pk="{{ object.pk }}">
+                                <div class="red item">
                                   <div class='ribbon-featured'>
                                     <div class='ribbon-start'></div>
                                     <div class='ribbon-content'>Объявление</div>
@@ -34,7 +34,7 @@
                                       <figure class='ribbon-shadow'></figure>
                                     </div>
                                   </div>
-                                    <div class="wrapper">
+                                    <div class="wrapper" data-pk="{{ object.pk }}">
                                         <div class="image">
                                             <h3>
                                                 <a href="{% url 'ad_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -57,10 +57,11 @@
                                         </h4>
                                         <div class="price rubl">{{ object.price|intcomma }}</div>
                                         <div class="admin-controls">
-                                            &nbsp;&nbsp;&nbsp;
+                                          <span style="display: flex;align-items: center;justify-content: center;">
                                             <a href="#">
                                               <span class="module_unfavorite">Забыть</span>
                                             </a>
+                                          </span>
                                         </div>
                                         <div class="description">
                                             <p>{{ object.description|truncatechars:300 }}</p>
@@ -91,7 +92,7 @@
                                 {% endfor %}
 
                                 {% for object in request.user.get_my_favorite_courses %}
-                                <div class="item" data-pk="{{ object.pk }}">
+                                <div class="item">
                                   <div class='green ribbon-featured'>
                                     <div class='ribbon-start'></div>
                                     <div class='ribbon-content'>Курс</div>
@@ -99,7 +100,7 @@
                                       <figure class='ribbon-shadow'></figure>
                                     </div>
                                   </div>
-                                    <div class="wrapper">
+                                    <div class="wrapper" data-pk="{{ object.pk }}">
                                         <div class="image">
                                             <h3>
                                                 <a href="{% url 'course_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -142,10 +143,11 @@
                                         </h4>
                                         <div class="price">{{ object.price|intcomma }}</div>
                                         <div class="admin-controls">
-                                            &nbsp;&nbsp;&nbsp;
+                                          <span style="display: flex;align-items: center;justify-content: center;">
                                             <a href="#">
                                               <span class="course_unfavorite">Забыть</span>
                                             </a>
+                                          </span>
                                         </div>
                                         <div class="description">
                                             <p>{{ object.description|truncatechars:300 }}</p>
@@ -176,7 +178,7 @@
                                   {% endfor %}
 
                                   {% for object in request.user.get_my_favorite_anketa %}
-                                  <div class="item" data-pk="{{ object.pk }}">
+                                  <div class="item">
                                     <div class='purple ribbon-featured'>
                                       <div class='ribbon-start'></div>
                                       <div class='ribbon-content'>Анкета</div>
@@ -184,7 +186,7 @@
                                         <figure class='ribbon-shadow'></figure>
                                       </div>
                                     </div>
-                                      <div class="wrapper">
+                                      <div class="wrapper" data-pk="{{ object.pk }}">
                                         <div class="image">
                                             <h3>
                                                 <a href="{% url 'ad_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -224,10 +226,11 @@
                                               <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
                                           </h4>
                                           <div class="admin-controls">
-                                              &nbsp;&nbsp;&nbsp;
+                                            <span style="display: flex;align-items: center;justify-content: center;">
                                               <a href="#">
                                                 <span class="anketa_unfavorite">Забыть</span>
                                               </a>
+                                            </span>
                                           </div>
                                           <div class="description">
                                               <p>{{ object.about|truncatechars:300 }}</p>

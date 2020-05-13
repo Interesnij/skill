@@ -28,7 +28,7 @@
                               {% for object in object_list %}
 
                               {% if object.is_active %}
-                              <div class="item" data-pk="{{ object.pk }}">
+                              <div class="item">
                                 <div class='green ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Активно</div>
@@ -36,7 +36,7 @@
                                     <figure class='ribbon-shadow'></figure>
                                   </div>
                                 </div>
-                                  <div class="wrapper">
+                                  <div class="wrapper" data-pk="{{ object.pk }}">
                                       <div class="image">
                                           <h3>
                                               <a href="{% url 'course_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -79,7 +79,7 @@
                                       </h4>
                                       <div class="price">{{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
-                                          &nbsp;&nbsp;&nbsp;
+                                        <span style="display: flex;align-items: center;justify-content: center;">
                                           <a href="#">Изменить</a>
                                           <a href="#">
                                             <span class="course_done">Завершено</span>
@@ -87,6 +87,7 @@
                                           <a href="#">
                                             <span class="course_remove">Удалить</span>
                                           </a>
+                                        </span>
                                       </div>
                                       <div class="description">
                                           <p>{{ object.description|truncatechars:300 }}</p>
@@ -115,7 +116,8 @@
                                   </div>
                               </div>
                               {% elif object.is_sold %}
-                              <div class="item item-sold" data-pk="{{ object.pk }}">
+
+                              <div class="item item-sold">
                                 <div class='purple ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Черновик</div>
@@ -123,7 +125,7 @@
                                     <figure class='ribbon-shadow'></figure>
                                   </div>
                                 </div>
-                                <div class="wrapper">
+                                <div class="wrapper" data-pk="{{ object.pk }}">
                                     <div class="image">
                                         <h3>
                                             <a href="{% url 'course_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -166,7 +168,7 @@
                                     </h4>
                                     <div class="price rubl">{{ object.price|intcomma }}</div>
                                     <div class="admin-controls">
-                                        &nbsp;&nbsp;&nbsp;
+                                      <span style="display: flex;align-items: center;justify-content: center;">
                                         <a href="#">Изменить</a>
                                         <a href="#">
                                           <span class="course_undone">Завершено</span>
@@ -174,6 +176,7 @@
                                         <a href="#">
                                           <span class="course_remove">Удалить</span>
                                         </a>
+                                      </span>
                                     </div>
                                     <div class="description">
                                         <p>{{ object.description|truncatechars:300 }}</p>
@@ -203,7 +206,7 @@
                               </div>
 
                               {% elif not object.is_active %}
-                              <div class="item" data-pk="{{ object.pk }}">
+                              <div class="item">
                                 <div class='purple ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Черновик</div>
@@ -211,7 +214,7 @@
                                     <figure class='ribbon-shadow'></figure>
                                   </div>
                                 </div>
-                                  <div class="wrapper">
+                                  <div class="wrapper" data-pk="{{ object.pk }}">
                                       <div class="image">
                                           <h3>
                                               <a href="{% url 'course_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -254,7 +257,7 @@
                                       </h4>
                                       <div class="price">{{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
-                                          &nbsp;&nbsp;&nbsp;
+                                        <span style="display: flex;align-items: center;justify-content: center;">
                                           <a href="#">Изменить</a>
                                           <a href="#">
                                             <span class="course_active">Черновик</span>
@@ -262,6 +265,7 @@
                                           <a href="#">
                                             <span class="course_remove">Удалить</span>
                                           </a>
+                                        </span>
                                       </div>
                                       <div class="description">
                                           <p>{{ object.description|truncatechars:300 }}</p>

@@ -27,8 +27,8 @@
                   </div>
                             <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
                               {% for object in object_list %}
-                              <div class="item author" data-pk="{{ object.pk }}">
-                                <div class="wrapper">
+                              <div class="item author">
+                                <div class="wrapper" data-pk="{{ object.pk }}">
                                 <div class="image">
                                     <h3>
                                         <a href="{% url 'user' pk=object.pk %}" class="title">
@@ -48,13 +48,14 @@
                                     <a href="">{{ object.get_last_location.city_ru }}</a>
                                 </h4>
                                 <div class="admin-controls">
-                                    &nbsp;&nbsp;&nbsp;
+                                  <span style="display: flex;align-items: center;justify-content: center;">
                                     <a href="#">
                                       <span class="user_unsubscribe">Отписаться</span>
                                     </a>
                                     <a href="#">
                                       <span class="user_block">Заблокировать</span>
                                     </a>
+                                  </span>
                                 </div>
                                 <div class="additional-info">
                                     <ul>

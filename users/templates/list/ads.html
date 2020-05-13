@@ -26,7 +26,7 @@
                               {% for object in object_list %}
 
                               {% if object.is_active %}
-                              <div class="item" data-pk="{{ object.pk }}">
+                              <div class="item">
                                 <div class='red ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Активно</div>
@@ -34,8 +34,7 @@
                                     <figure class='ribbon-shadow'></figure>
                                   </div>
                                 </div>
-                                  <div class="wrapper">
-
+                                  <div class="wrapper" data-pk="{{ object.pk }}">
                                     <div class="image">
                                         <h3>
                                             <a href="{% url 'ad_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -77,13 +76,15 @@
                                       </h4>
                                       <div class="price">{{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
-                                          &nbsp;&nbsp;&nbsp;<a href="#">Изменить</a>
+                                        <span style="display: flex;align-items: center;justify-content: center;">
+                                          <a href="#">Изменить</a>
                                           <a href="#">
                                             <span class="module_sold">Не продано</span>
                                           </a>
                                           <a href="#">
                                             <span class="module_remove">Удалить</span>
                                           </a>
+                                        </span>
                                       </div>
                                       <div class="description">
                                           <p>{{ object.description|truncatechars:300 }}</p>
@@ -111,8 +112,9 @@
                                       <a href="{% url 'ad_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
                                   </div>
                               </div>
+
                               {% elif object.is_sold %}
-                              <div class="item item-sold" data-pk="{{ object.pk }}">
+                              <div class="item item-sold">
                                 <div class='red ribbon-featured'>
                                   <div class='ribbon-start'></div>
                                   <div class='ribbon-content'>Продано</div>
@@ -120,8 +122,7 @@
                                     <figure class='ribbon-shadow'></figure>
                                   </div>
                                 </div>
-                                <div class="wrapper">
-
+                                <div class="wrapper" data-pk="{{ object.pk }}">
                                   <div class="image">
                                       <h3>
                                           <a href="{% url 'ad_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -163,7 +164,7 @@
                                     </h4>
                                     <div class="price">{{ object.price|intcomma }}</div>
                                     <div class="admin-controls">
-                                        &nbsp;&nbsp;&nbsp;
+                                      <span style="display: flex;align-items: center;justify-content: center;">
                                         <a href="#">Изменить</a>
                                         <a href="#">
                                           <span class="module_unsold">Продано</span>
@@ -171,6 +172,7 @@
                                         <a href="#">
                                           <span class="module_remove">Удалить</span>
                                         </a>
+                                      </span>
                                     </div>
                                     <div class="description">
                                         <p>{{ object.description|truncatechars:300 }}</p>
@@ -200,7 +202,7 @@
                               </div>
 
                               {% elif not object.is_active %}
-                              <div class="item" data-pk="{{ object.pk }}">
+                              <div class="item">
                                   <div class="red ribbon-featured">
                                     <div class='ribbon-start'></div>
                                     <div class='ribbon-content'>Черновик</div>
@@ -208,8 +210,7 @@
                                       <figure class='ribbon-shadow'></figure>
                                     </div>
                                   </div>
-                                  <div class="wrapper">
-
+                                  <div class="wrapper" data-pk="{{ object.pk }}">
                                     <div class="image">
                                         <h3>
                                             <a href="{% url 'ad_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
@@ -251,7 +252,7 @@
                                       </h4>
                                       <div class="price">{{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
-                                          &nbsp;&nbsp;&nbsp;
+                                        <span style="display: flex;align-items: center;justify-content: center;">
                                           <a href="#">Изменить</a>
                                           <a href="#">
                                             <span class="module_active">Черновик</span>
@@ -259,6 +260,7 @@
                                           <a href="#">
                                             <span class="module_remove">Удалить</span>
                                           </a>
+                                        </span>
                                       </div>
                                       <div class="description">
                                           <p>{{ object.description|truncatechars:300 }}</p>
