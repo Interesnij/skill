@@ -25,6 +25,7 @@
     </h4>
     {% endif %}
     <div class="price">{% if object.price %} {{ object.price }} {% else %}Бесплатно{% endif %}</div>
+    {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
       <span style="display: flex;align-items: center;justify-content: center;">
         <a href="#">
