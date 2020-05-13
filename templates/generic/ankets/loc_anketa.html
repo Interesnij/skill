@@ -42,8 +42,8 @@
         {% endif %}
         <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
     </h4>
+    {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
-      {% if request.user.pk != object.creator.pk %}
         &nbsp;&nbsp;&nbsp;
         <a href="#">
           {% if request.user|is_anketa_favorite:object.pk %}
@@ -55,8 +55,16 @@
         <a href="#">
           <span class="anketa_claim">Пожаловаться</span>
         </a>
-      {% endif %}
+        {% if request.user.is_anketa_staff %}
+        <a href="#">
+          <span class="anketa_staff_unactive">Неактивно</span>
+        </a>
+        <a href="#">
+          <span class="anketa_staff_remove">Удалить</span>
+        </a>
+        {% endif %}
     </div>
+    {% endif %}
     <div class="description">
         <p>{{ object.about|truncatechars:300 }}</p>
     </div>

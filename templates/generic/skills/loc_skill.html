@@ -46,8 +46,8 @@
     </h4>
     {% endif %}
     <div class="price">{% if object.price %} {{ object.price }} {% else %}Бесплатно{% endif %}</div>
+    {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
-      {% if request.user.pk != object.creator.pk %}
         &nbsp;&nbsp;&nbsp;
         <a href="#">
           {% if request.user|is_course_favorite:object.pk %}
@@ -59,8 +59,16 @@
         <a href="#">
           <span class="course_claim">Пожаловаться</span>
         </a>
-      {% endif %}
+        {% if request.user.is_skill_staff %}
+        <a href="#">
+          <span class="course_staff_unactive">Неактивно</span>
+        </a>
+        <a href="#">
+          <span class="course_staff_remove">Удалить</span>
+        </a>
+        {% endif %}
     </div>
+    {% endif %}
     <div class="description">
         <p>{{ object.description|truncatechars:300 }}</p>
     </div>
