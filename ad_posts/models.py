@@ -6,7 +6,6 @@ from django.contrib.postgres.indexes import BrinIndex
 from pilkit.processors import ResizeToFill, ResizeToFit
 from imagekit.models import ProcessedImageField
 from ad_posts.helpers import upload_to_user_directory
-from django.contrib.postgres.indexes import BrinIndex
 
 
 class Ad(models.Model):

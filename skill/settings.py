@@ -49,6 +49,7 @@ BASIC_APPS = [
     'cities',
     'common',
     'stst',
+    'logs',
 ]
 
 AD_APPS = [
