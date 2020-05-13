@@ -1,12 +1,12 @@
 
  on('body', 'click', '.module_sold', function(e) {
    e.preventDefault();
-   send_change(this, "/users/ad_progs/sold/", "module_unsold", "Продано")
+   send_change(this, "/users/ad_progs/sold/", "module_unsold", "не продано")
 })
 
 on('body', 'click', '.module_unsold', function(e) {
   e.preventDefault();
-  send_change(this, "/users/ad_progs/unsold/", "module_sold", "Не продано")
+  send_change(this, "/users/ad_progs/unsold/", "module_sold", "продано")
 })
 
 on('body', 'click', '.module_remove', function(e) {
@@ -21,17 +21,17 @@ on('body', 'click', '.module_unremove', function(e) {
 
 on('body', 'click', '.module_active', function(e) {
   e.preventDefault();
-  send_change(this, "/users/ad_progs/active/", "module_unactive", "Активное")
+  send_change(this, "/users/ad_progs/active/", "module_unactive", "деактивировать")
 })
 
 on('body', 'click', '.module_unactive', function(e) {
   e.preventDefault();
-  send_change(this, "/users/ad_progs/unactive/", "module_active", "Черновик")
+  send_change(this, "/users/ad_progs/unactive/", "module_active", "активировать")
 })
 
 on('body', 'click', '.module_unactive', function(e) {
   e.preventDefault();
-  send_change(this, "/users/ad_progs/unactive/", "module_active", "Черновик")
+  send_change(this, "/users/ad_progs/unactive/", "module_active", "активировать")
 })
 
 on('body', 'click', '.module_unfavorite', function(e) {

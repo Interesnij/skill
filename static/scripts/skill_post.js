@@ -10,12 +10,12 @@ on('body', 'click', '.course_unremove', function(e) {
 
 on('body', 'click', '.course_active', function(e) {
   e.preventDefault();
-  send_change(this, "/users/skill_progs/active/", "course_unactive", "Активный")
+  send_change(this, "/users/skill_progs/active/", "course_unactive", "деактивировать")
 })
 
 on('body', 'click', '.course_unactive', function(e) {
   e.preventDefault();
-  send_change(this, "/users/skill_progs/unactive/", "course_active", "Черновик")
+  send_change(this, "/users/skill_progs/unactive/", "course_active", "активировать")
 })
 
 on('body', 'click', '.course_unfavorite', function(e) {

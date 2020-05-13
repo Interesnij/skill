@@ -59,12 +59,12 @@
                                       <div class="price">{{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
                                         <span class="admin-span">
-                                          <a href="#">Изменить</a>
+                                          <a href="#">изменить</a>
                                           <a href="#">
-                                            <span class="course_done">Завершено</span>
+                                            <span class="course_done">завершено</span>
                                           </a>
                                           <a href="#">
-                                            <span class="course_remove">Удалить</span>
+                                            <span class="course_remove">удалить</span>
                                           </a>
                                         </span>
                                       </div>
@@ -93,74 +93,6 @@
                                       </div>
                                       <a href="{% url 'course_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
                                   </div>
-                              </div>
-                              {% elif object.is_sold %}
-
-                              <div class="item item-sold">
-                                <div class='purple ribbon-featured'>
-                                  <div class='ribbon-start'></div>
-                                  <div class='ribbon-content'>Черновик</div>
-                                  <div class='ribbon-end'>
-                                    <figure class='ribbon-shadow'></figure>
-                                  </div>
-                                </div>
-                                <div class="wrapper" data-pk="{{ object.pk }}">
-                                    <div class="image">
-                                        <h3>
-                                            <a href="{% url 'course_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
-                                            {% include 'generic/blocks/card_tag.html' %}
-                                        </h3>
-                                        <a href="{% url 'course_detail' pk=object.pk %}" class="image-wrapper background-image">
-                                          {% if object.image %}
-                                            <img src="{{ object.image.url }}" alt="">
-                                          {% else %}
-                                            <img src="/static/images/no_img.jpg" alt="">
-                                          {% endif %}
-                                        </a>
-                                    </div>
-                                    <h4 class="location">
-                                      {% if object.city %}
-                                        <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
-                                        <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
-                                      {% endif %}
-                                    </h4>
-                                    <div class="price rubl">{{ object.price|intcomma }}</div>
-                                    <div class="admin-controls">
-                                      <span class="admin-span">
-                                        <a href="#">Изменить</a>
-                                        <a href="#">
-                                          <span class="course_undone">Завершено</span>
-                                        </a>
-                                        <a href="#">
-                                          <span class="course_remove">Удалить</span>
-                                        </a>
-                                      </span>
-                                    </div>
-                                    <div class="description">
-                                        <p>{{ object.description|truncatechars:300 }}</p>
-                                    </div>
-                                    <div class="additional-info">
-                                      <ul>
-                                        <li>
-                                          <figure>Категория</figure>
-                                          <aside>
-                                            <a href="{% url 'skill_category' cat_name=object.category.category.name_en %}">
-                                            {{ object.category.category }}
-                                            </a>
-                                          </aside>
-                                        </li>
-                                        <li>
-                                          <figure>Подкатегория</figure>
-                                          <aside>
-                                            <a href="{% url 'skill_subcategory' subcat_name=object.category.name_en %}">
-                                              {{ object.category }}
-                                            </a>
-                                          </aside>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                    <a href="{% url 'course_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
-                                </div>
                               </div>
 
                               {% elif not object.is_active %}
@@ -195,12 +127,12 @@
                                       <div class="price">{{ object.price|intcomma }}</div>
                                       <div class="admin-controls">
                                         <span class="admin-span">
-                                          <a href="#">Изменить</a>
+                                          <a href="#">изменить</a>
                                           <a href="#">
-                                            <span class="course_active">Черновик</span>
+                                            <span class="course_active">активировать</span>
                                           </a>
                                           <a href="#">
-                                            <span class="course_remove">Удалить</span>
+                                            <span class="course_remove">удалить</span>
                                           </a>
                                         </span>
                                       </div>

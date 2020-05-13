@@ -30,22 +30,22 @@
       <span class="admin-span">
         <a href="#">
           {% if request.user|is_course_favorite:object.pk %}
-            <span class="course_unfavorite">Забыть</span>
+            <span class="course_unfavorite">забыть</span>
             {% else %}
-            <span class="course_favorite">Запомнить</span>
+            <span class="course_favorite">запомнить</span>
           {% endif %}
         </a>
         <a href="#">
-          <span class="course_claim">Пожаловаться</span>
+          <span class="course_claim">пожаловаться</span>
         </a>
       </span>
         {% if request.user.is_ad_staff %}
       <span class="admin-span">
         <a href="#">
-          <span class="course_staff_unactive">Неактивно</span>
+          <span class="course_staff_unactive">деактивировать</span>
         </a>
         <a href="#">
-          <span class="course_staff_remove">Удалить</span>
+          <span class="course_staff_remove">удалить</span>
         </a>
       </span>
         {% endif %}

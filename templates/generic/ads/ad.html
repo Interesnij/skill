@@ -25,13 +25,13 @@
       <span class="admin-span">
         <a href="#">
           {% if request.user|is_ad_favorite:object.pk %}
-            <span class="module_unfavorite">Забыть</span>
+            <span class="module_unfavorite">забыть</span>
           {% else %}
-            <span class="module_favorite">Запомнить</span>
+            <span class="module_favorite">запомнить</span>
           {% endif %}
         </a>
         <a href="#">
-          <span class="module_claim">Пожаловаться</span>
+          <span class="module_claim">пожаловаться</span>
         </a>
       </span>
     </div>

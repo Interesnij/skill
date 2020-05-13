@@ -26,19 +26,19 @@
         <span class="admin-span">
           <a href="#">
             {% if request.user|is_anketa_favorite:object.pk %}
-              <span class="anketa_unfavorite">Забыть</span>
+              <span class="anketa_unfavorite">забыть</span>
             {% else %}
-              <span class="anketa_favorite">Запомнить</span>
+              <span class="anketa_favorite">запомнить</span>
             {% endif %}
           </a>
           <a href="#">
-            <span class="anketa_claim">Пожаловаться</span>
+            <span class="anketa_claim">пожаловаться</span>
           </a>
         </span>
         {% if request.user.is_anketa_staff %}
         <span class="admin-span">
           <a href="#">
-            <span class="anketa_staff_unactive">Неактивно</span>
+            <span class="anketa_staff_unactive">деактивировать</span>
           </a>
           <a href="#">
             <span class="anketa_staff_remove">Удалить</span>
