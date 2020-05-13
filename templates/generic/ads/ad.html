@@ -22,7 +22,7 @@
     <div class="price"> {{ object.price }}</div>
     {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
-      <span style="display: flex;align-items: center;justify-content: center;">
+      <span class="admin-span">
         <a href="#">
           {% if request.user|is_ad_favorite:object.pk %}
             <span class="module_unfavorite">Забыть</span>

@@ -1,3 +1,9 @@
+.masonry .admin-controls .admin-span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .green .ribbon-content{
   background-color: #28A745
 }
