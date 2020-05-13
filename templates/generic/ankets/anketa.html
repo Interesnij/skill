@@ -42,8 +42,8 @@
         {% endif %}
         <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
     </h4>
+    {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
-      {% if request.user.pk != object.creator.pk %}
       <span style="display: flex;align-items: center;justify-content: center;">
         <a href="#">
           {% if request.user|is_anketa_favorite:object.pk %}
@@ -56,8 +56,8 @@
           <span class="anketa_claim">Пожаловаться</span>
         </a>
       </span>
-      {% endif %}
     </div>
+    {% endif %}
     <div class="description">
         <p>{{ object.about|truncatechars:300 }}</p>
     </div>

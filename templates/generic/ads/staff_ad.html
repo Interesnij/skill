@@ -41,7 +41,7 @@
         <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
     </h4>
     <div class="price"> {{ object.price }}</div>
-    {% if request.user.pk != object.creator.pk %}
+    {% if request.user.pk != user.pk %}
     <div class="admin-controls">
       <span style="display: flex;align-items: center;justify-content: center;">
         <a href="#">
