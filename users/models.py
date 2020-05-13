@@ -645,7 +645,7 @@ class User(AbstractUser):
         except:
             pass
 
-    def add_ad_administrator_worker(self):
+    def add_ad_administrator_worker(self, request_user):
         from user.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
@@ -653,6 +653,7 @@ class User(AbstractUser):
             user_staff.save(update_fields=['is_administrator'])
         except:
             user_staff = CanAddStaffAdUser.objects.create(user=self, is_administrator=True)
+        user_staff.create_add_administrator_log(user=self,manager=request_user)
         return user_staff
     def add_ad_moderator_worker(self):
         from user.model.profile import CanAddStaffAdUser

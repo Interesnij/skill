@@ -80,9 +80,15 @@ class AnketaManageLog(models.Model):
 
 class AdWorkerLog(models.Model):
     ACTION_TYPES = (
-        ('C', 'Повышен'),
-        ('UC', 'Разжалован'),
-    )
+        ('CA', 'Добавлен админ'),
+        ('DA', 'Удален админ'),
+        ('CM', 'Добавлен модератор'),
+        ('DM', 'Удален модератор'),
+        ('CE', 'Добавлен редактор'),
+        ('DE', 'Удален редактор'),
+        ('CAD', 'Добавлен рекламодатель'),
+        ('DAD', 'Удален рекламодатель'),
+    ) 
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="ad_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
@@ -98,8 +104,16 @@ class AdWorkerLog(models.Model):
 
 class SkillWorkerLog(models.Model):
     ACTION_TYPES = (
-        ('C', 'Повышен'),
-        ('UC', 'Разжалован'),
+        ('CA', 'Добавлен админ'),
+        ('DA', 'Удален админ'),
+        ('CM', 'Добавлен модератор'),
+        ('DM', 'Удален модератор'),
+        ('CE', 'Добавлен редактор'),
+        ('DE', 'Удален редактор'),
+        ('CAD', 'Добавлен рекламодатель'),
+        ('DAD', 'Удален рекламодатель'),
+        ('CT', 'Добавлен учитель'),
+        ('DT', 'Удален учитель'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
@@ -116,8 +130,14 @@ class SkillWorkerLog(models.Model):
 
 class AnketaWorkerLog(models.Model):
     ACTION_TYPES = (
-        ('C', 'Повышен'),
-        ('UC', 'Разжалован'),
+        ('CA', 'Добавлен админ'),
+        ('DA', 'Удален админ'),
+        ('CM', 'Добавлен модератор'),
+        ('DM', 'Удален модератор'),
+        ('CE', 'Добавлен редактор'),
+        ('DE', 'Удален редактор'),
+        ('CAD', 'Добавлен рекламодатель'),
+        ('DAD', 'Удален рекламодатель'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")

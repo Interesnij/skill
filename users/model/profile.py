@@ -20,7 +20,6 @@ class UserProfile(models.Model):
     twitter_url = models.URLField(blank=True, verbose_name="Ссылка на twitter")
     avatar = ProcessedImageField(format='JPEG', options={'quality': 80}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=500, upscale=500)])
 
-
     def __str__(self):
         return self.user
 
@@ -178,6 +177,14 @@ class CanAddStaffAdUser(models.Model):
     class Meta:
         verbose_name = 'Создатель персонала в объявлениях'
         verbose_name_plural = 'Создатели персонала в объявлениях'
+
+    def _create_log(action_type, user, manager):
+        from logs.models import AdWorkerLog
+
+        return AdWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
+
+    def create_add_administrator_log(user, manager):
+        return self._create_log(action_type='CA', user=user, manager=manager)
 
 
 class CanAddStaffSkillUser(models.Model):
