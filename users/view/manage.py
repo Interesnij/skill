@@ -9,7 +9,7 @@ class GetAdManage(ListView):
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        if self.user.is_ad_staff_worker():
+        if request.user.is_ad_staff_worker():
             self.template_name = self.user.get_my_template(folder="manage/", template="ad_staff.html", request=request)
         else:
             self.template_name = "generic/permisson_error.html"
