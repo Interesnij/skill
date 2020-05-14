@@ -26,7 +26,7 @@
         <i class="fa fa-user"></i>Черный список
     </a>
     {% if user.is_superuser or user.is_skill_staff_worker %}
-    <a class="nav-link icon" href="">
+    <a class="nav-link icon" href="{% url 'get_module_staff' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Персонал академии
     </a>
     {% endif %}
