@@ -227,6 +227,20 @@ class User(AbstractUser):
         else:
             return False
 
+    def is_can_work_administrator(self):
+        return self.can_work_staff_user.get(can_work_administrator=True).exists()
+    def is_can_work_moderator(self):
+        return self.can_work_staff_user.get(can_work_moderator=True).exists()
+    def is_can_work_editor(self):
+        return self.can_work_staff_user.get(can_work_editor=True).exists()
+    def is_can_work_advertiser(self):
+        return self.can_work_staff_user.get(can_work_advertiser=True).exists()
+    def is_staff_worker(self):
+        if self.is_can_work_administrator or self.is_can_work_editor or self.is_can_work_advertiser or self.is_can_work_moderator:
+            return True
+        else:
+            return False
+
     def has_blocked_user_with_id(self, user_id):
         return self.user_blocks.filter(blocked_user_id=user_id).exists()
 
@@ -558,6 +572,94 @@ class User(AbstractUser):
             return user_staff
         except:
             pass
+
+
+    def add_administrator(self):
+        from user.model.profile import UserStaff
+        try:
+            user_staff = UserStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = True
+            user_staff.is_editor = False
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserStaff.objects.create(user=self, is_administrator=True)
+        return user_staff
+    def add_moderator(self):
+        from user.model.profile import UserStaff
+        try:
+            user_staff = UserStaff.objects.get(user=self)
+            user_staff.is_moderator = True
+            user_staff.is_administrator = False
+            user_staff.is_editor = False
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserStaff.objects.create(user=self, is_moderator=True)
+        return user_staff
+    def add_editor(self):
+        from user.model.profile import UserStaff
+        try:
+            user_staff = UserStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = False
+            user_staff.is_editor = True
+            user_staff.is_advertiser = False
+            user_staff.save()
+        except:
+            user_staff = UserStaff.objects.create(user=self, is_editor=True)
+        return user_staff
+    def add_advertiser(self):
+        from user.model.profile import UserStaff
+        try:
+            user_staff = UserStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.is_administrator = False
+            user_staff.is_editor = False
+            user_staff.is_advertiser = True
+            user_staff.save()
+        except:
+            user_staff = UserStaff.objects.create(user=self, is_advertiser=True)
+        return user_staff
+
+    def remove_administrator(self):
+        from user.model.profile import UserStaff
+        try:
+            user_staff = UserStaff.objects.get(user=self)
+            user_staff.is_administrator = False
+            user_staff.save(update_fields=['is_administrator'])
+            return user_staff
+        except:
+            pass
+    def remove_moderator(self):
+        from user.model.profile import UserStaff
+        try:
+            user_staff = UserStaff.objects.get(user=self)
+            user_staff.is_moderator = False
+            user_staff.save(update_fields=['is_moderator'])
+            return user_staff
+        except:
+            pass
+    def remove_editor(self):
+        from user.model.profile import UserStaff
+        try:
+            user_staff = UserStaff.objects.get(user=self)
+            user_staff.is_editor = False
+            user_staff.save(update_fields=['is_editor'])
+            return user_staff
+        except:
+            pass
+    def remove_advertiser(self):
+        from user.model.profile import UserStaff
+        try:
+            user_staff = UserStaff.objects.get(user=self)
+            user_staff.is_advertiser = False
+            user_staff.save(update_fields=['is_advertiser'])
+            return user_staff
+        except:
+            pass
+
 
     def add_anketa_administrator(self):
         from user.model.profile import UserAnketaStaff

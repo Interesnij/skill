@@ -88,7 +88,7 @@ class AdWorkerLog(models.Model):
         ('DE', 'Удален редактор'),
         ('CAD', 'Добавлен рекламодатель'),
         ('DAD', 'Удален рекламодатель'),
-    ) 
+    )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="ad_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
@@ -160,6 +160,8 @@ class UserWorkerLog(models.Model):
         ('А', 'Разблокирован'),
         ('F', 'Заморожен'),
         ('UN', 'Разморожен'),
+        ('S', 'Стал техподдержкой'),
+        ('US', 'Удален из техподдержки'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")

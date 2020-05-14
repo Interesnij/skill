@@ -164,6 +164,21 @@ class UserAnketaStaff(models.Model):
         verbose_name_plural = 'Особые полномочия в знакомствах'
 
 
+class UserStaff(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_staff', verbose_name="Особый пользователь")
+    is_administrator = models.BooleanField(default=False, verbose_name="Это администратор")
+    is_moderator = models.BooleanField(default=False, verbose_name="Это модератор")
+    is_editor = models.BooleanField(default=False, verbose_name="Это редактор")
+    is_advertiser = models.BooleanField(default=False, verbose_name="Это рекламодатель")
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+    class Meta:
+        verbose_name = 'Особые полномочия в знакомствах'
+        verbose_name_plural = 'Особые полномочия в знакомствах'
+
+
 class CanAddStaffAdUser(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='can_work_staff_ad_user', verbose_name="Создатель персонала")
     can_work_administrator = models.BooleanField(default=False, verbose_name="Может добавлять администраторов объявлений")
@@ -216,3 +231,18 @@ class CanAddStaffAnketaUser(models.Model):
     class Meta:
         verbose_name = 'Создатель персонала в знакомствах'
         verbose_name_plural = 'Создатели персонала в знакомствах'
+
+
+class CanAddStaffUser(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='can_work_staff_user', verbose_name="Создатель персонала")
+    can_work_administrator = models.BooleanField(default=False, verbose_name="Может добавлять администраторов")
+    can_work_moderator = models.BooleanField(default=False, verbose_name="Может добавлять модераторов")
+    can_work_editor = models.BooleanField(default=False, verbose_name="Может добавлять редакторов")
+    can_work_advertiser = models.BooleanField(default=False, verbose_name="Может добавлять рекламодателей")
+
+    def __str__(self):
+        return self.user.get_full_name()
+
+    class Meta:
+        verbose_name = 'Создатель персонала'
+        verbose_name_plural = 'Создатели персонала'
