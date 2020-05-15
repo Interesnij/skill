@@ -22,9 +22,11 @@ class GetAdManage(ListView):
         return context
 
     def get_queryset(self):
-        users = Q(canaddstaffadduser__user_id=self.id)
-        managers = User.objects.filter(users)
-        return managers
+        managers = self.canaddstaffadduser.values('user_id')
+        managers_ids = [user['user_id'] for user in managers]
+        users = Q(id__in=managers_ids)
+        managers_query = User.objects.filter(users)
+        return managers_query
 
 
 class GetSkillManage(ListView):
