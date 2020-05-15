@@ -22,7 +22,7 @@ class GetAdManage(ListView):
         return context
 
     def get_queryset(self):
-        admins = request.user.get_ads_admins()
+        admins = self.user.get_ads_admins()
         return admins
 
 
