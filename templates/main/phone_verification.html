@@ -1,8 +1,28 @@
-{% extends "bases/base.html" %}
 {% load staticfiles %}
-{% block title %}Верификация номера{% endblock %}
-{% block content %}
+<!doctype html>
+<html>
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimal-ui, shrink-to-fit=no, viewport-fit=cover">
+    <title>Подтверждение телефона</title>
+    <link type="text/css" media='all' href="{% static 'styles/bootstrap.min.css' %}" rel="stylesheet" />
+    <link type="text/css" media='all' href="{% static 'styles/style.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero">
+    <div class="secondary-navigation">
+        <div class="container">
+          <div class="left" style="display:flex">
+            <a style="font-size:20px;color:white" href="{% url 'main' %}">
+              Модули
+            </a>
+          </div>
+        </div>
+    </div>
+  </div>
 <section class="content">
     <section class="block">
         <div class="container">
@@ -33,6 +53,8 @@
 </div>
 </section>
 </section>
+
+{% include "base_script.html" %}
 
 <script type="text/javascript">
   function on(elSelector,eventName,selector,fn) {var element = document.querySelector(elSelector);element.addEventListener(eventName, function(event) {var possibleTargets = element.querySelectorAll(selector);var target = event.target;for (var i = 0, l = possibleTargets.length; i < l; i++) {var el = target;var p = possibleTargets[i];while(el && el !== element) {if (el === p) {return fn.call(p, event);}el = el.parentNode;}}});};
@@ -82,4 +104,5 @@
 
    });
    </script>
-{% endblock %}
+ </body>
+ </html>
