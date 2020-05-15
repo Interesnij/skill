@@ -402,7 +402,7 @@ class User(AbstractUser):
 
     def get_ads_managers(self):
         from users.model.profile import UserAdStaff
-        managers = UserAdStaff.objects.filter(Q(Q(can_work_administrator=True) | Q(can_work_moderator=True) | Q(can_work_editor=True) | Q(can_work_advertiser=True))).values('user_id')
+        managers = UserAdStaff.objects.filter(Q(Q(is_administrator=True) | Q(is_moderator=True) | Q(is_editor=True) | Q(is_advertiser=True))).values('user_id')
         managers_ids = [user['user_id'] for user in managers]
         users = Q(id__in=managers_ids)
         exclude_superuser = ~Q(is_superuser=True)
@@ -412,7 +412,7 @@ class User(AbstractUser):
 
     def get_skills_managers(self):
         from users.model.profile import UserSkillStaff
-        managers = UserSkillStaff.objects.filter(Q(Q(can_work_administrator=True) | Q(can_work_moderator=True) | Q(can_work_editor=True) | Q(can_work_advertiser=True))).values('user_id')
+        managers = UserSkillStaff.objects.filter(Q(Q(is_administrator=True) | Q(is_moderator=True) | Q(is_editor=True) | Q(is_advertiser=True))).values('user_id')
         managers_ids = [user['user_id'] for user in managers]
         users = Q(id__in=managers_ids)
         exclude_superuser = ~Q(is_superuser=True)
