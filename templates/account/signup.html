@@ -9,7 +9,7 @@
             <div class="row justify-content-center">
               <br><br><br>
                 <div class="col-md-4">
-                  <form class="form clearfix" action="{% url 'rest_register' %}" id="signup">
+                  <form class="form clearfix" id="signup">
                       <div class="form-group">
                           <label class="col-form-label required">Имя</label>
                           <input type="text" name="first_name" id="id_first_name" placeholder="Имя">
@@ -34,7 +34,7 @@
                             </div>
                             Я принимаю <a href="">Правила сайта</a>.
                           </label>
-                          <button type="submit" id="register_ajax" class="btn btn-primary">Регистрация</button>
+                          <button type="button" id="register_ajax" class="btn btn-primary">Регистрация</button>
                       </div>
                   </form>
                   <small class="reg-response"></small>
