@@ -21,7 +21,7 @@ class GetAdManage(ListView):
         return context
 
     def get_queryset(self):
-        users = User.objects.only("can_work_staff_ad_user__id")
+        users = User.objects.only("can_work_staff_ad_user__user__id") 
         return users
 
 
