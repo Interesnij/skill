@@ -22,8 +22,8 @@ class GetAdManage(ListView):
         return context
 
     def get_queryset(self):
-        admins = self.user.get_ads_admins()
-        return admins
+        managers = self.user.get_ads_managers()
+        return managers
 
 
 class GetSkillManage(ListView):

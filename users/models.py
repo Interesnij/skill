@@ -400,10 +400,10 @@ class User(AbstractUser):
         subscribs = User.objects.filter(subscribs_query)
         return subscribs
 
-    def get_ads_admins(self):
+    def get_ads_managers(self):
         from users.model.profile import CanAddStaffAdUser
-        admins = CanAddStaffAdUser.objects.filter(Q(Q(can_work_administrator=True) | Q(can_work_moderator=True) | Q(can_work_editor=True) | Q(can_work_advertiser=True))).values('user_id')
-        admins_ids = [user['user_id'] for user in admins]
+        managers = CanAddStaffAdUser.objects.filter(Q(Q(can_work_administrator=True) | Q(can_work_moderator=True) | Q(can_work_editor=True) | Q(can_work_advertiser=True))).values('user_id')
+        managers_ids = [user['user_id'] for user in managers]
         users = Q(id__in=admins_ids)
         exclude_superuser = ~Q(is_superuser=True)
         users.add(exclude_superuser, Q.AND)
