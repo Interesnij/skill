@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-9">
                   <h2>Управленцы академии</h2>
-
+                  {% if object_list %}
                   <div class="section-title clearfix">
                     <div class="float-right d-xs-none thumbnail-toggle">
                       <a href="#" class="change-class active" data-change-from-class="list" data-change-to-class="masonry" data-parent-class="items">
@@ -113,14 +113,16 @@
                                 </div>
                             </div>
                         </div>
-                        {% empty %}
-                        <h3 style="text-align:center">
-                          Управляющего состава модуля академии пока нет...
-                          <button type="submit" class="btn btn-primary small">Добавить управленица</button>
-                        </h3>
+
                     {% endfor %}
 
                             </div>
+                            {% else %}
+                            <h3 style="text-align:center">
+                              Управляющего состава модуля академии пока нет...
+                              <button type="submit" class="btn btn-success small">Добавить управленица</button>
+                            </h3>
+                            {% endif %}
                         </div>
                       </div>
                   </div>
