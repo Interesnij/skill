@@ -1,6 +1,7 @@
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView
 from users.models import User
+from django.db.models import Q
 
 
 class GetAdManage(ListView):
@@ -21,8 +22,9 @@ class GetAdManage(ListView):
         return context
 
     def get_queryset(self):
-        users = User.objects.only("can_work_staff_ad_user__user__id") 
-        return users
+        users = Q(canaddstaffadduser__user_id=self.id)
+        managers = User.objects.filter(users)
+        return managers
 
 
 class GetSkillManage(ListView):
