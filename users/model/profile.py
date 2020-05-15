@@ -175,8 +175,8 @@ class UserStaff(models.Model):
         return self.user.get_full_name()
 
     class Meta:
-        verbose_name = 'Особые полномочия в знакомствах'
-        verbose_name_plural = 'Особые полномочия в знакомствах'
+        verbose_name = 'Особые глобальные полномочия'
+        verbose_name_plural = 'Особые глобальные полномочия'
 
 
 class CanAddStaffAdUser(models.Model):
