@@ -202,15 +202,15 @@ class User(AbstractUser):
             return False
 
     def is_can_work_skill_administrator(self):
-        return self.can_work_staff_skill_user.get(can_work_administrator=True).exists()
+        return self.can_work_staff_skill_user.filter(user__id=self.pk, can_work_administrator=True).exists()
     def is_can_work_skill_moderator(self):
-        return self.can_work_staff_skill_user.get(can_work_moderator=True).exists()
+        return self.can_work_staff_skill_user.filter(user__id=self.pk, can_work_moderator=True).exists()
     def is_can_work_skill_editor(self):
-        return self.can_work_staff_skill_user.get(can_work_editor=True).exists()
+        return self.can_work_staff_skill_user.filter(user__id=self.pk, can_work_editor=True).exists()
     def is_can_work_skill_advertiser(self):
-        return self.can_work_staff_skill_user.get(can_work_advertiser=True).exists()
+        return self.can_work_staff_skill_user.filter(user__id=self.pk, can_work_advertiser=True).exists()
     def is_can_work_skill_teacher(self):
-        return self.can_work_staff_skill_user.get(can_work_teacher=True).exists()
+        return self.can_work_staff_skill_user.filter(user__id=self.pk, can_work_teacher=True).exists()
     def is_skill_staff_worker(self):
         if self.is_can_work_skill_administrator() or self.is_can_work_skill_editor() or self.is_can_work_skill_advertiser() or self.is_can_work_skill_moderator() or self.is_can_work_skill_teacher():
             return True
