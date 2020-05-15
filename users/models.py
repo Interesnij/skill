@@ -138,7 +138,7 @@ class User(AbstractUser):
     def is_advertiser(self):
         from users.model.profile import UserStaff
         return UserStaff.objects.filter(user__id=self.pk, is_advertiser=True).exists()
-    def is_staff(self):
+    def is_staff_user(self):
         if self.is_administrator() or self.is_editor() or self.is_moderator():
             return True
         else:
