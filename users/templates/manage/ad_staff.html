@@ -3,7 +3,14 @@
 
 {% block title %}Управленцы объявлений{% endblock %}
 {% block content %}
-
+<style>
+  .user_remove_ad_advertiser,
+  .user_remove_ad_advertiser,
+  .user_remove_ad_advertiser,
+  .user_remove_ad_advertiser{
+    color:FF0000
+  }
+</style>
 <section class="content module_1">
     <section class="block">
 
@@ -51,7 +58,7 @@
                                     {% if request.user.is_can_work_ad_administrator or request.user.is_superuser %}
                                     <a href="#">
                                       {% if object.is_ad_administrator %}
-                                        <span class="user_remove_ad_admin">разжаловать админа</span>
+                                        <span class="user_remove_ad_admin">админ - разжаловать</span>
                                       {% else %}
                                         <span class="user_add_ad_admin">сделать админом</span>
                                       {% endif %}
@@ -61,8 +68,8 @@
                                   <span class="admin-span">
                                     {% if request.user.is_can_work_ad_moderator or request.user.is_superuser %}
                                     <a href="#">
-                                      {% if object.is_ad_moderator %} 
-                                        <span class="user_remove_ad_modetator">разжаловать модератора</span>
+                                      {% if object.is_ad_moderator %}
+                                        <span class="user_remove_ad_modetator">модератор - разжаловать</span>
                                       {% else %}
                                         <span class="user_add_ad_modetator">сделать модератором</span>
                                       {% endif %}
@@ -73,7 +80,7 @@
                                     {% if request.user.is_can_work_ad_editor or request.user.is_superuser %}
                                     <a href="#">
                                       {% if object.is_ad_editor %}
-                                        <span class="user_remove_ad_editor">разжаловать редактора</span>
+                                        <span class="user_remove_ad_editor">редактор - разжаловать</span>
                                       {% else %}
                                         <span class="user_add_ad_editor">сделать редактором</span>
                                       {% endif %}
@@ -84,7 +91,7 @@
                                     {% if request.user.is_can_work_ad_advertiser or request.user.is_superuser %}
                                     <a href="#">
                                       {% if object.is_ad_advertiser %}
-                                        <span class="user_remove_ad_advertiser">разжаловать рекламодателя</span>
+                                        <span class="user_remove_ad_advertiser">рекламодатель - разжаловать</span>
                                       {% else %}
                                         <span class="user_add_ad_advertiser">сделать рекламодателем</span>
                                       {% endif %}
