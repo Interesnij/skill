@@ -404,7 +404,7 @@ class User(AbstractUser):
         from users.model.profile import CanAddStaffAdUser
         managers = CanAddStaffAdUser.objects.filter(Q(Q(can_work_administrator=True) | Q(can_work_moderator=True) | Q(can_work_editor=True) | Q(can_work_advertiser=True))).values('user_id')
         managers_ids = [user['user_id'] for user in managers]
-        users = Q(id__in=admins_ids)
+        users = Q(id__in=managers_ids)
         exclude_superuser = ~Q(is_superuser=True)
         users.add(exclude_superuser, Q.AND)
         managers_query = User.objects.filter(users)
