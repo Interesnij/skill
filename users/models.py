@@ -127,10 +127,11 @@ class User(AbstractUser):
         return UserBlock.users_are_blocked(user_a_id=user_id, user_b_id=self.pk)
 
     def is_ad_administrator(self):
-        return self.user_ad_staff.get(is_administrator=True).exists()
-
+        from users.model.list import UserAdStaff
+        return UserAdStaff.objects.filter(user__id=self.pk, is_administrator=True).exists()
     def is_ad_moderator(self):
-        return self.user_ad_staff.get(is_moderator=True).exists()
+        from users.model.list import UserAdStaff
+        return UserAdStaff.objects.filter(user__id=self.pk, is_moderator=True).exists()
 
     def is_ad_editor(self):
         return self.user_ad_staff.get(is_editor=True).exists()
