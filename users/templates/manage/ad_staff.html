@@ -1,2 +1,123 @@
- 111111
-{{ request.user.is_ad_staff_worker }}
+{% extends "bases/base.html" %}
+{% load humanize %}
+
+{% block title %}Управленцы объявлений{% endblock %}
+{% block content %}
+
+<section class="content module_1">
+    <section class="block">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    {% include 'user/nav.html' %}
+                </div>
+                <div class="col-md-9">
+                  <h2>Управленцы объявлений</h2>
+
+                  <div class="section-title clearfix">
+                    <div class="float-right d-xs-none thumbnail-toggle">
+                      <a href="#" class="change-class active" data-change-from-class="list" data-change-to-class="masonry" data-parent-class="items">
+                          плитка
+                      </a>
+                      <a href="#" class="change-class " data-change-from-class="masonry" data-change-to-class="list" data-parent-class="items">
+                          список
+                      </a>
+                      </div>
+                  </div>
+                            <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
+                              {% for object in object_list %}
+                              <div class="item author">
+                                <div class="wrapper" data-pk="{{ object.pk }}">
+                                <div class="image">
+                                    <h3>
+                                        <a href="{% url 'user' pk=object.pk %}" class="title">
+                                          {{ object.get_full_name }}
+                                        </a>
+                                    </h3>
+                                    <a href="{% url 'user' pk=object.pk %}" class="image-wrapper background-image">
+                                      {% if object.avatar %}
+                                        {{ object.avatar.url }}
+                                      {% else %}
+                                        <img src="/static/images/no_img.jpg" alt="">
+                                      {% endif %}
+                                    </a>
+                                </div>
+                                <h4 class="location">
+
+                                </h4>
+                                <div class="admin-controls">
+                                  <span class="admin-span">
+                                    {% if request.user.is_can_work_ad_administrator or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_ad_administrator %}
+                                        <span class="user_remove_ad_admin">разжаловать админа</span>
+                                      {% else %}
+                                        <span class="user_add_ad_admin">сделать админом</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                  </span>
+                                  <span class="admin-span">
+                                    {% if request.user.is_can_work_ad_moderator or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_ad_moderator %}
+                                        <span class="user_remove_ad_modetator">разжаловать модератора</span>
+                                      {% else %}
+                                        <span class="user_add_ad_modetator">сделать модератором</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                    </span>
+                                    <span class="admin-span">
+                                    {% if request.user.is_can_work_ad_editor or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_ad_editor %}
+                                        <span class="user_remove_ad_editor">разжаловать редактора</span>
+                                      {% else %}
+                                        <span class="user_add_ad_editor">сделать редактором</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                    </span>
+                                    <span class="admin-span">
+                                    {% if request.user.is_can_work_ad_advertiser or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_ad_advertiser %}
+                                        <span class="user_remove_ad_advertiser">разжаловать рекламодателя</span>
+                                      {% else %}
+                                        <span class="user_add_ad_advertiser">сделать рекламодателем</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                    </span>
+                                </div>
+                                <div class="additional-info">
+                                    <ul>
+                                      <li>
+                                          <figure>Телефон</figure>
+                                          <aside>{{ object.phone }}</aside>
+                                      </li>
+                                      <li>
+                                          <figure>Активность</figure>
+                                          <aside>{% if object.get_online %}Онлайн {% else %} Был {{ object.last_activity }}{% endif %}</aside>
+                                      </li>
+                                    </ul>
+                                </div>
+                                <a href="{% url 'user' pk=object.pk %}" class="detail text-caps underline">Подробнее</a>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <h3 style="text-align:center">
+                          Управляющего состава модуля объявлений пока нет...
+                          <button type="submit" class="btn btn-primary small">Добавить управленица</button>
+                        </h3>
+                    {% endfor %}
+
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+          </section>
+      </section>
+{% endblock %}
