@@ -126,6 +126,24 @@ class User(AbstractUser):
         from users.model.list import UserBlock
         return UserBlock.users_are_blocked(user_a_id=user_id, user_b_id=self.pk)
 
+    def is_administrator(self):
+        from users.model.profile import UserStaff
+        return UserStaff.objects.filter(user__id=self.pk, is_administrator=True).exists()
+    def is_moderator(self):
+        from users.model.profile import UserStaff
+        return UserStaff.objects.filter(user__id=self.pk, is_moderator=True).exists()
+    def is_editor(self):
+        from users.model.profile import UserStaff
+        return UserStaff.objects.filter(user__id=self.pk, is_editor=True).exists()
+    def is_advertiser(self):
+        from users.model.profile import UserStaff
+        return UserStaff.objects.filter(user__id=self.pk, is_advertiser=True).exists()
+    def is_staff(self):
+        if self.is_administrator() or self.is_editor() or self.is_moderator():
+            return True
+        else:
+            return False
+
     def is_ad_administrator(self):
         from users.model.profile import UserAdStaff
         return UserAdStaff.objects.filter(user__id=self.pk, is_administrator=True).exists()
