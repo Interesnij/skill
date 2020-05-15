@@ -139,7 +139,7 @@ class User(AbstractUser):
         return self.user_ad_staff.get(is_advertiser=True).exists()
 
     def is_ad_staff(self):
-        if self.is_ad_administrator or self.is_ad_editor or self.is_ad_moderator:
+        if self.is_ad_administrator() or self.is_ad_editor() or self.is_ad_moderator():
             return True
         else:
             return False
@@ -157,7 +157,7 @@ class User(AbstractUser):
         return self.user_anketa_staff.get(is_advertiser=True).exists()
 
     def is_anketa_staff(self):
-        if self.is_anketa_administrator or self.is_anketa_editor or self.is_anketa_moderator:
+        if self.is_anketa_administrator() or self.is_anketa_editor() or self.is_anketa_moderator():
             return True
         else:
             return False
@@ -178,7 +178,7 @@ class User(AbstractUser):
         return self.user_skill_staff.get(is_advertiser=True).exists()
 
     def is_skill_staff(self):
-        if self.is_skill_administrator or self.is_skill_editor or self.is_skill_moderator:
+        if self.is_skill_administrator() or self.is_skill_editor() or self.is_skill_moderator():
             return True
         else:
             return False
@@ -212,7 +212,7 @@ class User(AbstractUser):
     def is_can_work_skill_teacher(self):
         return self.can_work_staff_skill_user.get(can_work_teacher=True).exists()
     def is_skill_staff_worker(self):
-        if self.is_can_work_skill_administrator or self.is_can_work_skill_editor or self.is_can_work_skill_advertiser or self.is_can_work_skill_moderator or self.is_can_work_skill_teacher:
+        if self.is_can_work_skill_administrator() or self.is_can_work_skill_editor() or self.is_can_work_skill_advertiser() or self.is_can_work_skill_moderator() or self.is_can_work_skill_teacher():
             return True
         else:
             return False
@@ -240,7 +240,7 @@ class User(AbstractUser):
     def is_can_work_advertiser(self):
         return self.can_work_staff_user.get(can_work_advertiser=True).exists()
     def is_staff_worker(self):
-        if self.is_can_work_administrator or self.is_can_work_editor or self.is_can_work_advertiser or self.is_can_work_moderator:
+        if self.is_can_work_administrator() or self.is_can_work_editor() or self.is_can_work_advertiser() or self.is_can_work_moderator():
             return True
         else:
             return False
