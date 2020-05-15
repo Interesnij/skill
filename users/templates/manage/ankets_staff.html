@@ -1,0 +1,133 @@
+{% extends "bases/base.html" %}
+{% load humanize %}
+
+{% block title %}Управленцы знакомств{% endblock %}
+{% block content %}
+<style>
+  .user_remove_anketa_admin,
+  .user_remove_anketa_moderator,
+  .user_remove_anketa_editor,
+  .user_remove_anketa_advertiser{
+    color:#8B00FF
+  }
+</style>
+<section class="content module_1">
+    <section class="block">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    {% include 'user/nav.html' %}
+                </div>
+                <div class="col-md-9">
+                  <h2>Управленцы знакомств</h2>
+
+                  {% if object_list %}
+
+                  <div class="section-title clearfix">
+                    <div class="float-right d-xs-none thumbnail-toggle">
+                      <a href="#" class="change-class active" data-change-from-class="list" data-change-to-class="masonry" data-parent-class="items">
+                          плитка
+                      </a>
+                      <a href="#" class="change-class " data-change-from-class="masonry" data-change-to-class="list" data-parent-class="items">
+                          список
+                      </a>
+                      </div>
+                  </div>
+                            <div class="items compact masonry grid-xl-3-items grid-lg-2-items grid-md-2-items">
+                              {% for object in object_list %}
+                              <div class="item author">
+                                <div class="wrapper" data-pk="{{ object.pk }}">
+                                <div class="image">
+                                    <h3>
+                                        <a href="{% url 'user' pk=object.pk %}" class="title">
+                                          {{ object.get_full_name }}
+                                        </a>
+                                    </h3>
+                                    <a href="{% url 'user' pk=object.pk %}" class="image-wrapper background-image">
+                                      {% if object.avatar %}
+                                        {{ object.avatar.url }}
+                                      {% else %}
+                                        <img src="/static/images/no_img.jpg" alt="">
+                                      {% endif %}
+                                    </a>
+                                </div>
+                                <h4 class="location">
+
+                                </h4>
+                                <div class="admin-controls">
+                                  <span class="admin-span">
+                                    {% if request.user.is_can_work_anketa_administrator or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_anketa_administrator %}
+                                        <span class="user_remove_anketa_admin">админ - разжаловать</span>
+                                      {% else %}
+                                        <span class="user_add_anketa_admin">сделать админом</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                  </span>
+                                  <span class="admin-span">
+                                    {% if request.user.is_can_work_anketa_moderator or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_anketa_moderator %}
+                                        <span class="user_remove_anketa_moderator">модератор - разжаловать</span>
+                                      {% else %}
+                                        <span class="user_add_anketa_moderator">сделать модератором</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                    </span>
+                                    <span class="admin-span">
+                                    {% if request.user.is_can_work_anketa_editor or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_anketa_editor %}
+                                        <span class="user_remove_anketa_editor">редактор - разжаловать</span>
+                                      {% else %}
+                                        <span class="user_add_anketa_editor">сделать редактором</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                    </span>
+                                    <span class="admin-span">
+                                    {% if request.user.is_can_work_anketa_advertiser or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_anketa_advertiser %}
+                                        <span class="user_remove_anketa_advertiser">рекламодатель - разжаловать</span>
+                                      {% else %}
+                                        <span class="user_add_anketa_advertiser">сделать рекламодателем</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                    </span>
+                                </div>
+                                <div class="additional-info">
+                                    <ul>
+                                      <li>
+                                          <figure>Телефон</figure>
+                                          <aside>{{ object.phone }}</aside>
+                                      </li>
+                                      <li>
+                                          <figure>Активность</figure>
+                                          <aside>{% if object.get_online %}Онлайн {% else %} Был {{ object.last_activity }}{% endif %}</aside>
+                                      </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                            </div>
+                            {% else %}
+                            <h3 style="text-align:center">
+                              Управляющего состава модуля знакомств пока нет...
+                              <button type="submit" class="btn btn-love small">Добавить управленица</button>
+                            </h3>
+                            {% endif %}
+                        </div>
+                      </div>
+                  </div>
+          </section>
+      </section>
+{% endblock %}
