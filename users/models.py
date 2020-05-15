@@ -187,11 +187,14 @@ class User(AbstractUser):
         from users.model.profile import CanAddStaffAdUser
         return CanAddStaffAdUser.objects.filter(user__id=self.pk, can_work_administrator=True).exists()
     def is_can_work_ad_moderator(self):
-        return self.can_work_staff_ad_user.get(user=self, can_work_moderator=True).exists()
+        from users.model.profile import CanAddStaffAdUser
+        return CanAddStaffAdUser.objects.filter(user__id=self.pk, can_work_moderator=True).exists()
     def is_can_work_ad_editor(self):
-        return self.can_work_staff_ad_user.get(user=self, can_work_editor=True).exists()
+        from users.model.profile import CanAddStaffAdUser
+        return CanAddStaffAdUser.objects.filter(user__id=self.pk, can_work_editor=True).exists()
     def is_can_work_ad_advertiser(self):
-        return self.can_work_staff_ad_user.get(user=self, can_work_advertiser=True).exists()
+        from users.model.profile import CanAddStaffAdUser
+        return CanAddStaffAdUser.objects.filter(user__id=self.pk, can_work_advertiser=True).exists()
     def is_ad_staff_worker(self):
         if self.is_can_work_ad_administrator or self.is_can_work_ad_editor or self.is_can_work_ad_advertiser or self.is_can_work_ad_moderator:
             return True
