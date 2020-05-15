@@ -23,7 +23,7 @@ class GetAdManage(ListView):
 
     def get_queryset(self):
         from users.model.profile import CanAddStaffAdUser
-        managers = CanAddStaffAdUser.objects.filter(can_work_administrator=True).values('user_id')
+        managers = CanAddStaffAdUser.objects.filter(Q(Q(can_work_administrator=True) | Q(can_work_moderator=True) | Q(can_work_editor=True) | Q(can_work_advertiser=True))).values('user_id')
         managers_ids = [user['user_id'] for user in managers]
         users = Q(id__in=managers_ids)
         managers_query = User.objects.filter(users)
