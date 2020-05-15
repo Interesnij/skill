@@ -411,8 +411,28 @@ class User(AbstractUser):
         return managers_query
 
     def get_skills_managers(self):
+        from users.model.profile import UserAnketaStaff
+        managers = UserAnketaStaff.objects.filter(Q(Q(is_administrator=True) | Q(is_moderator=True) | Q(is_editor=True) | Q(is_advertiser=True))).values('user_id')
+        managers_ids = [user['user_id'] for user in managers]
+        users = Q(id__in=managers_ids)
+        exclude_superuser = ~Q(is_superuser=True)
+        users.add(exclude_superuser, Q.AND)
+        managers_query = User.objects.filter(users)
+        return managers_query
+
+    def get_ankets_managers(self):
         from users.model.profile import UserSkillStaff
         managers = UserSkillStaff.objects.filter(Q(Q(is_administrator=True) | Q(is_moderator=True) | Q(is_editor=True) | Q(is_advertiser=True))).values('user_id')
+        managers_ids = [user['user_id'] for user in managers]
+        users = Q(id__in=managers_ids)
+        exclude_superuser = ~Q(is_superuser=True)
+        users.add(exclude_superuser, Q.AND)
+        managers_query = User.objects.filter(users)
+        return managers_query
+
+    def get_managers(self):
+        from users.model.profile import UserStaff
+        managers = UserStaff.objects.filter(Q(Q(is_administrator=True) | Q(is_moderator=True) | Q(is_editor=True) | Q(is_advertiser=True))).values('user_id')
         managers_ids = [user['user_id'] for user in managers]
         users = Q(id__in=managers_ids)
         exclude_superuser = ~Q(is_superuser=True)

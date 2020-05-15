@@ -44,8 +44,8 @@ class GetSkillManage(ListView):
         return context
 
     def get_queryset(self):
-        users = User.objects.only("can_work_staff_skill_user__id")
-        return users
+        managers = self.user.get_skills_managers()
+        return managers
 
 
 class GetAnketsManage(ListView):
@@ -66,8 +66,8 @@ class GetAnketsManage(ListView):
         return context
 
     def get_queryset(self):
-        users = User.objects.only("can_work_staff_anketa_user__id")
-        return users
+        managers = self.user.get_ankets_managers()
+        return managers
 
 
 class GetStaffManage(ListView):
@@ -88,5 +88,5 @@ class GetStaffManage(ListView):
         return context
 
     def get_queryset(self):
-        users = User.objects.only("can_work_staff_user__id")
-        return users
+        managers = self.user.get_managers()
+        return managers
