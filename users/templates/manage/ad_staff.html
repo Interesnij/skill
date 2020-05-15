@@ -69,9 +69,9 @@
                                     {% if request.user.is_can_work_ad_moderator or request.user.is_superuser %}
                                     <a href="#">
                                       {% if object.is_ad_moderator %}
-                                        <span class="user_remove_ad_modetator">модератор - разжаловать</span>
+                                        <span class="user_remove_ad_moderator">модератор - разжаловать</span>
                                       {% else %}
-                                        <span class="user_add_ad_modetator">сделать модератором</span>
+                                        <span class="user_add_ad_moderator">сделать модератором</span>
                                       {% endif %}
                                     </a>
                                     {% endif %}
