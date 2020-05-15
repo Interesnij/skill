@@ -29,15 +29,20 @@
     <a class="nav-link icon" href="{% url 'get_module_staff' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Персонал объявлений
     </a>
+    {% endif %}
     {% if user.is_superuser or user.is_skill_staff_worker %}
     <a class="nav-link icon" href="{% url 'get_skill_staff' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Персонал академии
     </a>
     {% endif %}
-    {% endif %}
     {% if user.is_superuser or user.is_anketa_staff_worker %}
-    <a class="nav-link icon" href="">
+    <a class="nav-link icon" href="{% url 'get_ankets_staff' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Персонал знакомств
+    </a>
+    {% endif %}
+    {% if user.is_superuser or user.is_staff_worker %}
+    <a class="nav-link icon" href="{% url 'get_users_staff' pk=request.user.pk %}">
+        <i class="fa fa-settings"></i>Глобальный персонал
     </a>
     {% endif %}
 </nav>

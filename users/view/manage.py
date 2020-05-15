@@ -45,3 +45,47 @@ class GetSkillManage(ListView):
     def get_queryset(self):
         users = User.objects.only("can_work_staff_skill_user__id")
         return users
+
+
+class GetAnketsManage(ListView):
+    template_name = None
+    paginate_by = 30
+
+    def get(self,request,*args,**kwargs):
+        self.user=User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_can_work_anketa_administrator():
+            self.template_name = self.user.get_my_template(folder="manage/", template="ankets_staff.html", request=request)
+        else:
+            self.template_name = "generic/permisson_error.html"
+        return super(GetAnketsManage,self).get(request,*args,**kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(GetAnketsManage, self).get_context_data(**kwargs)
+        context['user'] = self.user
+        return context
+
+    def get_queryset(self):
+        users = User.objects.only("can_work_staff_anketa_user__id")
+        return users
+
+
+class GetStaffManage(ListView):
+    template_name = None
+    paginate_by = 30
+
+    def get(self,request,*args,**kwargs):
+        self.user=User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_can_work_anketa_administrator():
+            self.template_name = self.user.get_my_template(folder="manage/", template="users_staff.html", request=request)
+        else:
+            self.template_name = "generic/permisson_error.html"
+        return super(GetStaffManage,self).get(request,*args,**kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(GetStaffManage, self).get_context_data(**kwargs)
+        context['user'] = self.user
+        return context
+
+    def get_queryset(self):
+        users = User.objects.only("can_work_staff_user__id")
+        return users
