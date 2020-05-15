@@ -41,13 +41,6 @@
 </section>
 
 <script>
-  var ready = (callback) => {
-  if (document.readyState != "loading") callback();
-  else document.addEventListener("DOMContentLoaded", callback);
-  }
-    var error_response = function(data) {
-        document.querySelector(".login-response").innerHTML("ошибка");
-    }
 
     var error_response = function(data) {
           $('.login-response').html("ошибка");
@@ -55,19 +48,16 @@
       var susccess_response = function(data) {
           window.location.href = "{% url 'main' %}";
       }
-    ready(() => {
-          $('#logg').click(function() {
-              var form3 = $('#login_form');
-              $.post(form3.attr('action'), form3.serialize())
-                  .fail(function(data) {
-                      error_response(data);
-                      console.log(data);
-                  })
-                  .done(function(data) {
-                    window.location.href = "{% url 'main' %}";
-                  });
-              return false;
-      });
-    });
+      document.querySelector("#logg").addEventListener("click", (e) => {
+       var form10 = document.getElementById('login_form');
+       var formEntries = new FormData(form10);
+       var options = {
+         method: 'POST',
+         body: formEntries,
+       };
+       fetch('{% url "rest_login" %}', options).then(data => {
+         window.location.href = "{% url 'main' %}";
+       }).catch(error => {console.log("Все не ОК")})
+    })
 </script>
 {% endblock %}
