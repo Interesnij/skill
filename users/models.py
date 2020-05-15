@@ -235,7 +235,7 @@ class User(AbstractUser):
         from users.model.profile import CanAddStaffAnketaUser
         return CanAddStaffAnketaUser.objects.filter(user__id=self.pk, can_work_advertiser=True).exists()
     def is_anketa_staff_worker(self):
-        if self.is_can_work_anketa_administrator() or self.is_can_work_anketa_editor() or self.is_can_work_aanketa_advertiser() or self.is_can_work_anketa_moderator():
+        if self.is_can_work_anketa_administrator() or self.is_can_work_anketa_editor() or self.is_can_work_anketa_advertiser() or self.is_can_work_anketa_moderator():
             return True
         else:
             return False
