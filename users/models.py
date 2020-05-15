@@ -224,16 +224,16 @@ class User(AbstractUser):
 
     def is_can_work_anketa_administrator(self):
         from users.model.profile import CanAddStaffAnketaUser
-        return CanAddStaffAnketaUser.objects.get(can_work_administrator=True).exists()
+        return CanAddStaffAnketaUser.objects.get(user__id=self.pk, can_work_administrator=True).exists()
     def is_can_work_anketa_moderator(self):
         from users.model.profile import CanAddStaffAnketaUser
-        return CanAddStaffAnketaUser.objects.get(can_work_moderator=True).exists()
+        return CanAddStaffAnketaUser.objects.get(user__id=self.pk, can_work_moderator=True).exists()
     def is_can_work_anketa_editor(self):
         from users.model.profile import CanAddStaffAnketaUser
-        return CanAddStaffAnketaUser.objects.get(can_work_editor=True).exists()
+        return CanAddStaffAnketaUser.objects.get(user__id=self.pk, can_work_editor=True).exists()
     def is_can_work_anketa_advertiser(self):
         from users.model.profile import CanAddStaffAnketaUser
-        return CanAddStaffAnketaUser.objects.get(can_work_advertiser=True).exists()
+        return CanAddStaffAnketaUser.objects.get(user__id=self.pk, can_work_advertiser=True).exists()
     def is_skill_staff_worker(self):
         if self.is_can_work_anketa_administrator() or self.is_can_work_anketa_editor() or self.is_can_work_aanketa_advertiser() or self.is_can_work_anketa_moderator():
             return True
@@ -242,16 +242,16 @@ class User(AbstractUser):
 
     def is_can_work_administrator(self):
         from users.model.profile import CanAddStaffUser
-        return CanAddStaffUser.objects.get(can_work_administrator=True).exists()
+        return CanAddStaffUser.objects.get(user__id=self.pk, can_work_administrator=True).exists()
     def is_can_work_moderator(self):
         from users.model.profile import CanAddStaffUser
-        return CanAddStaffUser.objects.get(can_work_moderator=True).exists()
+        return CanAddStaffUser.objects.get(user__id=self.pk, can_work_moderator=True).exists()
     def is_can_work_editor(self):
         from users.model.profile import CanAddStaffUser
-        return CanAddStaffUser.objects.get(can_work_editor=True).exists()
+        return CanAddStaffUser.objects.get(user__id=self.pk, can_work_editor=True).exists()
     def is_can_work_advertiser(self):
         from users.model.profile import CanAddStaffUser
-        return CanAddStaffUser.objects.get(can_work_advertiser=True).exists()
+        return CanAddStaffUser.objects.get(user__id=self.pk, can_work_advertiser=True).exists()
     def is_staff_worker(self):
         if self.is_can_work_administrator() or self.is_can_work_editor() or self.is_can_work_advertiser() or self.is_can_work_moderator():
             return True

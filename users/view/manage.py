@@ -9,7 +9,7 @@ class GetAdManage(ListView):
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        if request.user.is_ad_staff_worker():
+        if request.user.is_ad_staff_worker() or request.user.is_superuser:
             self.template_name = self.user.get_my_template(folder="manage/", template="ad_staff.html", request=request)
         else:
             self.template_name = "generic/permisson_error.html"
@@ -31,7 +31,7 @@ class GetSkillManage(ListView):
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        if request.user.is_can_work_skill_administrator():
+        if request.user.is_can_work_skill_administrator() or request.user.is_superuser:
             self.template_name = self.user.get_my_template(folder="manage/", template="skill_staff.html", request=request)
         else:
             self.template_name = "generic/permisson_error.html"
@@ -53,7 +53,7 @@ class GetAnketsManage(ListView):
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        if request.user.is_can_work_anketa_administrator():
+        if request.user.is_can_work_anketa_administrator() or request.user.is_superuser:
             self.template_name = self.user.get_my_template(folder="manage/", template="ankets_staff.html", request=request)
         else:
             self.template_name = "generic/permisson_error.html"
@@ -75,7 +75,7 @@ class GetStaffManage(ListView):
 
     def get(self,request,*args,**kwargs):
         self.user=User.objects.get(pk=self.kwargs["pk"])
-        if request.user.is_can_work_anketa_administrator():
+        if request.user.is_can_work_anketa_administrator() or request.user.is_superuser:
             self.template_name = self.user.get_my_template(folder="manage/", template="users_staff.html", request=request)
         else:
             self.template_name = "generic/permisson_error.html"
