@@ -196,7 +196,13 @@ class User(AbstractUser):
         from users.model.profile import CanAddStaffAdUser
         return CanAddStaffAdUser.objects.filter(user__id=self.pk, can_work_advertiser=True).exists()
     def is_ad_staff_worker(self):
-        if self.is_can_work_ad_administrator or self.is_can_work_ad_editor or self.is_can_work_ad_advertiser or self.is_can_work_ad_moderator:
+        if self.is_can_work_ad_administrator:
+            return True
+        elif self.is_can_work_ad_editor:
+            return True
+        elif self.is_can_work_ad_advertiser:
+            return True
+        elif self.is_can_work_ad_moderator:
             return True
         else:
             return False
