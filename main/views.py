@@ -81,5 +81,5 @@ class MainPhoneSend(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(MainPhoneSend, self).get_context_data(**kwargs)
-		context['request_user'] = reuest.user
+		context['request_user'] = self.request.user
 		return context
