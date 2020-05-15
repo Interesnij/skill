@@ -134,10 +134,12 @@ class User(AbstractUser):
         return UserAdStaff.objects.filter(user__id=self.pk, is_moderator=True).exists()
 
     def is_ad_editor(self):
-        return self.user_ad_staff.get(is_editor=True).exists()
+        from users.model.profile import UserAdStaff
+        return UserAdStaff.objects.filter(user__id=self.pk, is_editor=True).exists()
 
     def is_ad_advertiser(self):
-        return self.user_ad_staff.get(is_advertiser=True).exists()
+        from users.model.profile import UserAdStaff
+        return UserAdStaff.objects.filter(user__id=self.pk, is_advertiser=True).exists()
 
     def is_ad_staff(self):
         if self.is_ad_administrator() or self.is_ad_editor() or self.is_ad_moderator():
