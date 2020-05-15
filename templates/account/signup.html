@@ -49,26 +49,19 @@
 </section>
 
 <script type="text/javascript">
-  var ready = (callback) => {
-  if (document.readyState != "loading") callback();
-  else document.addEventListener("DOMContentLoaded", callback);
-  }
-
     var error_response2 = function(data) {
         $('.reg-response').html("Что-то пошло не так... ");
     }
-ready(() => {
-        $('#register_ajax').click(function() {
-            var form2 = $('#signup');
-            $.post(form2.attr('action'), form2.serialize())
-                .fail(function(data) {
-                    error_response2(data);
-                })
-                .done(function(data) {
-                    window.location.href = "{% url 'phone_sendd' %}";
-                });
-            return false;
-        });
-    });
+    document.querySelector("#register_ajax").addEventListener("click", (e) => {
+     var form10 = document.getElementById('signup');
+     var formEntries = new FormData(form10);
+     var options = {
+       method: 'POST',
+       body: formEntries,
+     };
+     fetch('{% url "rest_register" %}', options).then(data => {
+       window.location.href = "{% url 'main' %}";
+     }).catch(error => {console.log("Все не ОК")})
+  })
 </script>
 {% endblock %}
