@@ -184,7 +184,8 @@ class User(AbstractUser):
             return False
 
     def is_can_work_ad_administrator(self):
-        return self.can_work_staff_ad_user.get(user=self, can_work_administrator=True).exists()
+        from users.model.profile import CanAddStaffAdUser
+        return CanAddStaffAdUser.objects.get(user=self, can_work_administrator=True).exists()
     def is_can_work_ad_moderator(self):
         return self.can_work_staff_ad_user.get(user=self, can_work_moderator=True).exists()
     def is_can_work_ad_editor(self):
