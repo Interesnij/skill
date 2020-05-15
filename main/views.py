@@ -78,3 +78,8 @@ class AnketsPageView(TemplateView):
 
 class MainPhoneSend(TemplateView):
 	template_name="main/phone_verification.html"
+
+	def get_context_data(self, **kwargs):
+		context = super(MainPhoneSend, self).get_context_data(**kwargs)
+		context['request_user'] = reuest.user
+		return context
