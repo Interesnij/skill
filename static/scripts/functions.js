@@ -1,15 +1,3 @@
-function phone_check() {
-if (document.getElementById('phone').value.length > 9)
-  document.getElementById("phone_send").removeAttribute('disabled');
-else
-  document.getElementById("phone_send").setAttribute("disabled", "true");
-}
-function code_check() {
-  if (document.getElementById('code').value.length === 4)
-    document.getElementById("code_send").removeAttribute('disabled');
-  else
-    document.getElementById("code_send").setAttribute("disabled", "true");
-}
 
 function send_change(a, _link, new_class, html){
   parent = a.parentElement;
