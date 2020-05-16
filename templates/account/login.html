@@ -10,6 +10,7 @@
               <br><br><br>
                 <div class="col-md-4">
                   <form class="form clearfix" method="post" id="login_form">
+                    {% csrf_token %}
                       <div class="form-group">
                           <label class="col-form-label required">Телефон</label>
                           <input type="text" name="username" class="form-control" placeholder="79041234567">
