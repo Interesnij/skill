@@ -42,23 +42,15 @@
 </section>
 
 <script>
-
-    var error_response = function(data) {
-          $('.login-response').html("ошибка");
-      }
-      var susccess_response = function(data) {
-          window.location.href = "{% url 'main' %}";
-      }
-      document.querySelector("#logg").addEventListener("click", (e) => {
-       var form10 = document.getElementById('login_form');
-       var formEntries = new FormData(form10);
-       var options = {
-         method: 'POST',
-         body: formEntries,
-       };
-       fetch('{% url "rest_login" %}', options).then(data => {
-         window.location.href = "{% url 'main' %}";
-       }).catch(error => {console.log("Все не ОК")})
-    })
+document.querySelector("#logg").addEventListener("click", (e) => {
+    form_post = document.querySelector("#login_form");
+    link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+    link.open( 'POST', "{% url 'rest_login' %}" + pk + "/", true );
+    link.onreadystatechange = function () {
+    if ( link.readyState == 4 && link.status == 200 ) {
+      window.location.href = "{% url 'main' %}";
+      }};
+    link.send(form_data);
+  });
 </script>
 {% endblock %}
