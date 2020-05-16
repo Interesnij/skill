@@ -9,7 +9,7 @@
             <div class="row justify-content-center">
               <br><br><br>
                 <div class="col-md-4">
-                  <form class="form clearfix" name="register_post">
+                  <form class="form clearfix" name="register_post" id="signup">
                       <div class="form-group">
                           <label class="col-form-label required">Имя</label>
                           <input type="text" name="first_name" id="id_first_name" placeholder="Имя">
@@ -34,7 +34,7 @@
                             </div>
                             Я принимаю <a href="">Правила сайта</a>.
                           </label>
-                          <button type="submit" id="_register_ajax" class="btn btn-primary">Регистрация</button>
+                          <button type="submit" id="register_ajax" class="btn btn-primary">Регистрация</button>
                       </div>
                   </form>
                   <small class="reg-response"></small>
@@ -49,8 +49,7 @@
 </section>
 
 <script type="text/javascript">
-
-document.querySelector("#_register_ajax").addEventListener("click", (e) => {
+on('body', 'click', '#register_ajax', function() {
   form_data = new FormData(document.forms.register_post);
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'POST', "{% url 'rest_register' %}", true );
