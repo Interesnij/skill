@@ -1,3 +1,15 @@
+on('body', 'click', '#register_ajax', function() {
+  form_data = new FormData(document.forms.register_post);
+  link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+  link.open( 'POST', "{% url 'rest_register' %}", true );
+  link.onreadystatechange = function () {
+  if ( link.readyState == 4 && link.status == 200 ) {
+    window.location.href = "{% url 'phone_sendd' %}";
+    }};
+  link.send(form_data);
+})
+
+
 on('body', 'click', '.user_subscribe', function(e) {
   e.preventDefault();
   parent = this.parentElement;
