@@ -1,7 +1,7 @@
 on('body', 'click', '#register_ajax', function() {
   form_data = new FormData(document.forms.register_post);
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
-  link.open( 'POST', "/rest-auth/login/", true );
+  link.open( 'POST', "/rest-auth/registration/", true );
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
     window.location.href = "/phone_send/";
