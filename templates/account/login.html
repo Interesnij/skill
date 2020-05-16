@@ -42,7 +42,7 @@
 
 <script>
 document.querySelector("#logg").addEventListener("click", (e) => {
-    form_data = new FormData(document.querySelector("#login"));
+    form_data = new FormData(document.forms.login_post);
     link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
     link.open( 'POST', "{% url 'rest_login' %}", true );
     link.onreadystatechange = function () {
