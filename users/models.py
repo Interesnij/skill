@@ -26,7 +26,7 @@ class User(AbstractUser):
         return  str(self.first_name) + " " + str(self.last_name)
 
     def get_users_count(self):
-        return User.objects.all().values("pk").count() 
+        return User.objects.all().values("pk").count()
 
     def __str__(self):
         return  self.get_full_name()
@@ -462,7 +462,7 @@ class User(AbstractUser):
         return managers_query
 
     def add_skill_administrator(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -474,7 +474,7 @@ class User(AbstractUser):
             user_staff = UserSkillStaff.objects.create(user=self, is_administrator=True)
         return user_staff
     def add_skill_moderator(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_moderator = True
@@ -486,7 +486,7 @@ class User(AbstractUser):
             user_staff = UserSkillStaff.objects.create(user=self, is_moderator=True)
         return user_staff
     def add_skill_editor(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -498,7 +498,7 @@ class User(AbstractUser):
             user_staff = UserSkillStaff.objects.create(user=self, is_editor=True)
         return user_staff
     def add_skill_advertiser(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -510,7 +510,7 @@ class User(AbstractUser):
             user_staff = UserSkillStaff.objects.create(user=self, is_advertiser=True)
         return user_staff
     def add_skill_teacher(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_teacher = True
@@ -520,7 +520,7 @@ class User(AbstractUser):
         return user_staff
 
     def remove_skill_administrator(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_administrator = False
@@ -529,7 +529,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_skill_moderator(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -538,7 +538,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_skill_editor(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_editor = False
@@ -547,7 +547,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_skill_advertiser(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_advertiser = False
@@ -556,7 +556,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_skill_teacher(self):
-        from user.model.profile import UserSkillStaff
+        from users.model.profile import UserSkillStaff
         try:
             user_staff = UserSkillStaff.objects.get(user=self)
             user_staff.is_teacher = False
@@ -566,7 +566,7 @@ class User(AbstractUser):
             pass
 
     def add_ad_administrator(self):
-        from user.model.profile import UserAdStaff
+        from users.model.profile import UserAdStaff
         try:
             user_staff = UserAdStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -578,7 +578,7 @@ class User(AbstractUser):
             user_staff = UserAdStaff.objects.create(user=self, is_administrator=True)
         return user_staff
     def add_ad_moderator(self):
-        from user.model.profile import UserAdStaff
+        from users.model.profile import UserAdStaff
         try:
             user_staff = UserAdStaff.objects.get(user=self)
             user_staff.is_moderator = True
@@ -590,7 +590,7 @@ class User(AbstractUser):
             user_staff = UserAdStaff.objects.create(user=self, is_moderator=True)
         return user_staff
     def add_ad_editor(self):
-        from user.model.profile import UserAdStaff
+        from users.model.profile import UserAdStaff
         try:
             user_staff = UserAdStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -602,7 +602,7 @@ class User(AbstractUser):
             user_staff = UserAdStaff.objects.create(user=self, is_editor=True)
         return user_staff
     def add_ad_advertiser(self):
-        from user.model.profile import UserAdStaff
+        from users.model.profile import UserAdStaff
         try:
             user_staff = UserAdStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -615,7 +615,7 @@ class User(AbstractUser):
         return user_staff
 
     def remove_ad_administrator(self):
-        from user.model.profile import UserAdStaff
+        from users.model.profile import UserAdStaff
         try:
             user_staff = UserAdStaff.objects.get(user=self)
             user_staff.is_administrator = False
@@ -624,7 +624,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_ad_moderator(self):
-        from user.model.profile import UserAdStaff
+        from users.model.profile import UserAdStaff
         try:
             user_staff = UserAdStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -633,7 +633,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_ad_editor(self):
-        from user.model.profile import UserAdStaff
+        from users.model.profile import UserAdStaff
         try:
             user_staff = UserAdStaff.objects.get(user=self)
             user_staff.is_editor = False
@@ -642,7 +642,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_ad_advertiser(self):
-        from user.model.profile import UserAdStaff
+        from users.model.profile import UserAdStaff
         try:
             user_staff = UserAdStaff.objects.get(user=self)
             user_staff.is_advertiser = False
@@ -653,7 +653,7 @@ class User(AbstractUser):
 
 
     def add_administrator(self):
-        from user.model.profile import UserStaff
+        from users.model.profile import UserStaff
         try:
             user_staff = UserStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -665,7 +665,7 @@ class User(AbstractUser):
             user_staff = UserStaff.objects.create(user=self, is_administrator=True)
         return user_staff
     def add_moderator(self):
-        from user.model.profile import UserStaff
+        from users.model.profile import UserStaff
         try:
             user_staff = UserStaff.objects.get(user=self)
             user_staff.is_moderator = True
@@ -677,7 +677,7 @@ class User(AbstractUser):
             user_staff = UserStaff.objects.create(user=self, is_moderator=True)
         return user_staff
     def add_editor(self):
-        from user.model.profile import UserStaff
+        from users.model.profile import UserStaff
         try:
             user_staff = UserStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -689,7 +689,7 @@ class User(AbstractUser):
             user_staff = UserStaff.objects.create(user=self, is_editor=True)
         return user_staff
     def add_advertiser(self):
-        from user.model.profile import UserStaff
+        from users.model.profile import UserStaff
         try:
             user_staff = UserStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -702,7 +702,7 @@ class User(AbstractUser):
         return user_staff
 
     def remove_administrator(self):
-        from user.model.profile import UserStaff
+        from users.model.profile import UserStaff
         try:
             user_staff = UserStaff.objects.get(user=self)
             user_staff.is_administrator = False
@@ -711,7 +711,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_moderator(self):
-        from user.model.profile import UserStaff
+        from users.model.profile import UserStaff
         try:
             user_staff = UserStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -720,7 +720,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_editor(self):
-        from user.model.profile import UserStaff
+        from users.model.profile import UserStaff
         try:
             user_staff = UserStaff.objects.get(user=self)
             user_staff.is_editor = False
@@ -729,7 +729,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_advertiser(self):
-        from user.model.profile import UserStaff
+        from users.model.profile import UserStaff
         try:
             user_staff = UserStaff.objects.get(user=self)
             user_staff.is_advertiser = False
@@ -740,7 +740,7 @@ class User(AbstractUser):
 
 
     def add_anketa_administrator(self):
-        from user.model.profile import UserAnketaStaff
+        from users.model.profile import UserAnketaStaff
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -752,7 +752,7 @@ class User(AbstractUser):
             user_staff = UserAnketaStaff.objects.create(user=self, is_administrator=True)
         return user_staff
     def add_anketa_moderator(self):
-        from user.model.profile import UserAnketaStaff
+        from users.model.profile import UserAnketaStaff
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_moderator = True
@@ -764,7 +764,7 @@ class User(AbstractUser):
             user_staff = UserAnketaStaff.objects.create(user=self, is_moderator=True)
         return user_staff
     def add_anketa_editor(self):
-        from user.model.profile import UserAnketaStaff
+        from users.model.profile import UserAnketaStaff
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -776,7 +776,7 @@ class User(AbstractUser):
             user_staff = UserAnketaStaff.objects.create(user=self, is_editor=True)
         return user_staff
     def add_anketa_advertiser(self):
-        from user.model.profile import UserAnketaStaff
+        from users.model.profile import UserAnketaStaff
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -789,7 +789,7 @@ class User(AbstractUser):
         return user_staff
 
     def remove_anketa_administrator(self):
-        from user.model.profile import UserAnketaStaff
+        from users.model.profile import UserAnketaStaff
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_administrator = False
@@ -798,7 +798,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_anketa_moderator(self):
-        from user.model.profile import UserAnketaStaff
+        from users.model.profile import UserAnketaStaff
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_moderator = False
@@ -807,7 +807,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_anketa_editor(self):
-        from user.model.profile import UserAnketaStaff
+        from users.model.profile import UserAnketaStaff
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_editor = False
@@ -816,7 +816,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_anketa_advertiser(self):
-        from user.model.profile import UserAnketaStaff
+        from users.model.profile import UserAnketaStaff
         try:
             user_staff = UserAnketaStaff.objects.get(user=self)
             user_staff.is_advertiser = False
@@ -826,7 +826,7 @@ class User(AbstractUser):
             pass
 
     def add_ad_administrator_worker(self, request_user):
-        from user.model.profile import CanAddStaffAdUser
+        from users.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
             user_staff.is_administrator = True
@@ -836,7 +836,7 @@ class User(AbstractUser):
         user_staff.create_add_administrator_log(user=self,manager=request_user)
         return user_staff
     def add_ad_moderator_worker(self):
-        from user.model.profile import CanAddStaffAdUser
+        from users.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
             user_staff.is_moderator = True
@@ -845,7 +845,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffAdUser.objects.create(user=self, is_moderator=True)
         return user_staff
     def add_ad_editor_worker(self):
-        from user.model.profile import CanAddStaffAdUser
+        from users.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
             user_staff.is_editor = True
@@ -854,7 +854,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffAdUser.objects.create(user=self, is_editor=True)
         return user_staff
     def add_ad_advirtiser_worker(self):
-        from user.model.profile import CanAddStaffAdUser
+        from users.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
             user_staff.is_advirtiser = True
@@ -864,7 +864,7 @@ class User(AbstractUser):
         return user_staff
 
     def remove_ad_administrator_worker(self):
-        from user.model.profile import CanAddStaffAdUser
+        from users.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
             user_staff.is_administrator = False
@@ -873,7 +873,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_ad_moderator_worker(self):
-        from user.model.profile import CanAddStaffAdUser
+        from users.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
             user_staff.is_moderator = False
@@ -882,7 +882,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_ad_editor_worker(self):
-        from user.model.profile import CanAddStaffAdUser
+        from users.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
             user_staff.is_editor = False
@@ -891,7 +891,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_ad_advirtiser_worker(self):
-        from user.model.profile import CanAddStaffAdUser
+        from users.model.profile import CanAddStaffAdUser
         try:
             user_staff = CanAddStaffAdUser.objects.get(user=self)
             user_staff.is_advirtiser = False
@@ -902,7 +902,7 @@ class User(AbstractUser):
 
 
     def add_skill_administrator_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_administrator = True
@@ -911,7 +911,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffSkillUser.objects.create(user=self, is_administrator=True)
         return user_staff
     def add_skill_moderator_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_moderator = True
@@ -920,7 +920,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffSkillUser.objects.create(user=self, is_moderator=True)
         return user_staff
     def add_skill_editor_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_editor = True
@@ -929,7 +929,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffSkillUser.objects.create(user=self, is_editor=True)
         return user_staff
     def add_skill_advirtiser_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_advirtiser = True
@@ -938,7 +938,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffSkillUser.objects.create(user=self, is_advertiser=True)
         return user_staff
     def add_skill_teacher_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_teacher = True
@@ -948,7 +948,7 @@ class User(AbstractUser):
         return user_staff
 
     def remove_skill_administrator_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_administrator = False
@@ -957,7 +957,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_skill_moderator_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_moderator = False
@@ -966,7 +966,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_skill_editor_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_editor = False
@@ -975,7 +975,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_skill_advirtiser_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_advirtiser = False
@@ -984,7 +984,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_skill_teacher_worker(self):
-        from user.model.profile import CanAddStaffSkillUser
+        from users.model.profile import CanAddStaffSkillUser
         try:
             user_staff = CanAddStaffSkillUser.objects.get(user=self)
             user_staff.is_teacher = False
@@ -995,7 +995,7 @@ class User(AbstractUser):
 
 
     def add_anketa_administrator_worker(self):
-        from user.model.profile import CanAddStaffAnketaUser
+        from users.model.profile import CanAddStaffAnketaUser
         try:
             user_staff = CanAddStaffAnketaUser.objects.get(user=self)
             user_staff.is_administrator = True
@@ -1004,7 +1004,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffAnketaUser.objects.create(user=self, is_administrator=True)
         return user_staff
     def add_anketa_moderator_worker(self):
-        from user.model.profile import CanAddStaffAnketaUser
+        from users.model.profile import CanAddStaffAnketaUser
         try:
             user_staff = CanAddStaffAnketaUser.objects.get(user=self)
             user_staff.is_moderator = True
@@ -1013,7 +1013,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffAnketaUser.objects.create(user=self, is_moderator=True)
         return user_staff
     def add_anketa_editor_worker(self):
-        from user.model.profile import CanAddStaffAnketaUser
+        from users.model.profile import CanAddStaffAnketaUser
         try:
             user_staff = CanAddStaffAnketaUser.objects.get(user=self)
             user_staff.is_editor = True
@@ -1022,7 +1022,7 @@ class User(AbstractUser):
             user_staff = CanAddStaffAnketaUser.objects.create(user=self, is_editor=True)
         return user_staff
     def add_anketa_advirtiser_worker(self):
-        from user.model.profile import CanAddStaffAnketaUser
+        from users.model.profile import CanAddStaffAnketaUser
         try:
             user_staff = CanAddStaffAnketaUser.objects.get(user=self)
             user_staff.is_advirtiser = True
@@ -1032,7 +1032,7 @@ class User(AbstractUser):
         return user_staff
 
     def remove_anketa_administrator_worker(self):
-        from user.model.profile import CanAddStaffAnketaUser
+        from users.model.profile import CanAddStaffAnketaUser
         try:
             user_staff = CanAddStaffAnketaUser.objects.get(user=self)
             user_staff.is_administrator = False
@@ -1041,7 +1041,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_anketa_moderator_worker(self):
-        from user.model.profile import CanAddStaffAnketaUser
+        from users.model.profile import CanAddStaffAnketaUser
         try:
             user_staff = CanAddStaffAnketaUser.objects.get(user=self)
             user_staff.is_moderator = False
@@ -1050,7 +1050,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_anketa_editor_worker(self):
-        from user.model.profile import CanAddStaffAnketaUser
+        from users.model.profile import CanAddStaffAnketaUser
         try:
             user_staff = CanAddStaffAnketaUser.objects.get(user=self)
             user_staff.is_editor = False
@@ -1059,7 +1059,7 @@ class User(AbstractUser):
         except:
             pass
     def remove_anketa_advirtiser_worker(self):
-        from user.model.profile import CanAddStaffAnketaUser
+        from users.model.profile import CanAddStaffAnketaUser
         try:
             user_staff = CanAddStaffAnketaUser.objects.get(user=self)
             user_staff.is_advirtiser = False
