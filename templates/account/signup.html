@@ -34,7 +34,7 @@
                             </div>
                             Я принимаю <a href="">Правила сайта</a>.
                           </label>
-                          <button type="submit" id="register_ajax" class="btn btn-primary">Регистрация</button>
+                          <button type="submit" id="_register_ajax" class="btn btn-primary">Регистрация</button>
                       </div>
                   </form>
                   <small class="reg-response"></small>
@@ -50,7 +50,7 @@
 
 <script type="text/javascript">
 
-document.querySelector("#register_ajax").addEventListener("click", (e) => {
+document.querySelector("#_register_ajax").addEventListener("click", (e) => {
   form_data = new FormData(document.forms.register_post);
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'POST', "{% url 'rest_register' %}", true );

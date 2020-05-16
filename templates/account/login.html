@@ -41,11 +41,7 @@
 </section>
 
 <script>
-  var ready = (callback) => {
-  if (document.readyState != "loading") callback();
-  else document.addEventListener("DOMContentLoaded", callback);
-  }
-  ready(() => {
+
   document.querySelector("#logg").addEventListener("click", (e) => {
     form_data = new FormData(document.forms.login_post);
     link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
@@ -56,6 +52,6 @@
       }};
     link.send(form_data);
   });
-  });
+
 </script>
 {% endblock %}
