@@ -100,7 +100,7 @@ class AdAdminCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser and request.user.is_can_work_ad_administrator:
             user.add_ad_administrator()
-            AdWorkerLog.create_add_administrator_log(request.user)
+            AdWorkerLog.create_add_administrator_log(manager=request.user)
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -112,7 +112,7 @@ class AdAdminDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser and request.user.is_can_work_ad_administrator:
             user.remove_ad_administrator()
-            AdWorkerLog.create_remove_administrator_log(request.user)
+            AdWorkerLog.create_remove_administrator_log(manager=request.user)
         return HttpResponse("")
 
 
