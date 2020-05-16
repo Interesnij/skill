@@ -104,9 +104,9 @@ class AdWorkerLog(models.Model):
     def _create_log(action_type, user, manager):
         return AdWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
 
-    def create_user_remove_log(manager):
+    def create_user_remove_log(self, manager):
         return self._create_log(action_type='CA', user=self, manager=manager)
-    def create_remove_administrator_log(manager): 
+    def create_remove_administrator_log(self, manager): 
         return self._create_log(action_type='DA', user=self, manager=manager)
 
 
