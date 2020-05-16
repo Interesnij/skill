@@ -87,26 +87,51 @@ on('body', 'click', '.user_unblock', function(e) {
   this.parentElement.previousElementSibling.style.opacity="1";
 })
 
+
 on('body', 'click', '.user_add_ad_admin', function(e) {
   e.preventDefault();
   send_change(this, "/users/ad_progs/add_admin/", "user_remove_ad_admin", "админ - разжаловать");
   admin_span = e.parentElement.parentElement;
   try{
     next_target = admin_span.nextElementSibling.querySelector(".user_remove_ad_editor");
-    target.classList.add("user_add_ad_editor"); target.classList.remove("user_remove_ad_editor"); target.innerHTML = "сделать редактором";
+    next_target.classList.add("user_add_ad_editor"); next_target.classList.remove("user_remove_ad_editor"); next_target.innerHTML = "сделать редактором";
   }catch{null}
 
   try{
     next_next_target = admin_span.nextElementSibling.nextElementSibling.querySelector(".user_remove_ad_moderator");
-    target.classList.add("user_add_ad_moderator"); target.classList.remove("user_remove_ad_moderator"); target.innerHTML = "сделать модератором";
+    next_next_target.classList.add("user_add_ad_moderator"); next_next_target.classList.remove("user_remove_ad_moderator"); next_next_target.innerHTML = "сделать модератором";
   }catch{null}
 
   try{
-    next_next_target = admin_span.nextElementSibling.nextElementSibling.nextElementSibling.querySelector(".user_remove_ad_advertiser");
-    target.classList.add("user_add_ad_advertiser"); target.classList.remove("user_remove_ad_advertiser"); target.innerHTML = "сделать рекламодателем";
+    next_next_next_target = admin_span.nextElementSibling.nextElementSibling.nextElementSibling.querySelector(".user_remove_ad_advertiser");
+    next_next_next_target.classList.add("user_add_ad_advertiser"); next_next_next_target.classList.remove("user_remove_ad_advertiser"); next_next_next_target.innerHTML = "сделать рекламодателем";
   }catch{null}
 })
 on('body', 'click', '.user_remove_ad_admin', function(e) {
   e.preventDefault();
   send_change(this, "/users/ad_progs/delete_admin/", "user_add_ad_admin", "сделать админом");
+})
+
+on('body', 'click', '.user_add_ad_editor', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/ad_progs/add_editor/", "user_remove_ad_editor", "редактор - разжаловать");
+  admin_span = e.parentElement.parentElement;
+  try{
+    prev_target = admin_span.previousElementSibling.querySelector(".user_remove_ad_admin");
+    prev_target.classList.add("user_add_ad_admin"); prev_target.classList.remove("user_remove_ad_admin"); prev_target.innerHTML = "сделать админом";
+  }catch{null}
+
+  try{
+    next_target = admin_span.nextElementSibling.querySelector(".user_remove_ad_moderator");
+    next_target.classList.add("user_add_ad_moderator"); next_target.classList.remove("user_remove_ad_moderator"); next_target.innerHTML = "сделать модератором";
+  }catch{null}
+
+  try{
+    next_target = admin_span.nextElementSibling.nextElementSibling.querySelector(".user_remove_ad_advertiser");
+    next_target.classList.add("user_add_ad_advertiser"); next_target.classList.remove("user_remove_ad_advertiser"); next_target.innerHTML = "сделать рекламодателем";
+  }catch{null}
+})
+on('body', 'click', '.user_remove_ad_admin', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/ad_progs/delete_editor/", "user_add_ad_editor", "сделать редактором");
 })
