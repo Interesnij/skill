@@ -9,7 +9,7 @@
             <div class="row justify-content-center">
               <br><br><br>
                 <div class="col-md-4">
-                  <form class="form clearfix" action="{% url 'rest_register' %}" id="signup">
+                  <form class="form clearfix" name="register_post" id="signup">
                       <div class="form-group">
                           <label class="col-form-label required">Имя</label>
                           <input type="text" name="first_name" id="id_first_name" placeholder="Имя">
@@ -50,16 +50,16 @@
 
 <script type="text/javascript">
 
-    document.querySelector("#register_ajax").addEventListener("click", (e) => {
-     var form10 = document.getElementById('signup');
-     var formEntries = new FormData(form10);
-     var options = {
-       method: 'POST',
-       body: formEntries,
-     };
-     fetch('{% url "rest_register" %}', options).then(data => {
-       //window.location.href = "{% url 'phone_sendd' %}";
-     }).catch(error => {console.log("Все не ОК")})
-  })
+document.querySelector("#register_ajax").addEventListener("click", (e) => {
+  form_post = document.querySelector("#signup");
+  form_data = new FormData(document.forms.register_post);
+  link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+  link.open( 'POST', "{% url 'rest_register' %}", true );
+  link.onreadystatechange = function () {
+  if ( link.readyState == 4 && link.status == 200 ) {
+    window.location.href = "{% url 'phone_sendd' %}";
+    }};
+  link.send(form_data);
+})
 </script>
 {% endblock %}
