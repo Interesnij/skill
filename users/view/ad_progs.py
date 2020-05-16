@@ -95,18 +95,24 @@ class AdUnFavorite(View):
 
 class AdAdminCreate(View):
     def get(self,request,*args,**kwargs):
+        from logs.models import AdWorkerLog
+
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser and request.user.is_can_work_ad_administrator:
-            user.add_ad_administrator(request.user)
+            user.add_ad_administrator()
+            AdWorkerLog.create_add_administrator_log(request.user)
             return HttpResponse("")
         else:
             return HttpResponse("")
 
 class AdAdminDelete(View):
     def get(self,request,*args,**kwargs):
+        from logs.models import AdWorkerLog
+
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser and request.user.is_can_work_ad_administrator:
             user.remove_ad_administrator()
+            AdWorkerLog.create_remove_administrator_log(request.user)
         return HttpResponse("")
 
 

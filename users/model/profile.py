@@ -148,6 +148,14 @@ class UserAdStaff(models.Model):
         verbose_name = 'Особые полномочия в объявлениях'
         verbose_name_plural = 'Особые полномочия в объявлениях'
 
+    def _create_log(action_type, user, manager):
+        from logs.models import AdManageLog
+
+        return AdManageLog.objects.create(user=user, manager=manager, action_type=action_type)
+
+    def create_add_administrator_log(user, manager):
+        return self._create_log(action_type='CA', user=user, manager=manager)
+
 
 class UserAnketaStaff(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_anketa_staff', verbose_name="Особый пользователь")
@@ -198,8 +206,10 @@ class CanAddStaffAdUser(models.Model):
 
         return AdWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
 
-    def create_add_administrator_log(user, manager):
-        return self._create_log(action_type='CA', user=user, manager=manager)
+    def create_add_administrator_log(manager):
+        return self._create_log(action_type='CA', user=self, manager=manager)
+    def create_remove_administrator_log(manager):
+        return self._create_log(action_type='RA', user=self, manager=manager)
 
 
 class CanAddStaffSkillUser(models.Model):
