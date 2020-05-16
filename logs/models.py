@@ -78,6 +78,30 @@ class AnketaManageLog(models.Model):
         ordering=["-created"]
 
 
+class UserManageLog(models.Model):
+    ACTION_TYPES = (
+        ('R', 'Удален'),
+        ('UR', 'Восстановлен'),
+        ('B', 'Заблокирован'),
+        ('А', 'Разблокирован'),
+        ('F', 'Заморожен'),
+        ('UN', 'Разморожен'),
+        ('S', 'Стал техподдержкой'),
+        ('US', 'Удален из техподдержки'),
+    )
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
+    manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="user_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
+    created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+
+    class Meta:
+        indexes = (BrinIndex(fields=['created']),)
+        verbose_name = "Лог курсов"
+        verbose_name_plural = "Логи курсов"
+        ordering=["-created"]
+
+
 class AdWorkerLog(models.Model):
     ACTION_TYPES = (
         ('CA', 'Добавлен админ'),
@@ -97,17 +121,9 @@ class AdWorkerLog(models.Model):
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
-        verbose_name = "Лог объявлений"
-        verbose_name_plural = "Логи объявлений"
+        verbose_name = "Лог менеджера руководителей объявлений"
+        verbose_name_plural = "Лог менеджера руководителей объявлений"
         ordering=["-created"]
-
-    def _create_log(action_type, user, manager):
-        return AdWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
-
-    def create_user_remove_log(self, manager):
-        return self._create_log(action_type='CA', user=self.user, manager=manager)
-    def create_remove_administrator_log(self, manager):
-        return self._create_log(action_type='DA', user=self.user, manager=manager)
 
 
 class SkillWorkerLog(models.Model):
@@ -131,8 +147,8 @@ class SkillWorkerLog(models.Model):
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
-        verbose_name = "Лог курсов"
-        verbose_name_plural = "Логи курсов"
+        verbose_name = "Лог менеджера руководителей курсов"
+        verbose_name_plural = "Логи менеджеров руководителей курсов"
         ordering=["-created"]
 
 
@@ -155,38 +171,30 @@ class AnketaWorkerLog(models.Model):
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
-        verbose_name = "Лог курсов"
-        verbose_name_plural = "Логи курсов"
+        verbose_name = "Лог менеджера руководителей знакомств"
+        verbose_name_plural = "Логи менеджеров руководителей знакомств"
         ordering=["-created"]
 
 
 class UserWorkerLog(models.Model):
     ACTION_TYPES = (
-        ('R', 'Удален'),
-        ('UR', 'Восстановлен'),
-        ('B', 'Заблокирован'),
-        ('А', 'Разблокирован'),
-        ('F', 'Заморожен'),
-        ('UN', 'Разморожен'),
-        ('S', 'Стал техподдержкой'),
-        ('US', 'Удален из техподдержки'),
+        ('CA', 'Добавлен создатель персонала объявлений'),
+        ('DA', 'Удален создатель персонала объявлений'),
+        ('CS', 'Добавлен создатель персонала курсов'),
+        ('DS', 'Удален создатель персонала курсов'),
+        ('CE', 'Добавлен создатель персонала знакомств'),
+        ('DE', 'Удален создатель персонала знакомств'),
+        ('CU', 'Добавлен создатель персонала пользователей'),
+        ('DU', 'Удален создатель персонала пользователей'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
-    manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="user_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
+    manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="anketa_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
     action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
-        verbose_name = "Лог курсов"
-        verbose_name_plural = "Логи курсов"
+        verbose_name = "Лог менеджера руководителей"
+        verbose_name_plural = "Логи менеджеров руководителей"
         ordering=["-created"]
-
-    def _create_log(action_type, user, manager):
-        return UserWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
-
-    def create_user_remove_log(manager):
-        return self._create_log(action_type='R', user=self, manager=manager)
-    def create_user_unremove_log(manager):
-        return self._create_log(action_type='UR', user=self, manager=manager)
