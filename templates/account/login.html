@@ -26,7 +26,7 @@
                             </div>
                             Галочка
                           </label>
-                          <button type="submit" onclick="userLogin()" class="btn btn-primary">Войти</button>
+                          <button type="submit" id="logg" class="btn btn-primary">Войти</button>
                       </div>
                   </form>
                   <small class="login-response"></small>
@@ -46,7 +46,7 @@
   else document.addEventListener("DOMContentLoaded", callback);
   }
   ready(() => {
-  function userLogin() {
+  document.querySelector("#logg").addEventListener("click", (e) => {
     form_data = new FormData(document.forms.login_post);
     link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
     link.open( 'POST', "{% url 'rest_login' %}", true );
