@@ -113,9 +113,9 @@ on('body', 'click', '.user_remove_ad_admin', function(e) {
 })
 
 on('body', 'click', '.user_add_ad_editor', function(e) {
+  admin_span = this.parentElement.parentElement;
   e.preventDefault();
   send_change(this, "/users/ad_progs/add_editor/", "user_remove_ad_editor", "редактор - разжаловать");
-  admin_span = e.parentElement.parentElement;
   try{
     prev_target = admin_span.previousElementSibling.querySelector(".user_remove_ad_admin");
     prev_target.classList.add("user_add_ad_admin"); prev_target.classList.remove("user_remove_ad_admin"); prev_target.innerHTML = "сделать админом";
