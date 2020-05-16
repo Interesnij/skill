@@ -90,8 +90,8 @@ on('body', 'click', '.user_unblock', function(e) {
 
 on('body', 'click', '.user_add_ad_admin', function(e) {
   e.preventDefault();
+  admin_span = this.parentElement.parentElement;
   send_change(this, "/users/ad_progs/add_admin/", "user_remove_ad_admin", "админ - разжаловать");
-  admin_span = e.parentElement.parentElement;
   try{
     next_target = admin_span.nextElementSibling.querySelector(".user_remove_ad_editor");
     next_target.classList.add("user_add_ad_editor"); next_target.classList.remove("user_remove_ad_editor"); next_target.innerHTML = "сделать редактором";
