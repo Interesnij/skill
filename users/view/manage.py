@@ -17,8 +17,10 @@ class GetAdManage(ListView):
         return super(GetAdManage,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
+        from logs.models import AdWorkerLog
         context = super(GetAdManage, self).get_context_data(**kwargs)
         context['user'] = self.user
+        context['logs'] = AdWorkerLog.objects.only("pk")
         return context
 
     def get_queryset(self):
