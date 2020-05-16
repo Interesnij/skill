@@ -68,6 +68,18 @@
                                     {% endif %}
                                   </span>
                                   <span class="admin-span">
+                                  {% if request.user.is_can_work_ad_editor or request.user.is_superuser %}
+                                  <a href="#">
+                                    {% if object.is_ad_editor %}
+                                      <span class="user_remove_ad_editor">редактор - разжаловать</span>
+                                    {% else %}
+                                      <span class="user_add_ad_editor">сделать редактором</span>
+                                    {% endif %}
+                                  </a>
+                                  {% endif %}
+                                  </span>
+                                  
+                                  <span class="admin-span">
                                     {% if request.user.is_can_work_ad_moderator or request.user.is_superuser %}
                                     <a href="#">
                                       {% if object.is_ad_moderator %}
@@ -78,17 +90,7 @@
                                     </a>
                                     {% endif %}
                                     </span>
-                                    <span class="admin-span">
-                                    {% if request.user.is_can_work_ad_editor or request.user.is_superuser %}
-                                    <a href="#">
-                                      {% if object.is_ad_editor %}
-                                        <span class="user_remove_ad_editor">редактор - разжаловать</span>
-                                      {% else %}
-                                        <span class="user_add_ad_editor">сделать редактором</span>
-                                      {% endif %}
-                                    </a>
-                                    {% endif %}
-                                    </span>
+
                                     <span class="admin-span">
                                     {% if request.user.is_can_work_ad_advertiser or request.user.is_superuser %}
                                     <a href="#">

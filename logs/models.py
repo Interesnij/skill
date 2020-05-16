@@ -101,6 +101,14 @@ class AdWorkerLog(models.Model):
         verbose_name_plural = "Логи объявлений"
         ordering=["-created"]
 
+    def _create_log(action_type, user, manager):
+        return AdWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
+
+    def create_user_remove_log(manager):
+        return self._create_log(action_type='CA', user=self, manager=manager)
+    def create_user_unremove_log(manager):
+        return self._create_log(action_type='DA', user=self, manager=manager)
+
 
 class SkillWorkerLog(models.Model):
     ACTION_TYPES = (
@@ -176,9 +184,9 @@ class UserWorkerLog(models.Model):
         ordering=["-created"]
 
     def _create_log(action_type, user, manager):
-        return AdWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
+        return UserWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
 
-    def create_add_administrator_log(manager):
-        return self._create_log(action_type='CA', user=self, manager=manager)
-    def create_remove_administrator_log(manager):
-        return self._create_log(action_type='RA', user=self, manager=manager)
+    def create_user_remove_log(manager):
+        return self._create_log(action_type='R', user=self, manager=manager)
+    def create_user_unremove_log(manager):
+        return self._create_log(action_type='UR', user=self, manager=manager)

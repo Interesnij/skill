@@ -90,6 +90,21 @@ on('body', 'click', '.user_unblock', function(e) {
 on('body', 'click', '.user_add_ad_admin', function(e) {
   e.preventDefault();
   send_change(this, "/users/ad_progs/add_admin/", "user_remove_ad_admin", "админ - разжаловать");
+  admin_span = e.parentElement.parentElement;
+  try{
+    next_target = admin_span.nextElementSibling.querySelector(".user_remove_ad_editor");
+    target.classList.add("user_add_ad_editor"); target.classList.remove("user_remove_ad_editor"); target.innerHTML = "сделать редактором";
+  }catch{null}
+
+  try{
+    next_next_target = admin_span.nextElementSibling.nextElementSibling.querySelector(".user_remove_ad_moderator");
+    target.classList.add("user_add_ad_moderator"); target.classList.remove("user_remove_ad_moderator"); target.innerHTML = "сделать модератором";
+  }catch{null}
+
+  try{
+    next_next_target = admin_span.nextElementSibling.nextElementSibling.nextElementSibling.querySelector(".user_remove_ad_advertiser");
+    target.classList.add("user_add_ad_advertiser"); target.classList.remove("user_remove_ad_advertiser"); target.innerHTML = "сделать рекламодателем";
+  }catch{null}
 })
 on('body', 'click', '.user_remove_ad_admin', function(e) {
   e.preventDefault();
