@@ -1,5 +1,5 @@
 on('body', 'click', '#register_ajax', function() {
-  form_data = new FormData(document.forms.register_post);
+  form_data = new FormData(document.querySelector("#signup"));
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'POST', "/rest-auth/registration/", true );
   link.onreadystatechange = function () {
