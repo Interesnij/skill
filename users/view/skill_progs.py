@@ -2,7 +2,7 @@ from django.views import View
 from users.models import User
 from django.http import HttpResponse
 from skill_posts.models import Course, CourseFavourites
-from logs.models import SkillWorkerLog
+from logs.models import SkillWorkerLog, SkillManageCreatorLog
 
 
 class SkillActive(View):
@@ -168,6 +168,7 @@ class SkillWorkerAdminCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_anketa_administrator_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель админов академии')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -177,6 +178,7 @@ class SkillWorkerAdminDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_skill_administrator_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель админов академии')
         return HttpResponse("")
 
 
@@ -185,6 +187,7 @@ class SkillWorkerModerCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_skill_moderator_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель модераторов академии')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -194,6 +197,7 @@ class SkillWorkerModerDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_skill_moderator_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель модераторов академии')
         return HttpResponse("")
 
 
@@ -202,6 +206,7 @@ class SkillWorkerEditorCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_skill_editor_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель редакторов академии')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -211,6 +216,7 @@ class SkillWorkerEditorDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_skill_editor_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель редакторов академии')
         return HttpResponse("")
 
 
@@ -219,6 +225,7 @@ class SkillWorkerAdvertiserCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_skill_advertiser_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель рекламодателей академии')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -228,6 +235,7 @@ class SkillWorkerAdvertiserDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_skill_advertiser_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель рекламодателей академии')
         return HttpResponse("")
 
 
@@ -236,6 +244,7 @@ class SkillWorkerTeacherCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_skill_teacher_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель учителей академии')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -245,4 +254,5 @@ class SkillWorkerTeacherDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_skill_teacher_worker()
+            SkillManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель учителей академии')
         return HttpResponse("")

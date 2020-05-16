@@ -2,7 +2,7 @@ from django.views import View
 from users.models import User
 from django.http import HttpResponse
 from love_posts.models import Anketa, AnketaFavourites
-from logs.models import AnketaWorkerLog
+from logs.models import AnketaWorkerLog, AnketaManageCreatorLog
 
 
 class AnketaActive(View):
@@ -149,6 +149,7 @@ class AnketaWorkerAdminCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_anketa_administrator_worker()
+            AnketaManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель админов знакомств')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -158,6 +159,7 @@ class AnketaWorkerAdminDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_anketa_administrator_worker()
+            AnketaManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель админов знакомств')
         return HttpResponse("")
 
 
@@ -166,6 +168,7 @@ class AnketaWorkerModerCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_anketa_moderator_worker()
+            AnketaManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель модераторов знакомств')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -175,6 +178,7 @@ class AnketaWorkerModerDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_anketa_moderator_worker()
+            AnketaManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель модераторов знакомств')
         return HttpResponse("")
 
 
@@ -183,6 +187,7 @@ class AnketaWorkerEditorCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_anketa_editor_worker()
+            AnketaManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель редакторов знакомств')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -192,6 +197,7 @@ class AnketaWorkerEditorDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_anketa_editor_worker()
+            AnketaManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель редакторов знакомств')
         return HttpResponse("")
 
 
@@ -199,7 +205,8 @@ class AnketaWorkerAdvertiserCreate(View):
     def get(self,request,*args,**kwargs):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser and request.user.is_can_work_anketa_advertiser:
-            user.add_anketa_advertiser()
+            user.add_anketa_advertiser_worker()
+            AnketaManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель рекламодателей знакомств')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -208,5 +215,6 @@ class AnketaWorkerAdvertiserDelete(View):
     def get(self,request,*args,**kwargs):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser and request.user.is_can_work_anketa_advertiser:
-            user.remove_anketa_advertiser()
+            user.remove_anketa_advertiser_worker()
+            AnketaManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель рекламодателей знакомств')
         return HttpResponse("")

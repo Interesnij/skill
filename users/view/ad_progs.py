@@ -2,7 +2,7 @@ from django.views import View
 from users.models import User
 from django.http import HttpResponse
 from ad_posts.models import Ad, AdFavourites
-from logs.models import AdWorkerLog
+from logs.models import AdWorkerLog, AdManageCreatorLog
 
 
 class AdSold(View):
@@ -176,6 +176,7 @@ class AdWorkerAdminCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_ad_administrator_worker()
+            AdManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель админов объявлений')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -185,6 +186,7 @@ class AdWorkerAdminDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_ad_administrator_worker()
+            AdManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель админов объявлений')
         return HttpResponse("")
 
 
@@ -194,6 +196,7 @@ class AdWorkerModerCreate(View):
         if request.user.is_superuser:
             user.add_ad_moderator_worker()
             return HttpResponse("")
+            AdManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель модераторов объявлений')
         else:
             return HttpResponse("")
 
@@ -202,6 +205,7 @@ class AdWorkerModerDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_ad_moderator_worker()
+            AdManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель модераторов объявлений')
         return HttpResponse("")
 
 
@@ -210,6 +214,7 @@ class AdWorkerEditorCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_ad_editor_worker()
+            AdManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель редакторов объявлений')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -219,6 +224,7 @@ class AdWorkerEditorDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_ad_editor_worker()
+            AdManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель редакторов объявлений')
         return HttpResponse("")
 
 
@@ -227,6 +233,7 @@ class AdWorkerAdvertiserCreate(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.add_ad_advertiser_worker()
+            AdManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель рекламодателей объявлений')
             return HttpResponse("")
         else:
             return HttpResponse("")
@@ -236,4 +243,5 @@ class AdWorkerAdvertiserDelete(View):
         user = User.objects.get(pk=self.kwargs["pk"])
         if request.user.is_superuser:
             user.remove_ad_advertiser_worker()
+            AdManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель рекламодателей объявлений')
         return HttpResponse("")

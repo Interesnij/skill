@@ -4,6 +4,7 @@ from users.model.list import Subscribe
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from logs.models import UserWorkerLog, UserManageCreatorLog
 
 
 class UserBanCreate(View):
@@ -113,3 +114,156 @@ class UnSubscribe(View):
             return HttpResponse('')
         except:
             return HttpResponse('')
+
+
+class UserAdminCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_ad_administrator:
+            user.add_user_administrator()
+            UserWorkerLog.objects.create(manager=request.user, user=user, action_type='Добавлен админ пользователей')
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class UserAdminDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_ad_administrator:
+            user.remove_user_administrator()
+            UserWorkerLog.objects.create(manager=request.user, user=user, action_type='Удален админ пользователей')
+        return HttpResponse("")
+
+
+class UserModerCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_ad_moderator:
+            user.add_user_moderator()
+            UserWorkerLog.objects.create(manager=request.user, user=user, action_type='Добавлен модератор пользователей')
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class UserModerDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_ad_moderator:
+            user.remove_user_moderator()
+            UserWorkerLog.objects.create(manager=request.user, user=user, action_type='Удален модератор пользователей')
+        return HttpResponse("")
+
+
+class UserEditorCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_ad_editor:
+            user.add_user_editor()
+            UserWorkerLog.objects.create(manager=request.user, user=user, action_type='Добавлен редактор пользователей')
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class UserEditorDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_ad_editor:
+            user.remove_user_editor()
+            UserWorkerLog.objects.create(manager=request.user, user=user, action_type='Удален редактор пользователей')
+        return HttpResponse("")
+
+
+class UserAdvertiserCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_ad_advertiser:
+            user.add_user_advertiser()
+            UserWorkerLog.objects.create(manager=request.user, user=user, action_type='Добавлен рекламодатель пользователей')
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class UserAdvertiserDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser and request.user.is_can_work_ad_advertiser:
+            user.remove_user_advertiser()
+            UserWorkerLog.objects.create(manager=request.user, user=user, action_type='Удален рекламодатель пользователей')
+        return HttpResponse("")
+
+
+
+class UserWorkerAdminCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_user_administrator_worker()
+            UserManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель админов пользователей')
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class UserWorkerAdminDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_user_administrator_worker()
+            UserManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель админов пользователей')
+        return HttpResponse("")
+
+
+class UserWorkerModerCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_user_moderator_worker()
+            return HttpResponse("")
+            UserManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель модераторов пользователей')
+        else:
+            return HttpResponse("")
+
+class UserWorkerModerDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_user_moderator_worker()
+            UserManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель модераторов пользователей')
+        return HttpResponse("")
+
+
+class UserWorkerEditorCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_user_editor_worker()
+            UserManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель редакторов пользователей')
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class UserWorkerEditorDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_user_editor_worker()
+            UserManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель редакторов пользователей')
+        return HttpResponse("")
+
+
+class UserWorkerAdvertiserCreate(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.add_user_advertiser_worker()
+            UserManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Добавлен создатель рекламодателей пользователей')
+            return HttpResponse("")
+        else:
+            return HttpResponse("")
+
+class UserWorkerAdvertiserDelete(View):
+    def get(self,request,*args,**kwargs):
+        user = User.objects.get(pk=self.kwargs["pk"])
+        if request.user.is_superuser:
+            user.remove_user_advertiser_worker()
+            UserManageCreatorLog.objects.create(manager=request.user, user=user, action_type='Удален создатель рекламодателей пользователей')
+        return HttpResponse("")
