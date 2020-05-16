@@ -5,21 +5,21 @@ from django.conf import settings
 
 class AdManageLog(models.Model):
     ACTION_TYPES = (
-        ('A', 'Активировано'),
-        ('UA', 'Деактивировано'),
-        ('D', 'Удалено'),
-        ('UD', 'Восстановлено'),
-        ('DC', 'Удалён комментарий'),
-        ('COFF', 'Отключены комментарии'),
-        ('CON', 'Включены комментарии'),
-        ('VOFF', 'Отключены реакции'),
-        ('VON', 'Включены реакции'),
+        ('Активировано', 'Активировано'),
+        ('Деактивировано', 'Деактивировано'),
+        ('Удалено', 'Удалено'),
+        ('Восстановлено', 'Восстановлено'),
+        ('Удалён комментарий', 'Удалён комментарий'),
+        ('Отключены комментарии', 'Отключены комментарии'),
+        ('Включены комментарии', 'Включены комментарии'),
+        ('Отключены реакции', 'Отключены реакции'),
+        ('Включены реакции', 'Включены реакции'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Модератор")
     ad = models.ForeignKey("ad_posts.Ad", on_delete=models.CASCADE, verbose_name="Объявление")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=50)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
@@ -30,21 +30,21 @@ class AdManageLog(models.Model):
 
 class SkillManageLog(models.Model):
     ACTION_TYPES = (
-        ('A', 'Активирован'),
-        ('UA', 'Деактивирован'),
-        ('D', 'Удален'),
-        ('UD', 'Восстановлен'),
-        ('DC', 'Удалён комментарий'),
-        ('COFF', 'Отключены комментарии'),
-        ('CON', 'Включены комментарии'),
-        ('VOFF', 'Отключены реакции'),
-        ('VON', 'Включены реакции'),
+        ('Активирован', 'Активирован'),
+        ('Деактивирован', 'Деактивирован'),
+        ('Удален', 'Удален'),
+        ('Восстановлен', 'Восстановлен'),
+        ('Удалён комментарий', 'Удалён комментарий'),
+        ('Отключены комментарии', 'Отключены комментарии'),
+        ('Включены комментарии', 'Включены комментарии'),
+        ('Отключены реакции', 'Отключены реакции'),
+        ('Включены реакции', 'Включены реакции'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Модератор")
     course = models.ForeignKey("skill_posts.Course", on_delete=models.CASCADE, verbose_name="Курс")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=50)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
@@ -55,21 +55,21 @@ class SkillManageLog(models.Model):
 
 class AnketaManageLog(models.Model):
     ACTION_TYPES = (
-        ('A', 'Активирован'),
-        ('UA', 'Деактивирован'),
-        ('D', 'Удален'),
-        ('UD', 'Восстановлен'),
-        ('DC', 'Удалён комментарий'),
-        ('COFF', 'Отключены комментарии'),
-        ('CON', 'Включены комментарии'),
-        ('VOFF', 'Отключены реакции'),
-        ('VON', 'Включены реакции'),
+        ('Активирован', 'Активирован'),
+        ('Деактивирован', 'Деактивирован'),
+        ('Удален', 'Удален'),
+        ('Восстановлен', 'Восстановлен'),
+        ('Удалён комментарий', 'Удалён комментарий'),
+        ('Отключены комментарии', 'Отключены комментарии'),
+        ('Включены комментари', 'Включены комментарии'),
+        ('Отключены реакции', 'Отключены реакции'),
+        ('Включены реакции', 'Включены реакции'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Модератор")
     anketa = models.ForeignKey("love_posts.Anketa", on_delete=models.CASCADE, verbose_name="Анкета")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=50)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
@@ -80,20 +80,20 @@ class AnketaManageLog(models.Model):
 
 class UserManageLog(models.Model):
     ACTION_TYPES = (
-        ('R', 'Удален'),
-        ('UR', 'Восстановлен'),
-        ('B', 'Заблокирован'),
-        ('А', 'Разблокирован'),
-        ('F', 'Заморожен'),
-        ('UN', 'Разморожен'),
-        ('S', 'Стал техподдержкой'),
-        ('US', 'Удален из техподдержки'),
+        ('Удален', 'Удален'),
+        ('Восстановлен', 'Восстановлен'),
+        ('Заблокирован', 'Заблокирован'),
+        ('Разблокирован', 'Разблокирован'),
+        ('Заморожен', 'Заморожен'),
+        ('Разморожен', 'Разморожен'),
+        ('Стал техподдержкой', 'Стал техподдержкой'),
+        ('Удален из техподдержки', 'Удален из техподдержки'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="user_manag", on_delete=models.CASCADE, verbose_name="Менеджер")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=50)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
@@ -104,20 +104,20 @@ class UserManageLog(models.Model):
 
 class AdWorkerLog(models.Model):
     ACTION_TYPES = (
-        ('CA', 'Добавлен админ'),
-        ('DA', 'Удален админ'),
-        ('CM', 'Добавлен модератор'),
-        ('DM', 'Удален модератор'),
-        ('CE', 'Добавлен редактор'),
-        ('DE', 'Удален редактор'),
-        ('CAD', 'Добавлен рекламодатель'),
-        ('DAD', 'Удален рекламодатель'),
+        ('Добавлен админ', 'Добавлен админ'),
+        ('Удален админ', 'Удален админ'),
+        ('Добавлен модератор', 'Добавлен модератор'),
+        ('Удален модератор', 'Удален модератор'),
+        ('Добавлен редактор', 'Добавлен редактор'),
+        ('Удален редактор', 'Удален редактор'),
+        ('Добавлен рекламодатель', 'Добавлен рекламодатель'),
+        ('Удален рекламодател', 'Удален рекламодатель'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="ad_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=50)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
@@ -128,22 +128,22 @@ class AdWorkerLog(models.Model):
 
 class SkillWorkerLog(models.Model):
     ACTION_TYPES = (
-        ('CA', 'Добавлен админ'),
-        ('DA', 'Удален админ'),
-        ('CM', 'Добавлен модератор'),
-        ('DM', 'Удален модератор'),
-        ('CE', 'Добавлен редактор'),
-        ('DE', 'Удален редактор'),
-        ('CAD', 'Добавлен рекламодатель'),
-        ('DAD', 'Удален рекламодатель'),
-        ('CT', 'Добавлен учитель'),
-        ('DT', 'Удален учитель'),
+        ('Добавлен админ', 'Добавлен админ'),
+        ('Удален админ', 'Удален админ'),
+        ('Добавлен модератор', 'Добавлен модератор'),
+        ('Удален модератор', 'Удален модератор'),
+        ('Добавлен редактор', 'Добавлен редактор'),
+        ('Удален редактор', 'Удален редактор'),
+        ('Добавлен рекламодатель', 'Добавлен рекламодатель'),
+        ('Удален рекламодател', 'Удален рекламодатель'),
+        ('Добавлен учитель', 'Добавлен учитель'),
+        ('Удален учитель', 'Удален учитель'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="skill_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=50)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
@@ -154,20 +154,20 @@ class SkillWorkerLog(models.Model):
 
 class AnketaWorkerLog(models.Model):
     ACTION_TYPES = (
-        ('CA', 'Добавлен админ'),
-        ('DA', 'Удален админ'),
-        ('CM', 'Добавлен модератор'),
-        ('DM', 'Удален модератор'),
-        ('CE', 'Добавлен редактор'),
-        ('DE', 'Удален редактор'),
-        ('CAD', 'Добавлен рекламодатель'),
-        ('DAD', 'Удален рекламодатель'),
+        ('Добавлен админ', 'Добавлен админ'),
+        ('Удален админ', 'Удален админ'),
+        ('Добавлен модератор', 'Добавлен модератор'),
+        ('Удален модератор', 'Удален модератор'),
+        ('Добавлен редактор', 'Добавлен редактор'),
+        ('Удален редактор', 'Удален редактор'),
+        ('Добавлен рекламодатель', 'Добавлен рекламодатель'),
+        ('Удален рекламодател', 'Удален рекламодатель'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="anketa_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=50)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
@@ -178,20 +178,20 @@ class AnketaWorkerLog(models.Model):
 
 class UserWorkerLog(models.Model):
     ACTION_TYPES = (
-        ('CA', 'Добавлен создатель персонала объявлений'),
-        ('DA', 'Удален создатель персонала объявлений'),
-        ('CS', 'Добавлен создатель персонала курсов'),
-        ('DS', 'Удален создатель персонала курсов'),
-        ('CE', 'Добавлен создатель персонала знакомств'),
-        ('DE', 'Удален создатель персонала знакомств'),
-        ('CU', 'Добавлен создатель персонала пользователей'),
-        ('DU', 'Удален создатель персонала пользователей'),
+        ('Добавлен создатель персонала объявлений', 'Добавлен создатель персонала объявлений'),
+        ('Удален создатель персонала объявлений', 'Удален создатель персонала объявлений'),
+        ('Добавлен создатель персонала курсовCS', 'Добавлен создатель персонала курсов'),
+        ('Удален создатель персонала курсов', 'Удален создатель персонала курсов'),
+        ('Добавлен создатель персонала знакомств', 'Добавлен создатель персонала знакомств'),
+        ('Удален создатель персонала знакомств', 'Удален создатель персонала знакомств'),
+        ('Добавлен создатель персонала пользователей', 'Добавлен создатель персонала пользователей'),
+        ('Удален создатель персонала пользователей', 'Удален создатель персонала пользователей'),
     )
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     manager = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="user_manager", on_delete=models.CASCADE, verbose_name="Менеджер")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=5)
+    action_type = models.CharField(editable=False, blank=False, null=False, choices=ACTION_TYPES, max_length=50)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)
