@@ -9,7 +9,7 @@
             <div class="row justify-content-center">
               <br><br><br>
                 <div class="col-md-4">
-                  <form class="form clearfix" name="login_post" id="login_form">
+                  <form class="form clearfix" name="login_post">
                     {% csrf_token %}
                       <div class="form-group">
                           <label class="col-form-label required">Телефон</label>
@@ -43,7 +43,6 @@
 
 <script>
 document.querySelector("#logg").addEventListener("click", (e) => {
-    form_post = document.querySelector("#login_form");
     form_data = new FormData(document.forms.login_post);
     link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
     link.open( 'POST', "{% url 'rest_login' %}", true );
