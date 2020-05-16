@@ -41,8 +41,10 @@ class GetSkillManage(ListView):
         return super(GetSkillManage,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
+        from logs.models import SkillWorkerLog
         context = super(GetSkillManage, self).get_context_data(**kwargs)
         context['user'] = self.user
+        context['logs'] = SkillWorkerLog.objects.only("pk")
         return context
 
     def get_queryset(self):
@@ -63,8 +65,10 @@ class GetAnketsManage(ListView):
         return super(GetAnketsManage,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
+        from logs.models import AnketaWorkerLog
         context = super(GetAnketsManage, self).get_context_data(**kwargs)
         context['user'] = self.user
+        context['logs'] = AnketaWorkerLog.objects.only("pk")
         return context
 
     def get_queryset(self):
@@ -85,8 +89,10 @@ class GetStaffManage(ListView):
         return super(GetStaffManage,self).get(request,*args,**kwargs)
 
     def get_context_data(self, **kwargs):
+        from logs.models import UserWorkerLog
         context = super(GetStaffManage, self).get_context_data(**kwargs)
         context['user'] = self.user
+        context['logs'] = UserWorkerLog.objects.only("pk")
         return context
 
     def get_queryset(self):
