@@ -201,16 +201,6 @@ class CanAddStaffAdUser(models.Model):
         verbose_name = 'Создатель персонала в объявлениях'
         verbose_name_plural = 'Создатели персонала в объявлениях'
 
-    def _create_log(action_type, user, manager):
-        from logs.models import AdWorkerLog
-
-        return AdWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
-
-    def create_add_administrator_log(manager):
-        return self._create_log(action_type='CA', user=self, manager=manager)
-    def create_remove_administrator_log(manager):
-        return self._create_log(action_type='RA', user=self, manager=manager)
-
 
 class CanAddStaffSkillUser(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='can_work_staff_skill_user', verbose_name="Создатель персонала")

@@ -174,3 +174,11 @@ class UserWorkerLog(models.Model):
         verbose_name = "Лог курсов"
         verbose_name_plural = "Логи курсов"
         ordering=["-created"]
+
+    def _create_log(action_type, user, manager):
+        return AdWorkerLog.objects.create(user=user, action_type=action_type, manager=manager)
+
+    def create_add_administrator_log(manager):
+        return self._create_log(action_type='CA', user=self, manager=manager)
+    def create_remove_administrator_log(manager):
+        return self._create_log(action_type='RA', user=self, manager=manager)
