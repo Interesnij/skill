@@ -10,6 +10,7 @@
               <br><br><br>
                 <div class="col-md-4">
                   <form class="form clearfix" name="register_post" id="signup">
+                    {% csrf_token %}
                       <div class="form-group">
                           <label class="col-form-label required">Имя</label>
                           <input type="text" name="first_name" id="id_first_name" placeholder="Имя">
@@ -51,7 +52,6 @@
 <script type="text/javascript">
 
 document.querySelector("#register_ajax").addEventListener("click", (e) => {
-  form_post = document.querySelector("#signup");
   form_data = new FormData(document.forms.register_post);
   link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   link.open( 'POST', "{% url 'rest_register' %}", true );
