@@ -8,6 +8,7 @@ on('body', 'click', '#register_ajax', function() {
     console.log("vse ok")
     }};
   reg_link.send(form_data);
+  window.location.href = "/phone_send/";
 })
 
 
