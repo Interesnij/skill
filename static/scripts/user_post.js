@@ -131,7 +131,7 @@ on('body', 'click', '.user_add_ad_editor', function(e) {
     next_target.classList.add("user_add_ad_advertiser"); next_target.classList.remove("user_remove_ad_advertiser"); next_target.innerHTML = "сделать рекламодателем";
   }catch{null}
 })
-on('body', 'click', '.user_remove_ad_admin', function(e) {
+on('body', 'click', '.user_remove_ad_editor', function(e) {
   e.preventDefault();
   send_change(this, "/users/ad_progs/delete_editor/", "user_add_ad_editor", "сделать редактором");
 })
