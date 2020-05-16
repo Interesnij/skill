@@ -78,7 +78,7 @@
                                   </a>
                                   {% endif %}
                                   </span>
-                                  
+
                                   <span class="admin-span">
                                     {% if request.user.is_can_work_ad_moderator or request.user.is_superuser %}
                                     <a href="#">
@@ -124,6 +124,7 @@
                             {% else %}
                             <h3 style="text-align:center">
                               Управляющего состава модуля объявлений пока нет...
+                              <br><br>
                               <button type="submit" class="btn btn-primary small">Добавить управленица</button>
                             </h3>
                             {% endif %}
