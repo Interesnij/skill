@@ -86,3 +86,12 @@ on('body', 'click', '.user_unblock', function(e) {
   send_change(this, "/users/progs/unblock/", "user_block", "заблокировать");
   this.parentElement.previousElementSibling.style.opacity="1";
 })
+
+on('body', 'click', '.user_add_ad_admin', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/ad_progs/add_admin/", "user_remove_ad_admin", "админ - разжаловать");
+})
+on('body', 'click', '.user_remove_ad_admin', function(e) {
+  e.preventDefault();
+  send_change(this, "/users/ad_progs/delete_admin/", "user_add_ad_admin", "сделать админом");
+})
