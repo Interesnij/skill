@@ -53,8 +53,6 @@ class User(AbstractUser):
         elif request.user.pk != self.pk and request.user.is_authenticated:
             if not request.user.is_phone_verified:
                 template_name = "main/phone_verification.html"
-            elif request.user.is_phone_verified:
-                template_name = "main/phone_verification.html"
             elif request.user.is_blocked:
                 template_name = "generic/you_are_block.html"
             elif request.user.is_blocked_with_user_with_id(user_id=self.pk):
