@@ -13,7 +13,7 @@ class User(AbstractUser):
     is_deleted = models.BooleanField(verbose_name="Удален", default=False, )
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, verbose_name="uuid")
     last_activity= models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name='Активность')
-    phone = models.CharField(max_length=17, verbose_name='Телефон')
+    phone = models.CharField(max_length=17, unique=True, blank=True, verbose_name='Телефон')
     is_deleted = models.BooleanField(default=False, verbose_name='Пользователь удален')
     is_blocked = models.BooleanField(default=False, verbose_name='Пользователь заблокирован')
     USERNAME_FIELD = 'phone'
