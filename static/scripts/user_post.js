@@ -20,6 +20,37 @@ on('body', 'click', '#logg', function() {
   link.send(form_data);
 });
 
+on('#ajax', 'click', '#phone_send', function() {
+  var phone = document.getElementById('phone').value;
+  var request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+  request.open( 'GET', "/users/progs/phone_send/" + phone + "/", true );
+  request.onreadystatechange = function () {
+    if ( request.readyState == 4 && request.status == 200) {
+      var div = document.getElementById('jsondata');
+      div.innerHTML = request.responseText;
+      document.getElementById("phone").setAttribute("disabled", "true");
+      document.getElementById("phone_send").setAttribute("disabled", "true");
+    }
+  };
+  request.send( null );
+});
+
+on('#ajax', 'click', '#code_send', function(e) {
+var phone = document.getElementById('phone').value;
+var code = document.getElementById('code').value;
+var request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+request.open( 'GET', "/users/progs/phone_verify/" + phone + "/" + code + "/", true );
+request.onreadystatechange = function () {
+  if ( request.readyState == 4 && request.status == 200 ) {
+    var div = document.getElementById('jsondata2');
+    div.innerHTML = request.responseText;
+    console.log(request.responseText);
+    if (request.responseText.indexOf("ok") != -1){window.location.href = "{% url 'user' pk=request.user.pk %}";}
+  }
+};
+request.send( null );
+
+});
 
 on('body', 'click', '.user_subscribe', function(e) {
   e.preventDefault();
