@@ -8,8 +8,17 @@ on('body', 'click', '#register_ajax', function() {
     console.log("vse ok")
     }};
   reg_link.send(form_data);
-  window.location.href = "/phone_send/";
 })
+on('body', 'click', '#logg', function() {
+  form_data = new FormData(document.querySelector("#login"));
+  link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+  link.open( 'POST', "/rest-auth/login/", true );
+  link.onreadystatechange = function () {
+  if ( link.readyState == 4 && link.status == 200 ) {
+    window.location.href = "/";
+    }};
+  link.send(form_data);
+});
 
 
 on('body', 'click', '.user_subscribe', function(e) {
