@@ -20,7 +20,7 @@ on('body', 'click', '#logg', function() {
   link.send(form_data);
 });
 
-on('#ajax', 'click', '#phone_send', function() {
+on('body', 'click', '#phone_send', function() {
   var phone = document.getElementById('phone').value;
   var request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
   request.open( 'GET', "/users/progs/phone_send/" + phone + "/", true );
@@ -35,7 +35,7 @@ on('#ajax', 'click', '#phone_send', function() {
   request.send( null );
 });
 
-on('#ajax', 'click', '#code_send', function(e) {
+on('body', 'click', '#code_send', function(e) {
 var phone = document.getElementById('phone').value;
 var code = document.getElementById('code').value;
 var request = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
