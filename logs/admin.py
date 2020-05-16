@@ -4,10 +4,16 @@ from logs.models import (
                             SkillManageLog,
                             AnketaManageLog,
                             UserManageLog,
+
                             AdWorkerLog,
                             SkillWorkerLog,
                             AnketaWorkerLog,
                             UserWorkerLog,
+
+                            AdManageCreatorLog,
+                            SkillManageCreatorLog,
+                            AnketaManageCreatorLog,
+                            UserManageCreatorLog
                         )
 
 
@@ -18,4 +24,4 @@ admin.site.register(UserManageLog)
 admin.site.register(AdWorkerLog)
 admin.site.register(SkillWorkerLog)
 admin.site.register(AnketaWorkerLog)
-admin.site.register(UserWorkerLog)
+admin.site.register(UserCreatorLog)
