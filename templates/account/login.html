@@ -9,7 +9,7 @@
             <div class="row justify-content-center">
               <br><br><br>
                 <div class="col-md-4">
-                  <form class="form clearfix" name="login_post" id="__login">
+                  <form class="form clearfix" name="login_post" id="login">
                       <div class="form-group">
                           <label class="col-form-label required">Телефон</label>
                           <input type="text" name="username" class="form-control" placeholder="79041234567">
@@ -42,7 +42,7 @@
 
 <script>
 document.querySelector("#logg").addEventListener("click", (e) => {
-    form_data = document.querySelector("#__login");
+    form_data = new FormData(document.querySelector("#login"));
     link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
     link.open( 'POST', "{% url 'rest_login' %}", true );
     link.onreadystatechange = function () {
