@@ -184,7 +184,7 @@ class User(AbstractUser):
     def is_skill_administrator(self):
         from users.model.profile import UserSkillStaff
         return UserSkillStaff.objects.filter(user__id=self.pk, is_administrator=True).exists()
-    def is_teacher(self):
+    def is_skill_teacher(self):
         from users.model.profile import UserSkillStaff
         return UserSkillStaff.objects.filter(user__id=self.pk, is_teacher=True).exists()
     def is_skill_moderator(self):
