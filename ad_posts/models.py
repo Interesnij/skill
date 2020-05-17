@@ -22,7 +22,7 @@ class Ad(models.Model):
     is_sold = models.BooleanField(default=False, verbose_name='Объявление не актуально')
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Время публикации")
     is_reklama = models.BooleanField(default=False, verbose_name='Это реклама')
-    votes_off = models.BooleanField(default=False, verbose_name='Лайки-дизлайки отключены')
+    votes_off = models.BooleanField(default=False, verbose_name='отключить лайки/дизлайки')
 
     image = ProcessedImageField(format='JPEG', blank=True, options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
     img1 = ProcessedImageField(format='JPEG', blank=True, options={'quality': 90}, upload_to=upload_to_user_directory, processors=[ResizeToFit(width=1024, upscale=False)])
