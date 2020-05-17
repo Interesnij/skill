@@ -77,6 +77,7 @@
                                     </a>
                                     {% endif %}
                                     </span>
+
                                     <span class="admin-span">
                                       {% if request.user.is_can_work_skill_moderator or request.user.is_superuser %}
                                       <a href="#">
@@ -88,6 +89,7 @@
                                       </a>
                                       {% endif %}
                                       </span>
+
                                     <span class="admin-span">
                                     {% if request.user.is_can_work_skill_advertiser or request.user.is_superuser %}
                                     <a href="#">
@@ -95,6 +97,18 @@
                                         <span class="user_remove_course_advertiser">рекламодатель - разжаловать</span>
                                       {% else %}
                                         <span class="user_add_course_advertiser">сделать рекламодателем</span>
+                                      {% endif %}
+                                    </a>
+                                    {% endif %}
+                                    </span>
+
+                                    <span class="admin-span">
+                                    {% if request.user.is_can_work_skill_teacher or request.user.is_superuser %}
+                                    <a href="#">
+                                      {% if object.is_skill_teacher %}
+                                        <span class="user_remove_course_teacher">учитель - разжаловать</span>
+                                      {% else %}
+                                        <span class="user_add_course_teacher">сделать учителем</span>
                                       {% endif %}
                                     </a>
                                     {% endif %}
