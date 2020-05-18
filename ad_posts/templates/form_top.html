@@ -1,0 +1,53 @@
+<section>
+    <h2>Основная информация</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                {{ form.title.errors }}
+              <label for="type" class="required">Название товара</label>
+                {{ form.title }}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                {{ form.price.errors }}
+              <label for="type" class="required">Цена товара</label>
+                {{ form.price }}
+                <span class="input-group-addon">₽</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section>
+    <div class="form-group">
+    <label>Описание товара</label>
+      {{ form.description|safe }}
+    </div>
+  </section>
+
+  <div class="location_block">
+    <section>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+              <label for="type" class="required">Регион</label>
+              <select onchange="loadCitySelect (this)" name="region" id="id_region">
+                  <option value="">Выберите регион</option>
+                  {% for object in regions %}
+                  <option value="{{ object.order }}">{{ object.name_ru }}</option>
+                  {% endfor %}
+              </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group city" style="display:none">
+            <label for="type" class="required">Город</label>
+            <select name="city" id="id_city">
+            </select>
+          </div>
+        </div>
+    </div>
+    </section>
+  </div>
