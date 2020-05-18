@@ -86,3 +86,14 @@ on('body', 'click', '.ad_dislike', function() {
   }};
   link.send( null );
 })
+
+on('body', 'click', '#create_post', function() {
+  form_data = new FormData(document.querySelector("#login"));
+  link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+  link.open( 'POST', "/form_special/", true );
+  link.onreadystatechange = function () {
+  if ( link.readyState == 4 && link.status == 200 ) {
+    window.location.href = "/";
+    }};
+  link.send(form_data);
+});
