@@ -40,21 +40,4 @@
 
 </section>
 
-<section class="images_block">{% include 'images_upload.html' %}</section>
-<section class="clearfix" style="margin-left: 20px;">
-  <div class="row">
-    <ul class="list-unstyled columns-1">
-      <li>
-        <label class="" style="font-size:15px">
-          {{ form.votes_off }}
-          {{ form.votes_off.label }}
-        </label>
-      </li>
-    </ul>
-  </div>
-</section>
-  <section class="clearfix">
-      <div class="form-group">
-          <button type="submit" class="btn btn-primary large icon float-right">Опубликовать<i class="fa fa-chevron-right"></i></button>
-      </div>
-  </section>
+{% include 'form_bottom.html' %}
