@@ -36,9 +36,12 @@
         </div>
     </div>
   </div>
-
-  {% block content %}
-  {% endblock %}
+  <div id="ajax">
+    <span id="reload_block">
+      {% block content %}
+      {% endblock %}
+    </span>
+   </div>
 
   {% include "footer.html" %}
 

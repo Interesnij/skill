@@ -37,3 +37,33 @@ on('body', 'click', '.change-class', function(e) {
   }};
   _this.classList.add("active");
 });
+
+class Index {
+  // класс, работающий с подгрузкой блоков на сайте. Смена основного блока, листание отдельных элементов, и т.д.
+  static initLink() {document.body.querySelectorAll('.ajax').forEach( lin => lin.addEventListener('click', Index.push_url) );}
+  static push_url(event){
+    event.preventDefault();
+    var ajax_link, url;
+    ajax_link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+    url = this.getAttribute('href');
+    if (url != window.location.pathname){
+      ajax_link.open( 'GET', url, true );
+      ajax_link.onreadystatechange = function () {
+        if ( this.readyState == 4 && this.status == 200 ) {
+          var rtr, elem_, ajax;
+          rtr = document.getElementById('ajax');
+          elem_ = document.createElement('span');
+          elem_.innerHTML = ajax_link.responseText;
+          ajax = elem_.querySelector("#reload_block");
+          rtr.innerHTML = ajax.innerHTML;
+          document.title = elem_.querySelector('title').innerHTML;
+          window.history.pushState({route: url}, "network", url);
+          window.scrollTo(0,0);
+          Index.initLink();
+          load_chart();
+        }
+      }
+      ajax_link.send( null );
+    }
+  };
+}
