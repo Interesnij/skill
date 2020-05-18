@@ -4,8 +4,8 @@
 {% block navigation %}
 <div class="header_navigation container">
   <a class="get_russia" tooltip='Нажмите для смены локации' flow="down" href="#">Россия, {{ region.name_ru }}</a> /
-  <a href="{% url 'courses_region' region_name=region.name_en %}">Модуль академии</a> /
-  <a href="{% url 'skill_category_region' region_name=region.name_en cat_name=sub_category.category.name_en %}">{{ sub_category.category.name_ru }}</a> /
+  <a href="{% url 'courses_region' region_name=region.name_en %}" class="ajax">Модуль академии</a> /
+  <a href="{% url 'skill_category_region' region_name=region.name_en cat_name=sub_category.category.name_en %}" class="ajax">{{ sub_category.category.name_ru }}</a> /
   <a>{{ sub_category.name_ru }}</a>
 </div>
 {% endblock %}

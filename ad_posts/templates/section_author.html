@@ -10,7 +10,7 @@
     <div class="box">
         <div class="row">
             <div class="col-md-5 img_author">
-              <a href="{% url 'user' pk=ad.creator.pk %}" class="image-wrapper background-image">
+              <a href="{% url 'user' pk=ad.creator.pk %}" class="image-wrapper background-image ajax">
                 {% if ad.creator.avatar %}
                   {{ ad.creator.avatar.url }}
                 {% else %}
@@ -21,7 +21,7 @@
 
             <div class="col-md-7">
               <div class="author-description">
-                <a href="{% url 'user' pk=ad.creator.pk %}" class="text-uppercase">
+                <a href="{% url 'user' pk=ad.creator.pk %}" class="text-uppercase ajax">
                   <h3>{{ ad.creator.get_full_name }}</h3>
                 </a>
 

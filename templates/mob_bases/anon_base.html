@@ -16,7 +16,7 @@
     <div class="secondary-navigation">
         <div class="container">
           <div class="left" style="display: flex;">
-            <a style="font-size:20px;color:white" href="{% url 'main' %}">
+            <a style="font-size:20px;color:white" href="{% url 'main' %}" class="ajax">
               Модули
             </a>
             {% block icon %}{% endblock %}
@@ -27,8 +27,8 @@
                 <div class="dropdown-menu">
                     <a href="{% url 'login' %}" class="dropdown-item">Вход</a>
                     <a href="{% url 'signup' %}" class="dropdown-item">Регистрация</a>
-                    <a href="{% url 'main' %}" class="dropdown-item">О сайте</a>
-                    <a href="{% url 'faq' %}" class="dropdown-item">Вопросы-ответы</a>
+                    <a href="{% url 'main' %}" class="dropdown-item ajax">О сайте</a>
+                    <a href="{% url 'faq' %}" class="dropdown-item ajax">Вопросы-ответы</a>
                 </div>
               </div>
         </div>

@@ -4,10 +4,10 @@
 <div class="wrapper" data-pk="{{ object.pk }}">
     <div class="image">
         <h3>
-            <a href="{% url 'course_detail' pk=object.pk %}" class="title">{{ object.title }}</a>
+            <a href="{% url 'course_detail' pk=object.pk %}" class="title ajax">{{ object.title }}</a>
             {% include 'generic/blocks/card_tag.html' %}
         </h3>
-        <a href="{% url 'course_detail' pk=object.pk %}" class="image-wrapper background-image">
+        <a href="{% url 'course_detail' pk=object.pk %}" class="image-wrapper background-image ajax">
           {% if object.image %}
             <img src="{{ object.image.url }}" alt="">
           {% else %}
@@ -17,10 +17,8 @@
     </div>
     {% if object.city %}
     <h4 class="location">
-        {% if object.city.region %}
-          <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
-        {% endif %}
-        <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
+        <a href="{% url 'region' region_name=object.city.region.name_en %}" class="ajax">{{ object.city.region }}</a>,
+        <a href="{% url 'city' city_name=object.city.name_en %}" class="ajax">{{ object.city }}</a>
     </h4>
     {% endif %}
     <div class="price">{% if object.price %} {{ object.price }} {% else %}Бесплатно{% endif %}</div>
@@ -56,7 +54,7 @@
         <li>
           <figure>Категория</figure>
           <aside>
-            <a href="{% url 'skill_category' cat_name=object.category.category.name_en %}">
+            <a href="{% url 'skill_category' cat_name=object.category.category.name_en %}" class="ajax">
             {{ object.category.category }}
             </a>
           </aside>
@@ -64,7 +62,7 @@
         <li>
           <figure>Подкатегория</figure>
           <aside>
-            <a href="{% url 'skill_subcategory' subcat_name=object.category.name_en %}">
+            <a href="{% url 'skill_subcategory' subcat_name=object.category.name_en %}" class="ajax">
               {{ object.category }}
             </a>
           </aside>
@@ -77,6 +75,6 @@
         {% endif %}
       </ul>
     </div>
-    <a href="{% url 'course_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
+    <a href="{% url 'course_detail' pk=object.pk %}" class="detail text-caps underline ajax">Детали</a>
 </div>
 </div>

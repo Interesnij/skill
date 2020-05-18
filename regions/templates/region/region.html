@@ -12,10 +12,10 @@
     <div class="container">
       <h1 class="opacity-40 center">
         <span class="module_1">
-        <a href="{% url 'ads_region' region_name=region.name_en %}">Продавайте</a></span>,
-        <span class="skill_content"><a href="{% url 'courses_region' region_name=region.name_en %}">Обучайтесь</a></span>
+        <a href="{% url 'ads_region' region_name=region.name_en %}" class="ajax">Продавайте</a></span>,
+        <span class="skill_content"><a href="{% url 'courses_region' region_name=region.name_en %}" class="ajax">Обучайтесь</a></span>
         и
-        <span class="love_content"><a href="{% url 'ankets_region' region_name=region.name_en %}">Знакомьтесь</a></span>
+        <span class="love_content"><a href="{% url 'ankets_region' region_name=region.name_en %}" class="ajax">Знакомьтесь</a></span>
         <br>
         в регионе {{ region.name_ru }}
       </h1>
@@ -29,7 +29,7 @@
         <h4 class="row">
           {% for object in region.city_set.all %}
               <span class="col-md-3">
-                <a href="{% url 'city' city_name=object.name_en %}">
+                <a href="{% url 'city' city_name=object.name_en %}" class="ajax">
                   {{ object.name_ru }}
                 </a>
               </span>
@@ -43,7 +43,7 @@
     <div class="container">
         <div class="section-title clearfix">
           <div class="float-xl-left float-md-left float-sm-none">
-            <h2><a href="{% url 'ads_region' region_name=region.name_en %}">{{ region.name_ru }} :: последние объявления</a></h2>
+            <h2><a href="{% url 'ads_region' region_name=region.name_en %}" class="ajax">{{ region.name_ru }} :: последние объявления</a></h2>
           </div>
         </div>
         <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
@@ -60,7 +60,7 @@
       <div class="container">
           <div class="section-title clearfix">
             <div class="float-xl-left float-md-left float-sm-none">
-              <h2><a href="{% url 'courses_region' region_name=region.name_en %}">{{ region.name_ru }} :: Последние курсы</a></h2>
+              <h2><a href="{% url 'courses_region' region_name=region.name_en %}" class="ajax">{{ region.name_ru }} :: Последние курсы</a></h2>
             </div>
           </div>
           <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">
@@ -77,7 +77,7 @@
       <div class="container">
         <div class="section-title clearfix">
             <div class="float-xl-left float-md-left float-sm-none">
-              <h2><a href="{% url 'ankets_region' region_name=region.name_en %}">{{ region.name_ru }} :: Последние анкеты</a></h2>
+              <h2><a href="{% url 'ankets_region' region_name=region.name_en %}" class="ajax">{{ region.name_ru }} :: Последние анкеты</a></h2>
             </div>
         </div>
         <div class="items masonry grid-xl-4-items grid-lg-3-items grid-md-2-items">

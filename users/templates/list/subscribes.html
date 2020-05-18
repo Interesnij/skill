@@ -30,11 +30,11 @@
                                 <div class="wrapper" data-pk="{{ object.pk }}">
                                 <div class="image">
                                     <h3>
-                                        <a href="{% url 'user' pk=object.pk %}" class="title">
+                                        <a href="{% url 'user' pk=object.pk %}" class="title ajax">
                                           {{ object.get_full_name }}
                                         </a>
                                     </h3>
-                                    <a href="{% url 'user' pk=object.pk %}" class="image-wrapper background-image">
+                                    <a href="{% url 'user' pk=object.pk %}" class="image-wrapper background-image ajax">
                                       {% if object.avatar %}
                                         {{ object.avatar.url }}
                                       {% else %}
@@ -43,8 +43,8 @@
                                     </a>
                                 </div>
                                 <h4 class="location">
-                                    <a href="">{{ object.get_last_location.region_ru }}</a>,
-                                    <a href="">{{ object.get_last_location.city_ru }}</a>
+                                    <a href="" class="ajax">{{ object.get_last_location.region_ru }}</a>,
+                                    <a href="" class="ajax">{{ object.get_last_location.city_ru }}</a>
                                 </h4>
                                 <div class="admin-controls">
                                   <span class="admin-span">
@@ -68,7 +68,7 @@
                                       </li>
                                     </ul>
                                 </div>
-                                <a href="{% url 'user' pk=object.pk %}" class="detail text-caps underline">Подробнее</a>
+                                <a href="{% url 'user' pk=object.pk %}" class="detail text-caps underline ajax">Подробнее</a>
                             </div>
                         </div>
                         {% empty %}

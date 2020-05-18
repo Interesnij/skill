@@ -17,7 +17,7 @@
     <div class="secondary-navigation">
         <div class="container">
           <div class="left" style="display:flex">
-            <a style="font-size:20px;color:white" href="{% url 'main' %}">
+            <a style="font-size:20px;color:white" href="{% url 'main' %}" class="ajax">
               Модули
             </a>
             {% block icon %}{% endblock %}
@@ -26,11 +26,11 @@
             <span>Мой профиль</span>
             <img src="{% static 'images/anonim.jpg' %}" style="border-radius: 50%;width:30px;height:30px;margin-bottom:3px;">
             <div class="dropdown-menu">
-                <a href="{% url 'user' pk=request.user.pk %}" class="dropdown-item">Мой профиль</a>
-                <a href="{% url 'ad_add' %}" class="dropdown-item">Подать объявление</a>
-                <a href="" class="dropdown-item">Разместить курс</a>
+                <a href="{% url 'user' pk=request.user.pk %}" class="dropdown-item ajax">Мой профиль</a>
+                <a href="{% url 'ad_add' %}" class="dropdown-item ajax">Подать объявление</a>
+                <a href="" class="dropdown-item ajax">Разместить курс</a>
                 <a href="{% url 'logout' %}" class="dropdown-item">Выйти</a>
-                <a href="{% url 'faq' %}" class="dropdown-item">Вопросы-ответы</a>
+                <a href="{% url 'faq' %}" class="dropdown-item ajax">Вопросы-ответы</a>
             </div>
           </div>
         </div>

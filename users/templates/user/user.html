@@ -145,7 +145,7 @@
                                                       {{ object.message }}
                                                   </p>
                                               </div>
-                                              <a href="{% url 'user' pk=object.sender.pk %}" class="author-image">
+                                              <a href="{% url 'user' pk=object.sender.pk %}" class="author-image ajax">
                                                   <div class="background-image">
                                                     {% if object.sender.avatar %}
                                                     {{ object.sender.avatar.url }}
@@ -155,7 +155,7 @@
                                                   </div>
                                               </a>
                                               <h5>
-                                                  <a href="{% url 'user' pk=object.sender.pk %}">
+                                                  <a href="{% url 'user' pk=object.sender.pk %}" class="ajax">
                                                     {{ object.sender.get_full_name }}
                                                   </a>
                                               </h5>

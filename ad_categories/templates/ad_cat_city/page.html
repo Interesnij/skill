@@ -5,7 +5,7 @@
 {% block navigation %}
 <div class="header_navigation container">
   <a class="get_russia" tooltip='Нажмите для смены локации' flow="down" href="#">Россия, {{ city.region.name_ru }}, {{ city.name_ru }}</a> /
-  <a href="{% url 'ads_city' city_name=city.name_en %}">Модуль объявлений</a> /
+  <a href="{% url 'ads_city' city_name=city.name_en %}" class="ajax">Модуль объявлений</a> /
   <a>{{ category.name_ru }}</a>
 </div>
 {% endblock %}
@@ -27,7 +27,7 @@
         <h4 class="row">
           {% for cat in category.adsubcategory_set.all %}
               <span class="col-md-3">
-                <a href="{% url 'ad_subcategory_city' subcat_name=cat.name_en city_name=city.name_en %}">
+                <a href="{% url 'ad_subcategory_city' subcat_name=cat.name_en city_name=city.name_en %}" class="ajax">
                   {{ cat.name_ru }} ({{ cat|cat_city_count:city.pk }})
                 </a>
               </span>

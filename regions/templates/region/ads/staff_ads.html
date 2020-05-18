@@ -12,7 +12,7 @@
 <div class="page-title">
     <div class="container">
       <h1 class="opacity-40 center">
-        <a href="{% url 'region' region_name=region.name_en %}">
+        <a href="{% url 'region' region_name=region.name_en %}" class="ajax">
           Россия, {{ region.name_ru }}
         </a>
         :: модуль объявлений
@@ -28,7 +28,7 @@
         <h4 class="row">
           {% for object in region.city_set.all %}
               <span class="col-md-3">
-                <a href="{% url 'city' city_name=object.name_en %}">
+                <a href="{% url 'city' city_name=object.name_en %}" class="ajax">
                   {{ object.name_ru }}
                 </a>
               </span>
@@ -42,7 +42,7 @@
         <h4 class="row">
           {% for cat in ad_categories %}
               <span class="col-md-3">
-                <a href="{% url 'ad_category_region' cat_name=cat.name_en region_name=region.name_en %}">
+                <a href="{% url 'ad_category_region' cat_name=cat.name_en region_name=region.name_en %}" class="ajax">
                   {{ cat.name_ru }} ({{ cat.get_course_count }})
                 </a>
               </span>

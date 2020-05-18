@@ -40,11 +40,11 @@
                                 <div class="wrapper" data-pk="{{ object.pk }}">
                                 <div class="image">
                                     <h3>
-                                        <a href="{% url 'user' pk=object.pk %}" class="title">
+                                        <a href="{% url 'user' pk=object.pk %}" class="title ajax">
                                           {{ object.get_full_name }}
                                         </a>
                                     </h3>
-                                    <a href="{% url 'user' pk=object.pk %}" class="image-wrapper background-image">
+                                    <a href="{% url 'user' pk=object.pk %}" class="image-wrapper background-image ajax">
                                       {% if object.avatar %}
                                         {{ object.avatar.url }}
                                       {% else %}

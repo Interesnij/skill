@@ -4,10 +4,10 @@
 <div class="wrapper" data-pk="{{ object.pk }}">
     <div class="image">
         <h3>
-            <a href="{% url 'anketa_detail' pk=object.pk %}" class="title">{{ object.creator }}</a>
+            <a href="{% url 'anketa_detail' pk=object.pk %}" class="title ajax">{{ object.creator }}</a>
             {% include 'generic/blocks/anon_card_tag.html' %}
         </h3>
-        <a href="{% url 'anketa_detail' pk=object.pk %}" class="image-wrapper background-image">
+        <a href="{% url 'anketa_detail' pk=object.pk %}" class="image-wrapper background-image ajax">
           {% if object.image %}
             <img src="{{ object.image.url }}" alt="">
           {% else %}
@@ -16,10 +16,8 @@
         </a>
     </div>
     <h4 class="location">
-        {% if object.city.region %}
-          <a href="{% url 'region' region_name=object.city.region.name_en %}">{{ object.city.region }}</a>,
-        {% endif %}
-        <a href="{% url 'city' city_name=object.city.name_en %}">{{ object.city }}</a>
+        <a href="{% url 'region' region_name=object.city.region.name_en %}" class="ajax">{{ object.city.region }}</a>,
+        <a href="{% url 'city' city_name=object.city.name_en %}" class="ajax">{{ object.city }}</a>
     </h4>
     {% if request.user.pk != object.creator.pk %}
     <div class="admin-controls">
@@ -51,6 +49,6 @@
         <p>{{ object.about|truncatechars:300 }}</p>
     </div>
     <div class="additional-info"></div>
-    <a href="{% url 'anketa_detail' pk=object.pk %}" class="detail text-caps underline">Детали</a>
+    <a href="{% url 'anketa_detail' pk=object.pk %}" class="detail text-caps underline ajax">Детали</a>
 </div>
 </div>

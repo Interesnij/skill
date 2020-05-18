@@ -1,47 +1,47 @@
 <nav class="nav flex-column side-nav">
-    <a class="nav-link icon" href="{% url 'user' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'user' pk=request.user.pk %}">
         <i class="fa fa-user"></i>Мои профиль
     </a>
-    <a class="nav-link icon" href="{% url 'user_ads' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'user_ads' pk=request.user.pk %}">
         <i class="fa fa-heart"></i>Мои объявления
     </a>
     {% if user.is_teacher %}
-    <a class="nav-link icon" href="{% url 'my_courses' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'my_courses' pk=request.user.pk %}">
         <i class="fa fa-heart"></i>Мои курсы
     </a>
     {% endif %}
-    <a class="nav-link icon" href="{% url 'user_ankets' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'user_ankets' pk=request.user.pk %}">
         <i class="fa fa-heart"></i>Мои анкеты
     </a>
-    <a class="nav-link icon" href="{% url 'user_favorite' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'user_favorite' pk=request.user.pk %}">
         <i class="fa fa-star"></i>Избранное
     </a>
-    <a class="nav-link icon" href="{% url 'my_subscribes' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'my_subscribes' pk=request.user.pk %}">
         <i class="fa fa-user"></i>Мои подписки
     </a>
-    <a class="nav-link icon" href="{% url 'subscribes' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'subscribes' pk=request.user.pk %}">
         <i class="fa fa-user"></i>Мои подписчики
     </a>
-    <a class="nav-link icon" href="{% url 'user_blacklist' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'user_blacklist' pk=request.user.pk %}">
         <i class="fa fa-user"></i>Черный список
     </a>
     {% if user.is_superuser or user.is_ad_staff_worker %}
-    <a class="nav-link icon" href="{% url 'get_module_staff' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'get_module_staff' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Персонал объявлений
     </a>
     {% endif %}
     {% if user.is_superuser or user.is_skill_staff_worker %}
-    <a class="nav-link icon" href="{% url 'get_skill_staff' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'get_skill_staff' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Персонал академии
     </a>
     {% endif %}
     {% if user.is_superuser or user.is_anketa_staff_worker %}
-    <a class="nav-link icon" href="{% url 'get_ankets_staff' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'get_ankets_staff' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Персонал знакомств
     </a>
     {% endif %}
     {% if user.is_superuser or user.is_staff_worker %}
-    <a class="nav-link icon" href="{% url 'get_users_staff' pk=request.user.pk %}">
+    <a class="nav-link ajax" href="{% url 'get_users_staff' pk=request.user.pk %}">
         <i class="fa fa-settings"></i>Глобальный персонал
     </a>
     {% endif %}

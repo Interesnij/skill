@@ -13,7 +13,7 @@
 <div class="page-title">
     <div class="container">
       <h1 class="opacity-40 center">
-        <a href="{% url 'city' city_name=city.name_en %}">
+        <a href="{% url 'city' city_name=city.name_en %}" class="ajax">
           Россия, {{ city.name_ru }}
         </a>
         :: модуль академии
@@ -29,7 +29,7 @@
         <h4 class="row">
           {% for cat in skill_categories %}
               <span class="col-md-3">
-                <a href="{% url 'skill_category_city' cat_name=cat.name_en city_name=city.name_en %}">
+                <a href="{% url 'skill_category_city' cat_name=cat.name_en city_name=city.name_en %}" class="ajax">
                   {{ cat.name_ru }} ({{ cat.get_course_count }})
                 </a>
               </span>
