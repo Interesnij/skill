@@ -15,10 +15,10 @@ on('body', 'click', '.more_search_fields', function(e) {
   this.nextElementSibling.classList.toggle("show");
 });
 
-document.body.querySelectorAll('.background-image').forEach(box => {
-  adres = box.querySelector("img").getAttribute("src");
-  box.style.backgroundImage = "url(" + adres +")";
-   })
+//document.body.querySelectorAll('.background-image').forEach(box => {
+//  adres = box.querySelector("img").getAttribute("src");
+//  box.style.backgroundImage = "url(" + adres +")";
+//   })
 
 on('body', 'click', '.change-class', function(e) {
   e.preventDefault();
@@ -41,6 +41,7 @@ on('body', 'click', '.change-class', function(e) {
 class Index {
   // класс, работающий с подгрузкой блоков на сайте. Смена основного блока, листание отдельных элементов, и т.д.
   static initLink() {document.body.querySelectorAll('.ajax').forEach( lin => lin.addEventListener('click', Index.push_url) );}
+  static getImage() {document.body.querySelectorAll('.box').forEach( box => box.style.backgroundImage = "url(" + box.querySelector("img").getAttribute("src") +")"; );}
   static push_url(event){
     event.preventDefault();
     var ajax_link, url;
@@ -60,6 +61,7 @@ class Index {
           window.history.pushState({route: url}, "network", url);
           window.scrollTo(0,0);
           Index.initLink();
+          Index.getImage();
           load_chart();
         }
       }
@@ -67,4 +69,7 @@ class Index {
     }
   };
 }
+
+
 Index.initLink();
+Index.getImage()
