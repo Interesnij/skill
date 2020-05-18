@@ -36,9 +36,9 @@ function SelectSubCategory (select) {
     upload_block.innerHTML = "";
     subcat_block.style.display = "none";
     try{document.querySelector(".special_block").innerHTML = "";
-       document.querySelector(".special_block").nextElementSibling.nextElementSibling.style.display = "none";
+       document.querySelector(".special_block").previousElementSibling.style.display = "none";
        document.querySelector(".special_block").nextElementSibling.style.display = "none";}
-    catch{console.log("!")}
+    catch{null}
   }
   else{
     console.log(upload_block);
@@ -66,13 +66,19 @@ function loadAddForm (select) {
   var selectedOption = select.options[select.selectedIndex];
   var pk = selectedOption.value;
   var special_block = document.querySelector(".special_block");
+  var top_forms = special_block.previousElementSibling;
+  var bottom_forms = special_block.nextElementSibling;
   if (pk == ""){
     special_block.innerHTML = "";
-    special_block.style.display = "none";}
+    special_block.style.display = "none";
+    top_forms.style.display = "none";
+    bottom_forms.style.display = "none";}
   else{
     special_block.innerHTML = "";
     new_load(special_block, '/posts/form_special/' + pk);
     special_block.style.display = "block";
+    top_forms.style.display = "block";
+    bottom_forms.style.display = "block"
   }
 }
 
