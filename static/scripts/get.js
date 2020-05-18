@@ -63,7 +63,7 @@ class Index {
           load_chart();
         }
       }
-      ajax_link.send( null );
+      ajax_link.send();
     }
   };
 }
