@@ -1,25 +1,4 @@
-
-<section>
-    <h2>Основная информация</h2>
-
-    <div class="row">
-        <div class="col-md-8">
-            <div class="form-group">
-                {{ form.title.errors }}
-              <label for="type" class="required">Название товара</label>
-                {{ form.title }}
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                {{ form.price.errors }}
-              <label for="type" class="required">Цена товара</label>
-                {{ form.price }}
-                <span class="input-group-addon">₽</span>
-            </div>
-        </div>
-    </div>
-</section>
+{% include 'form_top.html' %}
 
 <section>
   <div class="form-group">
@@ -52,12 +31,6 @@
     {{ form.season.errors }}
     {{ form.season }}
   </div>
-
-    <div class="form-group">
-    <label>Описание товара</label>
-      {{ form.description|safe }}
-    </div>
-    <div class="location_block">{% include 'location_select.html' %}</div>
 </section>
 
 {% include 'form_bottom.html' %}
