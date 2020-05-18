@@ -67,3 +67,4 @@ class Index {
     }
   };
 }
+Index.initLink();
