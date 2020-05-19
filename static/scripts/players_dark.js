@@ -11,7 +11,7 @@ function msToTime(duration) {
 
 
 if (document.querySelector("#video_player")) {
-video_player = new FWDUVPlayer({
+video_player = new MYPLAYER({
 //main settings
 instanceName:"player_dark",
 parentId:"video_player",
@@ -230,8 +230,8 @@ displayType:"responsive",
 })
 
 FWDUVPUtils.onReady(function(){
-    video_player.addListener(FWDUVPlayer.READY, video_onReady);
-    video_player.addListener(FWDUVPlayer.PLAY, video_onPlay);
+    video_player.addListener(MYPLAYER.READY, video_onReady);
+    video_player.addListener(MYPLAYER.PLAY, video_onPlay);
 });
 }
 

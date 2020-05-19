@@ -9,7 +9,7 @@ function msToTime(duration) {
   return minutes + ":" + seconds;
 }
 if (document.querySelector("#video_player")) {
-				video_player = new FWDUVPlayer({
+				video_player = new MYPLAYER({
           		//main settings
           		instanceName:"player_white",
           		parentId:"video_player",
@@ -238,8 +238,8 @@ if (document.querySelector("#video_player")) {
 				});
 
 FWDUVPUtils.onReady(function(){
-    video_player.addListener(FWDUVPlayer.READY, video_onReady);
-    video_player.addListener(FWDUVPlayer.PLAY, video_onPlay);
+    video_player.addListener(MYPLAYER.READY, video_onReady);
+    video_player.addListener(MYPLAYER.PLAY, video_onPlay);
 });
 }
 function video_onReady(){console.log("Видео плеер готов");}
