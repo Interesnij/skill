@@ -195,7 +195,7 @@ if (document.querySelector("#video_player")) {
 					showPlayerByDefault:"yes",
 					animatePlayer:"yes",
 					openerAlignment:"right",
-					mainBackgroundImagePath:"content/minimal_skin_dark/main-background.png",
+					mainBackgroundImagePath:"main-background.png",
 					openerEqulizerOffsetTop:-1,
 					openerEqulizerOffsetLeft:3,
 					offsetX:0,
