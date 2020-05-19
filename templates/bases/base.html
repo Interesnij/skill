@@ -43,9 +43,12 @@
     </span>
    </div>
   {% include "footer.html" %}
-  <div id="video_player"></div>
-  {% include "base_script.html" %}
 
+  <div id="video_player"></div>
+  {% include 'generic/video_playlists.html' %}
+
+  {% include "base_script.html" %}
+  
   <div class="card russia_fullscreen" style="display:none">
     <span class="russia_fullscreen_hide">
       <svg class="svg_default" style="width:30px;height:30px;border: 1px black solid;border-radius:50px" fill="currentColor" viewBox="0 0 24 24">
