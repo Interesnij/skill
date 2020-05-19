@@ -17,7 +17,7 @@ if (document.querySelector("#video_player")) {
       		mainFolderPath:"/static",
       		skinPath:"images/video_white/",
 					displayType:"responsive",
-					useVectorIcons:"yes",
+					useVectorIcons:"no",
 					fillEntireVideoScreen:"no",
 					fillEntireposterScreen:"yes",
 					goFullScreenOnButtonPlay:"no",
