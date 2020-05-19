@@ -9,7 +9,7 @@ function msToTime(duration) {
   return minutes + ":" + seconds;
 }
 if (document.querySelector("#video_player")) {
-				new FWDUVPlayer({
+				video_player = new FWDUVPlayer({
 					//main settings
 					instanceName:"player_white",
 					parentId:"video_player",
