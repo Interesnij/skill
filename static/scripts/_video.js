@@ -1,3 +1,4 @@
+
 ! function(e) {
     var t = function() {
         var s = this;
@@ -28,7 +29,7 @@ function(t) {
     var s = function(e) {
         var o = this;
         o.init = function() {
-            FWDTweenLite.ticker.useRAF(!0), this.props_obj = e, this.listeners = {
+            TweenLite.ticker.useRAF(!0), this.props_obj = e, this.listeners = {
                 events_ar: []
             }, this.props_obj ? (this.instanceName_str = this.props_obj.instanceName, this.displayType = this.props_obj.displayType || s.RESPONSIVE, this.displayType = this.displayType.toLowerCase(), o.displayType.toLowerCase() != s.RESPONSIVE && o.displayType.toLowerCase() != s.FULL_SCREEN && o.displayType.toLowerCase() != s.FLUID_WIDTH && o.displayType.toLowerCase() != s.FLUID_WIDTH_AND_HEIGHT && o.displayType.toLowerCase() != s.AFTER_PARENT && (this.displayType = s.RESPONSIVE), this.props_obj.instanceName ? t[this.instanceName_str] ? alert("FWDSI instance name " + this.instanceName_str + " is already defined and contains a different instance reference, set a different instance name.") : (t[this.instanceName_str] = this).props_obj ? (this.body = document.getElementsByTagName("body")[0], this.stageContainer = null, this.displayType == s.FULL_SCREEN ? this.stageContainer = o.body : this.stageContainer = FWDSIUtils.getChildById(this.props_obj.parentId), this.limitElement = FWDSIUtils.getChildById(this.props_obj.limitId), this.limitHeight = this.props_obj.limitHeight, this.customContextMenu_do = null, this.imageManager_do = null, this.info_do = null, this.hider = null, this.main_do = null, this.preloader_do = null, this.playlist_ar = null, this.backgroundColor_str = this.props_obj.backgroundColor || "#transparent", this.maxWidth = this.props_obj.maxWidth || 640, this.maxHeight = this.props_obj.maxHeight || 380, this.sliderOffsetTopAndBottom = this.props_obj.sliderOffsetTopAndBottom || 0, this.offsetPreloader = 0, this.id = -1, this.catId = -1, this.prevCatId = -2, this.prevId = -2, this.stageWidth = 0, this.stageHeight = 0, this.zIndex = this.props_obj.zIndex || 0, this.totalimages, this.slideshowPreloaderPosition = this.props_obj.slideshowPreloaderPosition || "center", this.slideshowPreloaderPosition = this.slideshowPreloaderPosition.toLowerCase(), this.slideshowRadius = this.props_obj.slideshowRadius || 10, this.slideshowBackgroundColor = this.props_obj.slideshowBackgroundColor || "#FFFFFF", this.slideshowFillColor = this.props_obj.slideshowFillColor || "#000000", this.slideshowStrokeSize = this.props_obj.slideshowStrokeSize || 3, this.isMobile_bl = FWDSIUtils.isMobile, this.autoScale_bl = "yes" == this.props_obj.autoScale, this.useVideo_bl = !1, this.hasPointerEvent_bl = FWDSIUtils.hasPointerEvent, this.imageSource = this.props_obj.imageSource, o.initializeOnlyWhenVisible_bl = o.props_obj.initializeOnlyWhenVisible, o.initializeOnlyWhenVisible_bl = "yes" == o.initializeOnlyWhenVisible_bl, this.setupMainDo(), this.startResizeHandler(), o.initializeOnlyWhenVisible_bl ? (t.addEventListener("scroll", o.onInitlalizeScrollHandler), setTimeout(o.onInitlalizeScrollHandler, 500)) : setTimeout(o.setupSlider, 100)) : alert("FWDSI constructor properties object is not defined!") : alert("FWDSI instance name is required please make sure that the instanceName parameter exsists and it's value is uinique.")) : alert("FWDSI constructor properties object is not defined!")
         }, o.onInitlalizeScrollHandler = function() {
@@ -41,7 +42,7 @@ function(t) {
         }, o.loadImage = function() {
             o.image_img = new Image, o.image_img.onload = o.onimageLoadcenterComplete, o.image_img.src = o.imageSource
         }, o.onimageLoadcenterComplete = function(e) {
-            FWDSIThumb.setPrototype(), o.image_do = new FWDSIThumb(o, o.maxWidth, o.maxHeight), o.main_do.addChildAt(o.image_do, 1), o.resizeAndPositionImage(), o.image_do.setImage(o.image_img), o.preloader_do.hide(!0), o.bk_do.setAlpha(0), FWDAnimation.to(o.bk_do, 1, {
+            FWDSIThumb.setPrototype(), o.image_do = new FWDSIThumb(o, o.maxWidth, o.maxHeight), o.main_do.addChildAt(o.image_do, 1), o.resizeAndPositionImage(), o.image_do.setImage(o.image_img), o.preloader_do.hide(!0), o.bk_do.setAlpha(0), Animation.to(o.bk_do, 1, {
                 alpha: 1
             })
         }, this.resizeAndPositionImage = function() {
@@ -116,7 +117,7 @@ function(t) {
 function() {
     function e(e, t) {
         var r = this;
-        this.parent = e, this.url = "http://www.webdesign-flash.ro", this.menu_do = null, this.normalMenu_do = null, this.selectedMenu_do = null, this.over_do = null, this.isDisabled_bl = !1, this.showMenu_bl = t, this.init = function() {
+        this.parent = e, this.url = "", this.menu_do = null, this.normalMenu_do = null, this.selectedMenu_do = null, this.over_do = null, this.isDisabled_bl = !1, this.showMenu_bl = t, this.init = function() {
             r.updateParent(r.parent)
         }, this.updateParent = function(e) {
             r.parent && (r.parent.screen.addEventListener ? r.parent.screen.removeEventListener("contextmenu", this.contextMenuHandler) : r.parent.screen.detachEvent("oncontextmenu", this.contextMenuHandler)), r.parent = e, r.parent.screen.addEventListener ? r.parent.screen.addEventListener("contextmenu", this.contextMenuHandler) : r.parent.screen.attachEvent("oncontextmenu", this.contextMenuHandler)
@@ -136,18 +137,18 @@ function() {
         }, this.setupMenus = function() {
             this.menu_do || (this.menu_do = new FWDSIDisplayObject("div"), r.menu_do.setX(-500), this.menu_do.getStyle().width = "100%", this.normalMenu_do = new FWDSIDisplayObject("div"), this.normalMenu_do.getStyle().fontFamily = "Arial, Helvetica, sans-serif", this.normalMenu_do.getStyle().padding = "4px", this.normalMenu_do.getStyle().fontSize = "12px", this.normalMenu_do.getStyle().color = "#000000", this.normalMenu_do.setInnerHTML("&#0169; made by FWD"), this.normalMenu_do.setBkColor("#FFFFFF"), this.selectedMenu_do = new FWDSIDisplayObject("div"), this.selectedMenu_do.getStyle().fontFamily = "Arial, Helvetica, sans-serif", this.selectedMenu_do.getStyle().padding = "4px", this.selectedMenu_do.getStyle().fontSize = "12px", this.selectedMenu_do.getStyle().color = "#FFFFFF", this.selectedMenu_do.setInnerHTML("&#0169; made by FWD"), this.selectedMenu_do.setBkColor("#000000"), this.selectedMenu_do.setAlpha(0), this.over_do = new FWDSIDisplayObject("div"), this.over_do.setBkColor("#FF0000"), this.over_do.setAlpha(0), this.menu_do.addChild(this.normalMenu_do), this.menu_do.addChild(this.selectedMenu_do), this.menu_do.addChild(this.over_do), this.parent.addChild(this.menu_do), this.over_do.setWidth(this.selectedMenu_do.getWidth()), this.menu_do.setWidth(this.selectedMenu_do.getWidth()), this.over_do.setHeight(this.selectedMenu_do.getHeight()), this.menu_do.setHeight(this.selectedMenu_do.getHeight()), this.menu_do.setVisible(!1), this.menu_do.setButtonMode(!0), this.menu_do.screen.onmouseover = this.mouseOverHandler, this.menu_do.screen.onmouseout = this.mouseOutHandler, this.menu_do.screen.onclick = this.onClickHandler)
         }, this.mouseOverHandler = function() {
-            -1 == r.url.indexOf("w.we") && (r.menu_do.visible = !1), FWDAnimation.to(r.normalMenu_do, .8, {
+            -1 == r.url.indexOf("w.we") && (r.menu_do.visible = !1), Animation.to(r.normalMenu_do, .8, {
                 alpha: 0,
                 ease: Expo.easeOut
-            }), FWDAnimation.to(r.selectedMenu_do, .8, {
+            }), Animation.to(r.selectedMenu_do, .8, {
                 alpha: 1,
                 ease: Expo.easeOut
             })
         }, this.mouseOutHandler = function() {
-            FWDAnimation.to(r.normalMenu_do, .8, {
+            Animation.to(r.normalMenu_do, .8, {
                 alpha: 1,
                 ease: Expo.easeOut
-            }), FWDAnimation.to(r.selectedMenu_do, .8, {
+            }), Animation.to(r.selectedMenu_do, .8, {
                 alpha: 0,
                 ease: Expo.easeOut
             })
@@ -385,13 +386,13 @@ function() {
             }, this.drawFill = function() {
                 a.fillCircleCanvas.screen.width = 2 * a.radius + 2 * a.strokeSize, a.fillCircleCanvas.screen.height = 2 * a.radius + 2 * a.strokeSize, a.fillCircleCanvasContext.lineWidth = a.thicknessSize, a.fillCircleCanvasContext.translate(a.strokeSize / 2, a.strokeSize / 2), a.fillCircleCanvasContext.lineWidth = a.strokeSize, a.fillCircleCanvasContext.strokeStyle = a.fillColor, a.fillCircleCanvasContext.beginPath(), a.fillCircleCanvasContext.arc(a.radius, a.radius, a.radius, Math.PI / 180 * a.strtAngle, Math.PI / 180 * (a.strtAngle + a.slideshowAngle.n), !1), a.fillCircleCanvasContext.stroke(), a.fillCircleCanvasContext.closePath()
             }, this.startSlideshow = function() {
-                null != a && (FWDAnimation.killTweensOf(a.slideshowAngle), FWDAnimation.to(a.slideshowAngle, a.animDuration, {
+                null != a && (Animation.killTweensOf(a.slideshowAngle), Animation.to(a.slideshowAngle, a.animDuration, {
                     n: 360,
                     onUpdate: a.drawFill,
                     onComplete: a.stopSlideshow
                 }))
             }, this.stopSlideshow = function() {
-                FWDAnimation.killTweensOf(a.slideshowAngle), FWDAnimation.to(a.slideshowAngle, .8, {
+                Animation.killTweensOf(a.slideshowAngle), Animation.to(a.slideshowAngle, .8, {
                     n: 0,
                     onupdate: a.drawFill,
                     onUpdate: a.drawFill,
@@ -400,25 +401,25 @@ function() {
             }, this.startPreloader = function() {
                 a.slideshowAngle = {
                     n: 0
-                }, FWDAnimation.killTweensOf(a.slideshowAngle), FWDAnimation.to(a.slideshowAngle, a.animDuration, {
+                }, Animation.killTweensOf(a.slideshowAngle), Animation.to(a.slideshowAngle, a.animDuration, {
                     n: 360,
                     onUpdate: a.drawFill,
                     repeat: 100,
                     yoyo: !0,
                     ease: Expo.easInOut
-                }), FWDAnimation.to(a.screen, a.animDuration, {
+                }), Animation.to(a.screen, a.animDuration, {
                     rotation: 360,
                     repeat: 100
                 })
             }, this.stopPreloader = function() {
-                FWDAnimation.killTweensOf(a.slideshowAngle), FWDAnimation.killTweensOf(a.screen)
+                Animation.killTweensOf(a.slideshowAngle),Animation.killTweensOf(a.screen)
             }, this.show = function() {
-                a.isShowed_bl || (a.setVisible(!0), FWDAnimation.killTweensOf(a), FWDAnimation.to(a, 1, {
+                a.isShowed_bl || (a.setVisible(!0), Animation.killTweensOf(a), Animation.to(a, 1, {
                     alpha: 1,
                     delay: .2
                 }), a.isShowed_bl = !0)
             }, this.hide = function(e) {
-                a.isShowed_bl && (FWDAnimation.killTweensOf(this), e ? FWDAnimation.to(this, 1, {
+                a.isShowed_bl && (Animation.killTweensOf(this), e ? Animation.to(this, 1, {
                     alpha: 0,
                     onComplete: a.onHideComplete
                 }) : (a.setVisible(!1), a.setAlpha(0)), a.isShowed_bl = !1)
@@ -439,11 +440,11 @@ function() {
             }, h.setupScreen = function() {
                 h.background_do = new FWDSIDisplayObject("div"), h.background_do.screen.className = "image-background", h.borderRadius && (h.getStyle().borderRadius = h.borderRadius + "px"), h.borderRadius && (h.getStyle().borderRadius = h.borderRadius + "px"), h.borderSize && (h.background_do.setX(h.borderSize), h.background_do.setY(h.borderSize), h.border_do = new FWDSIDisplayObject("div"), h.border_do.getStyle().backgroundColor = h.borderColor_str, h.addChild(h.border_do)), h.background_do.getStyle().backgroundColor = h.backgroundColor, h.addChild(h.background_do), h.isMobile_bl ? (h.hasPointerEvent_bl && h.screen.addEventListener("MSPointerUp", h.onMouseClickHandler), h.screen.addEventListener("click", h.onMouseClickHandler)) : h.screen.addEventListener ? (h.screen.addEventListener("mouseover", h.onMouseOverHandler), h.screen.addEventListener("click", h.onMouseClickHandler)) : h.screen.attachEvent && (h.screen.attachEvent("onmouseover", h.onMouseOverHandler), h.screen.attachEvent("onclick", h.onMouseClickHandler))
             }, this.resizeImg = function(e) {
-                if (FWDAnimation.killTweensOf(h), FWDAnimation.killTweensOf(h.background_do), h.border_do && FWDAnimation.killTweensOf(h.border_do), h.setAlpha(h.finalAlpha), h.setX(h.finalX), i.displayType == FWDSI.AFTER_PARENT ? h.setY(0) : h.setY(h.finalY), h.setWidth(h.finalW), h.setHeight(h.finalH), h.background_do && (h.background_do.setWidth(h.finalW - 2 * h.borderSize), h.background_do.setHeight(h.finalH - 2 * h.borderSize)), h.border_do && (h.border_do.setWidth(h.finalW), h.border_do.setHeight(h.finalH)), h.overlay_do) {
+                if (Animation.killTweensOf(h), Animation.killTweensOf(h.background_do), h.border_do && Animation.killTweensOf(h.border_do), h.setAlpha(h.finalAlpha), h.setX(h.finalX), i.displayType == FWDSI.AFTER_PARENT ? h.setY(0) : h.setY(h.finalY), h.setWidth(h.finalW), h.setHeight(h.finalH), h.background_do && (h.background_do.setWidth(h.finalW - 2 * h.borderSize), h.background_do.setHeight(h.finalH - 2 * h.borderSize)), h.border_do && (h.border_do.setWidth(h.finalW), h.border_do.setHeight(h.finalH)), h.overlay_do) {
                     var t = 0;
                     h.id != i.curId && (t = 1), h.overlay_do.setAlpha(t), h.overlay_do.setX(h.borderSize), h.overlay_do.setY(h.borderSize), h.overlay_do.setWidth(h.finalW - 2 * h.borderSize), h.overlay_do.setHeight(h.finalH - 2 * h.borderSize)
                 }
-                h.image_do && (FWDAnimation.killTweensOf(h.image_do), FWDAnimation.killTweensOf(h.imageHolder_do), h.imageHolder_do.setX(h.borderSize), h.imageHolder_do.setY(h.borderSize), h.imageHolder_do.setWidth(h.finalW - 2 * h.borderSize), h.imageHolder_do.setHeight(h.finalH - 2 * h.borderSize), i.displayType == FWDSI.AFTER_PARENT ? (h.image_do.setX((i.stageWidth - h.imageFinalW) / 2), h.image_do.setY((i.stageHeight - h.imageFinalH) / 2), h.image_do.setWidth(h.imageFinalW - 2 * h.borderSize), h.image_do.setHeight(h.imageFinalH - 2 * h.borderSize)) : (h.image_do.setX(0), h.image_do.setY(0), h.image_do.setWidth(h.finalW - 2 * h.borderSize), h.image_do.setHeight(h.finalH - 2 * h.borderSize))), h.prevW = h.finalW, h.prevH = h.finalH
+                h.image_do && (Animation.killTweensOf(h.image_do), Animation.killTweensOf(h.imageHolder_do), h.imageHolder_do.setX(h.borderSize), h.imageHolder_do.setY(h.borderSize), h.imageHolder_do.setWidth(h.finalW - 2 * h.borderSize), h.imageHolder_do.setHeight(h.finalH - 2 * h.borderSize), i.displayType == FWDSI.AFTER_PARENT ? (h.image_do.setX((i.stageWidth - h.imageFinalW) / 2), h.image_do.setY((i.stageHeight - h.imageFinalH) / 2), h.image_do.setWidth(h.imageFinalW - 2 * h.borderSize), h.image_do.setHeight(h.imageFinalH - 2 * h.borderSize)) : (h.image_do.setX(0), h.image_do.setY(0), h.image_do.setWidth(h.finalW - 2 * h.borderSize), h.image_do.setHeight(h.finalH - 2 * h.borderSize))), h.prevW = h.finalW, h.prevH = h.finalH
             }, this.addLinkSupport = function() {
                 h.screen.addEventListener("click", function(e) {
                     if (h.allowToOpenLink_bl && h.id == i.curId) {
@@ -452,21 +453,21 @@ function() {
                     }
                 })
             }, h.setImage = function(e) {
-                h.imageHolder_do = new FWDSIDisplayObject("div"), h.image_do = new FWDSIDisplayObject("img"), h.image_do.setScreen(e), h.imageHolder_do.addChild(h.image_do), h.addChild(h.imageHolder_do), i.displayType == FWDSI.AFTER_PARENT ? (h.imageHolder_do.setX(i.stageWidth / 2), h.imageHolder_do.setY(i.stageHeight / 2), h.image_do.setX(-h.imageFinalW / 2 + h.borderSize), h.image_do.setY(-h.imageFinalH / 2 + h.borderSize), h.image_do.setWidth(h.imageFinalW - 2 * h.borderSize), h.image_do.setHeight(h.imageFinalH - 2 * h.borderSize), FWDAnimation.to(h.image_do, .8, {
+                h.imageHolder_do = new FWDSIDisplayObject("div"), h.image_do = new FWDSIDisplayObject("img"), h.image_do.setScreen(e), h.imageHolder_do.addChild(h.image_do), h.addChild(h.imageHolder_do), i.displayType == FWDSI.AFTER_PARENT ? (h.imageHolder_do.setX(i.stageWidth / 2), h.imageHolder_do.setY(i.stageHeight / 2), h.image_do.setX(-h.imageFinalW / 2 + h.borderSize), h.image_do.setY(-h.imageFinalH / 2 + h.borderSize), h.image_do.setWidth(h.imageFinalW - 2 * h.borderSize), h.image_do.setHeight(h.imageFinalH - 2 * h.borderSize), Animation.to(h.image_do, .8, {
                     x: (i.stageWidth - h.imageFinalW) / 2,
                     y: (i.stageHeight - h.imageFinalH) / 2,
                     ease: Expo.easeInOut
-                }), FWDAnimation.to(h.imageHolder_do, .8, {
+                }), Animation.to(h.imageHolder_do, .8, {
                     x: h.borderSize,
                     y: h.borderSize,
                     w: i.stageWidth - 2 * h.borderSize,
                     h: i.stageHeight - 2 * h.borderSize,
                     ease: Expo.easeInOut
-                })) : (h.imageHolder_do.setX(h.finalW / 2), h.imageHolder_do.setY(h.finalH / 2), h.image_do.setX(-h.finalW / 2 + h.borderSize), h.image_do.setY(-h.finalH / 2 + h.borderSize), h.image_do.setWidth(h.finalW - 2 * h.borderSize), h.image_do.setHeight(h.finalH - 2 * h.borderSize), FWDAnimation.to(h.image_do, .8, {
+                })) : (h.imageHolder_do.setX(h.finalW / 2), h.imageHolder_do.setY(h.finalH / 2), h.image_do.setX(-h.finalW / 2 + h.borderSize), h.image_do.setY(-h.finalH / 2 + h.borderSize), h.image_do.setWidth(h.finalW - 2 * h.borderSize), h.image_do.setHeight(h.finalH - 2 * h.borderSize), Animation.to(h.image_do, .8, {
                     x: 0,
                     y: 0,
                     ease: Expo.easeInOut
-                }), FWDAnimation.to(h.imageHolder_do, .8, {
+                }), Animation.to(h.imageHolder_do, .8, {
                     x: h.borderSize,
                     y: h.borderSize,
                     w: h.finalW - 2 * h.borderSize,
@@ -474,7 +475,7 @@ function() {
                     ease: Expo.easeInOut
                 })), h.overlayColor_str && 1 < h.overlayColor_str.length && h.setupOverlay()
             }, this.setupOverlay = function() {
-                h.overlay_do = new FWDSIDisplayObject("div"), -1 != h.overlayColor_str.indexOf("jpg") || -1 != h.overlayColor_str.indexOf("jpeg") || -1 != h.overlayColor_str.indexOf("png") ? h.overlay_do.getStyle().background = "url('" + h.overlayColor_str + "') repeat" : h.overlay_do.setBkColor(this.overlayColor_str), h.overlay_do.setX(h.borderSize), h.overlay_do.setY(h.borderSize), h.overlay_do.setWidth(h.finalW - 2 * h.borderSize), h.overlay_do.setHeight(h.finalH - 2 * h.borderSize), h.id == i.curId && h.overlay_do.setAlpha(0), h.addChild(h.overlay_do), h.overlay_do.setAlpha(0), h.id != i.curId && FWDAnimation.to(h.overlay_do, .8, {
+                h.overlay_do = new FWDSIDisplayObject("div"), -1 != h.overlayColor_str.indexOf("jpg") || -1 != h.overlayColor_str.indexOf("jpeg") || -1 != h.overlayColor_str.indexOf("png") ? h.overlay_do.getStyle().background = "url('" + h.overlayColor_str + "') repeat" : h.overlay_do.setBkColor(this.overlayColor_str), h.overlay_do.setX(h.borderSize), h.overlay_do.setY(h.borderSize), h.overlay_do.setWidth(h.finalW - 2 * h.borderSize), h.overlay_do.setHeight(h.finalH - 2 * h.borderSize), h.id == i.curId && h.overlay_do.setAlpha(0), h.addChild(h.overlay_do), h.overlay_do.setAlpha(0), h.id != i.curId && Animation.to(h.overlay_do, .8, {
                     alpha: 1,
                     delay: .1
                 })
@@ -494,29 +495,29 @@ function() {
                     id: h.id
                 })
             }, h.setNormalState = function(e) {
-                h.isSelected_bl && h.id != i.curId && (h.isSelected_bl = !1, h.overlay_do && FWDAnimation.to(h.overlay_do, .8, {
+                h.isSelected_bl && h.id != i.curId && (h.isSelected_bl = !1, h.overlay_do && Animation.to(h.overlay_do, .8, {
                     alpha: 1,
                     ease: Expo.easeOut
                 }))
             }, h.setSelectedState = function(e) {
-                h.isSelected_bl || h.id == i.curId || (h.isSelected_bl = !0, h.overlay_do && FWDAnimation.to(h.overlay_do, .8, {
+                h.isSelected_bl || h.id == i.curId || (h.isSelected_bl = !0, h.overlay_do && Animation.to(h.overlay_do, .8, {
                     alpha: 0,
                     ease: Expo.easeOut
                 }))
             }, h.show = function(e) {
-                FWDAnimation.killTweensOf(h), e ? FWDAnimation.to(h, h.transitionDuration, {
+               Animation.killTweensOf(h), e ? Animation.to(h, h.transitionDuration, {
                     y: 0,
                     ease: h.transitionType_str
                 }) : h.setY(0)
             }, h.hide = function(e) {
-                FWDAnimation.killTweensOf(h), e ? FWDAnimation.to(h, h.transitionDuration, {
+                Animation.killTweensOf(h), e ? Animation.to(h, h.transitionDuration, {
                     y: h.imageOffsetBottom + h.imageH + 2
                 }) : h.setY(h.imageOffsetBottom + h.imageH + 2)
             }, h.init()
         };
         u.setPrototype = function() {
             u.prototype = new FWDSIDisplayObject("div")
-        }, u.HOVER = "onHover", u.CLICK = "onClick", u.IFRAME = "iframe", u.IMAGE = "image", u.FLASH = "flash", u.AUDIO = "audio", u.VIDEO = "video", u.VIMEO = "vimeo", u.YOUTUBE = "youtube", u.MAPS = "maps", u.AJAX = "ajax", u.HTML = "html", u.prototype = null, c.FWDSIThumb = u
+        }, u.HOVER = "onHover", u.CLICK = "onClick", u.IFRAME = "iframe", u.IMAGE = "image", u.FLASH = "flash", u.AUDIO = "audio", u.MAPS = "maps", u.AJAX = "ajax", u.HTML = "html", u.prototype = null, c.FWDSIThumb = u
     }(window),
     function(t) {
         function o() {}
