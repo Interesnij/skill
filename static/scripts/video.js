@@ -469,7 +469,7 @@ if (! function(t) {
             function r(e) {
                 for (; e;) e.f || e.blob || (e.m = Math.round), e = e._next
             }
-            _fwd_gsScope.FWDFWD_gsDefine("FWDAnimation", ["core.FWDAnimation", "core.FWDSimpleTimeline", "FWDTweenLite"], function(m, u, b) {
+            _fwd_gsScope.FWDFWD_gsDefine("FWDAnimation", ["core.FWDAnimation", "core.SimpleTimeline", "FWDTweenLite"], function(m, u, b) {
                 function g(e) {
                     var t, s = [],
                         o = e.length;
@@ -630,7 +630,7 @@ if (! function(t) {
                 }, e.yoyo = function(e) {
                     return arguments.length ? (this._yoyo = e, this) : this._yoyo
                 }, m
-            }, !0), _fwd_gsScope.FWDFWD_gsDefine("FWDTimelineLite", ["core.FWDAnimation", "core.FWDSimpleTimeline", "FWDTweenLite"], function(u, h, c) {
+            }, !0), _fwd_gsScope.FWDFWD_gsDefine("FWDTimelineLite", ["core.FWDAnimation", "core.SimpleTimeline", "FWDTweenLite"], function(u, h, c) {
                 function _(e) {
                     h.call(this, e), this._labels = {}, this.autoRemoveChildren = !0 === this.vars.autoRemoveChildren, this.smoothChildTiming = !0 === this.vars.smoothChildTiming, this._sortChildren = !0, this._onUpdate = this.vars.onUpdate;
                     var t, s, o = this.vars;
@@ -2345,7 +2345,7 @@ if (! function(t) {
                     var t, s, o = this._timeline;
                     return e != this._paused && o && (g || e || b.wake(), s = (t = o.rawTime()) - this._pauseTime, !e && o.smoothChildTiming && (this._startTime += s, this._uncache(!1)), this._pauseTime = e ? t : null, this._paused = e, this._active = this.isActive(), !e && 0 != s && this._initted && this.duration() && (t = o.smoothChildTiming ? this._totalTime : (t - this._startTime) / this._timeScale, this.render(t, t === this._totalTime, !0))), this._gc && !e && this._enabled(!0, !1), this
                 };
-                var V = c("core.FWDSimpleTimeline", function(e) {
+                var V = c("core.SimpleTimeline", function(e) {
                     d.call(this, 0, e), this.autoRemoveChildren = this.smoothChildTiming = !0
                 });
                 (s = V.prototype = new d).constructor = V, s.kill()._gc = !1, s._first = s._last = s._recent = null, s._sortChildren = !1, s.add = s.insert = function(e, t, s, o) {

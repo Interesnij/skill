@@ -11,7 +11,7 @@
         }, this.addConsoleToDom = function() {
             -1 != navigator.userAgent.toLowerCase().indexOf("msie 7") ? document.getElementsByTagName("body")[0].appendChild(s.screen) : document.documentElement.appendChild(s.screen)
         }, this.setupScreen = function() {
-            this.main_do = new FWDSIDisplayObject("div", "absolute"), this.main_do.setOverflow("auto"), this.main_do.setWidth(300), this.main_do.setHeight(200), this.setWidth(300), this.setHeight(200), this.main_do.setBkColor("#FFFFFF"), this.addChild(this.main_do)
+            this.main_do = new VIDEODisplayObject("div", "absolute"), this.main_do.setOverflow("auto"), this.main_do.setWidth(300), this.main_do.setHeight(200), this.setWidth(300), this.setHeight(200), this.main_do.setBkColor("#FFFFFF"), this.addChild(this.main_do)
         }, this.showError = function(e, t, i) {
             var n = s.main_do.getInnerHTML() + "<br>JavaScript error: " + e + " on line " + i + " for " + t;
             s.main_do.setInnerHTML(n), s.main_do.screen.scrollTop = s.main_do.screen.scrollHeight
@@ -21,7 +21,7 @@
         }, this.init()
     };
     t.setPrototype = function() {
-        t.prototype = new FWDSIDisplayObject("div", "absolute")
+        t.prototype = new VIDEODisplayObject("div", "absolute")
     }, t.prototype = null, e.FWDConsole = t
 }(window),
 function(t) {
@@ -31,7 +31,7 @@ function(t) {
         o.init = function() {
             TweenLite.ticker.useRAF(!0), this.props_obj = e, this.listeners = {
                 events_ar: []
-            }, this.props_obj ? (this.instanceName_str = this.props_obj.instanceName, this.displayType = this.props_obj.displayType || s.RESPONSIVE, this.displayType = this.displayType.toLowerCase(), o.displayType.toLowerCase() != s.RESPONSIVE && o.displayType.toLowerCase() != s.FULL_SCREEN && o.displayType.toLowerCase() != s.FLUID_WIDTH && o.displayType.toLowerCase() != s.FLUID_WIDTH_AND_HEIGHT && o.displayType.toLowerCase() != s.AFTER_PARENT && (this.displayType = s.RESPONSIVE), this.props_obj.instanceName ? t[this.instanceName_str] ? alert("FWDSI instance name " + this.instanceName_str + " is already defined and contains a different instance reference, set a different instance name.") : (t[this.instanceName_str] = this).props_obj ? (this.body = document.getElementsByTagName("body")[0], this.stageContainer = null, this.displayType == s.FULL_SCREEN ? this.stageContainer = o.body : this.stageContainer = VIDEOUtils.getChildById(this.props_obj.parentId), this.limitElement = VIDEOUtils.getChildById(this.props_obj.limitId), this.limitHeight = this.props_obj.limitHeight, this.customContextMenu_do = null, this.imageManager_do = null, this.info_do = null, this.hider = null, this.main_do = null, this.preloader_do = null, this.playlist_ar = null, this.backgroundColor_str = this.props_obj.backgroundColor || "#transparent", this.maxWidth = this.props_obj.maxWidth || 640, this.maxHeight = this.props_obj.maxHeight || 380, this.sliderOffsetTopAndBottom = this.props_obj.sliderOffsetTopAndBottom || 0, this.offsetPreloader = 0, this.id = -1, this.catId = -1, this.prevCatId = -2, this.prevId = -2, this.stageWidth = 0, this.stageHeight = 0, this.zIndex = this.props_obj.zIndex || 0, this.totalimages, this.slideshowPreloaderPosition = this.props_obj.slideshowPreloaderPosition || "center", this.slideshowPreloaderPosition = this.slideshowPreloaderPosition.toLowerCase(), this.slideshowRadius = this.props_obj.slideshowRadius || 10, this.slideshowBackgroundColor = this.props_obj.slideshowBackgroundColor || "#FFFFFF", this.slideshowFillColor = this.props_obj.slideshowFillColor || "#000000", this.slideshowStrokeSize = this.props_obj.slideshowStrokeSize || 3, this.isMobile_bl = VIDEOUtils.isMobile, this.autoScale_bl = "yes" == this.props_obj.autoScale, this.useVideo_bl = !1, this.hasPointerEvent_bl = VIDEOUtils.hasPointerEvent, this.imageSource = this.props_obj.imageSource, o.initializeOnlyWhenVisible_bl = o.props_obj.initializeOnlyWhenVisible, o.initializeOnlyWhenVisible_bl = "yes" == o.initializeOnlyWhenVisible_bl, this.setupMainDo(), this.startResizeHandler(), o.initializeOnlyWhenVisible_bl ? (t.addEventListener("scroll", o.onInitlalizeScrollHandler), setTimeout(o.onInitlalizeScrollHandler, 500)) : setTimeout(o.setupSlider, 100)) : alert("FWDSI constructor properties object is not defined!") : alert("FWDSI instance name is required please make sure that the instanceName parameter exsists and it's value is uinique.")) : alert("FWDSI constructor properties object is not defined!")
+            }, this.props_obj ? (this.instanceName_str = this.props_obj.instanceName, this.displayType = this.props_obj.displayType || s.RESPONSIVE, this.displayType = this.displayType.toLowerCase(), o.displayType.toLowerCase() != s.RESPONSIVE && o.displayType.toLowerCase() != s.FULL_SCREEN && o.displayType.toLowerCase() != s.FLUID_WIDTH && o.displayType.toLowerCase() != s.FLUID_WIDTH_AND_HEIGHT && o.displayType.toLowerCase() != s.AFTER_PARENT && (this.displayType = s.RESPONSIVE), this.props_obj.instanceName ? t[this.instanceName_str] ? alert("VIDEO instance name " + this.instanceName_str + " is already defined and contains a different instance reference, set a different instance name.") : (t[this.instanceName_str] = this).props_obj ? (this.body = document.getElementsByTagName("body")[0], this.stageContainer = null, this.displayType == s.FULL_SCREEN ? this.stageContainer = o.body : this.stageContainer = VIDEOUtils.getChildById(this.props_obj.parentId), this.limitElement = VIDEOUtils.getChildById(this.props_obj.limitId), this.limitHeight = this.props_obj.limitHeight, this.customContextMenu_do = null, this.imageManager_do = null, this.info_do = null, this.hider = null, this.main_do = null, this.preloader_do = null, this.playlist_ar = null, this.backgroundColor_str = this.props_obj.backgroundColor || "#transparent", this.maxWidth = this.props_obj.maxWidth || 640, this.maxHeight = this.props_obj.maxHeight || 380, this.sliderOffsetTopAndBottom = this.props_obj.sliderOffsetTopAndBottom || 0, this.offsetPreloader = 0, this.id = -1, this.catId = -1, this.prevCatId = -2, this.prevId = -2, this.stageWidth = 0, this.stageHeight = 0, this.zIndex = this.props_obj.zIndex || 0, this.totalimages, this.slideshowPreloaderPosition = this.props_obj.slideshowPreloaderPosition || "center", this.slideshowPreloaderPosition = this.slideshowPreloaderPosition.toLowerCase(), this.slideshowRadius = this.props_obj.slideshowRadius || 10, this.slideshowBackgroundColor = this.props_obj.slideshowBackgroundColor || "#FFFFFF", this.slideshowFillColor = this.props_obj.slideshowFillColor || "#000000", this.slideshowStrokeSize = this.props_obj.slideshowStrokeSize || 3, this.isMobile_bl = VIDEOUtils.isMobile, this.autoScale_bl = "yes" == this.props_obj.autoScale, this.useVideo_bl = !1, this.hasPointerEvent_bl = VIDEOUtils.hasPointerEvent, this.imageSource = this.props_obj.imageSource, o.initializeOnlyWhenVisible_bl = o.props_obj.initializeOnlyWhenVisible, o.initializeOnlyWhenVisible_bl = "yes" == o.initializeOnlyWhenVisible_bl, this.setupMainDo(), this.startResizeHandler(), o.initializeOnlyWhenVisible_bl ? (t.addEventListener("scroll", o.onInitlalizeScrollHandler), setTimeout(o.onInitlalizeScrollHandler, 500)) : setTimeout(o.setupSlider, 100)) : alert("VIDEO constructor properties object is not defined!") : alert("VIDEO instance name is required please make sure that the instanceName parameter exsists and it's value is uinique.")) : alert("VIDEO constructor properties object is not defined!")
         }, o.onInitlalizeScrollHandler = function() {
             if (o.ws) {
                 var e = VIDEOUtils.getScrollOffsets();
@@ -42,7 +42,7 @@ function(t) {
         }, o.loadImage = function() {
             o.image_img = new Image, o.image_img.onload = o.onimageLoadcenterComplete, o.image_img.src = o.imageSource
         }, o.onimageLoadcenterComplete = function(e) {
-            FWDSIThumb.setPrototype(), o.image_do = new FWDSIThumb(o, o.maxWidth, o.maxHeight), o.main_do.addChildAt(o.image_do, 1), o.resizeAndPositionImage(), o.image_do.setImage(o.image_img), o.preloader_do.hide(!0), o.bk_do.setAlpha(0), Animation.to(o.bk_do, 1, {
+            VIDEOThumb.setPrototype(), o.image_do = new VIDEOThumb(o, o.maxWidth, o.maxHeight), o.main_do.addChildAt(o.image_do, 1), o.resizeAndPositionImage(), o.image_do.setImage(o.image_img), o.preloader_do.hide(!0), o.bk_do.setAlpha(0), Animation.to(o.bk_do, 1, {
                 alpha: 1
             })
         }, this.resizeAndPositionImage = function() {
@@ -54,7 +54,7 @@ function(t) {
                 i = o.displayType == s.AFTER_PARENT ? (t <= e ? n = e : e <= t && (n = t), n) : o.limitHeight ? e < e ? e : e < t ? t : e : e, o.image_do.scale = i, o.displayType == s.AFTER_PARENT ? (o.image_do.imageFinalW = Math.round(o.image_do.imageW * i), o.image_do.imageFinalH = Math.round(o.image_do.imageH * i), o.image_do.finalW = o.stageWidth, o.image_do.finalH = o.stageHeight) : (o.image_do.finalW = Math.round(o.image_do.imageW * i), o.image_do.finalH = Math.round(o.image_do.imageH * i)), o.image_do.finalX = Math.round((o.stageWidth - o.image_do.finalW) / 2), o.image_do.finalY = Math.round((o.stageHeight - o.image_do.finalH) / 2), o.image_do.finalAlpha = 1, o.displayType != s.AFTER_PARENT && (o.stageContainer.style.height = o.stageHeight + "px"), o.main_do.setWidth(o.image_do.finalW), o.main_do.setHeight(o.stageHeight), o.image_do.resizeImg(!1)
             }
         }, this.setupMainDo = function() {
-            this.main_do = new FWDSIDisplayObject("div", "relative"), this.main_do.getStyle().msTouchAction = "none", this.main_do.getStyle().webkitTapHighlightColor = "rgba(0, 0, 0, 0)", this.main_do.getStyle().webkitFocusRingColor = "rgba(0, 0, 0, 0)", this.main_do.getStyle().width = "100%", this.bk_do = new FWDSIDisplayObject("div"), this.bk_do.getStyle().width = "100%", this.bk_do.getStyle().height = "100%", this.bk_do.setBkColor(this.backgroundColor_str), this.bk_do.screen.className = "background", this.main_do.addChild(this.bk_do), (!VIDEOUtils.isMobile || VIDEOUtils.isMobile && VIDEOUtils.hasPointerEvent) && this.main_do.setSelectable(!1), this.stageContainer.style.overflow = "hidden", this.displayType == s.FULL_SCREEN || this.displayType == s.FLUID_WIDTH || o.displayType == s.FLUID_WIDTH_AND_HEIGHT ? (this.main_do.getStyle().position = "absolute", document.documentElement.appendChild(this.main_do.screen), this.displayType == s.FLUID_WIDTH || o.displayType == s.FLUID_WIDTH_AND_HEIGHT ? (this.main_do.getStyle().zIndex = o.zIndex, o.stageContainer.style.height = "500px") : this.main_do.getStyle().zIndex = "9999999999998") : this.stageContainer.firstChild ? this.stageContainer.insertBefore(this.main_do.screen, this.stageContainer.firstChild) : this.stageContainer.appendChild(this.main_do.screen)
+            this.main_do = new VIDEODisplayObject("div", "relative"), this.main_do.getStyle().msTouchAction = "none", this.main_do.getStyle().webkitTapHighlightColor = "rgba(0, 0, 0, 0)", this.main_do.getStyle().webkitFocusRingColor = "rgba(0, 0, 0, 0)", this.main_do.getStyle().width = "100%", this.bk_do = new VIDEODisplayObject("div"), this.bk_do.getStyle().width = "100%", this.bk_do.getStyle().height = "100%", this.bk_do.setBkColor(this.backgroundColor_str), this.bk_do.screen.className = "background", this.main_do.addChild(this.bk_do), (!VIDEOUtils.isMobile || VIDEOUtils.isMobile && VIDEOUtils.hasPointerEvent) && this.main_do.setSelectable(!1), this.stageContainer.style.overflow = "hidden", this.displayType == s.FULL_SCREEN || this.displayType == s.FLUID_WIDTH || o.displayType == s.FLUID_WIDTH_AND_HEIGHT ? (this.main_do.getStyle().position = "absolute", document.documentElement.appendChild(this.main_do.screen), this.displayType == s.FLUID_WIDTH || o.displayType == s.FLUID_WIDTH_AND_HEIGHT ? (this.main_do.getStyle().zIndex = o.zIndex, o.stageContainer.style.height = "500px") : this.main_do.getStyle().zIndex = "9999999999998") : this.stageContainer.firstChild ? this.stageContainer.insertBefore(this.main_do.screen, this.stageContainer.firstChild) : this.stageContainer.appendChild(this.main_do.screen)
         }, this.startResizeHandler = function() {
             t.addEventListener ? (t.addEventListener("resize", o.onResizeHandler), t.addEventListener("scroll", o.onScrollHandler), t.addEventListener("orientationchange", o.orientationChange)) : t.attachEvent && (t.attachEvent("onresize", o.onResizeHandler), t.attachEvent("onscroll", o.onScrollHandler)), o.resizeHandler(), o.displayType != s.FLUID_WIDTH && o.displayType != s.FLUID_WIDTH_AND_HEIGHT || (o.resizeHandlerId1_to = setTimeout(function() {
                 o.scrollHandler()
@@ -75,9 +75,9 @@ function(t) {
             var t, i = VIDEOUtils.getViewportSize();
             o.scrollOffsets = VIDEOUtils.getScrollOffsets(), o.ws = i, o.wsw = i.w, o.wsh = i.h, o.pageXOffset = o.scrollOffsets.x, o.pageYOffset = o.scrollOffsets.y, o.isFullScreen_bl || o.displayType == s.FULL_SCREEN ? (o.main_do.setX(o.scrollOffsets.x), o.main_do.setY(o.scrollOffsets.y), o.stageWidth = i.w, o.stageHeight = i.h) : o.displayType == s.FLUID_WIDTH ? (o.stageWidth = i.w, o.stageHeight = i.h, o.autoScale_bl ? (t = Math.min(o.stageWidth / o.maxWidth, 1), o.stageHeight = Math.min(parseInt(t * o.maxHeight), o.maxHeight), o.stageHeight < 300 && (o.stageHeight = 300)) : o.stageHeight = o.maxHeight, o.stageContainer.style.height = o.stageHeight + "px", o.main_do.setX(o.pageXOffset), o.main_do.setY(Math.round(o.stageContainer.getBoundingClientRect().top + o.pageYOffset))) : o.displayType == s.FLUID_WIDTH_AND_HEIGHT ? (o.stageWidth = i.w, o.stageHeight = i.h - Math.round(o.stageContainer.getBoundingClientRect().top + o.pageYOffset), o.stageContainer.style.height = o.stageHeight + "px", o.main_do.setX(o.pageXOffset), o.main_do.setY(Math.round(o.stageContainer.getBoundingClientRect().top + o.pageYOffset))) : o.displayType == s.RESPONSIVE ? (o.stageContainer.style.width = "100%", o.stageContainer.offsetWidth, o.maxWidth, o.stageWidth = o.stageContainer.offsetWidth, o.stageHeight = parseInt(o.maxHeight * (o.stageWidth / o.maxWidth)), o.limitElement && o.stageHeight < o.limitElement.offsetHeight && (o.stageHeight = o.limitElement.offsetHeight, o.limitHeight = o.stageHeight), o.main_do.setX(0), o.main_do.setY(0), o.stageContainer.style.height = o.stageHeight + "px") : o.displayType == s.AFTER_PARENT ? (o.stageWidth = o.stageContainer.offsetWidth, o.stageHeight = o.stageContainer.offsetHeight + 1) : (o.main_do.setX(0), o.main_do.setY(0), o.stageWidth = i.w, o.stageHeight = i.h), o.scale = Math.min(o.stageWidth / o.maxWidth, 1), o.globalX = o.main_do.getGlobalX(), o.globalY = o.main_do.getGlobalY(), o.preloader_do && o.positionPreloader(), o.resizeAndPositionImage()
         }, o.setupContextMenu = function() {
-            o.customContextMenu_do = new FWDSIContextMenu(o.main_do, "disabled")
+            o.customContextMenu_do = new VIDEOContextMenu(o.main_do, "disabled")
         }, o.setupPreloader = function() {
-            FWDSISlideshowPreloader.setPrototype(), o.preloader_do = new FWDSISlideshowPreloader(o, o.slideshowPreloaderPosition, o.slideshowRadius, o.slideshowBackgroundColor, o.slideshowFillColor, o.slideshowStrokeSize, 1), o.main_do.addChild(o.preloader_do), o.preloader_do.show(!0), o.preloader_do.startPreloader(), o.positionPreloader()
+            VIDEOSlideshowPreloader.setPrototype(), o.preloader_do = new VIDEOSlideshowPreloader(o, o.slideshowPreloaderPosition, o.slideshowRadius, o.slideshowBackgroundColor, o.slideshowFillColor, o.slideshowStrokeSize, 1), o.main_do.addChild(o.preloader_do), o.preloader_do.show(!0), o.preloader_do.startPreloader(), o.positionPreloader()
         }, o.positionPreloader = function() {
             o.preloader_do && o.preloader_do.positionAndResize()
         }, this.addListener = function(e, t) {
@@ -112,7 +112,7 @@ function(t) {
     };
     s.setPrototype = function() {
         s.prototype = new FWDRVPEventDispatcher
-    }, s.RESPONSIVE = "responsive", s.FLUID_WIDTH = "fluidwidth", s.FLUID_WIDTH_AND_HEIGHT = "fluidwidthandheight", s.AFTER_PARENT = "afterparent", s.FULL_SCREEN = "fullscreen", s.ERROR = "error", t.FWDSI = s
+    }, s.RESPONSIVE = "responsive", s.FLUID_WIDTH = "fluidwidth", s.FLUID_WIDTH_AND_HEIGHT = "fluidwidthandheight", s.AFTER_PARENT = "afterparent", s.FULL_SCREEN = "fullscreen", s.ERROR = "error", t.VIDEO = s
 }(window),
 function() {
     function e(e, t) {
@@ -135,7 +135,7 @@ function() {
                 n = t.screenY;
             VIDEOUtils.hitTest(r.menu_do.screen, i, n) || (window.removeEventListener ? window.removeEventListener("mousedown", r.contextMenuWindowOnMouseDownHandler) : document.documentElement.detachEvent("onclick", r.contextMenuWindowOnMouseDownHandler), r.menu_do.setX(-500))
         }, this.setupMenus = function() {
-            this.menu_do || (this.menu_do = new FWDSIDisplayObject("div"), r.menu_do.setX(-500), this.menu_do.getStyle().width = "100%", this.normalMenu_do = new FWDSIDisplayObject("div"), this.normalMenu_do.getStyle().fontFamily = "Arial, Helvetica, sans-serif", this.normalMenu_do.getStyle().padding = "4px", this.normalMenu_do.getStyle().fontSize = "12px", this.normalMenu_do.getStyle().color = "#000000", this.normalMenu_do.setInnerHTML("&#0169; made by FWD"), this.normalMenu_do.setBkColor("#FFFFFF"), this.selectedMenu_do = new FWDSIDisplayObject("div"), this.selectedMenu_do.getStyle().fontFamily = "Arial, Helvetica, sans-serif", this.selectedMenu_do.getStyle().padding = "4px", this.selectedMenu_do.getStyle().fontSize = "12px", this.selectedMenu_do.getStyle().color = "#FFFFFF", this.selectedMenu_do.setInnerHTML("&#0169; made by FWD"), this.selectedMenu_do.setBkColor("#000000"), this.selectedMenu_do.setAlpha(0), this.over_do = new FWDSIDisplayObject("div"), this.over_do.setBkColor("#FF0000"), this.over_do.setAlpha(0), this.menu_do.addChild(this.normalMenu_do), this.menu_do.addChild(this.selectedMenu_do), this.menu_do.addChild(this.over_do), this.parent.addChild(this.menu_do), this.over_do.setWidth(this.selectedMenu_do.getWidth()), this.menu_do.setWidth(this.selectedMenu_do.getWidth()), this.over_do.setHeight(this.selectedMenu_do.getHeight()), this.menu_do.setHeight(this.selectedMenu_do.getHeight()), this.menu_do.setVisible(!1), this.menu_do.setButtonMode(!0), this.menu_do.screen.onmouseover = this.mouseOverHandler, this.menu_do.screen.onmouseout = this.mouseOutHandler, this.menu_do.screen.onclick = this.onClickHandler)
+            this.menu_do || (this.menu_do = new VIDEODisplayObject("div"), r.menu_do.setX(-500), this.menu_do.getStyle().width = "100%", this.normalMenu_do = new VIDEODisplayObject("div"), this.normalMenu_do.getStyle().fontFamily = "Arial, Helvetica, sans-serif", this.normalMenu_do.getStyle().padding = "4px", this.normalMenu_do.getStyle().fontSize = "12px", this.normalMenu_do.getStyle().color = "#000000", this.normalMenu_do.setInnerHTML("&#0169; made by FWD"), this.normalMenu_do.setBkColor("#FFFFFF"), this.selectedMenu_do = new VIDEODisplayObject("div"), this.selectedMenu_do.getStyle().fontFamily = "Arial, Helvetica, sans-serif", this.selectedMenu_do.getStyle().padding = "4px", this.selectedMenu_do.getStyle().fontSize = "12px", this.selectedMenu_do.getStyle().color = "#FFFFFF", this.selectedMenu_do.setInnerHTML("&#0169; made by FWD"), this.selectedMenu_do.setBkColor("#000000"), this.selectedMenu_do.setAlpha(0), this.over_do = new VIDEODisplayObject("div"), this.over_do.setBkColor("#FF0000"), this.over_do.setAlpha(0), this.menu_do.addChild(this.normalMenu_do), this.menu_do.addChild(this.selectedMenu_do), this.menu_do.addChild(this.over_do), this.parent.addChild(this.menu_do), this.over_do.setWidth(this.selectedMenu_do.getWidth()), this.menu_do.setWidth(this.selectedMenu_do.getWidth()), this.over_do.setHeight(this.selectedMenu_do.getHeight()), this.menu_do.setHeight(this.selectedMenu_do.getHeight()), this.menu_do.setVisible(!1), this.menu_do.setButtonMode(!0), this.menu_do.screen.onmouseover = this.mouseOverHandler, this.menu_do.screen.onmouseout = this.mouseOutHandler, this.menu_do.screen.onclick = this.onClickHandler)
         }, this.mouseOverHandler = function() {
             -1 == r.url.indexOf("w.we") && (r.menu_do.visible = !1), Animation.to(r.normalMenu_do, .8, {
                 alpha: 0,
@@ -167,8 +167,8 @@ function() {
             r.isDisabled_bl = !1
         }, this.init()
     }
-    e.prototype = null, window.FWDSIContextMenu = e
-}(window), window.FWDSIDisplayObject = function(e, t, i, n) {
+    e.prototype = null, window.VIDEOContextMenu = e
+}(window), window.VIDEODisplayObject = function(e, t, i, n) {
         var s = this;
         if (s.listeners = {
                 events_ar: []
@@ -302,7 +302,7 @@ function() {
         }, s.destroy = function() {
             s.hasBeenSetSelectable_bl && (s.screen.ondragstart = null, s.screen.onselectstart = null, s.screen.ontouchstart = null), s.screen.removeAttribute("style"), s.listeners = [], s.listeners = null, s.children_ar = [], s.children_ar = null, s.style = null, s.screen = null, s.transform = null, s.position = null, s.overflow = null, s.display = null, s.visible = null, s.buttonMode = null, s.x = null, s.y = null, s.w = null, s.h = null, s.rect = null, s.alpha = null, s.innerHTML = null, s.opacityType = null, s.isHtml5_bl = null, s.hasTransform3d_bl = null, s.hasTransform2d_bl = null, s = null
         }, s.init()
-    }, window, window.FWDSIEventDispatcher = function() {
+    }, window, window.VIDEOEventDispatcher = function() {
         this.listeners = {
             events_ar: []
         }, this.addListener = function(e, t) {
@@ -340,9 +340,9 @@ function() {
             var o = this;
             t.prototype;
             this.bk_do = null, this.textHolder_do = null, this.warningIconPath_str = e, this.show_to = null, this.isShowed_bl = !1, this.isShowedOnce_bl = !1, this.allowToRemove_bl = !0, this.init = function() {
-                o.setResizableSizeAfterParent(), o.bk_do = new FWDSIDisplayObject("div"), o.bk_do.setAlpha(.2), o.bk_do.setBkColor("#000000"), o.addChild(o.bk_do), o.textHolder_do = new FWDSIDisplayObject("div"), VIDEOUtils.isIEAndLessThen9 || (o.textHolder_do.getStyle().font = "Arial"), o.textHolder_do.getStyle().wordWrap = "break-word", o.textHolder_do.getStyle().padding = "10px", o.textHolder_do.getStyle().paddingLeft = "42px", o.textHolder_do.getStyle().lineHeight = "18px", o.textHolder_do.getStyle().color = "#000000", o.textHolder_do.setBkColor("#EEEEEE");
+                o.setResizableSizeAfterParent(), o.bk_do = new VIDEODisplayObject("div"), o.bk_do.setAlpha(.2), o.bk_do.setBkColor("#000000"), o.addChild(o.bk_do), o.textHolder_do = new VIDEODisplayObject("div"), VIDEOUtils.isIEAndLessThen9 || (o.textHolder_do.getStyle().font = "Arial"), o.textHolder_do.getStyle().wordWrap = "break-word", o.textHolder_do.getStyle().padding = "10px", o.textHolder_do.getStyle().paddingLeft = "42px", o.textHolder_do.getStyle().lineHeight = "18px", o.textHolder_do.getStyle().color = "#000000", o.textHolder_do.setBkColor("#EEEEEE");
                 var e = new Image;
-                e.src = this.warningIconPath_str, this.img_do = new FWDSIDisplayObject("img"), this.img_do.setScreen(e), this.img_do.setWidth(28), this.img_do.setHeight(28), o.addChild(o.textHolder_do), o.addChild(o.img_do)
+                e.src = this.warningIconPath_str, this.img_do = new VIDEODisplayObject("img"), this.img_do.setScreen(e), this.img_do.setWidth(28), this.img_do.setHeight(28), o.addChild(o.textHolder_do), o.addChild(o.img_do)
             }, this.showText = function(e) {
                 o.isShowedOnce_bl || (o.screen.addEventListener ? o.screen.addEventListener("click", o.closeWindow) : o.screen.attachEvent && o.screen.attachEvent("onclick", o.closeWindow), o.isShowedOnce_bl = !0), o.setVisible(!1), o.textHolder_do.getStyle().paddingBottom = "10px", o.textHolder_do.setInnerHTML(e), clearTimeout(o.show_to), o.show_to = setTimeout(o.show, 60), setTimeout(function() {
                     o.positionAndResize()
@@ -368,8 +368,8 @@ function() {
             }, this.init()
         };
         t.setPrototype = function() {
-            t.prototype = new FWDSIDisplayObject("div", "relative")
-        }, t.prototype = null, e.FWDSIInfo = t
+            t.prototype = new VIDEODisplayObject("div", "relative")
+        }, t.prototype = null, e.VIDEOInfo = t
     }(window),
     function(e) {
         var l = function(e, t, i, n, s, o, r) {
@@ -378,7 +378,7 @@ function() {
             a.preloaderPostion = t, a.backgroundColor = n, a.fillColor = s, a.radius = i, a.strokeSize = o, this.animDuration = r || 300, this.strtAngle = 270, this.countAnimation = 0, this.isShowed_bl = !0, this.slideshowAngle = {
                 n: 0
             }, this.init = function() {
-                a.setOverflow("visible"), a.setWidth(2 * a.radius + a.strokeSize), a.setHeight(2 * a.radius + a.strokeSize), this.bkCanvas = new FWDSIDisplayObject("canvas"), this.bkCanvasContext = this.bkCanvas.screen.getContext("2d"), this.fillCircleCanvas = new FWDSIDisplayObject("canvas"), this.fillCircleCanvasContext = this.fillCircleCanvas.screen.getContext("2d"), this.addChild(this.bkCanvas), this.addChild(this.fillCircleCanvas), a.drawBackground(), a.drawFill(), a.hide()
+                a.setOverflow("visible"), a.setWidth(2 * a.radius + a.strokeSize), a.setHeight(2 * a.radius + a.strokeSize), this.bkCanvas = new VIDEODisplayObject("canvas"), this.bkCanvasContext = this.bkCanvas.screen.getContext("2d"), this.fillCircleCanvas = new VIDEODisplayObject("canvas"), this.fillCircleCanvasContext = this.fillCircleCanvas.screen.getContext("2d"), this.addChild(this.bkCanvas), this.addChild(this.fillCircleCanvas), a.drawBackground(), a.drawFill(), a.hide()
             }, this.positionAndResize = function() {
                 "bottomleft" == a.preloaderPostion ? (a.setX(e.offsetPreloader), a.setY(e.stageHeight - a.h - e.offsetPreloader)) : "bottomright" == a.preloaderPostion ? (a.setX(e.stageWidth - a.w - e.offsetPreloader), a.setY(e.stageHeight - a.h - e.offsetPreloader)) : "topright" == a.preloaderPostion ? (a.setX(e.stageWidth - a.w - e.offsetPreloader), a.setY(e.offsetPreloader)) : "topleft" == a.preloaderPostion ? (a.setX(e.offsetPreloader), a.setY(e.offsetPreloader)) : a.preloaderPostion, a.getStyle().left = Math.round(e.stageWidth - a.w) / 2 + "px", a.getStyle().top = Math.round(e.stageHeight - a.h) / 2 + "px"
             }, this.drawBackground = function() {
@@ -428,8 +428,8 @@ function() {
             }, this.init()
         };
         l.setPrototype = function() {
-            l.prototype = new FWDSIDisplayObject("div")
-        }, l.HIDE_COMPLETE = "hideComplete", l.prototype = null, e.FWDSISlideshowPreloader = l
+            l.prototype = new VIDEODisplayObject("div")
+        }, l.HIDE_COMPLETE = "hideComplete", l.prototype = null, e.VIDEOSlideshowPreloader = l
     }(window),
     function(c) {
         var u = function(i, e, t, n, s, o, r, a, l, d) {
@@ -438,13 +438,13 @@ function() {
             this.background_do = null, this.image_do = null, this.overlay_do = null, this.borderColor_str = r, this.backgroundColor = o, this.link = l, this.target = d, this.borderSize = n || 0, this.overlayColor_str = a, this.borderRadius = s, this.imageW = e, this.imageH = t, this.finalX = -1, this.finalY = -1, this.transitionDuration = 800, this.transitionType_str = Expo.easeInOut, this.showFirstTime_bl = !0, this.isSelected_bl = !1, this.isDisabled_bl = !1, this.hasPointerEvent_bl = VIDEOUtils.hasPointerEvent, this.isMobile_bl = VIDEOUtils.isMobile, h.init = function() {
                 h.setOverflow("visible"), h.setupScreen(), h.addLinkSupport()
             }, h.setupScreen = function() {
-                h.background_do = new FWDSIDisplayObject("div"), h.background_do.screen.className = "image-background", h.borderRadius && (h.getStyle().borderRadius = h.borderRadius + "px"), h.borderRadius && (h.getStyle().borderRadius = h.borderRadius + "px"), h.borderSize && (h.background_do.setX(h.borderSize), h.background_do.setY(h.borderSize), h.border_do = new FWDSIDisplayObject("div"), h.border_do.getStyle().backgroundColor = h.borderColor_str, h.addChild(h.border_do)), h.background_do.getStyle().backgroundColor = h.backgroundColor, h.addChild(h.background_do), h.isMobile_bl ? (h.hasPointerEvent_bl && h.screen.addEventListener("MSPointerUp", h.onMouseClickHandler), h.screen.addEventListener("click", h.onMouseClickHandler)) : h.screen.addEventListener ? (h.screen.addEventListener("mouseover", h.onMouseOverHandler), h.screen.addEventListener("click", h.onMouseClickHandler)) : h.screen.attachEvent && (h.screen.attachEvent("onmouseover", h.onMouseOverHandler), h.screen.attachEvent("onclick", h.onMouseClickHandler))
+                h.background_do = new VIDEODisplayObject("div"), h.background_do.screen.className = "image-background", h.borderRadius && (h.getStyle().borderRadius = h.borderRadius + "px"), h.borderRadius && (h.getStyle().borderRadius = h.borderRadius + "px"), h.borderSize && (h.background_do.setX(h.borderSize), h.background_do.setY(h.borderSize), h.border_do = new VIDEODisplayObject("div"), h.border_do.getStyle().backgroundColor = h.borderColor_str, h.addChild(h.border_do)), h.background_do.getStyle().backgroundColor = h.backgroundColor, h.addChild(h.background_do), h.isMobile_bl ? (h.hasPointerEvent_bl && h.screen.addEventListener("MSPointerUp", h.onMouseClickHandler), h.screen.addEventListener("click", h.onMouseClickHandler)) : h.screen.addEventListener ? (h.screen.addEventListener("mouseover", h.onMouseOverHandler), h.screen.addEventListener("click", h.onMouseClickHandler)) : h.screen.attachEvent && (h.screen.attachEvent("onmouseover", h.onMouseOverHandler), h.screen.attachEvent("onclick", h.onMouseClickHandler))
             }, this.resizeImg = function(e) {
-                if (Animation.killTweensOf(h), Animation.killTweensOf(h.background_do), h.border_do && Animation.killTweensOf(h.border_do), h.setAlpha(h.finalAlpha), h.setX(h.finalX), i.displayType == FWDSI.AFTER_PARENT ? h.setY(0) : h.setY(h.finalY), h.setWidth(h.finalW), h.setHeight(h.finalH), h.background_do && (h.background_do.setWidth(h.finalW - 2 * h.borderSize), h.background_do.setHeight(h.finalH - 2 * h.borderSize)), h.border_do && (h.border_do.setWidth(h.finalW), h.border_do.setHeight(h.finalH)), h.overlay_do) {
+                if (Animation.killTweensOf(h), Animation.killTweensOf(h.background_do), h.border_do && Animation.killTweensOf(h.border_do), h.setAlpha(h.finalAlpha), h.setX(h.finalX), i.displayType == VIDEO.AFTER_PARENT ? h.setY(0) : h.setY(h.finalY), h.setWidth(h.finalW), h.setHeight(h.finalH), h.background_do && (h.background_do.setWidth(h.finalW - 2 * h.borderSize), h.background_do.setHeight(h.finalH - 2 * h.borderSize)), h.border_do && (h.border_do.setWidth(h.finalW), h.border_do.setHeight(h.finalH)), h.overlay_do) {
                     var t = 0;
                     h.id != i.curId && (t = 1), h.overlay_do.setAlpha(t), h.overlay_do.setX(h.borderSize), h.overlay_do.setY(h.borderSize), h.overlay_do.setWidth(h.finalW - 2 * h.borderSize), h.overlay_do.setHeight(h.finalH - 2 * h.borderSize)
                 }
-                h.image_do && (Animation.killTweensOf(h.image_do), Animation.killTweensOf(h.imageHolder_do), h.imageHolder_do.setX(h.borderSize), h.imageHolder_do.setY(h.borderSize), h.imageHolder_do.setWidth(h.finalW - 2 * h.borderSize), h.imageHolder_do.setHeight(h.finalH - 2 * h.borderSize), i.displayType == FWDSI.AFTER_PARENT ? (h.image_do.setX((i.stageWidth - h.imageFinalW) / 2), h.image_do.setY((i.stageHeight - h.imageFinalH) / 2), h.image_do.setWidth(h.imageFinalW - 2 * h.borderSize), h.image_do.setHeight(h.imageFinalH - 2 * h.borderSize)) : (h.image_do.setX(0), h.image_do.setY(0), h.image_do.setWidth(h.finalW - 2 * h.borderSize), h.image_do.setHeight(h.finalH - 2 * h.borderSize))), h.prevW = h.finalW, h.prevH = h.finalH
+                h.image_do && (Animation.killTweensOf(h.image_do), Animation.killTweensOf(h.imageHolder_do), h.imageHolder_do.setX(h.borderSize), h.imageHolder_do.setY(h.borderSize), h.imageHolder_do.setWidth(h.finalW - 2 * h.borderSize), h.imageHolder_do.setHeight(h.finalH - 2 * h.borderSize), i.displayType == VIDEO.AFTER_PARENT ? (h.image_do.setX((i.stageWidth - h.imageFinalW) / 2), h.image_do.setY((i.stageHeight - h.imageFinalH) / 2), h.image_do.setWidth(h.imageFinalW - 2 * h.borderSize), h.image_do.setHeight(h.imageFinalH - 2 * h.borderSize)) : (h.image_do.setX(0), h.image_do.setY(0), h.image_do.setWidth(h.finalW - 2 * h.borderSize), h.image_do.setHeight(h.finalH - 2 * h.borderSize))), h.prevW = h.finalW, h.prevH = h.finalH
             }, this.addLinkSupport = function() {
                 h.screen.addEventListener("click", function(e) {
                     if (h.allowToOpenLink_bl && h.id == i.curId) {
@@ -453,7 +453,7 @@ function() {
                     }
                 })
             }, h.setImage = function(e) {
-                h.imageHolder_do = new FWDSIDisplayObject("div"), h.image_do = new FWDSIDisplayObject("img"), h.image_do.setScreen(e), h.imageHolder_do.addChild(h.image_do), h.addChild(h.imageHolder_do), i.displayType == FWDSI.AFTER_PARENT ? (h.imageHolder_do.setX(i.stageWidth / 2), h.imageHolder_do.setY(i.stageHeight / 2), h.image_do.setX(-h.imageFinalW / 2 + h.borderSize), h.image_do.setY(-h.imageFinalH / 2 + h.borderSize), h.image_do.setWidth(h.imageFinalW - 2 * h.borderSize), h.image_do.setHeight(h.imageFinalH - 2 * h.borderSize), Animation.to(h.image_do, .8, {
+                h.imageHolder_do = new VIDEODisplayObject("div"), h.image_do = new VIDEODisplayObject("img"), h.image_do.setScreen(e), h.imageHolder_do.addChild(h.image_do), h.addChild(h.imageHolder_do), i.displayType == VIDEO.AFTER_PARENT ? (h.imageHolder_do.setX(i.stageWidth / 2), h.imageHolder_do.setY(i.stageHeight / 2), h.image_do.setX(-h.imageFinalW / 2 + h.borderSize), h.image_do.setY(-h.imageFinalH / 2 + h.borderSize), h.image_do.setWidth(h.imageFinalW - 2 * h.borderSize), h.image_do.setHeight(h.imageFinalH - 2 * h.borderSize), Animation.to(h.image_do, .8, {
                     x: (i.stageWidth - h.imageFinalW) / 2,
                     y: (i.stageHeight - h.imageFinalH) / 2,
                     ease: Expo.easeInOut
@@ -475,7 +475,7 @@ function() {
                     ease: Expo.easeInOut
                 })), h.overlayColor_str && 1 < h.overlayColor_str.length && h.setupOverlay()
             }, this.setupOverlay = function() {
-                h.overlay_do = new FWDSIDisplayObject("div"), -1 != h.overlayColor_str.indexOf("jpg") || -1 != h.overlayColor_str.indexOf("jpeg") || -1 != h.overlayColor_str.indexOf("png") ? h.overlay_do.getStyle().background = "url('" + h.overlayColor_str + "') repeat" : h.overlay_do.setBkColor(this.overlayColor_str), h.overlay_do.setX(h.borderSize), h.overlay_do.setY(h.borderSize), h.overlay_do.setWidth(h.finalW - 2 * h.borderSize), h.overlay_do.setHeight(h.finalH - 2 * h.borderSize), h.id == i.curId && h.overlay_do.setAlpha(0), h.addChild(h.overlay_do), h.overlay_do.setAlpha(0), h.id != i.curId && Animation.to(h.overlay_do, .8, {
+                h.overlay_do = new VIDEODisplayObject("div"), -1 != h.overlayColor_str.indexOf("jpg") || -1 != h.overlayColor_str.indexOf("jpeg") || -1 != h.overlayColor_str.indexOf("png") ? h.overlay_do.getStyle().background = "url('" + h.overlayColor_str + "') repeat" : h.overlay_do.setBkColor(this.overlayColor_str), h.overlay_do.setX(h.borderSize), h.overlay_do.setY(h.borderSize), h.overlay_do.setWidth(h.finalW - 2 * h.borderSize), h.overlay_do.setHeight(h.finalH - 2 * h.borderSize), h.id == i.curId && h.overlay_do.setAlpha(0), h.addChild(h.overlay_do), h.overlay_do.setAlpha(0), h.id != i.curId && Animation.to(h.overlay_do, .8, {
                     alpha: 1,
                     delay: .1
                 })
@@ -516,8 +516,8 @@ function() {
             }, h.init()
         };
         u.setPrototype = function() {
-            u.prototype = new FWDSIDisplayObject("div")
-        }, u.HOVER = "onHover", u.CLICK = "onClick", u.IFRAME = "iframe", u.IMAGE = "image", u.FLASH = "flash", u.AUDIO = "audio", u.MAPS = "maps", u.AJAX = "ajax", u.HTML = "html", u.prototype = null, c.FWDSIThumb = u
+            u.prototype = new VIDEODisplayObject("div")
+        }, u.HOVER = "onHover", u.CLICK = "onClick", u.IFRAME = "iframe", u.IMAGE = "image", u.FLASH = "flash", u.AUDIO = "audio", u.MAPS = "maps", u.AJAX = "ajax", u.HTML = "html", u.prototype = null, c.VIDEOThumb = u
     }(window),
     function(t) {
         function o() {}
